@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>중도상환수수료 계산기 · 대출 미리 갚을 때 수수료 | 캘코</title>
+<meta name="description" content="갚을 금액, 수수료율, 대출일과 만기일, 상환 예정일을 넣으면 중도상환수수료를 계산해요. 3년 지나면 면제되는 기준도 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/prepayment-fee/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="중도상환수수료 계산기 · 대출 미리 갚을 때 수수료 | 캘코">
+<meta property="og:description" content="갚을 금액, 수수료율, 대출일과 만기일, 상환 예정일을 넣으면 중도상환수수료를 계산해요. 3년 지나면 면제되는 기준도 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/prepayment-fee/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fae'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><b>C</b>캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 대출·금융</div>
+    <h1>중도상환수수료 계산기</h1>
+    <p class="lead">갚을 금액, 수수료율, 대출일과 만기일, 상환 예정일을 넣으면 중도상환수수료를 계산해요. 3년 지나면 면제되는 기준도 반영했어요.</p>
+    <span class="tag">잔존기간 비례 · 최대 3년 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="pay">미리 갚을 금액 (만원)<input id="pay" type="number" inputmode="numeric" min="0" step="100" value="5000"></label>
+      <label for="fee">중도상환수수료율 (%)<input id="fee" type="number" inputmode="decimal" min="0" step="0.01" value="0.75"></label>
+      <span class="hint">수수료율은 대출 약정서나 은행 앱에서 확인할 수 있어요.</span>
+      <div class="row2">
+        <label for="start">대출 실행일<input id="start" type="date" value="2026-01-15"></label>
+        <label for="end">대출 만기일<input id="end" type="date" value="2056-01-15"></label>
+      </div>
+      <label for="when">상환 예정일<input id="when" type="date"></label>
+      <span class="hint">상환 예정일은 오늘 날짜로 들어가 있어요. 예시 값이 들어가 있어요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>수수료 계산 결과 <small>참고용</small></h2>
+      <div class="lines">
+        <div class="line"><span>수수료 기준 기간<em id="o-basenote"></em></span><b id="o-base"></b></div>
+        <div class="line"><span>남은 기간</span><b id="o-left"></b></div>
+        <div class="line"><span>적용 비율<em>남은 기간 ÷ 기준 기간</em></span><b id="o-ratio"></b></div>
+        <div class="line"><span>면제 시작일</span><b id="o-free"></b></div>
+      </div>
+      <div class="total"><span>예상 중도상환수수료</span><b id="o-fee"></b></div>
+      <div class="status" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>중도상환수수료 계산 공식</h2>
+    <p><b>중도상환수수료 = 상환 금액 × 수수료율 × (남은 기간 ÷ 대출 기간)</b></p>
+    <p>대출 기간이 3년보다 길면 보통 대출일로부터 3년이 되는 날을 기준으로 계산해요. 그래서 대출을 받은 지 3년이 지나면 수수료 없이 갚을 수 있어요. 시간이 지날수록 남은 기간이 줄어서 수수료도 줄어들어요.</p>
+    <h2>2025년 이후 수수료율이 낮아졌어요</h2>
+    <p>2025년 1월부터 은행들이 중도상환수수료를 실제 드는 비용 수준으로만 받도록 제도가 바뀌었어요. 그래서 그 전에 받은 대출과 이후에 받은 대출의 수수료율이 달라요. 수수료율은 대출을 받은 날의 비율이 만기까지 유지돼요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>예시: KB국민은행 부동산담보대출</th><th>변동금리</th><th>고정금리 등</th></tr></thead>
+      <tbody>
+        <tr><td>2025.1.12. 이전 대출</td><td>1.20%</td><td>1.40%</td></tr>
+        <tr><td>2026.1.1. 이후 대출</td><td>0.55%</td><td>0.75%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="hint">은행과 상품마다 수수료율이 다르니 내 대출 약정서를 꼭 확인해 주세요.</p>
+    <h2>수수료를 줄이는 방법</h2>
+    <ul>
+      <li>주택담보대출은 매년 처음 대출금의 10% 정도까지는 수수료 없이 갚을 수 있는 경우가 많아요.</li>
+      <li>3년이 얼마 남지 않았다면 면제일까지 기다렸다 갚는 게 유리할 수 있어요.</li>
+      <li>대환대출로 갈아탈 때는 줄어드는 이자와 수수료를 함께 비교해 보세요.</li>
+    </ul>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/loan-interest/"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></a><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const fmt=d=>`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const dd=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/864e5);
+function addY(d,y){const t=new Date(d.getFullYear()+y,d.getMonth(),1);const last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();t.setDate(Math.min(d.getDate(),last));return t}
+function calc(){
+  const P=Math.max(0,+$('pay').value||0)*10000, rate=Math.max(0,+$('fee').value||0)/100;
+  const s=pd($('start').value), e=pd($('end').value), w=pd($('when').value), st=$('o-status');
+  const ids=['o-base','o-left','o-ratio','o-free','o-fee'];
+  if(!s||!e||!w||e<=s){st.className='status warn';st.textContent='만기일은 대출 실행일보다 뒤여야 해요.';ids.forEach(i=>$(i).textContent='–');$('o-basenote').textContent='';return}
+  const three=addY(s,3), cap=e<three?e:three;
+  const base=dd(s,cap), left=Math.max(0,dd(w,cap));
+  $('o-basenote').textContent=e>three?'대출 기간이 3년을 넘어 3년으로 계산':'실제 대출 기간으로 계산';
+  $('o-base').textContent=base.toLocaleString('ko-KR')+'일'; $('o-free').textContent=fmt(cap);
+  if(w<s){st.className='status warn';st.textContent='상환 예정일이 대출 실행일보다 앞서요.';['o-left','o-ratio','o-fee'].forEach(i=>$(i).textContent='–');return}
+  const ratio=base>0?left/base:0, fee=P*rate*ratio;
+  $('o-left').textContent=left.toLocaleString('ko-KR')+'일'; $('o-ratio').textContent=(ratio*100).toFixed(1)+'%';
+  $('o-fee').textContent=won(fee);
+  if(left===0){st.className='status ok';st.textContent='면제 시점이 지나서 수수료 없이 갚을 수 있어요.'}
+  else{st.className='status ok';st.textContent=`${fmt(cap)}부터는 수수료가 없어요. 그때까지 ${left.toLocaleString('ko-KR')}일 남았어요.`}
+}
+$('when').value=iso(new Date());
+['pay','fee','start','end','when'].forEach(id=>$(id).addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('pay').value=5000;$('fee').value=0.75;$('start').value='2026-01-15';$('end').value='2056-01-15';$('when').value=iso(new Date());calc()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

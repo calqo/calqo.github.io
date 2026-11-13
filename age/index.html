@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>만 나이 계산기 · 생일 기준 나이, 연 나이 | 캘코</title>
+<meta name="description" content="생년월일을 넣으면 만 나이, 연 나이, 다음 생일까지 남은 날, 태어난 지 며칠째인지 바로 계산해요.">
+<link rel="canonical" href="https://calqo.kr/age/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="만 나이 계산기 · 생일 기준 나이, 연 나이 | 캘코">
+<meta property="og:description" content="생년월일을 넣으면 만 나이, 연 나이, 다음 생일까지 남은 날, 태어난 지 며칠째인지 바로 계산해요.">
+<meta property="og:url" content="https://calqo.kr/age/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fae'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><b>C</b>캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 생활·날짜</div>
+    <h1>만 나이 계산기</h1>
+    <p class="lead">생년월일을 넣으면 만 나이, 연 나이, 다음 생일까지 남은 날, 태어난 지 며칠째인지 바로 계산해요.</p>
+    <span class="tag">2023년 만 나이 통일법 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="birth">생년월일<input id="birth" type="date" value="1995-08-20"></label>
+      <label for="ref">기준일<input id="ref" type="date"></label>
+      <span class="hint">기준일은 오늘 날짜로 들어가 있어요. 예시 생년월일이 들어가 있어요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>나이 계산 결과</h2>
+      <div class="total"><span>만 나이</span><b id="o-age"></b></div>
+      <div class="lines">
+        <div class="line"><span>연 나이<em>기준 연도 − 출생 연도</em></span><b id="o-year"></b></div>
+        <div class="line"><span>다음 생일</span><b id="o-next"></b></div>
+        <div class="line"><span>태어난 지</span><b id="o-days"></b></div>
+        <div class="line"><span>띠</span><b id="o-zodiac"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>만 나이 계산 방법</h2>
+    <p>태어난 날을 0살로 보고, 생일이 지날 때마다 한 살씩 더해요. <b>올해 생일이 지났으면 (올해 − 출생 연도), 아직 안 지났으면 거기서 1을 빼요.</b></p>
+    <h2>만 나이 통일법</h2>
+    <p>2023년 6월 28일부터 법과 행정에서 쓰는 나이는 원칙적으로 만 나이로 통일됐어요. 계약서, 공문서, 병원 서류의 나이는 모두 만 나이라고 보면 돼요.</p>
+    <h2>연 나이는 언제 쓰나요?</h2>
+    <p>연 나이는 생일과 상관없이 올해 연도에서 태어난 연도를 뺀 나이예요. 병역 의무, 청소년 보호(술·담배 구매 기준), 초등학교 입학처럼 일부 법에서는 지금도 연 나이를 써요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>계산 방법</th><th>쓰이는 곳</th></tr></thead>
+      <tbody>
+        <tr><td>만 나이</td><td>생일 기준</td><td>대부분의 법률·행정·계약</td></tr>
+        <tr><td>연 나이</td><td>올해 − 출생 연도</td><td>병역법, 청소년보호법 등</td></tr>
+      </tbody>
+    </table></div>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/discharge/"><span class="kicker">생활·날짜</span><strong>전역일 계산기</strong><span>입대일로 전역일, 남은 날, 복무율 계산</span></a><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const fmtK=d=>`${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`;
+const dd=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/864e5);
+const Z=['원숭이','닭','개','돼지','쥐','소','호랑이','토끼','용','뱀','말','양'];
+function bdayIn(b,y){const last=new Date(y,b.getMonth()+1,0).getDate();return new Date(y,b.getMonth(),Math.min(b.getDate(),last))}
+function calc(){
+  const b=pd($('birth').value), r=pd($('ref').value), st=$('o-status');
+  if(!b||!r||r<b){st.className='status warn';st.textContent='기준일은 생년월일보다 뒤여야 해요.';['o-age','o-year','o-next','o-days','o-zodiac'].forEach(i=>$(i).textContent='–');return}
+  let age=r.getFullYear()-b.getFullYear(); const passed=r>=bdayIn(b,r.getFullYear()); if(!passed)age--;
+  let nb=bdayIn(b,r.getFullYear()); if(nb<=r)nb=bdayIn(b,r.getFullYear()+1);
+  const toNext=dd(r,nb), isToday=dd(bdayIn(b,r.getFullYear()),r)===0;
+  $('o-age').textContent=`만 ${age}세`; $('o-year').textContent=`${r.getFullYear()-b.getFullYear()}세`;
+  $('o-next').textContent=`${fmtK(nb)} (D-${toNext})`;
+  $('o-days').textContent=`${(dd(b,r)+1).toLocaleString('ko-KR')}일째`;
+  $('o-zodiac').textContent=Z[b.getFullYear()%12]+'띠';
+  st.className='status ok';
+  st.textContent=isToday?`생일 축하해요! 오늘부터 만 ${age}세예요.`:(passed?'올해 생일이 지나서 연 나이와 만 나이가 같아요.':'올해 생일이 아직 안 지나서 만 나이가 연 나이보다 1살 적어요.');
+}
+$('ref').value=iso(new Date());
+['birth','ref'].forEach(id=>$(id).addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('birth').value='1995-08-20';$('ref').value=iso(new Date());calc()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

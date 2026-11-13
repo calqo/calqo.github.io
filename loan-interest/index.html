@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>대출 이자 계산기 · 원리금균등 원금균등 만기일시 비교 | 캘코</title>
+<meta name="description" content="대출금, 금리, 기간을 넣으면 상환 방식별 월 상환액과 총 이자를 비교하고 월별 상환표까지 보여줘요.">
+<link rel="canonical" href="https://calqo.kr/loan-interest/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="대출 이자 계산기 · 원리금균등 원금균등 만기일시 비교 | 캘코">
+<meta property="og:description" content="대출금, 금리, 기간을 넣으면 상환 방식별 월 상환액과 총 이자를 비교하고 월별 상환표까지 보여줘요.">
+<meta property="og:url" content="https://calqo.kr/loan-interest/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fae'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><b>C</b>캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 대출·금융</div>
+    <h1>대출 이자 계산기</h1>
+    <p class="lead">대출금, 금리, 기간을 넣으면 상환 방식별 월 상환액과 총 이자를 비교하고 월별 상환표까지 보여줘요.</p>
+    <span class="tag">상환 방식 3가지 한 번에 비교</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="amount">대출금 (만원)<input id="amount" type="number" inputmode="numeric" min="0" step="100" value="30000"></label>
+      <div class="row2">
+        <label for="rate">연 금리 (%)<input id="rate" type="number" inputmode="decimal" min="0" step="0.01" value="4.2"></label>
+        <label for="years">대출 기간 (년)<input id="years" type="number" inputmode="numeric" min="1" max="50" value="30"></label>
+      </div>
+      <div><div class="hint" style="margin-bottom:6px">상환 방식</div>
+      <div class="seg" role="group" aria-label="상환 방식">
+        <button type="button" data-m="equal" aria-pressed="true">원리금균등</button>
+        <button type="button" data-m="principal" aria-pressed="false">원금균등</button>
+        <button type="button" data-m="bullet" aria-pressed="false">만기일시</button>
+      </div></div>
+      <span class="hint">예시: 3억 원을 연 4.2%로 30년 빌린 경우예요. 금액은 만원 단위로 넣어 주세요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>상환 결과 <small id="o-mode"></small></h2>
+      <div class="lines">
+        <div class="line"><span>첫 달 상환액<em id="o-firstnote"></em></span><b id="o-first"></b></div>
+        <div class="line"><span>마지막 달 상환액</span><b id="o-last"></b></div>
+        <div class="line"><span>총 상환액</span><b id="o-sum"></b></div>
+      </div>
+      <div class="total"><span>총 이자</span><b id="o-int"></b></div>
+      <div class="tbl"><table>
+        <thead><tr><th>방식</th><th>첫 달</th><th>총 이자</th></tr></thead>
+        <tbody id="o-cmp"></tbody>
+      </table></div>
+      <details><summary>월별 상환표 보기</summary><div class="tbl"><table>
+        <thead><tr><th>회차</th><th>상환액</th><th>원금</th><th>이자</th><th>잔액</th></tr></thead>
+        <tbody id="o-sched"></tbody></table></div></details>
+    </section>
+  </div>
+  <article>
+    <h2>상환 방식, 뭐가 다를까?</h2>
+    <ul>
+      <li><b>원리금균등:</b> 매달 갚는 금액(원금+이자)이 똑같아요. 계획 세우기 쉬워서 주택담보대출에서 가장 많이 써요.</li>
+      <li><b>원금균등:</b> 매달 같은 원금을 갚고, 이자는 남은 원금에 붙어요. 처음엔 부담이 크지만 갈수록 줄고, 총 이자가 가장 적어요.</li>
+      <li><b>만기일시:</b> 매달 이자만 내고 원금은 마지막에 한 번에 갚아요. 총 이자가 가장 많아요. 신용대출이나 전세자금대출에서 자주 써요.</li>
+    </ul>
+    <h2>계산 공식</h2>
+    <p>월 금리 r = 연 금리 ÷ 12, 상환 횟수 n = 기간(년) × 12일 때</p>
+    <ul>
+      <li>원리금균등 월 상환액 = 대출금 × r × (1+r)<sup>n</sup> ÷ ((1+r)<sup>n</sup> − 1)</li>
+      <li>원금균등 월 원금 = 대출금 ÷ n, 월 이자 = 남은 원금 × r</li>
+      <li>만기일시 월 이자 = 대출금 × r</li>
+    </ul>
+    <h2>주의할 점</h2>
+    <ul>
+      <li>실제 은행 이자는 날짜 수(일할 계산)로 계산해서 몇백 원~몇천 원 차이가 날 수 있어요.</li>
+      <li>변동금리 대출은 금리가 바뀌면 상환액도 달라져요.</li>
+      <li>거치기간, 중도상환, 우대금리는 반영하지 않았어요.</li>
+    </ul>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/prepayment-fee/"><span class="kicker">대출·금융</span><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></a><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+let mode='equal';
+const NAMES={equal:'원리금균등',principal:'원금균등',bullet:'만기일시'};
+function sched(P,r,n,m){const rows=[];let bal=P;
+  for(let k=1;k<=n;k++){const it=bal*r;let pr,pay;
+    if(m==='equal'){pay=r===0?P/n:P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1);pr=pay-it}
+    else if(m==='principal'){pr=P/n;pay=pr+it}
+    else{pr=k===n?bal:0;pay=pr+it}
+    if(k===n){pr=bal;pay=pr+it}
+    bal=Math.max(0,bal-pr);rows.push([k,pay,pr,it,bal])}
+  return rows}
+function calc(){
+  const P=Math.max(0,+$('amount').value||0)*10000, r=Math.max(0,+$('rate').value||0)/100/12, n=Math.round(Math.max(1,+$('years').value||1)*12);
+  const all={};for(const m of Object.keys(NAMES))all[m]=sched(P,r,n,m);
+  const rows=all[mode], tot=rows.reduce((a,x)=>a+x[1],0), it=rows.reduce((a,x)=>a+x[3],0);
+  $('o-mode').textContent=NAMES[mode]+` · ${n}회 상환`;
+  $('o-first').textContent=won(rows[0][1]); $('o-last').textContent=won(rows[n-1][1]);
+  $('o-firstnote').textContent=`원금 ${won(rows[0][2])} + 이자 ${won(rows[0][3])}`;
+  $('o-sum').textContent=won(tot); $('o-int').textContent=won(it);
+  $('o-cmp').innerHTML=Object.keys(NAMES).map(m=>{const x=all[m];return `<tr${m===mode?' style="font-weight:700"':''}><td>${NAMES[m]}</td><td>${won(x[0][1])}</td><td>${won(x.reduce((a,y)=>a+y[3],0))}</td></tr>`}).join('');
+  $('o-sched').innerHTML=rows.map(x=>`<tr><td>${x[0]}</td><td>${won(x[1])}</td><td>${won(x[2])}</td><td>${won(x[3])}</td><td>${won(x[4])}</td></tr>`).join('');
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));calc()}));
+['amount','rate','years'].forEach(id=>$(id).addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('amount').value=30000;$('rate').value=4.2;$('years').value=30;calc()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

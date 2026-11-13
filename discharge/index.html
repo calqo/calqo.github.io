@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>전역일 계산기 · 군 복무기간, 남은 날, 복무율 | 캘코</title>
+<meta name="description" content="입대일과 군 종류를 고르면 전역일, 전역까지 남은 날, 지금까지 복무한 비율을 계산해요. 육군·해병대·해군·공군·사회복무요원 기준.">
+<link rel="canonical" href="https://calqo.kr/discharge/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="전역일 계산기 · 군 복무기간, 남은 날, 복무율 | 캘코">
+<meta property="og:description" content="입대일과 군 종류를 고르면 전역일, 전역까지 남은 날, 지금까지 복무한 비율을 계산해요. 육군·해병대·해군·공군·사회복무요원 기준.">
+<meta property="og:url" content="https://calqo.kr/discharge/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fae'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><b>C</b>캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 생활·날짜</div>
+    <h1>전역일 계산기</h1>
+    <p class="lead">입대일과 군 종류를 고르면 전역일, 전역까지 남은 날, 지금까지 복무한 비율을 계산해요. 육군·해병대·해군·공군·사회복무요원 기준.</p>
+    <span class="tag">2026년 복무기간 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="start">입대일<input id="start" type="date" value="2026-01-05"></label>
+      <div><div class="hint" style="margin-bottom:6px">복무 형태</div>
+      <div class="seg" role="group" aria-label="복무 형태">
+        <button type="button" data-m="18" data-n="육군" aria-pressed="true">육군 18개월</button>
+        <button type="button" data-m="18" data-n="해병대" aria-pressed="false">해병대 18개월</button>
+        <button type="button" data-m="20" data-n="해군" aria-pressed="false">해군 20개월</button>
+        <button type="button" data-m="21" data-n="공군" aria-pressed="false">공군 21개월</button>
+        <button type="button" data-m="21" data-n="사회복무요원" aria-pressed="false">사회복무요원 21개월</button>
+      </div></div>
+      <span class="hint">예시 입대일이 들어가 있어요. 오늘 날짜를 기준으로 남은 날을 계산해요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>전역일 계산 결과 <small id="o-type"></small></h2>
+      <div class="total"><span>전역일</span><b id="o-end"></b></div>
+      <div class="bar" role="img" id="o-barwrap"><i id="o-bar" style="width:0"></i></div>
+      <div class="lines">
+        <div class="line"><span>복무율</span><b id="o-pct"></b></div>
+        <div class="line"><span>전역까지</span><b id="o-dday"></b></div>
+        <div class="line"><span>복무한 날 / 전체</span><b id="o-days"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>전역일 계산 방법</h2>
+    <p>입대한 날을 복무 첫날로 넣고, 복무기간(개월)이 끝나는 날을 전역일로 계산해요. 공식으로 쓰면 <b>전역일 = 입대일 + 복무 개월 − 1일</b>이에요. 예를 들어 2026년 1월 5일에 육군으로 입대하면 2027년 7월 4일이 전역일이에요.</p>
+    <h2>군별 복무기간</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>복무기간</th></tr></thead>
+      <tbody>
+        <tr><td>육군 · 해병대</td><td>18개월</td></tr>
+        <tr><td>해군</td><td>20개월</td></tr>
+        <tr><td>공군</td><td>21개월</td></tr>
+        <tr><td>사회복무요원</td><td>21개월</td></tr>
+      </tbody>
+    </table></div>
+    <h2>주의할 점</h2>
+    <ul>
+      <li>영창 대체 징계, 군 병원 장기 입원 등으로 복무기간이 늘어날 수 있어요.</li>
+      <li>전역 전 휴가를 쓰면 부대에서 나오는 날은 더 빨라질 수 있지만, 공식 전역일은 같아요.</li>
+      <li>정확한 전역일은 소속 부대 인사과나 병무청에서 확인해 주세요.</li>
+    </ul>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/age/"><span class="kicker">생활·날짜</span><strong>만 나이 계산기</strong><span>생년월일로 만 나이와 다음 생일까지 계산</span></a><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+let months=18, kind='육군';
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const fmtK=d=>`${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일`;
+const dd=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/864e5);
+function endDate(s,m){const y=s.getFullYear(), mo=s.getMonth()+m, last=new Date(y,mo+1,0).getDate();
+  if(s.getDate()>last)return new Date(y,mo,last);
+  return new Date(y,mo,s.getDate()-1)}
+function calc(){
+  const s=pd($('start').value), st=$('o-status');
+  if(!s){st.className='status warn';st.textContent='입대일을 넣어 주세요.';return}
+  const e=endDate(s,months), t=new Date(), today=new Date(t.getFullYear(),t.getMonth(),t.getDate());
+  const total=dd(s,e)+1; let served=dd(s,today)+1; served=Math.min(total,Math.max(0,served));
+  const left=dd(today,e), pct=served/total*100;
+  $('o-type').textContent=`${kind} · ${months}개월`; $('o-end').textContent=fmtK(e);
+  $('o-bar').style.width=pct.toFixed(1)+'%'; $('o-barwrap').setAttribute('aria-label',`복무율 ${pct.toFixed(1)}%`);
+  $('o-pct').textContent=pct.toFixed(1)+'%';
+  $('o-dday').textContent=left>0?`D-${left}`:(left===0?'D-Day':'전역 완료');
+  $('o-days').textContent=`${served.toLocaleString('ko-KR')}일 / ${total.toLocaleString('ko-KR')}일`;
+  st.className='status ok';
+  st.textContent=today<s?`입대까지 ${dd(today,s)}일 남았어요.`:(left>0?`전역까지 ${left.toLocaleString('ko-KR')}일 남았어요. 힘내세요!`:'전역을 축하해요!');
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{months=+b.dataset.m;kind=b.dataset.n;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));calc()}));
+$('start').addEventListener('input',calc);
+$('reset').addEventListener('click',()=>{$('start').value='2026-01-05';document.querySelector('.seg button').click()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

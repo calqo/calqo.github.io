@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>평수 계산기 · 평 ㎡ 변환 | 캘코</title>
+<meta name="description" content="평을 제곱미터로, 제곱미터를 평으로 바로 바꿔요. 아파트 전용면적과 공급면적 차이, 자주 쓰는 평형표도 함께 정리했어요.">
+<link rel="canonical" href="https://calqo.kr/pyeong/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="평수 계산기 · 평 ㎡ 변환 | 캘코">
+<meta property="og:description" content="평을 제곱미터로, 제곱미터를 평으로 바로 바꿔요. 아파트 전용면적과 공급면적 차이, 자주 쓰는 평형표도 함께 정리했어요.">
+<meta property="og:url" content="https://calqo.kr/pyeong/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fae'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><b>C</b>캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 부동산</div>
+    <h1>평수 계산기</h1>
+    <p class="lead">평을 제곱미터로, 제곱미터를 평으로 바로 바꿔요. 아파트 전용면적과 공급면적 차이, 자주 쓰는 평형표도 함께 정리했어요.</p>
+    <span class="tag">1평 = 3.3058㎡</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="py">평<input id="py" type="number" inputmode="decimal" min="0" step="0.01" value="34"></label>
+      <label for="sqm">제곱미터 (㎡)<input id="sqm" type="number" inputmode="decimal" min="0" step="0.01"></label>
+      <span class="hint">어느 칸이든 숫자를 넣으면 다른 칸이 자동으로 바뀌어요. 예시로 34평이 들어가 있어요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>변환 결과</h2>
+      <div class="lines">
+        <div class="line"><span>평</span><b id="o-py"></b></div>
+        <div class="line"><span>제곱미터</span><b id="o-sqm"></b></div>
+        <div class="line"><span>제곱피트 (ft²)</span><b id="o-ft"></b></div>
+      </div>
+      <div class="total"><span id="o-label">요약</span><b id="o-sum"></b></div>
+    </section>
+  </div>
+  <article>
+    <h2>1평은 몇 제곱미터?</h2>
+    <p>1평은 약 <b>3.3058㎡</b>예요. 정확히는 400/121㎡이고, 반대로 1㎡는 약 0.3025평이에요. 간단히 계산할 때는 <b>㎡ × 0.3025 = 평</b>, <b>평 × 3.3058 = ㎡</b>로 기억하면 편해요.</p>
+    <h2>전용면적과 공급면적</h2>
+    <ul>
+      <li><b>전용면적:</b> 현관문 안쪽, 우리 집만 쓰는 공간이에요. 분양 공고의 59㎡, 84㎡가 이 기준이에요.</li>
+      <li><b>공급면적:</b> 전용면적에 계단, 복도, 엘리베이터 같은 공용 공간을 더한 넓이예요. 흔히 말하는 "34평"은 보통 공급면적 기준이에요.</li>
+    </ul>
+    <h2>자주 쓰는 아파트 평형</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>전용면적</th><th>전용 평수</th><th>흔히 부르는 평형</th></tr></thead>
+      <tbody>
+        <tr><td>59㎡</td><td>약 17.8평</td><td>24~25평형</td></tr>
+        <tr><td>74㎡</td><td>약 22.4평</td><td>29~30평형</td></tr>
+        <tr><td>84㎡</td><td>약 25.4평</td><td>32~34평형</td></tr>
+        <tr><td>114㎡</td><td>약 34.5평</td><td>43~45평형</td></tr>
+      </tbody>
+    </table></div>
+    <p class="hint">공급면적은 단지마다 공용 면적이 달라서 같은 전용면적이어도 평형이 조금씩 다를 수 있어요. 2007년부터 법정 단위는 제곱미터예요.</p>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a><a class="card" href="/loan-interest/"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const K=400/121, FT=10.763910417;
+const f=(n,d=2)=>Number(n.toFixed(d)).toLocaleString('ko-KR',{maximumFractionDigits:d});
+function show(py,sqm){$('o-py').textContent=f(py)+'평';$('o-sqm').textContent=f(sqm)+'㎡';$('o-ft').textContent=f(sqm*FT,1)+'ft²';$('o-label').textContent=f(py)+'평은';$('o-sum').textContent=f(sqm)+'㎡'}
+$('py').addEventListener('input',()=>{const p=Math.max(0,+$('py').value||0);const s=p*K;$('sqm').value=$('py').value===''?'':Number(s.toFixed(2));show(p,s)});
+$('sqm').addEventListener('input',()=>{const s=Math.max(0,+$('sqm').value||0);const p=s/K;$('py').value=$('sqm').value===''?'':Number(p.toFixed(2));show(p,s)});
+$('reset').addEventListener('click',()=>{$('py').value=34;$('py').dispatchEvent(new Event('input'))});
+$('py').dispatchEvent(new Event('input'));
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

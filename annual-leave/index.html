@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연차 계산기 · 입사일 기준 연차 일수, 연차수당 | 캘코</title>
+<meta name="description" content="입사일과 기준일을 넣으면 근속기간, 올해 생기는 연차 일수, 1년 미만 월차, 남은 연차의 연차수당까지 계산해요.">
+<link rel="canonical" href="https://calqo.kr/annual-leave/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="연차 계산기 · 입사일 기준 연차 일수, 연차수당 | 캘코">
+<meta property="og:description" content="입사일과 기준일을 넣으면 근속기간, 올해 생기는 연차 일수, 1년 미만 월차, 남은 연차의 연차수당까지 계산해요.">
+<meta property="og:url" content="https://calqo.kr/annual-leave/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5fae'/%3E%3Ctext x='16' y='22' font-size='17' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><b>C</b>캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 급여·근로</div>
+    <h1>연차 계산기</h1>
+    <p class="lead">입사일과 기준일을 넣으면 근속기간, 올해 생기는 연차 일수, 1년 미만 월차, 남은 연차의 연차수당까지 계산해요.</p>
+    <span class="tag">근로기준법 제60조 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="row2">
+        <label for="start">입사일<input id="start" type="date" value="2024-03-04"></label>
+        <label for="ref">기준일<input id="ref" type="date"></label>
+      </div>
+      <span class="hint">기준일은 오늘 날짜로 들어가 있어요. 예시 입사일이 들어가 있어요.</span>
+      <div class="row2">
+        <label for="used">올해 쓴 연차 (일)<input id="used" type="number" inputmode="decimal" min="0" step="0.5" value="5"></label>
+        <label for="hourly">통상시급 (원)<input id="hourly" type="number" inputmode="numeric" min="0" step="10" value="15000"></label>
+      </div>
+      <span class="hint">통상시급은 연차수당 계산에만 쓰여요. 월급제라면 월 통상임금 ÷ 209로 구할 수 있어요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>연차 계산 결과 <small>입사일 기준 · 출근율 80% 이상 가정</small></h2>
+      <div class="lines">
+        <div class="line"><span>근속기간</span><b id="o-tenure"></b></div>
+        <div class="line"><span>올해 발생 연차<em id="o-rule"></em></span><b id="o-days"></b></div>
+        <div class="line"><span>쓴 연차</span><b id="o-used"></b></div>
+        <div class="line"><span>남은 연차</span><b id="o-left"></b></div>
+        <div class="line"><span>다음 연차 발생일<em id="o-nextnote"></em></span><b id="o-next"></b></div>
+      </div>
+      <div class="total"><span>남은 연차 수당 (예상)</span><b id="o-pay"></b></div>
+      <div class="status" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>연차는 언제, 며칠 생기나요?</h2>
+    <ul>
+      <li><b>입사 1년 미만:</b> 한 달 개근할 때마다 1일씩, 최대 11일이 생겨요.</li>
+      <li><b>1년 근무(출근율 80% 이상):</b> 15일이 생겨요.</li>
+      <li><b>3년차부터:</b> 처음 1년을 넘긴 뒤 2년마다 1일씩 늘어나요.</li>
+      <li><b>최대 한도:</b> 가산 연차를 포함해 25일까지예요.</li>
+    </ul>
+    <h2>근속연수별 연차 일수</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>근속연수</th><th>1년</th><th>2년</th><th>3년</th><th>5년</th><th>10년</th><th>15년</th><th>21년 이상</th></tr></thead>
+      <tbody><tr><td>연차</td><td>15일</td><td>15일</td><td>16일</td><td>17일</td><td>19일</td><td>22일</td><td>25일</td></tr></tbody>
+    </table></div>
+    <h2>연차수당 계산 방법</h2>
+    <p>쓰지 못한 연차는 수당으로 받을 수 있어요. 하루 8시간 근무 기준으로 <b>남은 연차 일수 × 통상시급 × 8시간</b>으로 계산해요. 다만 회사가 법에 맞게 연차 사용을 촉진했다면 수당 지급 의무가 없어질 수 있어요.</p>
+    <h2>주의할 점</h2>
+    <ul>
+      <li>상시 근로자 5인 미만 사업장은 연차 규정이 적용되지 않아요.</li>
+      <li>회사가 입사일이 아닌 회계연도(1월 1일) 기준으로 연차를 줄 수도 있어요. 이때는 일수가 조금 다를 수 있어 취업규칙을 확인해 주세요.</li>
+      <li>1년 미만 기간에 생긴 월차는 입사일로부터 1년 안에 써야 해요.</li>
+    </ul>
+    <p class="hint">기준: 근로기준법 제60조(연차 유급휴가).</p>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/loan-interest/"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></a><a class="card" href="/prepayment-fee/"><span class="kicker">대출·금융</span><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const fmt=d=>`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+function addM(d,m){const t=new Date(d.getFullYear(),d.getMonth()+m,1);const last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();t.setDate(Math.min(d.getDate(),last));return t}
+function monthsBetween(a,b){let m=(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth());if(addM(a,m)>b)m--;return Math.max(0,m)}
+function leaveFor(y){return y<1?0:Math.min(25,15+Math.floor((y-1)/2))}
+function calc(){
+  const s=pd($('start').value), r=pd($('ref').value), st=$('o-status');
+  const used=Math.max(0,+$('used').value||0), hourly=Math.max(0,+$('hourly').value||0);
+  if(!s||!r||r<s){st.className='status warn';st.textContent='기준일은 입사일보다 뒤여야 해요.';['o-tenure','o-days','o-used','o-left','o-next','o-pay'].forEach(i=>$(i).textContent='–');return}
+  const m=monthsBetween(s,r), y=Math.floor(m/12);
+  $('o-tenure').textContent=`${y}년 ${m%12}개월`;
+  let days, rule, next, note;
+  if(y<1){days=Math.min(11,m);rule='1년 미만: 한 달 개근마다 1일';
+    if(m<11){next=addM(s,m+1);note='한 달 개근 시 1일 추가'}else{next=addM(s,12);note='1년 채우면 15일 발생'}}
+  else{days=leaveFor(y);rule=y<3?'1년 이상: 15일':`15일 + 가산 ${days-15}일`+(days===25?' (최대)':'');
+    next=addM(s,(y+1)*12);note=`${y+1}년차 연차 ${leaveFor(y+1)}일 발생`}
+  const left=Math.max(0,days-used);
+  $('o-rule').textContent=rule; $('o-days').textContent=days+'일'; $('o-used').textContent=used+'일';
+  $('o-left').textContent=left+'일'; $('o-next').textContent=fmt(next); $('o-nextnote').textContent=note;
+  $('o-pay').textContent=won(left*hourly*8);
+  if(used>days){st.className='status warn';st.textContent='쓴 연차가 발생한 연차보다 많아요. 입력값을 확인해 주세요.'}
+  else{st.className='status ok';st.textContent=`올해 연차 ${days}일 중 ${left}일이 남았어요.`}
+}
+const today=new Date(); $('ref').value=iso(today);
+['start','ref','used','hourly'].forEach(id=>$(id).addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('start').value='2024-03-04';$('ref').value=iso(new Date());$('used').value=5;$('hourly').value=15000;calc()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>
