@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>취득세 계산기 2026 · 아파트 주택 취득세, 생애최초 감면 | 캘코</title>
+<meta name="description" content="주택 매수 가격, 주택 수, 조정대상지역 여부, 면적을 넣으면 취득세와 지방교육세, 농어촌특별세를 합친 총 세금을 계산해요. 생애최초 감면도 반영해요.">
+<link rel="canonical" href="https://calqo.kr/acquisition-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="취득세 계산기 2026 · 아파트 주택 취득세, 생애최초 감면 | 캘코">
+<meta property="og:description" content="주택 매수 가격, 주택 수, 조정대상지역 여부, 면적을 넣으면 취득세와 지방교육세, 농어촌특별세를 합친 총 세금을 계산해요. 생애최초 감면도 반영해요.">
+<meta property="og:url" content="https://calqo.kr/acquisition-tax/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<meta name="theme-color" content="#e56a48">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 부동산</div>
+    <h1>취득세 계산기</h1>
+    <p class="lead">주택 매수 가격, 주택 수, 조정대상지역 여부, 면적을 넣으면 취득세와 지방교육세, 농어촌특별세를 합친 총 세금을 계산해요. 생애최초 감면도 반영해요.</p>
+    <span class="tag">2026년 주택 유상취득 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="price">매수 가격 (만원)<input id="price" type="number" inputmode="decimal" min="0" step="1" value="80000"></label>
+      <div class="row2">
+        <label for="count">사고 나면 몇 주택?<select id="count"><option value="1">1주택</option><option value="2">2주택</option><option value="3">3주택</option><option value="4">4주택 이상</option></select></label>
+        <label for="zone">조정대상지역인가요?<select id="zone"><option value="1">네 (조정대상지역)</option><option value="0">아니요</option></select></label>
+      </div>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="temp" type="checkbox" style="width:auto"> 일시적 2주택이에요 (기존 집을 기한 안에 팔 예정)</label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="big" type="checkbox" style="width:auto"> 전용면적 85㎡ 초과예요</label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="first" type="checkbox" style="width:auto"> 생애최초 주택 구입이에요 (12억원 이하)</label>
+      <span class="hint">예시로 조정대상지역 8억 원 아파트, 1주택이 들어가 있어요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>취득세 계산 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span>총 납부 세금</span><b id="o-total"></b></div>
+      <div class="lines">
+        <div class="line"><span>취득세<em id="o-ratenote"></em></span><b id="o-acq"></b></div>
+        <div class="line"><span>생애최초 감면</span><b id="o-first"></b></div>
+        <div class="line"><span>지방교육세</span><b id="o-edu"></b></div>
+        <div class="line"><span>농어촌특별세</span><b id="o-agri"></b></div>
+        <div class="line"><span>합계 세율</span><b id="o-eff"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>1주택 취득세율</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>매수 가격</th><th>취득세</th><th>지방교육세</th><th>농특세 (85㎡ 초과)</th><th>합계</th></tr></thead>
+      <tbody>
+        <tr><td>6억원 이하</td><td>1%</td><td>0.1%</td><td>0.2%</td><td>1.1% (1.3%)</td></tr>
+        <tr><td>6억 초과 ~ 9억 이하</td><td>1~3%</td><td>0.1~0.3%</td><td>0.2%</td><td>1.1~3.3% (1.3~3.5%)</td></tr>
+        <tr><td>9억원 초과</td><td>3%</td><td>0.3%</td><td>0.2%</td><td>3.3% (3.5%)</td></tr>
+      </tbody>
+    </table></div>
+    <p>6억~9억 원 구간은 <b>세율(%) = 매수 가격(억 원) × 2 ÷ 3 − 3</b>으로 가격에 따라 조금씩 올라가요. 7억 5천만 원이면 2%예요.</p>
+    <h2>다주택 중과세율</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>조정대상지역</th><th>그 외 지역</th></tr></thead>
+      <tbody>
+        <tr><td>1주택</td><td colspan="2">1~3%</td></tr>
+        <tr><td>2주택</td><td>8% (일시적 2주택은 1~3%)</td><td>1~3%</td></tr>
+        <tr><td>3주택</td><td>12%</td><td>8%</td></tr>
+        <tr><td>4주택 이상</td><td>12%</td><td>12%</td></tr>
+      </tbody>
+    </table></div>
+    <p>중과세율이 적용되면 지방교육세는 0.4%, 농어촌특별세(85㎡ 초과)는 8%일 때 0.6%, 12%일 때 1.0%예요.</p>
+    <h2>생애최초 감면</h2>
+    <p>본인과 배우자가 집을 가진 적이 없고, 12억 원 이하 주택을 처음 사면 취득세를 최대 <b>200만 원</b>까지 줄여 줘요. 산 뒤 3개월 안에 전입하고 3년 이상 살아야 해요. 지방교육세와 농특세는 감면되지 않아요.</p>
+    <h2>주의할 점</h2>
+    <ul>
+      <li>조정대상지역은 정부 발표에 따라 바뀌어요. 2025년 10월부터 서울 전역과 경기 일부 지역이 지정돼 있어요. 매수 전 꼭 최신 지정 여부를 확인해 주세요.</li>
+      <li>취득세는 잔금일(또는 등기일 중 빠른 날)부터 <b>60일 안에</b> 내야 해요.</li>
+      <li>분양권, 오피스텔, 상속·증여는 세율이 달라요. 정확한 세액은 위택스에서 확인해 주세요.</li>
+    </ul>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/brokerage-fee/"><span class="kicker">부동산</span><strong>부동산 중개보수 계산기</strong><span>매매·전세·월세 복비 상한 계산</span></a><a class="card" href="/rent-conversion/"><span class="kicker">부동산</span><strong>전월세 전환 계산기</strong><span>전세↔월세 바꿀 때 적정 금액 계산</span></a><a class="card" href="/pyeong/"><span class="kicker">부동산</span><strong>평수 계산기</strong><span>평과 제곱미터(㎡) 서로 변환</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+function stdRate(P){if(P<=6e8)return .01;if(P<=9e8)return Math.round((P/1e8*2/3-3)*10000)/1e6;return .03}
+function calc(){
+  const P=W('price'),n=+$('count').value,z=$('zone').value==='1',temp=$('temp').checked,big=$('big').checked;
+  let rate,heavy=false,label;
+  if(n===1||(n===2&&(temp||!z))){rate=stdRate(P);label='표준세율'}
+  else if(n===2){rate=.08;heavy=true;label='조정대상지역 2주택 중과'}
+  else if(n===3){rate=z?.12:.08;heavy=true;label=z?'조정대상지역 3주택 중과':'3주택 중과'}
+  else{rate=.12;heavy=true;label='4주택 이상 중과'}
+  const acq=Math.floor(P*rate);
+  const firstOk=$('first').checked&&n===1&&P<=12e8, cut=firstOk?Math.min(acq,2e6):0;
+  const edu=Math.floor(heavy?P*.004:acq*.1);
+  const agri=big?Math.floor(P*(heavy?(rate===.12?.01:.006):.002)):0;
+  const total=acq-cut+edu+agri;
+  $('o-mode').textContent=label;$('o-ratenote').textContent=`세율 ${(rate*100).toFixed(2)}%`;
+  $('o-acq').textContent=won(acq);$('o-first').textContent=cut?'− '+won(cut):'해당 없음';
+  $('o-edu').textContent=won(edu);$('o-agri').textContent=big?won(agri):'해당 없음 (85㎡ 이하)';
+  $('o-total').textContent=won(total);$('o-eff').textContent=(P?total/P*100:0).toFixed(2)+'%';
+  const st=$('o-status');
+  if($('first').checked&&!firstOk){st.className='status warn';st.textContent='생애최초 감면은 1주택이면서 12억 원 이하일 때만 받을 수 있어요.'}
+  else{st.className='status ok';st.textContent=`잔금일부터 60일 안에 약 ${man(total)}을 내야 해요.`}
+}
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+['temp','big','first'].forEach(i=>$(i).addEventListener('change',calc));
+$('reset').addEventListener('click',()=>{$('price').value=80000;$('count').value='1';$('zone').value='1';['temp','big','first'].forEach(i=>$(i).checked=false);calc()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

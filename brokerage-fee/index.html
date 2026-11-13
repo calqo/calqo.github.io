@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>부동산 중개보수 계산기 · 매매 전세 월세 복비 | 캘코</title>
+<meta name="description" content="주택 매매, 전세, 월세 거래 금액을 넣으면 법정 상한 요율로 부동산 중개보수(복비)와 부가세 포함 금액을 계산해요.">
+<link rel="canonical" href="https://calqo.kr/brokerage-fee/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="부동산 중개보수 계산기 · 매매 전세 월세 복비 | 캘코">
+<meta property="og:description" content="주택 매매, 전세, 월세 거래 금액을 넣으면 법정 상한 요율로 부동산 중개보수(복비)와 부가세 포함 금액을 계산해요.">
+<meta property="og:url" content="https://calqo.kr/brokerage-fee/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<meta name="theme-color" content="#e56a48">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 부동산</div>
+    <h1>부동산 중개보수 계산기</h1>
+    <p class="lead">주택 매매, 전세, 월세 거래 금액을 넣으면 법정 상한 요율로 부동산 중개보수(복비)와 부가세 포함 금액을 계산해요.</p>
+    <span class="tag">2021년 10월 개정 요율 · 주택 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div><div class="hint" style="margin-bottom:6px">거래 종류</div>
+      <div class="seg" role="group" aria-label="거래 종류">
+        <button type="button" data-m="sale" aria-pressed="true">매매</button>
+        <button type="button" data-m="jeonse" aria-pressed="false">전세</button>
+        <button type="button" data-m="monthly" aria-pressed="false">월세</button>
+      </div></div>
+      <div id="f-price"><label for="price">거래 금액 (만원)<input id="price" type="number" inputmode="decimal" min="0" step="1" value="70000"><span class="hint">매매가 또는 전세보증금</span></label></div>
+      <div id="f-monthly" hidden><div class="row2">
+        <label for="dep">보증금 (만원)<input id="dep" type="number" inputmode="decimal" min="0" step="1" value="3000"></label>
+        <label for="rent">월세 (만원)<input id="rent" type="number" inputmode="decimal" min="0" step="1" value="100"></label>
+      </div></div>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="vat" type="checkbox" checked style="width:auto"> 부가세 10% 포함해서 보기 (일반과세자 중개사무소)</label>
+      <span class="hint">예시로 7억 원 매매가 들어가 있어요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>중개보수 계산 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span>최대 중개보수</span><b id="o-fee"></b></div>
+      <div class="lines">
+        <div class="line"><span>거래 금액<em id="o-amtnote"></em></span><b id="o-amt"></b></div>
+        <div class="line"><span>상한 요율</span><b id="o-rate"></b></div>
+        <div class="line"><span>한도액</span><b id="o-lim"></b></div>
+        <div class="line"><span>부가세 제외 금액</span><b id="o-base"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>주택 중개보수 상한 요율</h2>
+    <h3>매매·교환</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>거래 금액</th><th>상한 요율</th><th>한도액</th></tr></thead>
+      <tbody>
+        <tr><td>5천만원 미만</td><td>0.6%</td><td>25만원</td></tr>
+        <tr><td>5천만원 ~ 2억원 미만</td><td>0.5%</td><td>80만원</td></tr>
+        <tr><td>2억원 ~ 9억원 미만</td><td>0.4%</td><td>없음</td></tr>
+        <tr><td>9억원 ~ 12억원 미만</td><td>0.5%</td><td>없음</td></tr>
+        <tr><td>12억원 ~ 15억원 미만</td><td>0.6%</td><td>없음</td></tr>
+        <tr><td>15억원 이상</td><td>0.7%</td><td>없음</td></tr>
+      </tbody>
+    </table></div>
+    <h3>전세·월세 (임대차)</h3>
+    <div class="tbl"><table>
+      <thead><tr><th>거래 금액</th><th>상한 요율</th><th>한도액</th></tr></thead>
+      <tbody>
+        <tr><td>5천만원 미만</td><td>0.5%</td><td>20만원</td></tr>
+        <tr><td>5천만원 ~ 1억원 미만</td><td>0.4%</td><td>30만원</td></tr>
+        <tr><td>1억원 ~ 6억원 미만</td><td>0.3%</td><td>없음</td></tr>
+        <tr><td>6억원 ~ 12억원 미만</td><td>0.4%</td><td>없음</td></tr>
+        <tr><td>12억원 ~ 15억원 미만</td><td>0.5%</td><td>없음</td></tr>
+        <tr><td>15억원 이상</td><td>0.6%</td><td>없음</td></tr>
+      </tbody>
+    </table></div>
+    <h2>월세는 거래 금액을 이렇게 계산해요</h2>
+    <p><b>거래 금액 = 보증금 + 월세 × 100</b>이에요. 이렇게 계산한 금액이 5천만원 미만이면 <b>보증금 + 월세 × 70</b>으로 다시 계산해요.</p>
+    <h2>알아 두면 좋은 점</h2>
+    <ul>
+      <li>표의 요율은 <b>최대치</b>예요. 실제 중개보수는 이 범위 안에서 중개사와 협의해서 정해요. 계약 전에 미리 금액을 정해 두는 게 좋아요.</li>
+      <li>중개보수는 집주인과 세입자(또는 매도인과 매수인)가 <b>각각</b> 내요.</li>
+      <li>중개사무소가 일반과세자면 부가세 10%가 추가될 수 있어요.</li>
+      <li>오피스텔(전용 85㎡ 이하, 주거용 시설)은 매매 0.5%, 임대차 0.4%가 상한이에요.</li>
+    </ul>
+    <p class="hint">기준: 공인중개사법 시행규칙(2021년 10월 19일 시행), 서울시 주택 중개보수 조례.</p>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/acquisition-tax/"><span class="kicker">부동산</span><strong>취득세 계산기</strong><span>주택 살 때 내는 취득세·지방교육세·농특세 계산</span></a><a class="card" href="/rent-conversion/"><span class="kicker">부동산</span><strong>전월세 전환 계산기</strong><span>전세↔월세 바꿀 때 적정 금액 계산</span></a><a class="card" href="/pyeong/"><span class="kicker">부동산</span><strong>평수 계산기</strong><span>평과 제곱미터(㎡) 서로 변환</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+let mode='sale';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const SALE=[[5e7,.006,25e4],[2e8,.005,80e4],[9e8,.004,0],[12e8,.005,0],[15e8,.006,0],[Infinity,.007,0]];
+const LEASE=[[5e7,.005,20e4],[1e8,.004,30e4],[6e8,.003,0],[12e8,.004,0],[15e8,.005,0],[Infinity,.006,0]];
+function calc(){
+  let amt,note='';
+  if(mode==='monthly'){amt=W('dep')+W('rent')*100;note='보증금 + 월세 × 100';if(amt<5e7){amt=W('dep')+W('rent')*70;note='보증금 + 월세 × 70 (5천만원 미만)'}}
+  else amt=W('price');
+  const T=mode==='sale'?SALE:LEASE;let rate=0,lim=0;for(const[l,r,c]of T)if(amt<l){rate=r;lim=c;break}
+  let fee=amt*rate;if(lim)fee=Math.min(fee,lim);fee=Math.floor(fee);
+  const vat=$('vat').checked, total=vat?Math.floor(fee*1.1):fee;
+  $('o-mode').textContent={sale:'매매',jeonse:'전세',monthly:'월세'}[mode];
+  $('o-amt').textContent=won(amt);$('o-amtnote').textContent=note;$('o-rate').textContent=(rate*100).toFixed(1)+'%';
+  $('o-lim').textContent=lim?won(lim):'없음';$('o-base').textContent=won(fee);$('o-fee').textContent=won(total);
+  $('o-status').textContent=`상한 금액이에요. 중개사와 협의해 더 낮출 수 있어요.`+(vat?' 부가세 10%를 포함했어요.':'');
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('f-price').hidden=mode==='monthly';$('f-monthly').hidden=mode!=='monthly';if(mode==='jeonse'&&+$('price').value===70000)$('price').value=40000;if(mode==='sale'&&+$('price').value===40000)$('price').value=70000;calc()}));
+document.querySelectorAll('form input').forEach(el=>el.addEventListener('input',calc));
+$('vat').addEventListener('change',calc);
+$('reset').addEventListener('click',()=>{$('price').value=70000;$('dep').value=3000;$('rent').value=100;$('vat').checked=true;document.querySelector('.seg button').click()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

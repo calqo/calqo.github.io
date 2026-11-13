@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>전월세 전환 계산기 · 전세 월세 전환율 | 캘코</title>
+<meta name="description" content="전세를 월세로, 월세를 전세로 바꿀 때 적정 금액을 계산해요. 법정 전환율 상한(기준금리 + 2%)도 자동으로 보여줘요.">
+<link rel="canonical" href="https://calqo.kr/rent-conversion/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="전월세 전환 계산기 · 전세 월세 전환율 | 캘코">
+<meta property="og:description" content="전세를 월세로, 월세를 전세로 바꿀 때 적정 금액을 계산해요. 법정 전환율 상한(기준금리 + 2%)도 자동으로 보여줘요.">
+<meta property="og:url" content="https://calqo.kr/rent-conversion/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<meta name="theme-color" content="#e56a48">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 부동산</div>
+    <h1>전월세 전환 계산기</h1>
+    <p class="lead">전세를 월세로, 월세를 전세로 바꿀 때 적정 금액을 계산해요. 법정 전환율 상한(기준금리 + 2%)도 자동으로 보여줘요.</p>
+    <span class="tag">법정 상한 = 기준금리 + 2%</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div><div class="hint" style="margin-bottom:6px">어느 쪽으로 바꾸나요?</div>
+      <div class="seg" role="group" aria-label="전환 방향">
+        <button type="button" data-m="toMonthly" aria-pressed="true">전세 → 월세</button>
+        <button type="button" data-m="toJeonse" aria-pressed="false">월세 → 전세</button>
+      </div></div>
+      <div id="f-monthly">
+        <div style="display:flex;flex-direction:column;gap:16px">
+        <label for="jeonse">지금 전세보증금 (만원)<input id="jeonse" type="number" inputmode="decimal" min="0" step="1" value="30000"></label>
+        <label for="newdep">바꾼 뒤 보증금 (만원)<input id="newdep" type="number" inputmode="decimal" min="0" step="1" value="10000"></label>
+        </div>
+      </div>
+      <div id="f-jeonse" hidden>
+        <div style="display:flex;flex-direction:column;gap:16px">
+        <label for="dep">지금 월세보증금 (만원)<input id="dep" type="number" inputmode="decimal" min="0" step="1" value="5000"></label>
+        <label for="rent">지금 월세 (만원)<input id="rent" type="number" inputmode="decimal" min="0" step="1" value="80"></label>
+        </div>
+      </div>
+      <div class="row2">
+        <label for="rate">적용 전환율 (%)<input id="rate" type="number" inputmode="decimal" min="0" step="0.1" value="5"></label>
+        <label for="br">한국은행 기준금리 (%)<input id="br" type="number" inputmode="decimal" min="0" step="0.25" value="3"><span class="hint">2026년 11월 기준 3.00%</span></label>
+      </div>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>전환 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span id="o-label"></span><b id="o-main"></b></div>
+      <div class="lines">
+        <div class="line"><span>월세로 바뀌는 보증금</span><b id="o-gap"></b></div>
+        <div class="line"><span>1년 월세 합계</span><b id="o-year"></b></div>
+        <div class="line"><span>법정 상한 전환율<em>기준금리 + 2%, 최대 10%</em></span><b id="o-cap"></b></div>
+        <div class="line"><span>법정 상한일 때 금액</span><b id="o-capv"></b></div>
+      </div>
+      <div class="status" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>전월세 전환율이란?</h2>
+    <p>보증금 일부를 월세로 바꿀 때 쓰는 연 이자율이에요. 예를 들어 전환율 5%면 보증금 1억 원을 빼는 대신 1년에 500만 원, 한 달에 약 41.7만 원의 월세를 내는 셈이에요.</p>
+    <h2>계산 공식</h2>
+    <ul>
+      <li><b>전세 → 월세:</b> 월세 = (전세보증금 − 바꾼 뒤 보증금) × 전환율 ÷ 12</li>
+      <li><b>월세 → 전세:</b> 전세보증금 = 월세보증금 + 월세 × 12 ÷ 전환율</li>
+    </ul>
+    <h2>법정 전환율 상한</h2>
+    <p>주택임대차보호법에 따라 계약 기간 중이나 계약을 갱신하면서 전세를 월세로 바꿀 때는 <b>"연 10%"와 "한국은행 기준금리 + 2%" 중 낮은 비율</b>을 넘을 수 없어요. 기준금리가 3.00%라면 상한은 5%예요.</p>
+    <p>새로 계약할 때는 이 상한이 적용되지 않아서, 시장에서 실제 쓰이는 전환율은 지역과 집 종류에 따라 더 높을 수 있어요. 한국부동산원 부동산통계정보에서 지역별 전월세 전환율을 확인할 수 있어요.</p>
+    <h2>전세와 월세, 뭐가 유리할까?</h2>
+    <p>전세대출 금리가 전환율보다 낮으면 보통 전세가 유리하고, 높으면 월세가 유리해요. 월세는 연말정산 월세 세액공제(최대 17%)도 받을 수 있으니 함께 따져 보세요.</p>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/acquisition-tax/"><span class="kicker">부동산</span><strong>취득세 계산기</strong><span>주택 살 때 내는 취득세·지방교육세·농특세 계산</span></a><a class="card" href="/brokerage-fee/"><span class="kicker">부동산</span><strong>부동산 중개보수 계산기</strong><span>매매·전세·월세 복비 상한 계산</span></a><a class="card" href="/pyeong/"><span class="kicker">부동산</span><strong>평수 계산기</strong><span>평과 제곱미터(㎡) 서로 변환</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+let mode='toMonthly';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+function calc(){
+  const r=Math.max(0,+$('rate').value||0)/100, br=Math.max(0,+$('br').value||0);
+  const cap=Math.min(10,br+2)/100, st=$('o-status');
+  $('o-cap').textContent=(cap*100).toFixed(2)+'%';
+  if(mode==='toMonthly'){
+    const gap=Math.max(0,W('jeonse')-W('newdep')), m=gap*r/12;
+    $('o-mode').textContent='전세 → 월세';$('o-label').textContent='예상 월세';$('o-main').textContent=won(m);
+    $('o-gap').textContent=won(gap);$('o-year').textContent=won(m*12);$('o-capv').textContent='월 '+won(gap*cap/12);
+    if(W('newdep')>W('jeonse')){st.className='status warn';st.textContent='바꾼 뒤 보증금이 지금 전세보증금보다 커요.'}
+    else if(r>cap){st.className='status warn';st.textContent=`적용 전환율이 법정 상한(${(cap*100).toFixed(2)}%)보다 높아요. 계약 중 전환이라면 월 ${won(gap*cap/12)}까지만 받을 수 있어요.`}
+    else{st.className='status ok';st.textContent='법정 상한 이내의 전환율이에요.'}
+  }else{
+    const dep=W('dep'), rent=W('rent'), j=r>0?dep+rent*12/r:0;
+    $('o-mode').textContent='월세 → 전세';$('o-label').textContent='환산 전세보증금';$('o-main').textContent=r>0?won(j):'–';
+    $('o-gap').textContent=r>0?won(j-dep):'–';$('o-year').textContent=won(rent*12);$('o-capv').textContent=won(dep+rent*12/cap);
+    st.className='status ok';st.textContent=r>0?`월세 ${man(rent)}은 전환율 ${(r*100).toFixed(1)}% 기준으로 보증금 약 ${man(j-dep)}과 같아요.`:'전환율을 넣어 주세요.';
+  }
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('f-monthly').hidden=mode!=='toMonthly';$('f-jeonse').hidden=mode==='toMonthly';calc()}));
+document.querySelectorAll('form input').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('jeonse').value=30000;$('newdep').value=10000;$('dep').value=5000;$('rent').value=80;$('rate').value=5;$('br').value=3;calc()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>

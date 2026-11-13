@@ -23,7 +23,7 @@
 <body>
 <header class="site-head"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
 </div></header>
 <main class="wrap">
   <header>
@@ -83,11 +83,12 @@
     <p class="hint">기준: 고용노동부 고시 2027년 적용 최저임금(시간급 10,700원).</p>
     <p class="hint">최종 업데이트: 2026-11-13</p>
   </article>
-  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/year-end-tax/"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a><a class="card" href="/loan-interest/"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></a></div></section>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/year-end-tax/"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></a><a class="card" href="/severance/"><span class="kicker">급여·근로</span><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></a><a class="card" href="/erp/"><span class="kicker">급여·근로</span><strong>희망퇴직(ERP) 위로금 계산기</strong><span>2N+α 위로금과 퇴직금을 합친 세후 실수령액 계산</span></a></div></section>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
 const MIN=10700, WEEKS=365/7/12;
 const hr=n=>(Math.round(n*100)/100).toLocaleString('ko-KR')+'시간';
 function calc(){

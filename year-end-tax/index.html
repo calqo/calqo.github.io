@@ -23,7 +23,7 @@
 <body>
 <header class="site-head"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
 </div></header>
 <main class="wrap">
   <header>
@@ -140,13 +140,13 @@
     <p class="hint">기준: 소득세법·조세특례제한법 2026년 귀속 기준. 특별공제를 받는 경우와 표준세액공제(13만원)를 받는 경우 중 세금이 적은 쪽으로 자동 계산해요.</p>
     <p class="hint">최종 업데이트: 2026-11-13</p>
   </article>
-  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a><a class="card" href="/loan-interest/"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></a></div></section>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/severance/"><span class="kicker">급여·근로</span><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></a><a class="card" href="/erp/"><span class="kicker">급여·근로</span><strong>희망퇴직(ERP) 위로금 계산기</strong><span>2N+α 위로금과 퇴직금을 합친 세후 실수령액 계산</span></a><a class="card" href="/unemployment/"><span class="kicker">급여·근로</span><strong>실업급여 계산기</strong><span>하루 구직급여와 받는 기간, 총액 계산</span></a></div></section>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
-const W=id=>Math.max(0,+$(id).value||0)*10000;
 const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
 function earnDed(G){let d;if(G<=5e6)d=G*.7;else if(G<=15e6)d=3.5e6+(G-5e6)*.4;else if(G<=45e6)d=7.5e6+(G-15e6)*.15;else if(G<=1e8)d=12e6+(G-45e6)*.05;else d=14.75e6+(G-1e8)*.02;return Math.min(d,2e7)}
 const BR=[[14e6,.06,0],[50e6,.15,1.26e6],[88e6,.24,5.76e6],[150e6,.35,15.44e6],[300e6,.38,19.94e6],[500e6,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
 function tax(T){for(const[l,r,q]of BR)if(T<=l)return[Math.max(0,T*r-q),r]}

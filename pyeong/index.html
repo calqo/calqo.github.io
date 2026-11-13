@@ -23,7 +23,7 @@
 <body>
 <header class="site-head"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
 </div></header>
 <main class="wrap">
   <header>
@@ -70,11 +70,12 @@
     <p class="hint">공급면적은 단지마다 공용 면적이 달라서 같은 전용면적이어도 평형이 조금씩 다를 수 있어요. 2007년부터 법정 단위는 제곱미터예요.</p>
     <p class="hint">최종 업데이트: 2026-11-13</p>
   </article>
-  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/year-end-tax/"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></a><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a></div></section>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/acquisition-tax/"><span class="kicker">부동산</span><strong>취득세 계산기</strong><span>주택 살 때 내는 취득세·지방교육세·농특세 계산</span></a><a class="card" href="/brokerage-fee/"><span class="kicker">부동산</span><strong>부동산 중개보수 계산기</strong><span>매매·전세·월세 복비 상한 계산</span></a><a class="card" href="/rent-conversion/"><span class="kicker">부동산</span><strong>전월세 전환 계산기</strong><span>전세↔월세 바꿀 때 적정 금액 계산</span></a></div></section>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
 const K=400/121, FT=10.763910417;
 const f=(n,d=2)=>Number(n.toFixed(d)).toLocaleString('ko-KR',{maximumFractionDigits:d});
 function show(py,sqm){$('o-py').textContent=f(py)+'평';$('o-sqm').textContent=f(sqm)+'㎡';$('o-ft').textContent=f(sqm*FT,1)+'ft²';$('o-label').textContent=f(py)+'평은';$('o-sum').textContent=f(sqm)+'㎡'}

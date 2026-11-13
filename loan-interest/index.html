@@ -23,7 +23,7 @@
 <body>
 <header class="site-head"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
 </div></header>
 <main class="wrap">
   <header>
@@ -87,11 +87,12 @@
     </ul>
     <p class="hint">최종 업데이트: 2026-11-13</p>
   </article>
-  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/prepayment-fee/"><span class="kicker">대출·금융</span><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></a><a class="card" href="/year-end-tax/"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></a><a class="card" href="/juhyu/"><span class="kicker">급여·근로</span><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a></div></section>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/prepayment-fee/"><span class="kicker">대출·금융</span><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></a><a class="card" href="/year-end-tax/"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></a><a class="card" href="/severance/"><span class="kicker">급여·근로</span><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></a></div></section>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
 let mode='equal';
 const NAMES={equal:'원리금균등',principal:'원금균등',bullet:'만기일시'};
 function sched(P,r,n,m){const rows=[];let bal=P;
