@@ -138,7 +138,7 @@ function calc(){
   $('o-eff').textContent=(B?(dTax+ins)/B*100:0).toFixed(1)+'%';
   $('o-br').textContent=Math.round(a1.rate*100)+'% (지방세 포함 '+(a1.rate*110).toFixed(1)+'%)';
   $('o-brnote').textContent='성과급 포함 과세표준 '+man(a1.base);
-  $('o-wh').textContent='− '+won(wh);$('o-whnote').textContent=`1~${m}월을 한 기간으로 보고 계산`;
+  $('o-wh').textContent='− '+won(wh);$('o-whnote').textContent=m===1?'1월 한 달 급여에 성과급을 더해 계산':`1~${m}월을 한 기간으로 보고 계산`;
   $('o-paid').textContent=won(B-wh-ins);
   const ref=wh-dTax;$('o-refund').textContent=ref>0?won(ref):'거의 없음';
   $('o-status').textContent=ref>1e5?`성과급 달엔 ${man(wh)}을 떼지만, 실제 세금은 ${man(dTax)}이라 다음 연말정산에서 약 ${man(ref)}을 돌려받아요.`:`성과급에 붙는 세금과 보험료는 약 ${man(dTax+ins)}이에요.`;
