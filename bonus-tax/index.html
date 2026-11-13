@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>성과급 세금 계산기 · 인센티브 세후 실수령액 | 캘코</title>
+<meta name="description" content="연봉과 성과급(금액 또는 연봉의 %)을 넣으면 성과급 세후 실수령액, 받는 달에 떼는 세금, 연말정산 때 돌려받을 금액을 계산해요. PS·OPI·인센티브 모두 가능해요.">
+<link rel="canonical" href="https://calqo.kr/bonus-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="성과급 세금 계산기 · 인센티브 세후 실수령액 | 캘코">
+<meta property="og:description" content="연봉과 성과급(금액 또는 연봉의 %)을 넣으면 성과급 세후 실수령액, 받는 달에 떼는 세금, 연말정산 때 돌려받을 금액을 계산해요. PS·OPI·인센티브 모두 가능해요.">
+<meta property="og:url" content="https://calqo.kr/bonus-tax/">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<meta name="theme-color" content="#e56a48">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="/assets/style.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a> › 급여·근로</div>
+    <h1>성과급 세금 계산기</h1>
+    <p class="lead">연봉과 성과급(금액 또는 연봉의 %)을 넣으면 성과급 세후 실수령액, 받는 달에 떼는 세금, 연말정산 때 돌려받을 금액을 계산해요. PS·OPI·인센티브 모두 가능해요.</p>
+    <span class="tag">근로소득세 · 지방소득세 · 4대보험 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="salary">성과급 뺀 연봉 (만원)<input id="salary" type="number" inputmode="decimal" min="0" step="1" value="8000"><span class="hint">세전, 비과세 제외</span></label>
+      <div><div class="hint" style="margin-bottom:6px">성과급 입력 방식</div>
+      <div class="seg" role="group" aria-label="성과급 입력 방식">
+        <button type="button" data-m="amt" aria-pressed="true">금액으로</button>
+        <button type="button" data-m="pct" aria-pressed="false">연봉의 %로</button>
+      </div></div>
+      <div id="f-amt"><label for="bonus">성과급 (만원)<input id="bonus" type="number" inputmode="decimal" min="0" step="1" value="4000"></label></div>
+      <div id="f-pct" hidden><label for="pct">연봉의 몇 %? <input id="pct" type="number" inputmode="decimal" min="0" step="1" value="50"><span class="hint">예: 연봉의 50% 성과급이면 50</span></label></div>
+      <div class="row2">
+        <label for="month">성과급 받는 달<select id="month"><option value="1" selected>1월</option><option value="2">2월</option><option value="3">3월</option><option value="4">4월</option><option value="5">5월</option><option value="6">6월</option><option value="7">7월</option><option value="8">8월</option><option value="9">9월</option><option value="10">10월</option><option value="11">11월</option><option value="12">12월</option></select></label>
+        <label for="people">기본공제 인원 (본인 포함)<input id="people" type="number" inputmode="decimal" min="0" step="1" value="1"></label>
+      </div>
+      <label for="kids9">만 9세 이상 자녀 수<input id="kids9" type="number" inputmode="decimal" min="0" step="1" value="0"></label>
+      <span class="hint">예시: 연봉 8천만원에 성과급 4천만원(연봉의 50%)을 1월에 받는 경우예요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>성과급 계산 결과 <small id="o-bamt"></small></h2>
+      <div class="total"><span>성과급 세후 실수령액</span><b id="o-net"></b></div>
+      <div class="lines">
+        <div class="line"><span>실제로 늘어나는 1년 세금<em>소득세 + 지방소득세, 연말정산 후 확정</em></span><b id="o-tax"></b></div>
+        <div class="line"><span>건강·장기요양·고용보험<em>나중에 보험료 정산으로 낼 수 있어요</em></span><b id="o-ins"></b></div>
+        <div class="line"><span>성과급에 붙는 실효 세율</span><b id="o-eff"></b></div>
+        <div class="line"><span>한계 세율 구간<em id="o-brnote"></em></span><b id="o-br"></b></div>
+      </div>
+      <h2 style="margin-top:4px">받는 달에는 이만큼 떼요 <small>대략</small></h2>
+      <div class="lines">
+        <div class="line"><span>성과급 달 원천징수<em id="o-whnote"></em></span><b id="o-wh"></b></div>
+        <div class="line"><span>성과급 달 통장 입금액 (대략)<em>성과급 − 원천징수 − 4대보험</em></span><b id="o-paid"></b></div>
+        <div class="line"><span>다음 연말정산에서 돌려받을 금액</span><b id="o-refund"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+    </section>
+  </div>
+  <article>
+    <h2>성과급 받는 달, 왜 세금을 많이 뗄까?</h2>
+    <p>회사는 성과급을 줄 때 <b>"1월부터 성과급 받는 달까지"</b>를 하나의 기간으로 보고, 그 기간의 월급과 성과급을 합쳐 한 달 평균 급여를 다시 계산해서 세금을 떼요. 1월에 성과급을 받으면 한 달치 월급에 성과급이 통째로 얹혀서, 마치 연봉이 몇 억인 사람처럼 높은 세율로 떼게 돼요.</p>
+    <p>하지만 <b>진짜 세금은 1년 소득 전체로 연말정산할 때 정해져요.</b> 그래서 성과급 달에 너무 많이 뗀 부분은 다음 해 연말정산에서 돌려받아요. 반대로 성과급을 연말에 받으면 미리 떼는 금액과 실제 세금이 거의 비슷해요.</p>
+    <h2>성과급에 붙는 세금 정리</h2>
+    <ul>
+      <li><b>근로소득세:</b> 성과급은 월급과 같은 근로소득이에요. 연봉에 더해져서 높은 세율 구간에 걸리는 만큼 세금이 붙어요.</li>
+      <li><b>지방소득세:</b> 근로소득세의 10%예요.</li>
+      <li><b>건강보험·장기요양보험:</b> 성과급도 보험료 대상이에요. 매달 떼는 보험료는 작년 소득 기준이라, 성과급분은 다음 해 4월 건강보험료 정산 때 추가로 내는 경우가 많아요.</li>
+      <li><b>고용보험:</b> 성과급의 0.9%예요.</li>
+      <li><b>국민연금:</b> 작년 소득을 기준으로 정해져서 올해 성과급으로 바로 늘지는 않아요. 이미 상한(월 659만원)에 걸려 있다면 영향이 없어요.</li>
+    </ul>
+    <h2>세율 구간표 (과세표준 기준)</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>과세표준</th><th>세율</th><th>지방세 포함</th></tr></thead>
+      <tbody>
+        <tr><td>1,400만원 이하</td><td>6%</td><td>6.6%</td></tr>
+        <tr><td>5,000만원 이하</td><td>15%</td><td>16.5%</td></tr>
+        <tr><td>8,800만원 이하</td><td>24%</td><td>26.4%</td></tr>
+        <tr><td>1억 5천만원 이하</td><td>35%</td><td>38.5%</td></tr>
+        <tr><td>3억원 이하</td><td>38%</td><td>41.8%</td></tr>
+        <tr><td>5억원 이하</td><td>40%</td><td>44%</td></tr>
+        <tr><td>10억원 이하</td><td>42%</td><td>46.2%</td></tr>
+        <tr><td>10억원 초과</td><td>45%</td><td>49.5%</td></tr>
+      </tbody>
+    </table></div>
+    <h2>성과급 세금을 줄이는 방법</h2>
+    <ul>
+      <li><b>연금저축·IRP:</b> 연 900만원까지 넣으면 세액공제를 받아요. 성과급 받은 해에 채워 넣으면 효과가 커요.</li>
+      <li><b>우리사주·주식 보상:</b> 회사에 따라 성과급 일부를 주식으로 받으면 과세 시점과 방식이 달라질 수 있어요. 인사팀 안내를 확인해 주세요.</li>
+    </ul>
+    <p class="hint">원천징수 금액은 근로소득 간이세액표 방식을 단순화해 계산한 추정치라 실제 명세서와 차이가 날 수 있어요. 연간 세금은 기본공제·4대보험·근로소득세액공제·자녀세액공제·표준세액공제만 반영했어요. 카드·의료비 등 다른 공제가 있으면 실제 세금은 더 줄어요.</p>
+    <p class="hint">최종 업데이트: 2026-11-13</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/year-end-tax/"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></a><a class="card" href="/severance/"><span class="kicker">급여·근로</span><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></a><a class="card" href="/erp/"><span class="kicker">급여·근로</span><strong>희망퇴직(ERP) 위로금 계산기</strong><span>2N+α 위로금과 퇴직금을 합친 세후 실수령액 계산</span></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+let mode='amt';
+function earnDed(G){let d;if(G<=5e6)d=G*.7;else if(G<=15e6)d=3.5e6+(G-5e6)*.4;else if(G<=45e6)d=7.5e6+(G-15e6)*.15;else if(G<=1e8)d=12e6+(G-45e6)*.05;else d=14.75e6+(G-1e8)*.02;return Math.min(d,2e7)}
+const BR=[[14e6,.06,0],[50e6,.15,1.26e6],[88e6,.24,5.76e6],[150e6,.35,15.44e6],[300e6,.38,19.94e6],[500e6,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+function tax(T){for(const[l,r,q]of BR)if(T<=l)return[Math.max(0,T*r-q),r]}
+function earnCredit(c,G){const v=c<=1.3e6?c*.55:715000+(c-1.3e6)*.3;let lim;
+  if(G<=33e6)lim=740000;else if(G<=70e6)lim=Math.max(740000-(G-33e6)*.008,660000);
+  else if(G<=120e6)lim=Math.max(660000-(G-70e6)/2,500000);else lim=Math.max(500000-(G-120e6)/2,200000);return Math.min(v,lim)}
+const HI=.03595+.004724, EI=.009;
+const npsOf=G=>Math.min(G/12,6.59e6)*12*.0475;
+function annual(G,npsBase,people,k9){
+  const inc=G-earnDed(G), ded=people*1.5e6+npsOf(npsBase)+G*(HI+EI);
+  const[t,r]=tax(Math.max(0,inc-ded));
+  const kid=k9===0?0:k9===1?25e4:k9===2?55e4:55e4+(k9-2)*4e5;
+  const cr=earnCredit(t,G)+kid+13e4;
+  return{fin:Math.max(0,t-cr),rate:r,base:Math.max(0,inc-ded)}}
+function calc(){
+  const S=W('salary'), B=mode==='amt'?W('bonus'):S*Math.max(0,+$('pct').value||0)/100;
+  const people=Math.max(1,Math.floor(+$('people').value||1)), k9=Math.floor(+$('kids9').value||0), m=+$('month').value;
+  const a0=annual(S,S,people,k9), a1=annual(S+B,S,people,k9);
+  const dTax=(a1.fin-a0.fin)*1.1, ins=B*(HI+EI), net=B-dTax-ins;
+  const mo=S/12, m0=annual(mo*12,S,people,k9).fin/12;
+  const avg=(mo*m+B)/m, mAvg=annual(avg*12,S,people,k9).fin/12;
+  const wh=Math.max(0,(mAvg-m0)*m)*1.1;
+  $('o-bamt').textContent='성과급 '+man(B);$('o-net').textContent=won(net);
+  $('o-tax').textContent='− '+won(dTax);$('o-ins').textContent='− '+won(ins);
+  $('o-eff').textContent=(B?(dTax+ins)/B*100:0).toFixed(1)+'%';
+  $('o-br').textContent=Math.round(a1.rate*100)+'% (지방세 포함 '+(a1.rate*110).toFixed(1)+'%)';
+  $('o-brnote').textContent='성과급 포함 과세표준 '+man(a1.base);
+  $('o-wh').textContent='− '+won(wh);$('o-whnote').textContent=`1~${m}월을 한 기간으로 보고 계산`;
+  $('o-paid').textContent=won(B-wh-ins);
+  const ref=wh-dTax;$('o-refund').textContent=ref>0?won(ref):'거의 없음';
+  $('o-status').textContent=ref>1e5?`성과급 달엔 ${man(wh)}을 떼지만, 실제 세금은 ${man(dTax)}이라 다음 연말정산에서 약 ${man(ref)}을 돌려받아요.`:`성과급에 붙는 세금과 보험료는 약 ${man(dTax+ins)}이에요.`;
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('f-amt').hidden=mode!=='amt';$('f-pct').hidden=mode==='amt';calc()}));
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('salary').value=8000;$('bonus').value=4000;$('pct').value=50;$('month').value='1';$('people').value=1;$('kids9').value=0;document.querySelector('.seg button').click()});
+calc();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
+  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
+  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+</div></footer>
+</body>
+</html>
