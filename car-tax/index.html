@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>자동차세 연납 계산기 2027 · 1월에 내면 얼마 아낄까 | 캘코</title>
+<meta name="description" content="배기량과 차량 등록 연도를 넣으면 1년 자동차세와 지방교육세, 1월·3월·6월·9월 연납 때 공제받는 금액을 계산해요. 차령 경감과 전기차도 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/car-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="자동차세 연납 계산기 2027 · 1월에 내면 얼마 아낄까 | 캘코">
+<meta property="og:description" content="배기량과 차량 등록 연도를 넣으면 1년 자동차세와 지방교육세, 1월·3월·6월·9월 연납 때 공제받는 금액을 계산해요. 차령 경감과 전기차도 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/car-tax/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=3">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life" class=on aria-current=page>생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
+    <h1>자동차세 연납 계산기</h1>
+    <p class="lead">배기량과 차량 등록 연도를 넣으면 1년 자동차세와 지방교육세, 1월·3월·6월·9월 연납 때 공제받는 금액을 계산해요. 차령 경감과 전기차도 반영했어요.</p>
+    <span class="tag">비영업용 승용차 · 차령 경감 · 연납 공제 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div><div class="hint" style="margin-bottom:6px">차 종류</div>
+      <div class="seg" role="group" aria-label="차 종류">
+        <button type="button" data-m="ice" aria-pressed="true">일반 승용 (배기량)</button>
+        <button type="button" data-m="ev" aria-pressed="false">전기·수소차</button>
+      </div></div>
+      <label for="cc" id="cc-w">배기량 (cc)<input id="cc" type="number" inputmode="numeric" min="0" step="1" value="1998"><span class="hint">자동차등록증의 배기량을 그대로 넣어 주세요</span></label>
+      <div class="row2">
+        <label for="reg">최초 등록 연도<input id="reg" type="number" inputmode="numeric" min="1980" max="2030" step="1" value="2022"></label>
+        <label for="year">세금 내는 해<select id="year"><option value="2026">2026년</option><option value="2027" selected>2027년</option></select></label>
+      </div>
+      <div class="row2">
+        <label for="when">연납 신청 달<select id="when"><option value="1" selected>1월 (16~31일)</option><option value="3">3월 (16~31일)</option><option value="6">6월 (16~30일)</option><option value="9">9월 (16~30일)</option></select></label>
+        <label for="disc">연납 공제율 (%)<input id="disc" type="number" inputmode="decimal" min="0" max="10" step="0.5" value="5"><span class="hint">2026년 5%. 2027년분은 발표 전이라 5%로 가정</span></label>
+      </div>
+      <span class="hint">예시: 2022년에 등록한 1,998cc 승용차를 2027년 1월에 연납하는 경우예요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>자동차세 결과 <small id="o-age"></small></h2>
+      <div class="total"><span>연납으로 아끼는 금액</span><b id="o-save"></b></div>
+      <div class="lines">
+        <div class="line"><span>1년 자동차세<em id="o-basenote"></em></span><b id="o-base"></b></div>
+        <div class="line"><span>지방교육세<em>자동차세의 30%</em></span><b id="o-edu"></b></div>
+        <div class="line"><span>그냥 낼 때 1년 합계<em>6월·12월 두 번 나눠 내기</em></span><b id="o-normal"></b></div>
+        <div class="line"><span>연납 공제액<em id="o-discnote"></em></span><b id="o-disc"></b></div>
+        <div class="line"><span>연납할 때 1년 합계<em>지방교육세 포함</em></span><b id="o-annual"></b></div>
+        <div class="line"><span>연납 달에 낼 금액<em id="o-paynote"></em></span><b id="o-pay"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>자동차세 연납이란?</h2>
+    <p>자동차세는 원래 6월(1~6월분)과 12월(7~12월분)에 나눠 내요. 연납은 1년 치를 미리 한 번에 내고, <b>미리 낸 기간만큼 세금을 깎아 주는 제도</b>예요. 1월에 내면 2월부터 12월까지 11개월분에 공제율이 붙어서 혜택이 가장 커요. 공제율 5% 기준으로 실제로는 1년 세금의 약 4.6%가 줄어요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>신청 달</th><th>공제 기간</th><th>1년 세금 대비 할인 (공제율 5%)</th></tr></thead>
+      <tbody>
+        <tr><td>1월 16~31일</td><td>2월 ~ 12월</td><td>약 4.6%</td></tr>
+        <tr><td>3월 16~31일</td><td>4월 ~ 12월</td><td>약 3.8%</td></tr>
+        <tr><td>6월 16~30일</td><td>7월 ~ 12월</td><td>약 2.5%</td></tr>
+        <tr><td>9월 16~30일</td><td>10월 ~ 12월</td><td>약 1.3%</td></tr>
+      </tbody>
+    </table></div>
+    <h2>자동차세 계산 방법 (비영업용 승용차)</h2>
+    <ul>
+      <li><b>배기량별 세액:</b> 1,000cc 이하는 cc당 80원, 1,600cc 이하는 140원, 1,600cc 초과는 200원이에요.</li>
+      <li><b>전기차·수소차:</b> 배기량과 관계없이 1년 10만원이에요.</li>
+      <li><b>차령 경감:</b> 3년째 되는 해부터 매년 5%씩 깎아 주고, 12년째부터는 최대 50%까지 줄어요. 차령은 "세금 내는 해 − 최초 등록 연도 + 1"로 계산해요.</li>
+      <li><b>지방교육세:</b> 자동차세의 30%가 함께 붙어요.</li>
+    </ul>
+    <h2>연납 신청 방법</h2>
+    <ul>
+      <li><b>위택스·스마트위택스 앱</b>(서울은 이택스·STAX)에서 간편인증으로 로그인한 뒤 자동차세 연납 신고·납부를 하면 돼요.</li>
+      <li>작년에 연납했다면 올해 1월에 연납 고지서가 자동으로 오는 경우가 많아요.</li>
+      <li>연납한 뒤 차를 팔거나 폐차하면 남은 기간의 세금은 돌려받을 수 있어요.</li>
+      <li>지방세라서 신용카드로 내도 납부 대행 수수료가 붙지 않아요.</li>
+    </ul>
+    <p class="hint">2026년 연납 공제율은 5%예요. 2027년 1월 연납 공제율은 2026년 11월 현재 발표 전이라 5%로 가정했어요. 발표가 나오면 공제율 칸에 바꿔 넣거나 캘코가 업데이트할게요. 차령 계산은 연초 등록 기준으로 단순화했어요(그해 하반기 첫 등록 차량 등은 실제 고지서와 다를 수 있어요). 10원 미만은 버렸어요.</p>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/discharge/" data-k="전역일 계산기 입대일로 전역일, 남은 날, 복무율 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>전역일 계산기</strong><span>입대일로 전역일, 남은 날, 복무율 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/age/" data-k="만 나이 계산기 생년월일로 만 나이와 다음 생일까지 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>만 나이 계산기</strong><span>생년월일로 만 나이와 다음 생일까지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 2026년 4대보험·세금 빼고 월급 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기</strong><span>2026년 4대보험·세금 빼고 월급 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+let mode='ice';
+const f10=n=>Math.floor(n/10)*10;
+function calc(){
+  const Y=+$('year').value, reg=Math.floor(+$('reg').value||Y), cc=Math.max(0,Math.floor(+$('cc').value||0)), w=+$('when').value, rate=Math.max(0,+$('disc').value||0)/100;
+  const age=Math.max(1,Y-reg+1), red=age>=3?Math.min(.5,(age-2)*.05):0;
+  const per=cc<=1000?80:cc<=1600?140:200;
+  const raw=mode==='ev'?1e5:cc*per, base=f10(raw*(1-red)), edu=f10(base*.3);
+  const ydays=(Y%4===0&&Y%100!==0)||Y%400===0?366:365;
+  const start=new Date(Y,w,1), days=Math.round((new Date(Y+1,0,1)-start)/864e5);
+  const disc=f10(base*rate*days/ydays), afterTax=base-disc, afterEdu=f10(afterTax*.3);
+  const normal=base+edu, annual=afterTax+afterEdu, save=normal-annual;
+  const half=f10(base/2), halfEdu=f10(half*.3);
+  let pay=annual, pnote='1년 치를 한 번에';
+  if(w===9){pay=annual-(half+halfEdu);pnote='1기분은 6월에 이미 냈다고 보고 2기분만';}
+  else if(w===6){pnote='6월 1기분과 2기분(공제 후)을 함께';}
+  $('o-age').textContent='차령 '+age+'년'+(red?' · '+Math.round(red*100)+'% 경감':'');
+  $('o-save').textContent=won(save);
+  $('o-base').textContent=won(base);$('o-basenote').textContent=mode==='ev'?'전기·수소차 10만원'+(red?' − 차령 경감':''):`${cc.toLocaleString('ko-KR')}cc × ${per}원`+(red?' − 차령 경감':'');
+  $('o-edu').textContent=won(edu);$('o-normal').textContent=won(normal);
+  $('o-disc').textContent='− '+won(disc);$('o-discnote').textContent=`${(rate*100).toFixed(1)}% × ${days}일/${ydays}일 (${w+1}월~12월분)`;
+  $('o-annual').textContent=won(annual);$('o-pay').textContent=won(pay);$('o-paynote').textContent=pnote;
+  $('o-status').textContent=`${Y}년 ${w}월에 연납하면 ${won(save)}을 아껴요. 1년 세금 대비 약 ${(normal?save/normal*100:0).toFixed(1)}% 할인이에요.`+(w!==1?` 1월에 냈다면 더 아낄 수 있어요.`:'');
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('cc-w').hidden=mode==='ev';calc()}));
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('cc').value=1998;$('reg').value=2022;$('year').value='2027';$('when').value='1';$('disc').value=5;document.querySelector('.seg button').click()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>

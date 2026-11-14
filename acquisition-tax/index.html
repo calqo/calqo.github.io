@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=2">
+<link rel="stylesheet" href="/assets/style.css?v=3">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -58,6 +58,7 @@
         <div class="line"><span>합계 세율</span><b id="o-eff"></b></div>
       </div>
       <div class="status ok" id="o-status"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
   <article>
@@ -126,6 +127,29 @@ $('reset').addEventListener('click',()=>{$('price').value=80000;$('count').value
 calc();
 </script>
 <script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
 (function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
 const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
 document.body.appendChild(bar);document.body.classList.add('has-mbar');
@@ -142,7 +166,7 @@ new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{t
     <p>© 2026 캘코 calqo.kr</p>
   </div>
   <div class="fcols">
-    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/loan-interest/">대출 이자 계산기</a></li></ul></div>
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
     <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
     <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
   </div>

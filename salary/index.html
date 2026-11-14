@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연봉 실수령액 계산기 2026 · 월급 세후 얼마 받을까 | 캘코</title>
+<meta name="description" content="연봉을 넣으면 2026년 4대보험 요율과 근로소득세를 반영해 월 실수령액을 계산해요. 국민연금·건강보험·고용보험·소득세가 각각 얼마씩 빠지는지와 연봉별 실수령액 표도 함께 보여 드려요.">
+<link rel="canonical" href="https://calqo.kr/salary/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="연봉 실수령액 계산기 2026 · 월급 세후 얼마 받을까 | 캘코">
+<meta property="og:description" content="연봉을 넣으면 2026년 4대보험 요율과 근로소득세를 반영해 월 실수령액을 계산해요. 국민연금·건강보험·고용보험·소득세가 각각 얼마씩 빠지는지와 연봉별 실수령액 표도 함께 보여 드려요.">
+<meta property="og:url" content="https://calqo.kr/salary/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=3">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay" class=on aria-current=page>급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#pay">급여·근로</a></div>
+    <h1>연봉 실수령액 계산기</h1>
+    <p class="lead">연봉을 넣으면 2026년 4대보험 요율과 근로소득세를 반영해 월 실수령액을 계산해요. 국민연금·건강보험·고용보험·소득세가 각각 얼마씩 빠지는지와 연봉별 실수령액 표도 함께 보여 드려요.</p>
+    <span class="tag">2026년 4대보험 요율 · 근로소득 간이세액 방식 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <label for="annual">연봉 (만원)<input id="annual" type="number" inputmode="decimal" min="0" step="1" value="5000"><span class="hint">퇴직금 별도 기준, 세전</span></label>
+      <div class="row2">
+        <label for="nontax">월 비과세액 (만원)<input id="nontax" type="number" inputmode="decimal" min="0" step="1" value="20"><span class="hint">식대 등, 보통 20만원</span></label>
+        <label for="ratio">원천징수 비율<select id="ratio"><option value="0.8">80%</option><option value="1" selected>100% (기본)</option><option value="1.2">120%</option></select><span class="hint">회사에 신청해 바꿀 수 있어요</span></label>
+      </div>
+      <div class="row2">
+        <label for="people">부양가족 수 (본인 포함)<input id="people" type="number" inputmode="decimal" min="0" step="1" value="1"><span class="hint">소득 100만원 이하 가족</span></label>
+        <label for="kids">8세~20세 자녀 수<input id="kids" type="number" inputmode="decimal" min="0" step="1" value="0"></label>
+      </div>
+      <span class="hint">예시: 연봉 5천만원, 식대 비과세 20만원, 1인 가구예요. 금액은 만원 단위로 넣어 주세요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>월급 계산 결과 <small id="o-gross"></small></h2>
+      <div class="total"><span>월 실수령액</span><b id="o-net"></b></div>
+      <div class="lines">
+        <div class="line"><span>국민연금<em>4.75%, 기준소득월액 상한 있음</em></span><b id="o-nps"></b></div>
+        <div class="line"><span>건강보험<em>3.595%</em></span><b id="o-hi"></b></div>
+        <div class="line"><span>장기요양보험<em>건강보험료의 13.14%</em></span><b id="o-ltc"></b></div>
+        <div class="line"><span>고용보험<em>0.9%</em></span><b id="o-ei"></b></div>
+        <div class="line"><span>근로소득세<em id="o-taxnote"></em></span><b id="o-tax"></b></div>
+        <div class="line"><span>지방소득세<em>소득세의 10%</em></span><b id="o-local"></b></div>
+        <div class="line"><span>한 달 공제 합계<em id="o-rate"></em></span><b id="o-ded"></b></div>
+        <div class="line"><span>1년 실수령액<em>월 실수령액 × 12</em></span><b id="o-year"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>연봉별 실수령액 표 <small style="font-size:13px;color:var(--ink-3);font-weight:500" id="t-note"></small></h2>
+    <p>위에 넣은 비과세액과 부양가족 조건으로 연봉별 월 실수령액을 계산했어요. 조건을 바꾸면 표도 함께 바뀌어요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>연봉</th><th>월 공제</th><th>월 실수령액</th></tr></thead>
+      <tbody id="t-body"></tbody>
+    </table></div>
+    <h2>월급에서 빠지는 것 6가지</h2>
+    <ul>
+      <li><b>국민연금 4.75%:</b> 2026년부터 보험료율이 9%에서 9.5%로 올라 근로자 몫이 4.75%가 됐어요. 소득이 상한(월 659만원)을 넘으면 더 늘지 않아요.</li>
+      <li><b>건강보험 3.595%:</b> 2026년 건강보험료율 7.19%의 절반이에요.</li>
+      <li><b>장기요양보험:</b> 월급이 아니라 <b>건강보험료</b>에 13.14%를 곱해요.</li>
+      <li><b>고용보험 0.9%:</b> 실업급여 재원이에요.</li>
+      <li><b>근로소득세:</b> 국세청 간이세액표에 따라 매달 미리 떼고, 1년 치는 연말정산 때 확정돼요.</li>
+      <li><b>지방소득세:</b> 근로소득세의 10%예요.</li>
+    </ul>
+    <h2>실수령액을 늘리는 방법</h2>
+    <ul>
+      <li><b>비과세 항목 확인:</b> 식대(월 20만원), 자가운전보조금(월 20만원), 6세 이하 자녀 보육수당(월 20만원)은 세금과 보험료가 붙지 않아요. 명세서에 빠져 있다면 회사에 물어보세요.</li>
+      <li><b>원천징수 비율 80%:</b> 매달 떼는 세금을 줄여 월급을 늘릴 수 있어요. 다만 1년 세금 총액은 같아서, 연말정산 때 덜 돌려받거나 더 낼 수 있어요.</li>
+      <li><b>부양가족 등록:</b> 소득이 없는 부모님·자녀를 부양가족으로 올리면 매달 떼는 세금이 줄어요.</li>
+    </ul>
+    <p class="hint">근로소득세는 국세청 간이세액표를 만드는 공식(소득세법 시행령 별표2의 근로소득공제·인적공제·연금보험료공제·특별소득공제 산식)으로 계산했어요. 표는 구간별로 끊어 계산해서 실제 명세서와 몇백 원~몇천 원 차이가 날 수 있어요. 성과급·상여는 따로 <a href="/bonus-tax/">성과급 세금 계산기</a>로 계산해 보세요.</p>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/severance/" data-k="퇴직금 계산기 평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const BR=[[14e6,.06,0],[50e6,.15,1.26e6],[88e6,.24,5.76e6],[150e6,.35,15.44e6],[300e6,.38,19.94e6],[500e6,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+function baseTax(T){for(const[l,r,q]of BR)if(T<=l)return Math.max(0,T*r-q)}
+const NTX=id=>Math.max(0,+$(id).value||0)*10000;
+function earnDed(G){let d;if(G<=5e6)d=G*.7;else if(G<=15e6)d=3.5e6+(G-5e6)*.4;else if(G<=45e6)d=7.5e6+(G-15e6)*.15;else if(G<=1e8)d=12e6+(G-45e6)*.05;else d=14.75e6+(G-1e8)*.02;return Math.min(d,2e7)}
+function earnCredit(c,G){const v=c<=1.3e6?c*.55:715000+(c-1.3e6)*.3;let lim;
+  if(G<=33e6)lim=740000;else if(G<=70e6)lim=Math.max(740000-(G-33e6)*.008,660000);
+  else if(G<=120e6)lim=Math.max(660000-(G-70e6)/2,500000);else lim=Math.max(500000-(G-120e6)/2,200000);return Math.min(v,lim)}
+const f10=n=>Math.floor(n/10)*10;
+function special(G,n){const big=n>=3,b=n>=3?5e6:n===2?3.6e6:3.1e6,o4=big?Math.max(0,G-4e7)*.04:0;
+  if(G<=3e7)return b+G*(big?.07:.04);if(G<=4.5e7)return b+G*(big?.07:.04)-(G-3e7)*.05+o4;
+  if(G<=7e7)return b+G*(big?.05:.015)+o4;return b+G*(big?.03:.005)+o4}
+function month(A,nt,people,kids,ratio){
+  const gm=A/12, tm=Math.max(0,gm-nt);
+  const nps=f10(Math.min(Math.max(tm,4e5),6.59e6)*.0475), hi=f10(tm*.03595), ltc=f10(hi*.1314), ei=f10(tm*.009);
+  const G=tm*12, inc=G-earnDed(G), ded=people*1.5e6+nps*12+special(G,people);
+  const T=Math.max(0,inc-ded), t=baseTax(T);
+  const kid=kids===0?0:kids===1?25e4:kids===2?55e4:55e4+(kids-2)*4e5;
+  const fin=Math.max(0,t-earnCredit(t,G)-kid);
+  const tax=f10(fin/12*ratio), local=f10(tax*.1);
+  const sum=nps+hi+ltc+ei+tax+local;
+  return{gm,nps,hi,ltc,ei,tax,local,sum,net:gm-sum}}
+function calc(){
+  const A=NTX('annual'), nt=NTX('nontax'), people=Math.max(1,Math.floor(+$('people').value||1)), kids=Math.floor(+$('kids').value||0), ratio=+$('ratio').value;
+  const m=month(A,nt,people,kids,ratio);
+  $('o-gross').textContent='세전 월 '+won(m.gm);$('o-net').textContent=won(m.net);
+  $('o-nps').textContent='− '+won(m.nps);$('o-hi').textContent='− '+won(m.hi);$('o-ltc').textContent='− '+won(m.ltc);$('o-ei').textContent='− '+won(m.ei);
+  $('o-tax').textContent='− '+won(m.tax);$('o-local').textContent='− '+won(m.local);$('o-ded').textContent='− '+won(m.sum);
+  $('o-taxnote').textContent='부양가족 '+people+'명'+(kids?' · 자녀 '+kids+'명':'')+(ratio!==1?' · '+Math.round(ratio*100)+'%':'');
+  $('o-rate').textContent='세전 월급의 '+(m.gm?m.sum/m.gm*100:0).toFixed(1)+'%';
+  $('o-year').textContent=won(m.net*12);
+  $('o-status').textContent=`연봉 ${man(A)}이면 한 달에 약 ${man(m.net)}을 받아요. 월급의 ${(m.gm?m.sum/m.gm*100:0).toFixed(1)}%가 세금과 4대보험으로 빠져요.`;
+  let rows='';for(let a=2500;a<=15000;a+=(a<10000?500:1000)){const r=month(a*1e4,nt,people,kids,ratio);const on=Math.abs(a*1e4-A)<1;
+    rows+=`<tr${on?' style="font-weight:700;color:var(--accent)"':''}><td>${a.toLocaleString('ko-KR')}만원</td><td>${won(r.sum)}</td><td><b>${won(r.net)}</b></td></tr>`}
+  $('t-body').innerHTML=rows;$('t-note').textContent=`비과세 월 ${man(nt)} · 부양가족 ${people}명`;
+}
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('annual').value=5000;$('nontax').value=20;$('ratio').value='1';$('people').value=1;$('kids').value=0;calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
