@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,9 +36,9 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
-      <label for="annual">연봉 (만원)<input id="annual" type="number" inputmode="decimal" min="0" step="1" value="5000"><span class="hint">퇴직금 별도 기준, 세전</span></label>
+      <label for="annual">연봉 (만원)<input id="annual" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="5000"><span class="hint">퇴직금 별도 기준, 세전</span></label>
       <div class="row2">
-        <label for="nontax">월 비과세액 (만원)<input id="nontax" type="number" inputmode="decimal" min="0" step="1" value="20"><span class="hint">식대 등, 보통 20만원</span></label>
+        <label for="nontax">월 비과세액 (만원)<input id="nontax" data-warn="1000" type="number" inputmode="decimal" min="0" step="1" value="20"><span class="hint">식대 등, 보통 20만원</span></label>
         <label for="ratio">원천징수 비율<select id="ratio"><option value="0.8">80%</option><option value="1" selected>100% (기본)</option><option value="1.2">120%</option></select><span class="hint">회사에 신청해 바꿀 수 있어요</span></label>
       </div>
       <div class="row2">
@@ -88,6 +88,12 @@
       <li><b>부양가족 등록:</b> 소득이 없는 부모님·자녀를 부양가족으로 올리면 매달 떼는 세금이 줄어요.</li>
     </ul>
     <p class="hint">근로소득세는 국세청 간이세액표를 만드는 공식(소득세법 시행령 별표2의 근로소득공제·인적공제·연금보험료공제·특별소득공제 산식)으로 계산했어요. 표는 구간별로 끊어 계산해서 실제 명세서와 몇백 원~몇천 원 차이가 날 수 있어요. 성과급·상여는 따로 <a href="/bonus-tax/">성과급 세금 계산기</a>로 계산해 보세요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>지방소득세</dt><dd>소득세의 10%를 지방자치단체에 함께 내는 세금이에요.</dd></div><div><dt>국민연금</dt><dd>노후에 연금으로 돌려받는 보험료예요. 2026년 근로자 부담은 4.75%이고, 회사도 같은 금액을 내요. 소득 상한이 있어요.</dd></div><div><dt>건강보험</dt><dd>2026년 건강보험료율 7.19%를 회사와 반씩 나눠 내서, 근로자는 월급의 3.595%를 내요.</dd></div><div><dt>장기요양보험</dt><dd>노인 돌봄 서비스에 쓰는 보험료예요. 월급이 아니라 건강보험료에 13.14%를 곱해서 계산해요.</dd></div><div><dt>고용보험</dt><dd>실업급여 등에 쓰는 보험료예요. 근로자는 월급의 0.9%를 내요.</dd></div><div><dt>근로소득세</dt><dd>월급에 붙는 소득세예요. 매달 간이세액표로 미리 떼고, 1년 치는 연말정산 때 확정돼요.</dd></div><div><dt>월 비과세액</dt><dd>세금과 4대보험이 붙지 않는 급여예요. 식대(월 20만원), 자가운전보조금, 6세 이하 보육수당 등이 있어요.</dd></div><div><dt>부양가족 수</dt><dd>본인을 포함해 연 소득 100만원 이하(근로소득만 있으면 총급여 500만원 이하)인 가족 수예요. 회사에 낸 원천징수 신고 기준이에요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>연봉에 퇴직금이 포함돼 있으면 어떻게 넣나요?</summary><p>퇴직금 포함 연봉은 연봉을 13으로 나눈 12개월분만 실제 월급이에요. 연봉 ÷ 13 × 12를 연봉 칸에 넣으면 돼요.</p></details><details><summary>실수령액이 급여명세서와 조금 다른 이유는 뭔가요?</summary><p>회사가 쓰는 간이세액표 구간, 원천징수 비율(80·100·120%), 비과세 항목, 부양가족 등록 내용이 사람마다 달라서 몇천 원 정도 차이가 날 수 있어요.</p></details><details><summary>부양가족 수에는 누구를 넣나요?</summary><p>본인을 포함해 연 소득 100만원 이하(근로소득만 있으면 총급여 500만원 이하)인 배우자, 부모님, 자녀 등을 넣어요. 8세 이상 20세 이하 자녀는 자녀 수 칸에도 따로 넣으면 세금이 더 줄어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "연봉에 퇴직금이 포함돼 있으면 어떻게 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "퇴직금 포함 연봉은 연봉을 13으로 나눈 12개월분만 실제 월급이에요. 연봉 ÷ 13 × 12를 연봉 칸에 넣으면 돼요."}}, {"@type": "Question", "name": "실수령액이 급여명세서와 조금 다른 이유는 뭔가요?", "acceptedAnswer": {"@type": "Answer", "text": "회사가 쓰는 간이세액표 구간, 원천징수 비율(80·100·120%), 비과세 항목, 부양가족 등록 내용이 사람마다 달라서 몇천 원 정도 차이가 날 수 있어요."}}, {"@type": "Question", "name": "부양가족 수에는 누구를 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "본인을 포함해 연 소득 100만원 이하(근로소득만 있으면 총급여 500만원 이하)인 배우자, 부모님, 자녀 등을 넣어요. 8세 이상 20세 이하 자녀는 자녀 수 칸에도 따로 넣으면 세금이 더 줄어요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-14</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/severance/" data-k="퇴직금 계산기 평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
@@ -166,6 +172,48 @@ const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').te
 sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
 bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
 new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

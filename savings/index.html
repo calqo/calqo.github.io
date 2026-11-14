@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -41,7 +41,7 @@
         <button type="button" data-m="dep" aria-pressed="false">예금 (목돈 한 번에)</button>
         <button type="button" data-m="ins" aria-pressed="true">적금 (매달 넣기)</button>
       </div></div>
-      <label for="amt"><span id="amt-l">매달 넣는 금액 (만원)</span><input id="amt" type="number" inputmode="decimal" min="0" step="any" value="50"></label>
+      <label for="amt"><span id="amt-l">매달 넣는 금액 (만원)</span><input id="amt" data-warn="50000" type="number" inputmode="decimal" min="0" step="any" value="50"></label>
       <div class="row2">
         <label for="rate">연 이율 (%)<input id="rate" type="number" inputmode="decimal" min="0" step="0.01" value="3.5"></label>
         <label for="months">기간 (개월)<input id="months" type="number" inputmode="numeric" min="1" max="600" step="1" value="12"></label>
@@ -94,6 +94,12 @@
     </table></div>
     <p>1년 이자·배당이 합쳐서 2천만원을 넘으면 넘는 부분은 다른 소득과 합쳐 금융소득 종합과세를 받아요.</p>
     <p class="hint">세금은 10원 단위 이하를 버리고 계산했어요. 실제 이자는 은행의 일수 계산 방식(일 단위 이자, 중도해지 등)에 따라 조금 다를 수 있어요. 세율과 비과세 대상은 2026년 11월 기준이에요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>세전 이자</dt><dd>세금을 떼기 전 이자예요.</dd></div><div><dt>이자 세금</dt><dd>이자에 붙는 세금이에요. 일반과세는 소득세 14%와 지방소득세 1.4%를 합친 15.4%예요.</dd></div><div><dt>세후 이자</dt><dd>이자에서 세금을 떼고 실제로 받는 이자예요.</dd></div><div><dt>실제 체감 수익률</dt><dd>넣은 원금 전체 대비 실제로 받는 이자의 비율이에요. 적금은 돈마다 이자가 붙는 기간이 달라서 표시 금리보다 낮아요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>적금 이자가 생각보다 적은 이유는 뭔가요?</summary><p>매달 넣는 돈마다 이자가 붙는 기간이 달라서예요. 첫 달 돈은 12개월, 마지막 달 돈은 1개월만 이자가 붙어서 실제 수익률은 표시 금리의 절반 정도예요.</p></details><details><summary>단리와 월복리는 얼마나 차이 나나요?</summary><p>기간이 짧고 금리가 낮으면 차이가 작아요. 위에서 방식을 바꿔 가며 같은 조건으로 비교해 보세요.</p></details><details><summary>세금을 덜 내는 예적금도 있나요?</summary><p>농협·수협·신협·새마을금고 조합원 예탁금은 1인 3천만원까지 1.4%만 내요. 비과세종합저축처럼 세금이 없는 상품도 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "적금 이자가 생각보다 적은 이유는 뭔가요?", "acceptedAnswer": {"@type": "Answer", "text": "매달 넣는 돈마다 이자가 붙는 기간이 달라서예요. 첫 달 돈은 12개월, 마지막 달 돈은 1개월만 이자가 붙어서 실제 수익률은 표시 금리의 절반 정도예요."}}, {"@type": "Question", "name": "단리와 월복리는 얼마나 차이 나나요?", "acceptedAnswer": {"@type": "Answer", "text": "기간이 짧고 금리가 낮으면 차이가 작아요. 위에서 방식을 바꿔 가며 같은 조건으로 비교해 보세요."}}, {"@type": "Question", "name": "세금을 덜 내는 예적금도 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "농협·수협·신협·새마을금고 조합원 예탁금은 1인 3천만원까지 1.4%만 내요. 비과세종합저축처럼 세금이 없는 상품도 있어요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-14</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/loan-interest/" data-k="대출 이자 계산기 원리금균등·원금균등·만기일시 상환 비교 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/prepayment-fee/" data-k="중도상환수수료 계산기 대출을 미리 갚을 때 내는 수수료 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/average-price/" data-k="평단가 계산기 (물타기) 추가 매수 후 평균 단가와 목표 평단 수량 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>평단가 계산기 (물타기)</strong><span>추가 매수 후 평균 단가와 목표 평단 수량 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
@@ -154,6 +160,48 @@ const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').te
 sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
 bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
 new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

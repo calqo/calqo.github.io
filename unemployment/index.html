@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,7 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
-      <label for="wage">퇴사 전 3개월 월평균 급여 (만원)<input id="wage" type="number" inputmode="decimal" min="0" step="1" value="350"><span class="hint">세전, 상여금 포함</span></label>
+      <label for="wage">퇴사 전 3개월 월평균 급여 (만원)<input id="wage" data-warn="10000" type="number" inputmode="decimal" min="0" step="1" value="350"><span class="hint">세전, 상여금 포함</span></label>
       <div class="row2">
         <label for="hours">하루 소정근로시간<input id="hours" type="number" inputmode="decimal" min="0" step="1" value="8"><span class="hint">하한액 계산에 쓰여요</span></label>
         <label for="ins">고용보험 가입 기간<select id="ins"><option value="0">1년 미만</option><option value="1">1년 이상 3년 미만</option><option value="2">3년 이상 5년 미만</option><option value="3" selected>5년 이상 10년 미만</option><option value="4">10년 이상</option></select></label>
@@ -83,6 +83,12 @@
     <h2>2027년에 바뀔 수 있는 점</h2>
     <p>정부는 실업급여를 주 6일 기준으로 지급하는 개편안과 상한액 기준 변경을 추진하고 있어요. 아직 확정되지 않아서 이 계산기는 2026년 기준으로 계산해요. 확정되면 바로 반영할게요.</p>
     <p class="hint">기준: 고용보험법, 2026년 구직급여 상·하한액. 1일 평균임금은 3개월을 91일로 단순화해 계산했어요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>고용보험</dt><dd>실업급여 등에 쓰는 보험료예요. 근로자는 월급의 0.9%를 내요.</dd></div><div><dt>1일 평균임금</dt><dd>퇴사 전 3개월 동안 받은 임금 총액을 그 기간의 날짜 수로 나눈 금액이에요. 퇴직금과 실업급여의 기준이에요.</dd></div><div><dt>1일 구직급여</dt><dd>실업급여로 하루에 받는 금액이에요. 1일 평균임금의 60%이고, 상한액과 하한액이 있어요.</dd></div><div><dt>받을 수 있는 날</dt><dd>실업급여를 받는 날 수(소정급여일수)예요. 나이와 고용보험 가입 기간에 따라 120~270일이에요.</dd></div><div><dt>하루 소정근로시간</dt><dd>근로계약서에 정한 하루 근무시간이에요(최대 8시간). 실업급여 하한액을 계산할 때 써요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>자발적으로 퇴사해도 실업급여를 받을 수 있나요?</summary><p>원칙적으로는 받을 수 없어요. 다만 임금 체불, 통근이 어려워진 이사, 직장 내 괴롭힘 같은 정당한 사유가 있으면 받을 수 있어요.</p></details><details><summary>실업급여는 언제까지 신청해야 하나요?</summary><p>퇴사 다음 날부터 12개월 안에 다 받아야 해서, 늦게 신청하면 받을 수 있는 날이 줄어요. 퇴사 후 바로 고용24에서 구직 신청을 하는 게 좋아요.</p></details><details><summary>실업급여 받는 중에 아르바이트를 해도 되나요?</summary><p>할 수는 있지만 반드시 고용센터에 신고해야 해요. 신고하지 않으면 부정수급이 되어 받은 돈을 돌려줘야 하고 추가 징수도 될 수 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "자발적으로 퇴사해도 실업급여를 받을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "원칙적으로는 받을 수 없어요. 다만 임금 체불, 통근이 어려워진 이사, 직장 내 괴롭힘 같은 정당한 사유가 있으면 받을 수 있어요."}}, {"@type": "Question", "name": "실업급여는 언제까지 신청해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "퇴사 다음 날부터 12개월 안에 다 받아야 해서, 늦게 신청하면 받을 수 있는 날이 줄어요. 퇴사 후 바로 고용24에서 구직 신청을 하는 게 좋아요."}}, {"@type": "Question", "name": "실업급여 받는 중에 아르바이트를 해도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "할 수는 있지만 반드시 고용센터에 신고해야 해요. 신고하지 않으면 부정수급이 되어 받은 돈을 돌려줘야 하고 추가 징수도 될 수 있어요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-14</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 2026년 4대보험·세금 빼고 월급 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기</strong><span>2026년 4대보험·세금 빼고 월급 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
@@ -141,6 +147,48 @@ const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').te
 sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
 bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
 new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

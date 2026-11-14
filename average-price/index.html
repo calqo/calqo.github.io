@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -96,6 +96,12 @@
       <li>이 계산기는 산수를 도와주는 도구이며, 특정 종목의 매수·매도를 권하지 않아요. 투자 판단과 결과의 책임은 투자자 본인에게 있어요.</li>
     </ul>
     <p>시장 흐름이 궁금하면 <a href="/market/">오늘의 시장</a>에서 지수와 환율을 함께 확인해 보세요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>본전까지 필요한 상승률</dt><dd>현재가가 평단가까지 오르려면 필요한 상승률이에요.</dd></div><div><dt>평단가 변화</dt><dd>추가로 산 뒤 평균 매수 단가가 얼마나 바뀌는지 보여 줘요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>해외주식도 계산할 수 있나요?</summary><p>네. 달러 가격을 그대로 넣으면 달러 기준 평단가가 나와요. 원화 기준 평단가는 환율에 따라 달라져요.</p></details><details><summary>일부를 팔면 평단가가 바뀌나요?</summary><p>국내 증권사 대부분이 쓰는 이동평균법에서는 일부를 팔아도 남은 주식의 평단가는 그대로예요.</p></details><details><summary>수수료와 세금도 포함되나요?</summary><p>포함하지 않았어요. 증권사 수수료와 세금은 따로 확인해 주세요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "해외주식도 계산할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 달러 가격을 그대로 넣으면 달러 기준 평단가가 나와요. 원화 기준 평단가는 환율에 따라 달라져요."}}, {"@type": "Question", "name": "일부를 팔면 평단가가 바뀌나요?", "acceptedAnswer": {"@type": "Answer", "text": "국내 증권사 대부분이 쓰는 이동평균법에서는 일부를 팔아도 남은 주식의 평단가는 그대로예요."}}, {"@type": "Question", "name": "수수료와 세금도 포함되나요?", "acceptedAnswer": {"@type": "Answer", "text": "포함하지 않았어요. 증권사 수수료와 세금은 따로 확인해 주세요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-14</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/loan-interest/" data-k="대출 이자 계산기 원리금균등·원금균등·만기일시 상환 비교 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/prepayment-fee/" data-k="중도상환수수료 계산기 대출을 미리 갚을 때 내는 수수료 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/savings/" data-k="예·적금 이자 계산기 세후 이자와 만기 수령액, 단리·월복리 비교 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>예·적금 이자 계산기</strong><span>세후 이자와 만기 수령액, 단리·월복리 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
@@ -160,6 +166,48 @@ const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').te
 sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
 bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
 new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

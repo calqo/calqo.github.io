@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -40,10 +40,10 @@
         <label for="start">입사일<input id="start" type="date" value="2017-03-02"></label>
         <label for="end">퇴사일<input id="end" type="date" value="2026-12-31"><span class="hint">마지막 근무일 다음 날</span></label>
       </div>
-      <label for="pay3">퇴사 전 3개월 급여 합계 (만원)<input id="pay3" type="number" inputmode="decimal" min="0" step="1" value="1500"><span class="hint">기본급+고정수당, 세전</span></label>
+      <label for="pay3">퇴사 전 3개월 급여 합계 (만원)<input id="pay3" data-warn="30000" type="number" inputmode="decimal" min="0" step="1" value="1500"><span class="hint">기본급+고정수당, 세전</span></label>
       <div class="row2">
-        <label for="bonus">1년 상여금 (만원)<input id="bonus" type="number" inputmode="decimal" min="0" step="1" value="600"></label>
-        <label for="leave">1년 연차수당 (만원)<input id="leave" type="number" inputmode="decimal" min="0" step="1" value="60"></label>
+        <label for="bonus">1년 상여금 (만원)<input id="bonus" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="600"></label>
+        <label for="leave">1년 연차수당 (만원)<input id="leave" data-warn="10000" type="number" inputmode="decimal" min="0" step="1" value="60"></label>
       </div>
       <span class="hint">예시 값이 들어가 있어요. 상여금과 연차수당은 3/12만큼 평균임금에 들어가요.</span>
       <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
@@ -91,6 +91,12 @@
     </table></div>
     <h2>IRP로 받으면 세금이 줄어요</h2>
     <p>퇴직금을 IRP 계좌로 받으면 그때는 세금을 떼지 않아요. 나중에 연금으로 나눠 받으면 퇴직소득세의 <b>70%</b>(연금 수령 10년이 넘는 부분은 60%)만 내요. 55세 전에 한 번에 찾으면 원래 세금을 그대로 내요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>지방소득세</dt><dd>소득세의 10%를 지방자치단체에 함께 내는 세금이에요.</dd></div><div><dt>실효세율</dt><dd>실제로 내는 세금을 전체 소득으로 나눈 비율이에요. 구간별 세율보다 낮게 나와요.</dd></div><div><dt>1일 평균임금</dt><dd>퇴사 전 3개월 동안 받은 임금 총액을 그 기간의 날짜 수로 나눈 금액이에요. 퇴직금과 실업급여의 기준이에요.</dd></div><div><dt>퇴직소득세</dt><dd>퇴직금에 붙는 세금이에요. 근속연수공제와 환산급여공제가 커서 같은 금액의 근로소득보다 세금이 훨씬 적어요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>1년이 안 돼서 퇴사하면 퇴직금이 없나요?</summary><p>네, 원칙적으로 1년 이상 일하고 4주 평균 주 15시간 이상 근무해야 퇴직금을 받을 수 있어요.</p></details><details><summary>퇴직금은 언제까지 받아야 하나요?</summary><p>퇴직한 날부터 14일 안에 받아야 해요. 회사와 합의하면 기한을 늘릴 수 있어요.</p></details><details><summary>평균임금이 통상임금보다 적으면 어떻게 하나요?</summary><p>근로기준법에 따라 통상임금을 평균임금으로 보고 퇴직금을 계산해요. 휴직 등으로 최근 3개월 급여가 적었던 경우가 해당돼요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "1년이 안 돼서 퇴사하면 퇴직금이 없나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 원칙적으로 1년 이상 일하고 4주 평균 주 15시간 이상 근무해야 퇴직금을 받을 수 있어요."}}, {"@type": "Question", "name": "퇴직금은 언제까지 받아야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "퇴직한 날부터 14일 안에 받아야 해요. 회사와 합의하면 기한을 늘릴 수 있어요."}}, {"@type": "Question", "name": "평균임금이 통상임금보다 적으면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "근로기준법에 따라 통상임금을 평균임금으로 보고 퇴직금을 계산해요. 휴직 등으로 최근 3개월 급여가 적었던 경우가 해당돼요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-14</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 2026년 4대보험·세금 빼고 월급 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기</strong><span>2026년 4대보험·세금 빼고 월급 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
@@ -162,6 +168,48 @@ const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').te
 sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
 bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
 new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

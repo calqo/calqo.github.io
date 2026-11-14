@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=3">
+<link rel="stylesheet" href="/assets/style.css?v=4">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -45,7 +45,7 @@
       <div id="f-price"><label for="price">거래 금액 (만원)<input id="price" type="number" inputmode="decimal" min="0" step="1" value="70000"><span class="hint">매매가 또는 전세보증금</span></label></div>
       <div id="f-monthly" hidden><div class="row2">
         <label for="dep">보증금 (만원)<input id="dep" type="number" inputmode="decimal" min="0" step="1" value="3000"></label>
-        <label for="rent">월세 (만원)<input id="rent" type="number" inputmode="decimal" min="0" step="1" value="100"></label>
+        <label for="rent">월세 (만원)<input id="rent" data-warn="1000" type="number" inputmode="decimal" min="0" step="1" value="100"></label>
       </div></div>
       <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="vat" type="checkbox" checked style="width:auto"> 부가세 10% 포함해서 보기 (일반과세자 중개사무소)</label>
       <span class="hint">예시로 7억 원 매매가 들어가 있어요.</span>
@@ -100,6 +100,12 @@
       <li>오피스텔(전용 85㎡ 이하, 주거용 시설)은 매매 0.5%, 임대차 0.4%가 상한이에요.</li>
     </ul>
     <p class="hint">기준: 공인중개사법 시행규칙(2021년 10월 19일 시행), 서울시 주택 중개보수 조례.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>상한 요율</dt><dd>법으로 정한 중개보수의 최고 비율이에요. 실제 금액은 이 범위 안에서 중개사와 협의해요.</dd></div><div><dt>한도액</dt><dd>요율로 계산한 금액이 이보다 크더라도 이 금액까지만 받을 수 있는 상한이에요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>중개보수에 부가세가 포함돼 있나요?</summary><p>아니요. 상한 요율은 부가세 별도예요. 중개사무소가 일반과세자면 10%가 더 붙을 수 있어요.</p></details><details><summary>월세 중개보수는 어떻게 계산하나요?</summary><p>보증금 + 월세 × 100을 거래 금액으로 봐요. 그 금액이 5천만원 미만이면 보증금 + 월세 × 70으로 다시 계산해요.</p></details><details><summary>중개보수를 깎을 수 있나요?</summary><p>네. 표의 요율은 최대치라서 그 안에서 협의할 수 있어요. 계약 전에 금액을 미리 정해 두는 게 좋아요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "중개보수에 부가세가 포함돼 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 상한 요율은 부가세 별도예요. 중개사무소가 일반과세자면 10%가 더 붙을 수 있어요."}}, {"@type": "Question", "name": "월세 중개보수는 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "보증금 + 월세 × 100을 거래 금액으로 봐요. 그 금액이 5천만원 미만이면 보증금 + 월세 × 70으로 다시 계산해요."}}, {"@type": "Question", "name": "중개보수를 깎을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 표의 요율은 최대치라서 그 안에서 협의할 수 있어요. 계약 전에 금액을 미리 정해 두는 게 좋아요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-14</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/acquisition-tax/" data-k="취득세 계산기 주택 살 때 내는 취득세·지방교육세·농특세 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><span class="kicker">부동산</span><strong>취득세 계산기</strong><span>주택 살 때 내는 취득세·지방교육세·농특세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/rent-conversion/" data-k="전월세 전환 계산기 전세↔월세 바꿀 때 적정 금액 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><span class="kicker">부동산</span><strong>전월세 전환 계산기</strong><span>전세↔월세 바꿀 때 적정 금액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/pyeong/" data-k="평수 계산기 평과 제곱미터(㎡) 서로 변환 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><span class="kicker">부동산</span><strong>평수 계산기</strong><span>평과 제곱미터(㎡) 서로 변환</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
@@ -161,6 +167,48 @@ const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').te
 sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
 bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
 new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">
