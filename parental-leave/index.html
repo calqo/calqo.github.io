@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>육아휴직 급여 계산기 2026 · 6+6 부모육아휴직제 월별 수령액 | 캘코</title>
+<meta name="description" content="월 통상임금과 육아휴직 개월 수를 넣으면 2026년 기준 육아휴직 급여를 달마다 계산해요. 1~3개월 250만원·4~6개월 200만원·7개월부터 160만원 상한과 6+6 부모육아휴직제(최대 450만원), 한부모 특례를 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/parental-leave/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="육아휴직 급여 계산기 2026 · 6+6 부모육아휴직제 월별 수령액 | 캘코">
+<meta property="og:description" content="월 통상임금과 육아휴직 개월 수를 넣으면 2026년 기준 육아휴직 급여를 달마다 계산해요. 1~3개월 250만원·4~6개월 200만원·7개월부터 160만원 상한과 6+6 부모육아휴직제(최대 450만원), 한부모 특례를 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/parental-leave/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=4">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay" class=on aria-current=page>급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#pay">급여·근로</a></div>
+    <h1>육아휴직 급여 계산기</h1>
+    <p class="lead">월 통상임금과 육아휴직 개월 수를 넣으면 2026년 기준 육아휴직 급여를 달마다 계산해요. 1~3개월 250만원·4~6개월 200만원·7개월부터 160만원 상한과 6+6 부모육아휴직제(최대 450만원), 한부모 특례를 반영했어요.</p>
+    <span class="tag">2026년 기준 · 사후지급금 없이 전액 지급 · 비과세</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="row2">
+        <label for="wage">월 통상임금 (만원)<input id="wage" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="400"><span class="hint">기본급 + 매달 고정 수당, 세전</span></label>
+        <label for="months">육아휴직 개월 수<input id="months" type="number" inputmode="numeric" min="1" max="18" step="1" value="12"><span class="hint">기본 12개월, 부모 각 3개월 이상 쓰면 18개월</span></label>
+      </div>
+      <label for="kind">적용 유형<select id="kind"><option value="gen">일반 육아휴직</option><option value="66" selected>6+6 부모육아휴직제 (생후 18개월 이내, 부모 모두 사용)</option><option value="single">한부모</option></select></label>
+      <div id="f-sp"><div class="row2">
+        <label for="sp">배우자 육아휴직 개월 수<input id="sp" type="number" inputmode="numeric" min="0" max="18" step="1" value="6"></label>
+        <label for="swage">배우자 월 통상임금 (만원)<input id="swage" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="350"><span class="hint">부부 합계를 보려면 넣어 주세요</span></label>
+      </div></div>
+      <span class="hint">예시: 통상임금 400만원인 엄마가 12개월, 통상임금 350만원인 아빠가 6개월 쓰는 경우예요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>육아휴직 급여 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span>내 육아휴직 급여 총액</span><b id="o-total"></b></div>
+      <div class="lines">
+        <div class="line"><span>첫 달 급여<em id="o-firstnote"></em></span><b id="o-first"></b></div>
+        <div class="line"><span>한 달 평균</span><b id="o-avg"></b></div>
+        <div class="line"><span>일반 육아휴직보다 더 받는 금액<em id="o-morenote"></em></span><b id="o-more"></b></div>
+        <div class="line" id="l-sp"><span>배우자 급여 총액<em id="o-spnote"></em></span><b id="o-sp"></b></div>
+        <div class="line" id="l-both"><span>부부 합계</span><b id="o-both"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>달마다 받는 금액 <small style="font-size:13px;color:var(--ink-3);font-weight:500" id="t-note"></small></h2>
+    <div class="tbl"><table>
+      <thead><tr><th>개월</th><th>지급 기준</th><th>상한</th><th>받는 금액</th></tr></thead>
+      <tbody id="t-body"></tbody>
+    </table></div>
+    <h2>2026년 육아휴직 급여 기준</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>개월</th><th>일반</th><th>6+6 부모육아휴직제</th><th>한부모</th></tr></thead>
+      <tbody>
+        <tr><td>1개월</td><td rowspan="3">100%, 상한 250만원</td><td>100%, 상한 250만원</td><td rowspan="3">100%, 상한 300만원</td></tr>
+        <tr><td>2개월</td><td>100%, 상한 250만원</td></tr>
+        <tr><td>3개월</td><td>100%, 상한 300만원</td></tr>
+        <tr><td>4개월</td><td rowspan="3">100%, 상한 200만원</td><td>100%, 상한 350만원</td><td rowspan="3">100%, 상한 200만원</td></tr>
+        <tr><td>5개월</td><td>100%, 상한 400만원</td></tr>
+        <tr><td>6개월</td><td>100%, 상한 450만원</td></tr>
+        <tr><td>7개월부터</td><td colspan="3">통상임금의 80%, 상한 160만원</td></tr>
+      </tbody>
+    </table></div>
+    <p>모든 달의 하한은 월 70만원이에요. 2025년부터 급여의 25%를 복직 뒤에 주던 사후지급금이 없어져서, 휴직 중에 전액을 받아요. 육아휴직 급여는 비과세라 세금을 떼지 않아요.</p>
+    <h2>6+6 부모육아휴직제 조건</h2>
+    <ul>
+      <li>같은 자녀가 <b>생후 18개월이 되기 전</b>에 부모가 모두 육아휴직을 써야 해요. 동시에 써도 되고 차례로 써도 돼요.</li>
+      <li>특례는 부모 각자의 첫 6개월에 적용되는데, <b>두 사람 중 짧게 쓴 개월 수만큼만</b> 적용돼요. 배우자가 3개월만 쓰면 두 사람 모두 3개월째까지만 특례 상한을 받아요.</li>
+      <li>먼저 휴직한 사람은 일반 기준으로 받다가, 배우자가 휴직을 시작하면 차액을 추가로 받아요.</li>
+    </ul>
+    <h2>신청 방법</h2>
+    <ul>
+      <li>회사에 휴직 시작 30일 전까지 신청하고, 회사가 고용센터에 '육아휴직 확인서'를 내요.</li>
+      <li>휴직 시작 1개월 뒤부터 고용24(work24.go.kr)에서 매달 또는 몇 달치를 한꺼번에 신청해요. 휴직이 끝나고 12개월이 지나면 받을 수 없어요.</li>
+      <li>휴직 전 고용보험 가입 기간(피보험 단위기간)이 180일 이상이어야 해요.</li>
+    </ul>
+    <p class="hint">한 달을 다 채우지 못한 달은 일수에 비례해 줄어들어요. 나눠 쓰면 개월 수를 이어서 세요(3개월 쓰고 복직 후 다시 쓰면 4개월째부터). 휴직 중 회사에서 받은 돈이 있으면 줄어들 수 있어요. 2026년 11월 기준이며, 정확한 금액은 고용24나 고용센터에서 확인해 주세요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>월 통상임금</dt><dd>정기적·일률적으로 받는 임금의 한 달 치예요. 기본급과 매달 고정으로 나오는 수당을 더하고, 성과급이나 실적에 따른 수당은 빼요.</dd></div><div><dt>일반 육아휴직보다 더 받는 금액</dt><dd>6+6 부모육아휴직제나 한부모 특례로 늘어나는 금액이에요. 같은 기간을 일반 기준으로 받았을 때와 비교했어요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>육아휴직 급여에도 세금이 붙나요?</summary><p>아니요. 육아휴직 급여는 비과세라 세금을 떼지 않고 연말정산 때도 소득에 넣지 않아요.</p></details><details><summary>통상임금은 어떻게 확인하나요?</summary><p>급여명세서에서 기본급과 매달 고정으로 나오는 수당을 더하면 돼요. 정확한 금액은 회사 인사팀이나 고용센터에 문의하세요.</p></details><details><summary>아빠가 나중에 휴직해도 6+6이 적용되나요?</summary><p>네. 자녀가 생후 18개월이 되기 전에 시작하면 순서와 상관없이 적용돼요. 먼저 휴직한 사람은 일반 기준으로 받다가, 배우자가 휴직하면 차액을 추가로 받아요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "육아휴직 급여에도 세금이 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 육아휴직 급여는 비과세라 세금을 떼지 않고 연말정산 때도 소득에 넣지 않아요."}}, {"@type": "Question", "name": "통상임금은 어떻게 확인하나요?", "acceptedAnswer": {"@type": "Answer", "text": "급여명세서에서 기본급과 매달 고정으로 나오는 수당을 더하면 돼요. 정확한 금액은 회사 인사팀이나 고용센터에 문의하세요."}}, {"@type": "Question", "name": "아빠가 나중에 휴직해도 6+6이 적용되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 자녀가 생후 18개월이 되기 전에 시작하면 순서와 상관없이 적용돼요. 먼저 휴직한 사람은 일반 기준으로 받다가, 배우자가 휴직하면 차액을 추가로 받아요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 2026년 4대보험·세금 빼고 월급 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기</strong><span>2026년 4대보험·세금 빼고 월급 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/raise/" data-k="연봉 인상률 계산기 인상 후 월 실수령액이 실제로 얼마나 느는지 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 인상률 계산기</strong><span>인상 후 월 실수령액이 실제로 얼마나 느는지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const MW=id=>Math.max(0,+$(id).value||0)*1e4;
+const C66=[250,250,300,350,400,450];
+function rule(k,kind,sp){// k: 1부터
+  if(kind==='66'&&k<=Math.min(6,sp))return[1,C66[k-1]*1e4,'6+6 특례'];
+  if(k<=3)return[1,(kind==='single'?300:250)*1e4,kind==='single'?'한부모':'일반'];
+  if(k<=6)return[1,200e4,'일반'];return[.8,160e4,'일반']}
+function plan(w,n,kind,sp){const out=[];let tot=0;for(let k=1;k<=n;k++){const[r,cap,lab]=rule(k,kind,sp);const v=Math.max(70e4,Math.min(w*r,cap));out.push({k,r,cap,lab,v});tot+=v}return{out,tot}}
+function calc(){
+  const w=MW('wage'),n=Math.max(1,Math.min(18,Math.floor(+$('months').value||1))),kind=$('kind').value,is66=kind==='66';
+  const sp=Math.max(0,Math.min(18,Math.floor(+$('sp').value||0))),sw=MW('swage');
+  $('f-sp').hidden=!is66;
+  const me=plan(w,n,kind,sp),gen=plan(w,n,'gen',0);
+  $('o-sub').textContent=n+'개월 · '+$('kind').selectedOptions[0].textContent.split(' (')[0];
+  $('o-total').textContent=won(me.tot);$('o-first').textContent=won(me.out[0].v);$('o-firstnote').textContent=me.out[0].lab+' · 상한 '+man(me.out[0].cap);
+  $('o-avg').textContent=won(me.tot/n);
+  $('o-more').textContent='+ '+won(me.tot-gen.tot);$('o-morenote').textContent=kind==='gen'?'일반 기준으로 계산했어요':'일반 육아휴직 '+won(gen.tot)+'과 비교';
+  let spT=0;
+  if(is66&&sp>0){const s=plan(sw,sp,'66',n);spT=s.tot;$('o-sp').textContent=won(spT);$('o-spnote').textContent=sp+'개월 · 통상임금 '+man(sw)}
+  $('l-sp').hidden=!(is66&&sp>0&&sw>0);$('l-both').hidden=!(is66&&sp>0&&sw>0);$('o-both').textContent=won(me.tot+spT);
+  const k66=Math.min(6,sp,n);
+  let msg=`${n}개월 동안 모두 ${won(me.tot)}을 받아요. 한 달 평균 ${man(me.tot/n)}이에요.`;
+  if(is66&&sp===0)msg+=' 배우자가 육아휴직을 쓰지 않으면 6+6 특례가 적용되지 않아 일반 기준으로 계산했어요.';
+  else if(is66&&k66<6)msg+=` 6+6 특례는 짧게 쓴 쪽에 맞춰 ${k66}개월째까지만 적용돼요.`;
+  if(n>12)msg+=' 12개월을 넘는 기간은 부모 각 3개월 이상 사용, 한부모 등 조건을 채워야 해요.';
+  $('o-status').textContent=msg;
+  $('t-body').innerHTML=me.out.map(o=>`<tr><td>${o.k}개월</td><td>${o.lab} · ${Math.round(o.r*100)}%</td><td>${man(o.cap)}</td><td><b>${won(o.v)}</b></td></tr>`).join('');
+  $('t-note').textContent='월 통상임금 '+man(w);
+}
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('wage').value=400;$('months').value=12;$('kind').value='66';$('sp').value=6;$('swage').value=350;calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>

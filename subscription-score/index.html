@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>청약 가점 계산기 2026 · 무주택기간·부양가족·통장 84점 | 캘코</title>
+<meta name="description" content="생년월일, 혼인신고일, 무주택 기간, 부양가족, 청약통장 가입일을 넣으면 민영주택 청약 가점(84점 만점)을 바로 계산해요. 배우자 통장 합산(최대 3점)과 다음 점수가 오르는 날짜도 알려 드려요.">
+<link rel="canonical" href="https://calqo.kr/subscription-score/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="청약 가점 계산기 2026 · 무주택기간·부양가족·통장 84점 | 캘코">
+<meta property="og:description" content="생년월일, 혼인신고일, 무주택 기간, 부양가족, 청약통장 가입일을 넣으면 민영주택 청약 가점(84점 만점)을 바로 계산해요. 배우자 통장 합산(최대 3점)과 다음 점수가 오르는 날짜도 알려 드려요.">
+<meta property="og:url" content="https://calqo.kr/subscription-score/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=4">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home" class=on aria-current=page>부동산</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#home">부동산</a></div>
+    <h1>청약 가점 계산기</h1>
+    <p class="lead">생년월일, 혼인신고일, 무주택 기간, 부양가족, 청약통장 가입일을 넣으면 민영주택 청약 가점(84점 만점)을 바로 계산해요. 배우자 통장 합산(최대 3점)과 다음 점수가 오르는 날짜도 알려 드려요.</p>
+    <span class="tag">주택공급에 관한 규칙 별표1 · 배우자 통장 합산 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="row2">
+        <label for="birth">생년월일<input id="birth" type="date" value="1991-05-10"></label>
+        <label for="ref">모집공고일 (기준일)<input id="ref" type="date"><span class="hint">오늘 날짜로 들어가 있어요</span></label>
+      </div>
+      <div class="row2">
+        <label for="married">혼인 여부<select id="married"><option value="0">미혼</option><option value="1" selected>기혼</option></select></label>
+        <div id="f-mdate"><label for="mdate">혼인신고일<input id="mdate" type="date" value="2020-10-17"></label></div>
+      </div>
+      <label for="house">주택 소유 이력 (세대원 모두)<select id="house"><option value="never" selected>집을 가진 적 없음</option><option value="sold">가졌다가 처분함</option><option value="own">지금 집이 있음</option></select></label>
+      <div id="f-sold" hidden><label for="sold">무주택이 된 날 (처분 등기일)<input id="sold" type="date" value="2019-06-01"></label></div>
+      <h2 style="font-size:15px;margin:4px 0 0">부양가족 <small style="font-weight:500;color:var(--ink-3)">본인 제외, 배우자는 혼인 여부로 자동 반영</small></h2>
+      <div class="row2">
+        <label for="parents">부모님·조부모님 수<input id="parents" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">3년 이상 같은 주민등록등본</span></label>
+        <label for="kids">미혼 자녀 수<input id="kids" type="number" inputmode="decimal" min="0" step="1" value="1"><span class="hint">만 30세 이상은 1년 이상 같은 등본</span></label>
+      </div>
+      <div class="row2">
+        <label for="acc">내 청약통장 가입일<input id="acc" type="date" value="2015-03-02"></label>
+        <label for="sacc">배우자 청약통장 가입일<input id="sacc" type="date" value="2018-07-01"><span class="hint">없으면 비워 두세요</span></label>
+      </div>
+      <span class="hint">예시: 1991년생, 2020년 결혼, 집을 가진 적 없는 부부와 자녀 1명이에요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>청약 가점 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span>내 청약 가점</span><b id="o-total"></b></div>
+      <div class="bar" aria-hidden="true"><i id="o-bar" style="display:block;height:100%;background:var(--accent);width:0"></i></div>
+      <div class="lines">
+        <div class="line"><span>무주택기간 점수<em id="o-hnote"></em></span><b id="o-h"></b></div>
+        <div class="line"><span>부양가족 점수<em id="o-fnote"></em></span><b id="o-f"></b></div>
+        <div class="line"><span>청약통장 점수<em id="o-anote"></em></span><b id="o-a"></b></div>
+        <div class="line"><span>다음 점수 오르는 날<em id="o-nextnote"></em></span><b id="o-next"></b></div>
+      </div>
+      <div class="status ok" id="o-status"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>청약 가점 배점표 (84점 만점)</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>항목</th><th>점수 계산</th><th>만점</th></tr></thead>
+      <tbody>
+        <tr><td>무주택기간</td><td>1년 미만 2점, 이후 1년마다 2점씩 더해요. 만 30세 미만 미혼이거나 집이 있으면 0점</td><td>32점 (15년 이상)</td></tr>
+        <tr><td>부양가족 수</td><td>0명 5점, 1명마다 5점씩 더해요</td><td>35점 (6명 이상)</td></tr>
+        <tr><td>청약통장 가입기간</td><td>6개월 미만 1점, 6개월~1년 2점, 이후 1년마다 1점씩 더해요</td><td>17점 (15년 이상)</td></tr>
+      </tbody>
+    </table></div>
+    <h2>무주택기간은 언제부터 세나요?</h2>
+    <ul>
+      <li><b>만 30세가 된 날</b>부터 세요. 만 30세 전에 혼인신고를 했다면 <b>혼인신고일</b>부터 세요.</li>
+      <li>집을 가졌다가 팔았다면, 위 날짜와 <b>마지막으로 무주택이 된 날</b> 중 늦은 날부터 세요.</li>
+      <li>신청자와 배우자, 같은 등본의 세대원 모두 집이 없어야 해요. 만 60세 이상 부모님이 가진 집 등 일부는 예외로 집으로 보지 않아요.</li>
+    </ul>
+    <h2>부양가족으로 인정받는 사람</h2>
+    <ul>
+      <li><b>배우자:</b> 주민등록이 따로 있어도 인정돼요.</li>
+      <li><b>부모님·조부모님 (배우자 쪽 포함):</b> 신청자가 세대주이고, 모집공고일 기준 3년 이상 계속 같은 등본에 있어야 해요. 부모님이 집을 갖고 있으면 빠져요.</li>
+      <li><b>자녀:</b> 미혼이어야 해요. 만 30세 이상 자녀는 1년 이상 같은 등본에 있어야 해요.</li>
+    </ul>
+    <h2>청약통장 점수 팁</h2>
+    <ul>
+      <li>2024년 3월 25일부터 배우자 통장 가입기간의 절반을 점수로 더해 줘요(최대 3점). 배우자가 2년 이상 가입했으면 3점이에요.</li>
+      <li>미성년자 때 가입한 기간은 최대 5년까지 인정돼요.</li>
+      <li>가점이 같으면 청약통장 가입기간이 긴 사람이 먼저 당첨돼요.</li>
+    </ul>
+    <p class="hint">민영주택 일반공급 가점제 기준이에요. 특별공급과 공공분양(국민주택)은 기준이 달라요. 가점을 잘못 넣으면 당첨이 취소되고 일정 기간 청약이 제한될 수 있으니, 신청 전에 청약홈(applyhome.co.kr)에서 한 번 더 확인해 주세요. 단지별 당첨 가점은 청약홈 '당첨 가점 조회'에서 볼 수 있어요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>무주택기간 점수</dt><dd>만 30세(그 전에 결혼했다면 혼인신고일)부터 집 없이 지낸 기간 점수예요. 1년 미만 2점, 1년마다 2점씩 늘어 15년 이상 32점이에요.</dd></div><div><dt>부양가족 점수</dt><dd>본인을 뺀 부양가족 수 점수예요. 0명 5점, 1명마다 5점씩 늘어 6명 이상 35점이에요.</dd></div><div><dt>청약통장 점수</dt><dd>청약통장 가입기간 점수예요. 6개월 미만 1점, 1년마다 1점씩 늘어 15년 이상 17점이에요. 배우자 통장 점수를 최대 3점까지 더해요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>부양가족에 나 자신도 넣나요?</summary><p>아니요. 본인은 빼고 배우자, 3년 이상 같은 등본의 부모님, 미혼 자녀를 세요. 부양가족이 없으면 5점이에요.</p></details><details><summary>30살 전에 결혼했는데 무주택기간은 언제부터 세나요?</summary><p>만 30세 전에 혼인신고를 했다면 혼인신고일부터 세요. 결혼하지 않았다면 만 30세가 된 날부터 세요.</p></details><details><summary>가점을 틀리게 넣으면 어떻게 되나요?</summary><p>당첨 뒤 서류 확인에서 부적격으로 당첨이 취소되고, 일정 기간 다른 청약에 당첨될 수 없어요. 신청 전에 청약홈의 가점 계산기와 등본으로 꼭 확인하세요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "부양가족에 나 자신도 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 본인은 빼고 배우자, 3년 이상 같은 등본의 부모님, 미혼 자녀를 세요. 부양가족이 없으면 5점이에요."}}, {"@type": "Question", "name": "30살 전에 결혼했는데 무주택기간은 언제부터 세나요?", "acceptedAnswer": {"@type": "Answer", "text": "만 30세 전에 혼인신고를 했다면 혼인신고일부터 세요. 결혼하지 않았다면 만 30세가 된 날부터 세요."}}, {"@type": "Question", "name": "가점을 틀리게 넣으면 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "당첨 뒤 서류 확인에서 부적격으로 당첨이 취소되고, 일정 기간 다른 청약에 당첨될 수 없어요. 신청 전에 청약홈의 가점 계산기와 등본으로 꼭 확인하세요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/acquisition-tax/" data-k="취득세 계산기 주택 살 때 내는 취득세·지방교육세·농특세 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><span class="kicker">부동산</span><strong>취득세 계산기</strong><span>주택 살 때 내는 취득세·지방교육세·농특세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/brokerage-fee/" data-k="부동산 중개보수 계산기 매매·전세·월세 복비 상한 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><span class="kicker">부동산</span><strong>부동산 중개보수 계산기</strong><span>매매·전세·월세 복비 상한 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/rent-conversion/" data-k="전월세 전환 계산기 전세↔월세 바꿀 때 적정 금액 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><span class="kicker">부동산</span><strong>전월세 전환 계산기</strong><span>전세↔월세 바꿀 때 적정 금액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const fmt=d=>`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+const dd=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/864e5);
+function addM(d,m){const t=new Date(d.getFullYear(),d.getMonth()+m,1);const last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();t.setDate(Math.min(d.getDate(),last));return t}
+function monthsBetween(a,b){let m=(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth());if(addM(a,m)>b)m--;return Math.max(0,m)}
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const addY=(d,y)=>addM(d,y*12);
+const today=()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())};
+function hScore(m){return 2+2*Math.floor(m/12)>32?32:2+2*Math.floor(m/12)}
+function aScore(m){if(m<6)return 1;if(m<12)return 2;return Math.min(17,2+Math.floor(m/12))}
+function sScore(m){return m<=0?0:m<12?1:m<24?2:3}
+function calc(){
+  const b=pd($('birth').value),ref=pd($('ref').value)||today(),mar=$('married').value==='1',md=mar?pd($('mdate').value):null,house=$('house').value;
+  $('f-mdate').hidden=!mar;$('f-sold').hidden=house!=='sold';
+  if(!b){$('o-total').textContent='-';return}
+  const a30=addY(b,30);
+  let h=0,hn='',hStart=null;
+  if(house==='own'){hn='지금 집이 있으면 0점'}
+  else{hStart=md&&md<a30?md:a30;if(house==='sold'){const s=pd($('sold').value);if(s&&s>hStart)hStart=s}
+    if(!mar&&ref<a30){hn='만 30세 미만 미혼은 0점';hStart=null}
+    else if(hStart>ref){h=2;hn='무주택 1년 미만'}
+    else{const m=monthsBetween(hStart,ref);h=hScore(m);hn=`${fmt(hStart)}부터 ${Math.floor(m/12)}년 ${m%12}개월`}}
+  const fam=(mar?1:0)+Math.max(0,Math.floor(+$('parents').value||0))+Math.max(0,Math.floor(+$('kids').value||0)),f=Math.min(35,5+5*fam);
+  const acc=pd($('acc').value),sacc=pd($('sacc').value);let am=0,an='통장 없음',a=0,cut=0;
+  if(acc&&acc<=ref){const b19=addY(b,19);let m=monthsBetween(acc,ref);
+    if(acc<b19){const minor=monthsBetween(acc,b19<ref?b19:ref);if(minor>60){cut=minor-60;m-=cut}}
+    am=m;a=aScore(m);an=`${Math.floor(m/12)}년 ${m%12}개월`}
+  let sp=0;if(mar&&sacc&&sacc<=ref){sp=sScore(monthsBetween(sacc,ref));an+=` + 배우자 ${sp}점`}
+  const at=Math.min(17,a+sp),tot=h+f+at;
+  $('o-sub').textContent='기준일 '+fmt(ref);$('o-total').textContent=tot+'점 / 84점';$('o-bar').style.width=(tot/84*100)+'%';
+  $('o-h').textContent=h+'점 / 32';$('o-hnote').textContent=hn;
+  $('o-f').textContent=f+'점 / 35';$('o-fnote').textContent=`${fam}명 (배우자 ${mar?1:0} · 부모님 ${Math.max(0,Math.floor(+$('parents').value||0))} · 자녀 ${Math.max(0,Math.floor(+$('kids').value||0))})`;
+  $('o-a').textContent=at+'점 / 17';$('o-anote').textContent=an;
+  // 다음 점수 오르는 날
+  const c=[];
+  if(hStart&&h<32){const m=hStart>ref?0:monthsBetween(hStart,ref);const nx=addM(hStart,(Math.floor(m/12)+1)*12);c.push([nx,'무주택기간 +2점'])}
+  else if(house!=='own'&&!mar&&ref<a30){c.push([a30,'만 30세, 무주택기간 2점 시작'])}
+  if(acc&&acc<=ref&&at<17){const tgt=am<6?6:am<12?12:(Math.floor(am/12)+1)*12;c.push([addM(acc,tgt+cut),'청약통장 +1점'])}
+  c.sort((x,y)=>x[0]-y[0]);
+  if(c.length){$('o-next').textContent=fmt(c[0][0]);$('o-nextnote').textContent=c[0][1]+' ('+dd(ref,c[0][0])+'일 남음)'}
+  else{$('o-next').textContent='-';$('o-nextnote').textContent='시간이 지나도 더 오를 점수가 없어요'}
+  $('o-status').textContent=`지금 청약 가점은 84점 중 ${tot}점이에요. 무주택기간 ${h}점, 부양가족 ${f}점, 청약통장 ${at}점이에요.`+(c.length?` ${fmt(c[0][0])}에 ${c[0][1].split(',')[0]}이 돼요.`:'');
+}
+if(!$('ref').value)$('ref').value=iso(today());
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('birth').value='1991-05-10';$('ref').value=iso(today());$('married').value='1';$('mdate').value='2020-10-17';$('house').value='never';$('sold').value='2019-06-01';$('parents').value=0;$('kids').value=1;$('acc').value='2015-03-02';$('sacc').value='2018-07-01';calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
