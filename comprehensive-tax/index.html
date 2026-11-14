@@ -118,7 +118,7 @@
 <script>
 const $=id=>document.getElementById(id);
 const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
-const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
 const f10=n=>Math.floor(Math.round(n*1000)/10000)*10;
 const PT={ratio:(P,one)=>!one?.6:P<=3e8?.43:P<=6e8?.44:.45,
   rate(B,sp){if(sp){if(B<=6e7)return B*.0005;if(B<=1.5e8)return 3e4+(B-6e7)*.001;if(B<=3e8)return 12e4+(B-1.5e8)*.002;return 42e4+(B-3e8)*.0035}
