@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연차수당 계산기 · 통상임금 ÷ 209 × 8, 받은 수당 적은지 확인 | 캘코</title>
+<meta name="description" content="연봉이나 월 통상임금, 남은 연차 일수, 실제 받은 연차수당을 넣으면 법정 기준 연차수당과 비교해서 많이 받았는지 적게 받았는지 알려 줘요. 연차 사용촉진 제도와 통상임금 범위도 정리했어요.">
+<link rel="canonical" href="https://calqo.kr/leave-pay/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="연차수당 계산기 · 통상임금 ÷ 209 × 8, 받은 수당 적은지 확인 | 캘코">
+<meta property="og:description" content="연봉이나 월 통상임금, 남은 연차 일수, 실제 받은 연차수당을 넣으면 법정 기준 연차수당과 비교해서 많이 받았는지 적게 받았는지 알려 줘요. 연차 사용촉진 제도와 통상임금 범위도 정리했어요.">
+<meta property="og:url" content="https://calqo.kr/leave-pay/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=4">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay" class=on aria-current=page>급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#pay">급여·근로</a></div>
+    <h1>연차수당 계산기</h1>
+    <p class="lead">연봉이나 월 통상임금, 남은 연차 일수, 실제 받은 연차수당을 넣으면 법정 기준 연차수당과 비교해서 많이 받았는지 적게 받았는지 알려 줘요. 연차 사용촉진 제도와 통상임금 범위도 정리했어요.</p>
+    <span class="tag">근로기준법 제60조·제61조 · 2024년 통상임금 판례 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div><div class="hint" style="margin-bottom:6px">임금 입력 방식</div>
+      <div class="seg" role="group" aria-label="임금 입력 방식">
+        <button type="button" data-m="annual" aria-pressed="true">연봉으로</button>
+        <button type="button" data-m="monthly" aria-pressed="false">월 통상임금으로</button>
+      </div></div>
+      <div id="f-annual">
+        <div class="row2">
+          <label for="annual">연봉 (만원)<input id="annual" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="5000"><span class="hint">성과급·연장수당은 빼고</span></label>
+          <label for="sev">연봉에 퇴직금이<select id="sev"><option value="12" selected>별도 (÷ 12)</option><option value="13">포함 (÷ 13)</option></select></label>
+        </div>
+      </div>
+      <div id="f-monthly" hidden><label for="monthly">월 통상임금 (만원)<input id="monthly" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="416.7"><span class="hint">기본급 + 고정 수당 + 정기상여금 ÷ 12</span></label></div>
+      <div class="row2">
+        <label for="days">남은 연차 (일)<input id="days" type="number" inputmode="decimal" min="0" step="0.5" value="5"></label>
+        <label for="paid">실제 받은 연차수당 (만원)<input id="paid" data-warn="3000" type="number" inputmode="decimal" min="0" step="any" value="70"><span class="hint">급여명세서의 세전 금액</span></label>
+      </div>
+      <div class="row2">
+        <label for="mh">월 소정근로시간<input id="mh" type="number" inputmode="decimal" min="1" step="any" value="209"><span class="hint">주 40시간이면 209</span></label>
+        <label for="dh">1일 소정근로시간<input id="dh" type="number" inputmode="decimal" min="0.5" max="24" step="0.5" value="8"></label>
+      </div>
+      <label for="promo">연차 사용촉진 통보를 받았나요?<select id="promo"><option value="0" selected>받지 않았어요 / 모르겠어요</option><option value="1">1차 촉구(서면)만 받았어요</option><option value="2">1차 촉구 + 2차 사용일 지정까지 서면으로 받았어요</option></select></label>
+      <span class="hint">예시: 연봉 5천만원, 남은 연차 5일, 연차수당 70만원을 받은 경우예요. 금액은 만원 단위로 넣어 주세요.</span>
+      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>연차수당 비교 결과 <small>세전 · 참고용</small></h2>
+      <div class="total"><span>법정 기준 연차수당</span><b id="o-legal"></b></div>
+      <div class="lines">
+        <div class="line"><span>월 통상임금<em id="o-mnote"></em></span><b id="o-month"></b></div>
+        <div class="line"><span>통상시급<em id="o-hnote"></em></span><b id="o-hour"></b></div>
+        <div class="line"><span>1일 통상임금<em id="o-dnote"></em></span><b id="o-day"></b></div>
+        <div class="line"><span>남은 연차</span><b id="o-days"></b></div>
+        <div class="line"><span>실제 받은 연차수당</span><b id="o-paid"></b></div>
+        <div class="line"><span>차이<em>받은 금액 − 법정 기준</em></span><b id="o-diff"></b></div>
+      </div>
+      <div class="status" id="o-status"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>연차수당 계산 공식</h2>
+    <p>쓰지 못한 연차는 1년의 사용 기간이 끝나면 돈으로 받을 수 있어요. 하루 8시간, 주 40시간 근무자라면 이렇게 계산해요.</p>
+    <ul>
+      <li><b>통상시급</b> = 월 통상임금 ÷ 209시간</li>
+      <li><b>1일 통상임금</b> = 통상시급 × 8시간</li>
+      <li><b>연차수당</b> = 1일 통상임금 × 남은 연차 일수</li>
+    </ul>
+    <p>209시간은 주 40시간에 유급 주휴 8시간을 더한 48시간에, 한 달 평균 주 수(365 ÷ 7 ÷ 12 ≈ 4.345주)를 곱한 값이에요. 하루 6시간처럼 소정근로시간이 짧은 단시간 근로자는 월 소정근로시간과 1일 소정근로시간을 계약서 기준으로 바꿔 넣으면 돼요.</p>
+    <h2>남은 연차 일수별 법정 연차수당 <small style="font-size:13px;color:var(--ink-3);font-weight:500" id="t-note"></small></h2>
+    <div class="tbl"><table>
+      <thead><tr><th>남은 연차</th><th>법정 연차수당 (세전)</th></tr></thead>
+      <tbody id="t-body"></tbody>
+    </table></div>
+    <h2>통상임금에 들어가는 돈, 빠지는 돈</h2>
+    <p>연차수당이 적게 나오는 가장 흔한 이유는 통상임금을 기본급만으로 계산하는 거예요. 2024년 12월 대법원 전원합의체 판결로 '고정성' 요건이 없어지면서, 소정근로의 대가로 <b>정기적·일률적</b>으로 주기로 한 임금이면 통상임금에 들어가요. 고용노동부도 2025년 2월 이 판결에 맞춰 통상임금 노사지도 지침을 바꿨어요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>항목</th><th>통상임금</th><th>설명</th></tr></thead>
+      <tbody>
+        <tr><td>기본급</td><td>들어가요</td><td>가장 기본이 되는 임금</td></tr>
+        <tr><td>직책·직무·자격 수당</td><td>들어가요</td><td>매달 정해진 금액을 주는 경우</td></tr>
+        <tr><td>고정 식대·교통비</td><td>들어가요</td><td>모두에게 같은 금액을 매달 주면 비과세여도 포함</td></tr>
+        <tr><td>정기상여금</td><td>들어가요</td><td>재직자 조건·근무일수 조건이 붙어도 포함 (연간 금액 ÷ 12)</td></tr>
+        <tr><td>성과급·인센티브</td><td>대부분 빠져요</td><td>실적·평가로 금액이 달라지면 제외. 다만 실적과 상관없이 보장된 최소 금액은 포함</td></tr>
+        <tr><td>연장·야간·휴일 근로수당</td><td>빠져요</td><td>통상임금을 기준으로 따로 계산하는 수당</td></tr>
+        <tr><td>출장비 등 실비</td><td>빠져요</td><td>쓴 비용을 돌려주는 돈은 임금이 아니에요</td></tr>
+      </tbody>
+    </table></div>
+    <p class="hint">'연봉으로' 입력할 때 연봉에 성과급이나 연장수당이 섞여 있으면 법정 기준이 실제보다 높게 나와요. 정확히 비교하려면 '월 통상임금으로'를 골라 급여명세서의 고정 항목만 더해 넣으세요.</p>
+    <h2>연차 사용촉진 제도란?</h2>
+    <p>회사가 근로기준법 제61조의 절차를 정확히 지켜 연차 사용을 촉진했는데도 직원이 연차를 쓰지 않았다면, 회사는 남은 연차의 수당을 주지 않아도 돼요. 절차는 두 단계이고, 둘 다 <b>서면</b>으로 해야 해요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>단계</th><th>1년 이상 근무자</th><th>입사 1년 미만 (월차)</th></tr></thead>
+      <tbody>
+        <tr><td>1차 촉구 (회사 → 나)</td><td>사용 기간 끝나기 6개월 전 기준 10일 안에 남은 일수를 알리고 사용 시기를 정해 달라고 요청</td><td>최초 1년이 끝나기 3개월 전 기준 10일 안에 요청</td></tr>
+        <tr><td>사용 시기 회신 (나 → 회사)</td><td>촉구받은 날부터 10일 안에</td><td>촉구받은 날부터 5일 안에</td></tr>
+        <tr><td>2차 지정 (회사 → 나)</td><td>회신이 없으면 사용 기간 끝나기 2개월 전까지 회사가 날짜를 정해 통보</td><td>최초 1년이 끝나기 1개월 전까지 통보</td></tr>
+      </tbody>
+    </table></div>
+    <p>예를 들어 1월 1일~12월 31일 회계연도로 연차를 운영하는 회사라면 1차 촉구는 7월 1일~10일, 2차 지정은 10월 31일까지 해야 해요.</p>
+    <h3>이런 경우엔 촉진을 했어도 수당을 받을 수 있어요</h3>
+    <ul>
+      <li>1차 촉구만 하고 2차 사용일 지정을 하지 않은 경우</li>
+      <li>법에 정한 기한을 넘겨서 통보했거나, 말이나 메신저로만 알린 경우</li>
+      <li>남은 연차 일수를 틀리게 적는 등 통보 내용이 정확하지 않은 경우</li>
+      <li>지정된 휴가일에 출근했는데 회사가 일을 시켰거나, 출근을 거부한다는 뜻(노무수령 거부)을 분명히 밝히지 않은 경우</li>
+    </ul>
+    <h2>적게 받았다면 이렇게 확인해 보세요</h2>
+    <ul>
+      <li><b>통상임금 항목:</b> 급여명세서에서 고정 수당과 정기상여금이 계산에 빠졌는지 확인해요.</li>
+      <li><b>남은 일수:</b> 반차·반반차를 쓴 기록이 맞게 빠졌는지 확인해요. 입사일 기준 연차 일수는 <a href="/annual-leave/">연차 계산기</a>로 확인할 수 있어요.</li>
+      <li><b>회사 문의:</b> 인사팀에 계산 근거를 요청하고, 해결되지 않으면 고용노동부 고객상담센터(국번 없이 1350)에 상담하거나 관할 노동청에 진정할 수 있어요.</li>
+      <li><b>청구 기한:</b> 못 받은 연차수당은 임금이라서 3년 안에 청구해야 해요.</li>
+    </ul>
+    <h2>주의할 점</h2>
+    <ul>
+      <li>상시 근로자 5인 미만 사업장은 연차 규정이 적용되지 않아요.</li>
+      <li>연차수당은 근로소득이라 세금과 4대보험이 붙어요. 이 계산기는 세전 금액끼리 비교해요.</li>
+      <li>원 단위 끝자리를 버리는 회사가 많아서, 수백 원 정도 차이는 같은 금액으로 봐요.</li>
+      <li>회사 규정이나 단체협약이 법보다 유리하게 정했다면 그 기준이 먼저 적용돼요.</li>
+    </ul>
+    <p class="hint">기준: 근로기준법 제60조(연차 유급휴가)·제61조(연차 유급휴가의 사용 촉진), 대법원 2024. 12. 19. 선고 2020다247190 전원합의체 판결, 고용노동부 통상임금 노사지도 지침(2025. 2. 6.). 계산 결과는 참고용이며 법률 자문이 아니에요.</p>
+    <h2>용어 풀이</h2>
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>월 통상임금</dt><dd>정기적·일률적으로 받는 임금의 한 달 치예요. 기본급과 매달 고정으로 나오는 수당을 더하고, 성과급이나 실적에 따른 수당은 빼요.</dd></div><div><dt>1일 통상임금</dt><dd>하루 소정근로시간(보통 8시간)만큼의 통상임금이에요. 남은 연차 하루당 받는 연차수당이 이 금액이에요.</dd></div><div><dt>월 소정근로시간</dt><dd>한 달 동안 일하기로 정한 시간에 주휴시간을 더한 값이에요. 주 40시간 근무면 (40 + 8) × 4.345주 = 209시간이에요.</dd></div><div><dt>연차 사용촉진</dt><dd>회사가 법에 정한 시기에 서면으로 연차를 쓰라고 알리고 날짜까지 정해 주는 제도예요. 절차를 모두 지키면 남은 연차의 수당을 주지 않아도 돼요.</dd></div><div><dt>통상시급</dt><dd>정기적·일률적으로 받는 임금을 시간 단위로 나눈 금액이에요. 연차수당, 연장근로수당의 기준이에요.</dd></div></dl>
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>연차수당에도 세금이 붙나요?</summary><p>네. 연차수당은 근로소득이라 소득세와 4대보험이 붙어요. 그래서 법정 기준과 비교할 때는 급여명세서의 세전 금액(지급액)을 넣어야 해요.</p></details><details><summary>재직자에게만 주는 정기상여금도 통상임금에 넣나요?</summary><p>2024년 12월 대법원 전원합의체 판결 이후로는 &#x27;지급일에 재직 중인 사람만 준다&#x27; 같은 조건이 붙어도, 정해진 시기에 모두에게 주는 상여금이면 통상임금에 들어가요. 1년에 받는 상여금을 12로 나눠 월 통상임금에 더해요.</p></details><details><summary>회사가 연차촉진을 했다며 수당을 안 줘요.</summary><p>사용 기간이 끝나기 6개월 전(10일 이내)의 서면 촉구와 2개월 전까지의 서면 사용일 지정이 모두 있었는지 확인하세요. 하나라도 빠졌거나 기한을 넘겼다면 남은 연차의 수당을 청구할 수 있어요.</p></details><details><summary>연차수당은 언제 받나요?</summary><p>연차를 쓸 수 있는 1년이 끝난 다음에 수당을 받을 권리가 생겨서, 보통 그 뒤 첫 급여일에 받아요. 퇴사하면 퇴사일로부터 14일 안에 정산받아요. 못 받은 수당은 3년 안에 청구할 수 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "연차수당에도 세금이 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 연차수당은 근로소득이라 소득세와 4대보험이 붙어요. 그래서 법정 기준과 비교할 때는 급여명세서의 세전 금액(지급액)을 넣어야 해요."}}, {"@type": "Question", "name": "재직자에게만 주는 정기상여금도 통상임금에 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "2024년 12월 대법원 전원합의체 판결 이후로는 '지급일에 재직 중인 사람만 준다' 같은 조건이 붙어도, 정해진 시기에 모두에게 주는 상여금이면 통상임금에 들어가요. 1년에 받는 상여금을 12로 나눠 월 통상임금에 더해요."}}, {"@type": "Question", "name": "회사가 연차촉진을 했다며 수당을 안 줘요.", "acceptedAnswer": {"@type": "Answer", "text": "사용 기간이 끝나기 6개월 전(10일 이내)의 서면 촉구와 2개월 전까지의 서면 사용일 지정이 모두 있었는지 확인하세요. 하나라도 빠졌거나 기한을 넘겼다면 남은 연차의 수당을 청구할 수 있어요."}}, {"@type": "Question", "name": "연차수당은 언제 받나요?", "acceptedAnswer": {"@type": "Answer", "text": "연차를 쓸 수 있는 1년이 끝난 다음에 수당을 받을 권리가 생겨서, 보통 그 뒤 첫 급여일에 받아요. 퇴사하면 퇴사일로부터 14일 안에 정산받아요. 못 받은 수당은 3년 안에 청구할 수 있어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 2026년 4대보험·세금 빼고 월급 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기</strong><span>2026년 4대보험·세금 빼고 월급 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/raise/" data-k="연봉 인상률 계산기 인상 후 월 실수령액이 실제로 얼마나 느는지 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 인상률 계산기</strong><span>인상 후 월 실수령액이 실제로 얼마나 느는지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+let mode='annual';
+const NV=id=>Math.max(0,+$(id).value||0);
+const pc=x=>(Math.round(x*10)/10).toLocaleString('ko-KR')+'%';
+function calc(){
+  const div=+$('sev').value||12, mh=NV('mh')||209, dh=NV('dh')||8, days=NV('days'), promo=+$('promo').value;
+  const paidRaw=$('paid').value.trim(), paid=NV('paid')*10000;
+  const month=mode==='annual'?NV('annual')*10000/div:NV('monthly')*10000;
+  const hour=month/mh, day=hour*dh, legal=Math.floor(day*days);
+  $('o-month').textContent=won(month);$('o-mnote').textContent=mode==='annual'?`연봉 ÷ ${div}`:'직접 입력';
+  $('o-hour').textContent=won(hour);$('o-hnote').textContent=`월 통상임금 ÷ ${mh.toLocaleString('ko-KR')}시간`;
+  $('o-day').textContent=won(day);$('o-dnote').textContent=`통상시급 × ${dh}시간`;
+  $('o-days').textContent=days.toLocaleString('ko-KR')+'일';$('o-legal').textContent=won(legal);
+  $('o-paid').textContent=paidRaw===''?'입력 안 함':won(paid);
+  const diff=paid-legal, tol=Math.max(1000,legal*0.003), s=$('o-status');
+  $('o-diff').textContent=paidRaw===''?'–':(Math.abs(diff)<=tol?'거의 같음':(diff>0?'+ ':'− ')+won(Math.abs(diff)));
+  let rows='';[1,3,5,10,15,20,25].forEach(d=>{rows+=`<tr${d===days?' style="font-weight:700;color:var(--accent)"':''}><td>${d}일</td><td>${won(Math.floor(day*d))}</td></tr>`});
+  $('t-body').innerHTML=rows;$('t-note').textContent=`1일 통상임금 ${won(day)} 기준`;
+  if(!(month>0)){s.className='status warn';s.textContent='연봉이나 월 통상임금을 넣어 주세요.';return}
+  if(!(days>0)){s.className='status ok';s.textContent='남은 연차가 없으면 받을 연차수당도 없어요.';return}
+  if(paidRaw===''){s.className='status ok';s.textContent=`남은 연차 ${days}일의 법정 기준 연차수당은 ${won(legal)}이에요. 실제 받은 금액을 넣으면 비교해 드려요.`;return}
+  const promoOk=' 회사가 6개월 전 서면 촉구와 2개월 전 서면 사용일 지정을 모두 기한 안에 했다면 수당을 주지 않아도 돼요. 둘 중 하나라도 빠졌거나 지정일에 일을 시켰다면 청구할 수 있어요.';
+  if(paid<=0){
+    if(promo===2){s.className='status warn';s.textContent='연차수당을 받지 못했어요.'+promoOk}
+    else{s.className='status warn';s.textContent=`연차수당을 받지 못했어요. 회사가 연차 사용촉진 절차를 모두 밟지 않았다면 법정 기준으로 ${won(legal)}을 받을 수 있어요.`+(promo===1?' 1차 촉구만으로는 수당 지급 의무가 사라지지 않아요.':'')}
+    return}
+  if(Math.abs(diff)<=tol){s.className='status ok';s.textContent='받은 연차수당이 법정 기준과 거의 같아요. 원 단위 끝자리 처리 정도의 차이예요.';return}
+  if(diff>0){s.className='status ok';s.textContent=`법정 기준보다 ${won(diff)}(${pc(diff/legal*100)}) 많이 받았어요. 회사 규정이 법보다 유리하거나, 통상임금에 더 많은 항목을 넣어 계산했을 수 있어요.`;return}
+  s.className='status warn';s.textContent=`법정 기준보다 ${won(-diff)}(${pc(-diff/legal*100)}) 적게 받았어요. 통상임금에 고정 수당이나 정기상여금이 빠졌는지, 남은 일수가 맞는지 확인해 보세요.`+(promo===2?' 다만 회사가 사용촉진 절차를 모두 지켰다면 수당을 일부만 주거나 주지 않아도 될 수 있어요.':'')+(promo===1?' 1차 촉구만으로는 수당 지급 의무가 사라지지 않아요.':'')+(mode==='annual'?' 연봉에 성과급이 섞여 있다면 \'월 통상임금으로\'를 골라 다시 비교해 보세요.':'');
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('f-annual').hidden=mode!=='annual';$('f-monthly').hidden=mode==='annual';
+  if(mode==='monthly'){const a=NV('annual');if(a)$('monthly').value=Math.round(a/(+$('sev').value||12)*10)/10}calc()}));
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{$('annual').value=5000;$('sev').value='12';$('monthly').value=416.7;$('days').value=5;$('paid').value=70;$('mh').value=209;$('dh').value=8;$('promo').value='0';document.querySelectorAll('.seg button')[0].click()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
