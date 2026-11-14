@@ -3,51 +3,81 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>캘코 · 직장인 생활 계산기 모음 (주휴수당, 연차, 대출 이자)</title>
-<meta name="description" content="주휴수당, 연차, 대출 이자, 중도상환수수료, 평수, 전역일, 만 나이까지. 매일 쓰는 생활 계산을 무료로 빠르게 해 드려요.">
+<title>캘코 · 직장인 생활 계산기 (연말정산, 성과급, 퇴직금, 취득세)</title>
+<meta name="description" content="연말정산, 성과급 세금, 퇴직금, 희망퇴직, 취득세, 대출 이자까지. 직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 해 드려요.">
 <link rel="canonical" href="https://calqo.kr/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="캘코 calqo">
-<meta property="og:title" content="캘코 · 직장인 생활 계산기 모음 (주휴수당, 연차, 대출 이자)">
-<meta property="og:description" content="주휴수당, 연차, 대출 이자, 중도상환수수료, 평수, 전역일, 만 나이까지. 매일 쓰는 생활 계산을 무료로 빠르게 해 드려요.">
+<meta property="og:title" content="캘코 · 직장인 생활 계산기 (연말정산, 성과급, 퇴직금, 취득세)">
+<meta property="og:description" content="연말정산, 성과급 세금, 퇴직금, 희망퇴직, 취득세, 대출 이자까지. 직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 해 드려요.">
 <meta property="og:url" content="https://calqo.kr/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
 <link rel="apple-touch-icon" href="/assets/logo-180.png">
-<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
-<meta name="theme-color" content="#e56a48">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="/assets/style.css">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=2">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
 <header class="site-head"><div class="wrap">
-  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/about/">소개</a></nav>
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">오늘의 시장</a></nav>
 </div></header>
+<div class="mkt-band"><div id="tape"></div></div>
 <main class="wrap">
   <header class="hero">
-    <h1>매일 쓰는 숫자, 캘코로 바로 계산하세요</h1>
-    <p class="lead">월급, 연차, 대출 이자처럼 생활에서 자주 계산하는 것들을 모았어요. 회원가입 없이 무료로 쓰고, 입력한 숫자는 어디에도 저장되지 않아요.</p>
+    <h1>직장인의 돈 계산,<br><em>캘코</em>에서 한 번에</h1>
+    <p class="lead">세금, 퇴직, 대출, 집 살 때까지. 공식 기준으로 계산하고, 입력한 숫자는 어디에도 저장하지 않아요.</p>
+    <label class="search" for="q"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="어떤 계산이 필요하세요? 예: 퇴직금, 취득세" autocomplete="off" aria-label="계산기 검색"></label>
+    <nav class="chips" aria-label="바로가기"><a href="/year-end-tax/">연말정산</a><a href="/bonus-tax/">성과급 세금</a><a href="/erp/">희망퇴직</a><a href="/acquisition-tax/">취득세</a><a href="/market/">오늘의 시장</a></nav>
   </header>
-<section class="group" id="pay"><h2>급여·근로 <small>월급, 주휴수당, 연차</small></h2><div class="cards"><a class="card" href="/year-end-tax/"><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></a><a class="card" href="/bonus-tax/"><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></a><a class="card" href="/severance/"><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></a><a class="card" href="/erp/"><strong>희망퇴직(ERP) 위로금 계산기</strong><span>2N+α 위로금과 퇴직금을 합친 세후 실수령액 계산</span></a><a class="card" href="/unemployment/"><strong>실업급여 계산기</strong><span>하루 구직급여와 받는 기간, 총액 계산</span></a><a class="card" href="/juhyu/"><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></a><a class="card" href="/annual-leave/"><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></a></div></section>
-<section class="group" id="loan"><h2>대출·금융 <small>이자, 수수료</small></h2><div class="cards"><a class="card" href="/loan-interest/"><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></a><a class="card" href="/prepayment-fee/"><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></a></div></section>
-<section class="group" id="home"><h2>부동산 <small>취득세, 복비, 전월세, 평수</small></h2><div class="cards"><a class="card" href="/acquisition-tax/"><strong>취득세 계산기</strong><span>주택 살 때 내는 취득세·지방교육세·농특세 계산</span></a><a class="card" href="/brokerage-fee/"><strong>부동산 중개보수 계산기</strong><span>매매·전세·월세 복비 상한 계산</span></a><a class="card" href="/rent-conversion/"><strong>전월세 전환 계산기</strong><span>전세↔월세 바꿀 때 적정 금액 계산</span></a><a class="card" href="/pyeong/"><strong>평수 계산기</strong><span>평과 제곱미터(㎡) 서로 변환</span></a></div></section>
-<section class="group" id="life"><h2>생활·날짜 <small>나이, 전역일</small></h2><div class="cards"><a class="card" href="/discharge/"><strong>전역일 계산기</strong><span>입대일로 전역일, 남은 날, 복무율 계산</span></a><a class="card" href="/age/"><strong>만 나이 계산기</strong><span>생년월일로 만 나이와 다음 생일까지 계산</span></a></div></section>
+  <section class="season" id="season">
+    <div class="s-copy"><b>11월 ~ 2월 시즌</b><h2>지금 가장 많이 찾는 계산기</h2><p>연말정산 환급과 성과급 세금, 미리 계산해 보고 13월의 월급을 챙기세요.</p></div>
+    <div class="cards"><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/severance/" data-k="퇴직금 계산기 평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div>
+  </section>
+<section class="group" id="pay"><h2>급여·근로 <small>월급, 세금, 퇴직</small></h2><div class="cards"><a class="card" href="/year-end-tax/" data-k="연말정산 환급 계산기 2026년 귀속 기준 예상 환급액·추가 납부액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>연말정산 환급 계산기</strong><span>2026년 귀속 기준 예상 환급액·추가 납부액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/severance/" data-k="퇴직금 계산기 평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/erp/" data-k="희망퇴직(ERP) 위로금 계산기 2N+α 위로금과 퇴직금을 합친 세후 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>희망퇴직(ERP) 위로금 계산기</strong><span>2N+α 위로금과 퇴직금을 합친 세후 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/unemployment/" data-k="실업급여 계산기 하루 구직급여와 받는 기간, 총액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>실업급여 계산기</strong><span>하루 구직급여와 받는 기간, 총액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/juhyu/" data-k="주휴수당 · 알바 월급 계산기 시급과 근무시간으로 주휴수당과 월급 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>주휴수당 · 알바 월급 계산기</strong><span>시급과 근무시간으로 주휴수당과 월급 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/annual-leave/" data-k="연차 계산기 입사일 기준 연차 일수와 연차수당 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+<section class="group" id="loan"><h2>대출·금융 <small>이자, 수수료</small></h2><div class="cards"><a class="card" href="/loan-interest/" data-k="대출 이자 계산기 원리금균등·원금균등·만기일시 상환 비교 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/prepayment-fee/" data-k="중도상환수수료 계산기 대출을 미리 갚을 때 내는 수수료 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><strong>중도상환수수료 계산기</strong><span>대출을 미리 갚을 때 내는 수수료 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+<section class="group" id="home"><h2>부동산 <small>취득세, 복비, 전월세, 평수</small></h2><div class="cards"><a class="card" href="/acquisition-tax/" data-k="취득세 계산기 주택 살 때 내는 취득세·지방교육세·농특세 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><strong>취득세 계산기</strong><span>주택 살 때 내는 취득세·지방교육세·농특세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/brokerage-fee/" data-k="부동산 중개보수 계산기 매매·전세·월세 복비 상한 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><strong>부동산 중개보수 계산기</strong><span>매매·전세·월세 복비 상한 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/rent-conversion/" data-k="전월세 전환 계산기 전세↔월세 바꿀 때 적정 금액 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><strong>전월세 전환 계산기</strong><span>전세↔월세 바꿀 때 적정 금액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/pyeong/" data-k="평수 계산기 평과 제곱미터(㎡) 서로 변환 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><strong>평수 계산기</strong><span>평과 제곱미터(㎡) 서로 변환</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+<section class="group" id="life"><h2>생활·날짜 <small>나이, 전역일</small></h2><div class="cards"><a class="card" href="/discharge/" data-k="전역일 계산기 입대일로 전역일, 남은 날, 복무율 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><strong>전역일 계산기</strong><span>입대일로 전역일, 남은 날, 복무율 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/age/" data-k="만 나이 계산기 생년월일로 만 나이와 다음 생일까지 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><strong>만 나이 계산기</strong><span>생년월일로 만 나이와 다음 생일까지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+  <p class="empty" id="empty" hidden>찾는 계산기가 없어요. <a href="/contact/">문의</a>로 알려 주시면 만들어 드릴게요.</p>
   <section class="prose">
     <h2>캘코는 이렇게 만들어요</h2>
     <ul>
-      <li>최저임금, 근로기준법, 은행 공시처럼 공식 자료를 기준으로 계산식을 만들어요.</li>
-      <li>계산기마다 계산 방법과 주의할 점을 함께 적어서, 결과가 왜 그렇게 나왔는지 알 수 있게 했어요.</li>
-      <li>제도가 바뀌면 바로 업데이트해요. 틀린 부분을 발견하면 <a href="/contact/">문의</a>로 알려 주세요.</li>
+      <li>최저임금 고시, 소득세법, 근로기준법, 은행 공시처럼 공식 자료를 기준으로 계산식을 만들어요.</li>
+      <li>계산기마다 계산 과정과 주의할 점을 함께 적어서, 결과가 왜 그렇게 나왔는지 알 수 있어요.</li>
+      <li>세법과 제도가 바뀌면 시행 전에 업데이트해요. 틀린 부분은 <a href="/contact/">문의</a>로 알려 주세요.</li>
     </ul>
   </section>
 </main>
+<script>
+const TVDARK=matchMedia('(prefers-color-scheme: dark)').matches;
+function tv(id,file,cfg){const box=document.getElementById(id);if(!box)return;box.innerHTML='<div class="tradingview-widget-container__widget"></div>';box.className+=' tradingview-widget-container';
+const s=document.createElement('script');s.src='https://s3.tradingview.com/external-embedding/embed-widget-'+file+'.js';s.async=true;
+s.text=JSON.stringify(Object.assign({colorTheme:TVDARK?'dark':'light',isTransparent:true,locale:'kr'},cfg));box.appendChild(s)}
+</script>
+<script>
+tv('tape','ticker-tape',{symbols:[{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}, {"proName": "FOREXCOM:NSXUSD", "title": "나스닥 100"}, {"proName": "NASDAQ:NVDA", "title": "엔비디아"}, {"proName": "BITSTAMP:BTCUSD", "title": "비트코인"}, {"proName": "FX_IDC:USDKRW", "title": "달러/원"}, {"proName": "TVC:US10Y", "title": "미국 10년물"}, {"proName": "TVC:GOLD", "title": "금"}],showSymbolLogo:true,displayMode:'adaptive'});
+const q=document.getElementById('q');
+q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();let any=0;
+  document.querySelectorAll('.group').forEach(g=>{let n=0;g.querySelectorAll('.card').forEach(c=>{const hit=!v||c.dataset.k.toLowerCase().includes(v);c.hidden=!hit;if(hit)n++});g.hidden=n===0;any+=n});
+  document.getElementById('season').hidden=!!v;document.getElementById('empty').hidden=any>0;});
+</script>
 <footer class="site-foot"><div class="wrap">
-  <nav aria-label="사이트 정보"><a href="/about/">사이트 소개</a><a href="/privacy/">개인정보처리방침</a><a href="/contact/">문의</a></nav>
-  <p style="margin:0">캘코의 계산 결과는 참고용입니다. 중요한 결정 전에는 공식 기관과 계약서 내용을 꼭 확인해 주세요.</p>
-  <p style="margin:0">© 2026 캘코 calqo.kr</p>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/loan-interest/">대출 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
 </div></footer>
 </body>
 </html>
