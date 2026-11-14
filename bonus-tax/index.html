@@ -25,7 +25,7 @@
 <body>
 <header class="site-head"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay" class=on aria-current=page>급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">오늘의 시장</a></nav>
+  <nav aria-label="주요 메뉴"><a href="/#pay" class=on aria-current=page>급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
 </div></header>
 <main class="wrap">
   <header>
@@ -137,8 +137,8 @@ function calc(){
   $('o-bamt').textContent='성과급 '+man(B);$('o-net').textContent=won(net);
   $('o-tax').textContent='− '+won(dTax);$('o-ins').textContent='− '+won(ins);
   $('o-eff').textContent=(B?(dTax+ins)/B*100:0).toFixed(1)+'%';
-  $('o-br').textContent=Math.round(a1.rate*100)+'% (지방세 포함 '+(a1.rate*110).toFixed(1)+'%)';
-  $('o-brnote').textContent='성과급 포함 과세표준 '+man(a1.base);
+  $('o-br').textContent=Math.round(a1.rate*100)+'%';
+  $('o-brnote').textContent='지방세 포함 '+(a1.rate*110).toFixed(1)+'% · 과세표준 '+man(a1.base);
   $('o-wh').textContent='− '+won(wh);$('o-whnote').textContent=m===1?'1월 한 달 급여에 성과급을 더해 계산':`1~${m}월을 한 기간으로 보고 계산`;
   $('o-paid').textContent=won(B-wh-ins);
   const ref=wh-dTax;$('o-refund').textContent=ref>0?won(ref):'거의 없음';

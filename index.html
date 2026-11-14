@@ -25,7 +25,7 @@
 <body>
 <header class="site-head"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">오늘의 시장</a></nav>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
 </div></header>
 <div class="mkt-band"><div id="tape"></div></div>
 <main class="wrap">
@@ -60,7 +60,7 @@ const s=document.createElement('script');s.src='https://s3.tradingview.com/exter
 s.text=JSON.stringify(Object.assign({colorTheme:TVDARK?'dark':'light',isTransparent:true,locale:'kr'},cfg));box.appendChild(s)}
 </script>
 <script>
-tv('tape','ticker-tape',{symbols:[{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}, {"proName": "FOREXCOM:NSXUSD", "title": "나스닥 100"}, {"proName": "NASDAQ:NVDA", "title": "엔비디아"}, {"proName": "BITSTAMP:BTCUSD", "title": "비트코인"}, {"proName": "FX_IDC:USDKRW", "title": "달러/원"}, {"proName": "TVC:US10Y", "title": "미국 10년물"}, {"proName": "TVC:GOLD", "title": "금"}],showSymbolLogo:true,displayMode:'adaptive'});
+tv('tape','ticker-tape',{symbols:[{"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"}, {"proName": "FOREXCOM:NSXUSD", "title": "나스닥 100"}, {"proName": "NASDAQ:NVDA", "title": "엔비디아"}, {"proName": "BITSTAMP:BTCUSD", "title": "비트코인"}, {"proName": "FX_IDC:USDKRW", "title": "달러/원"}, {"proName": "TVC:GOLD", "title": "금"}],showSymbolLogo:true,displayMode:'adaptive'});
 const q=document.getElementById('q');
 q.addEventListener('input',()=>{const v=q.value.trim().toLowerCase();let any=0;
   document.querySelectorAll('.group').forEach(g=>{let n=0;g.querySelectorAll('.card').forEach(c=>{const hit=!v||c.dataset.k.toLowerCase().includes(v);c.hidden=!hit;if(hit)n++});g.hidden=n===0;any+=n});
