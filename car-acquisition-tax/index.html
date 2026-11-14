@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>자동차 취득세 계산기 2026 · 신차 중고차 취등록세, 경차 전기차 다자녀 감면 | 캘코</title>
+<meta name="description" content="차량 가격과 차 종류를 넣으면 신차·중고차 취득세를 계산해요. 경차 75만원, 전기·수소차 140만원, 다자녀 감면까지 반영해서 실제로 낼 취득세를 알려 드려요.">
+<link rel="canonical" href="https://calqo.kr/car-acquisition-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="자동차 취득세 계산기 2026 · 신차 중고차 취등록세, 경차 전기차 다자녀 감면 | 캘코">
+<meta property="og:description" content="차량 가격과 차 종류를 넣으면 신차·중고차 취득세를 계산해요. 경차 75만원, 전기·수소차 140만원, 다자녀 감면까지 반영해서 실제로 낼 취득세를 알려 드려요.">
+<meta property="og:url" content="https://calqo.kr/car-acquisition-tax/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>자동차 취득세 계산기</h1>
+    <p class="lead">차량 가격과 차 종류를 넣으면 신차·중고차 취득세를 계산해요. 경차 75만원, 전기·수소차 140만원, 다자녀 감면까지 반영해서 실제로 낼 취득세를 알려 드려요.</p>
+    <span class="tag">2026년 자동차 취득세율 · 지방세특례제한법 감면 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div><div class="hint" style="margin-bottom:6px">신차·중고차</div>
+      <div class="seg" role="group" aria-label="신차 또는 중고차">
+        <button type="button" data-m="new" aria-pressed="true">신차</button>
+        <button type="button" data-m="used" aria-pressed="false">중고차</button>
+      </div></div>
+      <div id="new-w">
+        <label for="price">차량 가격 (만원)<input id="price" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="4000"><span class="hint">옵션 포함 최종 계약 가격(할인 후)</span></label>
+        <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="vat" type="checkbox" style="width:auto" checked> 부가세가 포함된 가격이에요 (견적서의 최종 차량 가격)</label>
+      </div>
+      <div class="row2" id="used-w" hidden>
+        <label for="used">산 가격 (만원)<input id="used" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="2000"><span class="hint">매매 계약서 금액</span></label>
+        <label for="std">시가표준액 (만원)<input id="std" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">모르면 0. 위택스에서 조회</span></label>
+      </div>
+      <label for="kind">차 종류<select id="kind"><option value="car" selected>승용차 (비영업용) 7%</option><option value="light">경차 (1,000cc 미만) 4%</option><option value="van">승합·화물차 (비영업용) 5%</option><option value="biz">영업용 (택시·렌터카 등) 4%</option><option value="moto">이륜차 (125cc 초과) 2%</option></select></label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="ev" type="checkbox" style="width:auto"> 전기차·수소차예요</label>
+      <label for="evy" id="evy-w" hidden>등록 시기<select id="evy"><option value="2026" selected>2026년 12월 31일까지 등록</option><option value="2027">2027년 이후 등록 (개편안 70만원)</option></select><span class="hint">2027년 한도는 국회 심사 중인 개편안 기준이에요</span></label>
+      <div class="row2">
+        <label for="kids">18세 미만 자녀<select id="kids"><option value="0" selected>1명 이하</option><option value="2">2명</option><option value="3">3명 이상</option></select></label>
+        <label for="seats">승차 정원<select id="seats"><option value="6" selected>6인승 이하</option><option value="7">7인승 이상</option></select></label>
+      </div>
+      <span class="hint">예시: 부가세 포함 4,000만원 승용 신차를 사는 경우예요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>취득세 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span>낼 취득세</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span>취득세 과세표준<em id="o-basenote"></em></span><b id="o-base"></b></div>
+        <div class="line"><span>세율</span><b id="o-rate"></b></div>
+        <div class="line"><span>산출 취득세</span><b id="o-tax"></b></div>
+        <div class="line"><span>감면<em id="o-cutnote"></em></span><b id="o-cut"></b></div>
+        <div class="line"><span>차량 가격 대비</span><b id="o-eff"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>자동차 취득세율</h2>
+    <div class="tbl"><table>
+      <thead><tr><th>차 종류</th><th>세율</th></tr></thead>
+      <tbody>
+        <tr><td>비영업용 승용차</td><td>7%</td></tr>
+        <tr><td>경차 (1,000cc 미만)</td><td>4%</td></tr>
+        <tr><td>비영업용 승합·화물차</td><td>5%</td></tr>
+        <tr><td>영업용 자동차</td><td>4%</td></tr>
+        <tr><td>이륜차 (125cc 초과)</td><td>2%</td></tr>
+      </tbody>
+    </table></div>
+    <p>예전에는 취득세 2%와 등록세 5%를 따로 냈지만, 지금은 취득세 하나로 합쳐져서 승용차는 7%예요. 신차는 <b>부가세를 뺀 차량 가격</b>, 중고차는 <b>실제 산 가격과 시가표준액 중 높은 금액</b>에 세율을 곱해요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>받을 수 있는 감면</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>대상</th><th>감면</th><th>기한</th></tr></thead>
+      <tbody>
+        <tr><td>경차 (비영업용)</td><td>취득세 75만원까지 면제</td><td>2027년 12월 31일</td></tr>
+        <tr><td>전기차·수소차</td><td>취득세 140만원까지 면제</td><td>2026년 12월 31일 등록분</td></tr>
+        <tr><td>18세 미만 자녀 2명</td><td>6인승 이하: 140만원 이하면 50%, 넘으면 70만원 공제 / 7인승 이상: 50%</td><td>지자체 확인</td></tr>
+        <tr><td>18세 미만 자녀 3명 이상</td><td>6인승 이하: 140만원까지 면제 / 7인승 이상: 면제 (200만원 넘으면 15%만 납부)</td><td>지자체 확인</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li>감면이 여러 개 해당되면 <b>가장 유리한 하나</b>만 받아요. 이 계산기는 자동으로 큰 쪽을 골라요.</li>
+      <li>하이브리드차 취득세 감면은 2024년 말에 끝났어요. 지금은 일반 승용차와 같은 7%예요.</li>
+      <li>정부가 2027년부터 전기·수소차 감면 한도를 70만원으로 줄이는 지방세 개정안을 냈어요. 2026년 11월 현재 국회 심사 중이라, 통과되면 바로 반영할게요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>취득세 말고 더 드는 돈</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>공채 매입:</b> 등록할 때 도시철도채권이나 지역개발채권을 사야 해요. 바로 되팔면 할인된 금액만 부담하는데, 지역·배기량마다 달라요.</li>
+      <li><b>번호판·인지대·등록 대행 수수료:</b> 보통 수만 원 정도 들어요.</li>
+      <li>취득세는 차를 산 날부터 <b>60일 안에</b> 내야 하고, 늦으면 가산세가 붙어요.</li>
+    </ul>
+    <p class="hint">장애인·국가유공자 감면, 법인 차량, 수입차 통관 가격 등 특수한 경우는 반영하지 않았어요. 정확한 세액은 등록하는 시·군·구청이나 위택스에서 확인해 주세요. 과세표준은 천원 미만, 세액은 10원 미만을 버렸어요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>취득세 과세표준</dt><dd>취득세를 매기는 기준 금액이에요. 신차는 부가세를 뺀 차량 가격, 중고차는 실제 산 가격과 시가표준액 중 높은 금액이에요.</dd></div><div><dt>시가표준액</dt><dd>지방자치단체가 차종·연식별로 정한 차량의 기준 가격이에요. 위택스의 '시가표준액 조회'에서 볼 수 있어요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>자동차 취득세는 언제 내나요?</summary><p>차를 산 날부터 60일 안에 내야 하고, 보통 자동차를 등록할 때 함께 내요. 신차는 대리점이 등록을 대행하면서 차값과 함께 받는 경우가 많아요.</p></details><details><summary>등록할 때 사는 공채는 무엇인가요?</summary><p>차를 등록할 때 도시철도채권이나 지역개발채권을 사야 해요. 대부분 바로 되팔고 할인된 금액만 부담하는데, 지역과 배기량마다 달라서 이 계산기에는 넣지 않았어요. 경차 등은 면제돼요.</p></details><details><summary>전기차 취득세 감면은 2027년에도 받을 수 있나요?</summary><p>2026년 12월 31일까지 등록하면 140만원까지 감면돼요. 정부가 2027년부터 한도를 70만원으로 줄이는 개정안을 냈고, 2026년 11월 현재 국회 심사 중이에요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "자동차 취득세는 언제 내나요?", "acceptedAnswer": {"@type": "Answer", "text": "차를 산 날부터 60일 안에 내야 하고, 보통 자동차를 등록할 때 함께 내요. 신차는 대리점이 등록을 대행하면서 차값과 함께 받는 경우가 많아요."}}, {"@type": "Question", "name": "등록할 때 사는 공채는 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "차를 등록할 때 도시철도채권이나 지역개발채권을 사야 해요. 대부분 바로 되팔고 할인된 금액만 부담하는데, 지역과 배기량마다 달라서 이 계산기에는 넣지 않았어요. 경차 등은 면제돼요."}}, {"@type": "Question", "name": "전기차 취득세 감면은 2027년에도 받을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "2026년 12월 31일까지 등록하면 140만원까지 감면돼요. 정부가 2027년부터 한도를 70만원으로 줄이는 개정안을 냈고, 2026년 11월 현재 국회 심사 중이에요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/tax-calendar/" data-k="내 1년 세금 달력 자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>내 1년 세금 달력</strong><span>자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/property-tax/" data-k="재산세 계산기 공시가격으로 7월·9월 재산세와 1주택 특례 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>재산세 계산기</strong><span>공시가격으로 7월·9월 재산세와 1주택 특례 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/comprehensive-tax/" data-k="종합부동산세 계산기 12월 종부세와 농특세, 고령자·장기보유 공제 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>종합부동산세 계산기</strong><span>12월 종부세와 농특세, 고령자·장기보유 공제 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const f10=n=>Math.floor(Math.round(n*1000)/10000)*10;
+const PT={ratio:(P,one)=>!one?.6:P<=3e8?.43:P<=6e8?.44:.45,
+  rate(B,sp){if(sp){if(B<=6e7)return B*.0005;if(B<=1.5e8)return 3e4+(B-6e7)*.001;if(B<=3e8)return 12e4+(B-1.5e8)*.002;return 42e4+(B-3e8)*.0035}
+    if(B<=6e7)return B*.001;if(B<=1.5e8)return 6e4+(B-6e7)*.0015;if(B<=3e8)return 19.5e4+(B-1.5e8)*.0025;return 57e4+(B-3e8)*.004},
+  calc(P,one,city){const r=PT.ratio(P,one),B=Math.floor(P*r/1000)*1000,sp=one&&P<=9e8;
+    const prop=f10(PT.rate(B,sp)),urb=city?f10(B*.0014):0,edu=f10(prop*.2),main=prop+urb,split=main>2e5;
+    const jul=split?f10(prop/2)+f10(urb/2)+f10(edu/2):main+edu;
+    return{r,B,sp,prop,urb,edu,total:main+edu,jul,sep:main+edu-jul,split}}};
+const JT={N:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.013],[50e8,.015],[94e8,.02],[Infinity,.027]],
+  H:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.02],[50e8,.03],[94e8,.04],[Infinity,.05]],
+  prog(B,t){let s=0,lo=0,top=0;for(const[hi,r]of t){if(B>lo){s+=(Math.min(B,hi)-lo)*r;top=r}lo=hi}return[s,top]},
+  calc(P,type,age,hold){const one=type==='one',D=one?12e8:9e8,B=Math.max(0,Math.floor((P-D)*.6/1000)*1000);
+    const heavy=type==='three'&&B>12e8,[s,top]=JT.prog(B,heavy?JT.H:JT.N),raw=f10(s);
+    const pr=PT.ratio(P,one),ded=B?f10(Math.min(PT.rate(Math.floor(P*pr),false),Math.max(0,P-D)*.6*pr*.004)):0;
+    const after=Math.max(0,raw-ded);
+    let cr=0;if(one)cr=Math.min(.8,(age>=70?.4:age>=65?.3:age>=60?.2:0)+(hold>=15?.5:hold>=10?.4:hold>=5?.2:0));
+    const crAmt=f10(after*cr),tax=after-crAmt,agri=f10(tax*.2);
+    return{D,B,heavy,top,raw,ded,cr,crAmt,tax,agri,total:tax+agri}}};
+const CT={per:(k,cc)=>k==='biz'?(cc<=1600?18:cc<=2500?19:24):(cc<=1000?80:cc<=1600?140:200),
+  red:(k,a)=>k==='biz'||a<3?0:Math.min(50,(a-2)*5)/100,
+  calc(k,cc,Y,reg,late){const raw=k==='ev'?1e5:cc*CT.per(k,cc),half=raw/2;
+    const a1=Math.max(1,late?Y-reg:Y-reg+1),a2=Math.max(1,Y-reg+1),r1=CT.red(k,a1),r2=CT.red(k,a2);
+    const h1=f10(half*(1-r1)),h2=f10(half*(1-r2));return{raw,a1,a2,r1,r2,h1,h2,year:h1+h2,lump:h1+h2<=1e5}},
+  pre(c,Y,w,rate){const D=(m,d)=>new Date(Y,m-1,d),dd=(a,b)=>Math.round((b-a)/864e5);
+    const H1=dd(D(1,1),D(7,1)),H2=dd(D(7,1),D(13,1)),st=D(w+1,1);
+    const r1=w<6?dd(st,D(7,1)):0,r2=w<6?H2:dd(st,D(13,1));
+    return f10((c.h1*r1/H1+c.h2*r2/H2)*rate)}};
+const ed=x=>x+f10(x*.3);
+let mode='new';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const RATE={car:.07,light:.04,van:.05,biz:.04,moto:.02},KN={car:'승용차',light:'경차',van:'승합·화물차',biz:'영업용',moto:'이륜차'};
+function calc(){
+  const k=$('kind').value,ev=$('ev').checked,kids=+$('kids').value,s7=$('seats').value==='7';
+  $('evy-w').hidden=!ev;
+  let base,price,bnote;
+  if(mode==='new'){price=W('price');base=$('vat').checked?Math.round(price/1.1):price;bnote=$('vat').checked?'부가세 10%를 뺀 금액':'입력한 금액 그대로'}
+  else{const p=W('used'),s=W('std');price=p;base=Math.max(p,s);bnote=s>p?'시가표준액이 더 높아서 시가표준액 기준':'산 가격 기준'+(s?'':' (시가표준액 미입력)')}
+  base=Math.floor(base/1000)*1000;
+  const rate=RATE[k],tax=f10(base*rate),opts=[];
+  if(k==='light')opts.push(['경차 감면 (75만원까지)',Math.min(tax,75e4)]);
+  if(ev&&k!=='moto'){const cap=$('evy').value==='2027'?7e5:14e5;opts.push([`전기·수소차 감면 (${cap/1e4}만원까지)`,Math.min(tax,cap)])}
+  if(kids>=2&&k!=='biz'&&k!=='moto'){
+    if(kids===2)opts.push(['자녀 2명 감면',s7?f10(tax*.5):(tax<=14e5?f10(tax*.5):7e5)]);
+    else opts.push(['자녀 3명 이상 감면',s7?(tax<=2e6?tax:tax-f10(tax*.15)):Math.min(tax,14e5)]);
+  }
+  let best=['해당 없음',0];opts.forEach(o=>{if(o[1]>best[1])best=o});
+  const total=tax-best[1];
+  $('o-mode').textContent=(mode==='new'?'신차':'중고차')+' · '+KN[k]+(ev?' · 전기·수소':'');
+  $('o-base').textContent=won(base);$('o-basenote').textContent=bnote;
+  $('o-rate').textContent=(rate*100)+'%';$('o-tax').textContent=won(tax);
+  $('o-cut').textContent=best[1]?'− '+won(best[1]):'없음';$('o-cutnote').textContent=best[0]+(opts.length>1?' · 여러 감면 중 큰 것 하나만':'');
+  $('o-total').textContent=won(total);$('o-eff').textContent=(price?total/price*100:0).toFixed(2)+'%';
+  const st=$('o-status');
+  if(ev&&k==='moto'){st.className='status warn';st.textContent='전기 이륜차 감면은 이 계산기에 넣지 않았어요. 등록하는 구청에 확인해 주세요.'}
+  else if(!base){st.className='status warn';st.textContent='차량 가격을 넣어 주세요.'}
+  else{st.className='status ok';st.textContent=total?`차를 산 날부터 60일 안에 취득세 약 ${man(total)}을 내야 해요. 공채 매입 비용과 등록 수수료는 따로 들어요.`:'감면으로 낼 취득세가 없어요. 등록할 때 감면 신청 서류를 함께 내세요.'}
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('new-w').hidden=mode!=='new';$('used-w').hidden=mode!=='used';calc()}));
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+['vat','ev'].forEach(i=>$(i).addEventListener('change',calc));
+$('reset').addEventListener('click',()=>{$('price').value=4000;$('vat').checked=true;$('used').value=2000;$('std').value=0;$('kind').value='car';$('ev').checked=false;$('evy').value='2026';$('kids').value='0';$('seats').value='6';document.querySelector('.seg button').click()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>

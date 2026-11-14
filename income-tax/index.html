@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>종합소득세 계산기 2026 · 프리랜서 3.3% 환급, 직장인 부업 5월 종소세 | 캘코</title>
+<meta name="description" content="3.3%를 떼고 받은 프리랜서·부업 수입을 넣으면 5월 종합소득세 신고 때 돌려받을 세금이나 더 낼 세금을 계산해요. 단순경비율·기준경비율·장부, 직장인 근로소득 합산, 강연료 같은 기타소득 분리과세 비교까지 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/income-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="종합소득세 계산기 2026 · 프리랜서 3.3% 환급, 직장인 부업 5월 종소세 | 캘코">
+<meta property="og:description" content="3.3%를 떼고 받은 프리랜서·부업 수입을 넣으면 5월 종합소득세 신고 때 돌려받을 세금이나 더 낼 세금을 계산해요. 단순경비율·기준경비율·장부, 직장인 근로소득 합산, 강연료 같은 기타소득 분리과세 비교까지 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/income-tax/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>종합소득세 계산기 (프리랜서·부업)</h1>
+    <p class="lead">3.3%를 떼고 받은 프리랜서·부업 수입을 넣으면 5월 종합소득세 신고 때 돌려받을 세금이나 더 낼 세금을 계산해요. 단순경비율·기준경비율·장부, 직장인 근로소득 합산, 강연료 같은 기타소득 분리과세 비교까지 반영했어요.</p>
+    <span class="tag">2026년 귀속 (2027년 5월 신고) 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div><div class="hint" style="margin-bottom:6px">나는</div>
+      <div class="seg" role="group" aria-label="소득 상황">
+        <button type="button" data-m="free" aria-pressed="true">프리랜서만 (월급 없음)</button>
+        <button type="button" data-m="work" aria-pressed="false">직장인 + 부업</button>
+      </div></div>
+      <label for="kind">소득 종류<select id="kind"><option value="biz" selected>사업소득 · 3.3% 떼고 받는 프리랜서·부업</option><option value="etc">기타소득 · 8.8% 떼고 받는 일시 강연·원고료</option></select></label>
+      <label for="rev">1년 수입금액 (만원)<input id="rev" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="3000"><span class="hint">3.3%(8.8%) 떼기 전 금액 합계</span></label>
+      <div id="biz-w" class="stack">
+        <label for="em">경비 계산 방식<select id="em"><option value="simple" selected>단순경비율 (직전 연도 수입 3,600만원 미만 프리랜서)</option><option value="std">기준경비율 (직전 연도 수입이 많을 때)</option><option value="book">장부에 적은 실제 경비</option></select></label>
+        <label for="sr" id="sr-w">단순경비율 (%)<input id="sr" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="64.1"><span class="hint">기타 자영업(940909) 64.1% · 홈택스 '기준·단순경비율' 조회</span></label>
+        <div class="row2" id="std-w">
+          <label for="br">기준경비율 (%)<input id="br" type="number" inputmode="decimal" min="0" max="100" step="0.1" value="13.4"></label>
+          <label for="main">주요경비 (만원)<input id="main" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">임차료·인건비 등 증빙</span></label>
+        </div>
+        <div id="book-w"><label for="book">실제 경비 (만원)<input id="book" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="1000"><span class="hint">장부에 적은 비용 합계</span></label></div>
+      </div>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="wh" type="checkbox" style="width:auto" checked> 3.3%(8.8%)를 떼고 받았어요</label>
+      <div id="free-w" class="stack">
+        <div class="row2">
+          <label for="fam">부양가족 수 (본인 포함)<input id="fam" type="number" inputmode="numeric" min="1" step="1" value="1"></label>
+          <label for="nps">낸 국민연금 (만원)<input id="nps" data-warn="3000" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">1년 합계</span></label>
+        </div>
+        <div id="yu-w"><label for="yu">노란우산공제 낸 금액 (만원)<input id="yu" data-warn="1000" type="number" inputmode="decimal" min="0" step="1" value="0"></label></div>
+      </div>
+      <div id="work-w"><label for="bw">근로소득 과세표준 (만원)<input id="bw" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="3000"><span class="hint">연말정산 원천징수영수증의 '과세표준' 칸</span></label></div>
+      <span class="hint">예시: 월급 없이 3.3%를 떼고 1년에 3,000만 원을 번 프리랜서 1인 가구예요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>종합소득세 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span>5월에 돌려받을 세금</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span>수입금액</span><b id="o-rev"></b></div>
+        <div class="line"><span>필요경비<em id="o-expnote"></em></span><b id="o-exp"></b></div>
+        <div class="line"><span>소득금액<em>수입금액 − 필요경비</em></span><b id="o-inc"></b></div>
+        <div class="line" id="l-ded"><span>소득공제 합계<em>인적공제·국민연금·노란우산</em></span><b id="o-ded"></b></div>
+        <div class="line"><span>종소세 과세표준<em id="o-bnote"></em></span><b id="o-base"></b></div>
+        <div class="line"><span>산출세액<em id="o-ratenote"></em></span><b id="o-raw"></b></div>
+        <div class="line" id="l-std"><span>표준세액공제</span><b id="o-std"></b></div>
+        <div class="line"><span>결정세액 (소득세)<em id="o-detnote"></em></span><b id="o-det"></b></div>
+        <div class="line"><span>이미 뗀 소득세<em id="o-paidnote"></em></span><b id="o-paid"></b></div>
+        <div class="line"><span>소득세 정산<em>결정세액 − 이미 뗀 세금</em></span><b id="o-diff"></b></div>
+        <div class="line"><span>지방소득세 정산<em>소득세의 10%</em></span><b id="o-ldiff"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>종합소득세는 이렇게 계산해요</h2>
+    <p>3.3%(소득세 3% + 지방소득세 0.3%)는 미리 뗀 세금이에요. 다음 해 <b>5월 1~31일</b>에 1년 치 소득을 신고해서 실제 세금을 계산하고, 미리 낸 세금이 더 많으면 돌려받고 적으면 더 내요.</p>
+    <ol>
+      <li><b>소득금액</b> = 수입금액 − 필요경비(장부 또는 경비율)</li>
+      <li><b>과세표준</b> = 소득금액 − 소득공제(본인·부양가족 1인당 150만 원, 국민연금, 노란우산공제 등)</li>
+      <li><b>결정세액</b> = 과세표준 × 세율(6~45%) − 세액공제(근로소득이 없으면 표준세액공제 7만 원)</li>
+      <li><b>정산</b> = 결정세액 − 이미 뗀 세금, 지방소득세는 그 10%</li>
+    </ol>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>종합소득세율 (2026년 귀속)</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>과세표준</th><th>세율</th><th>누진공제</th></tr></thead>
+      <tbody>
+        <tr><td>1,400만원 이하</td><td>6%</td><td>없음</td></tr>
+        <tr><td>1,400만 ~ 5,000만</td><td>15%</td><td>126만원</td></tr>
+        <tr><td>5,000만 ~ 8,800만</td><td>24%</td><td>576만원</td></tr>
+        <tr><td>8,800만 ~ 1.5억</td><td>35%</td><td>1,544만원</td></tr>
+        <tr><td>1.5억 ~ 3억</td><td>38%</td><td>1,994만원</td></tr>
+        <tr><td>3억 ~ 5억</td><td>40%</td><td>2,594만원</td></tr>
+        <tr><td>5억 ~ 10억</td><td>42%</td><td>3,594만원</td></tr>
+        <tr><td>10억 초과</td><td>45%</td><td>6,594만원</td></tr>
+      </tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>경비는 어떻게 인정받나요?</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>단순경비율:</b> 직전 연도 수입이 적은 프리랜서(인적용역은 3,600만 원 미만)는 수입의 일정 비율(940909는 64.1%)을 비용으로 인정받아요. 수입 4천만 원을 넘는 부분은 낮은 비율(49.7%)을 써요.</li>
+      <li><b>기준경비율:</b> 직전 연도 수입이 그보다 많으면 주요경비는 증빙한 만큼, 나머지는 기준경비율(940909는 13.4%)만큼만 인정돼요. 대신 단순경비율로 계산한 소득의 3.4배를 넘지는 않아요.</li>
+      <li><b>장부:</b> 실제로 쓴 비용이 많다면 간편장부를 써서 실제 경비로 신고하는 게 유리할 수 있어요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>직장인 부업과 기타소득</h2></summary><div class="sec-b">
+    <ul>
+      <li>직장인이 부업 사업소득을 받으면 근로소득과 합쳐 세율이 높아져요. 이 계산기는 원천징수영수증의 <b>과세표준</b>에 부업 소득을 더해서 <b>늘어나는 세금만</b> 계산해요.</li>
+      <li>일시적인 강연료·원고료 같은 <b>기타소득</b>은 60%를 경비로 빼 주고, 소득금액(수입의 40%)의 20%를 떼요. 소득금액이 1년에 300만 원 이하면 신고하지 않고 끝내는 분리과세를 고를 수 있어서, 이 계산기는 더 유리한 쪽을 골라 보여 줘요.</li>
+      <li>월급 외 소득이 1년에 2,000만 원을 넘으면 건강보험료가 추가로 나와요.</li>
+    </ul>
+    <p class="hint">자녀·연금계좌·기부금 세액공제, 근로소득세액공제 재계산, 이자·배당·연금소득은 넣지 않은 간이 계산이에요. 수입이 7,500만 원 이상(인적용역)이면 복식부기 의무가 생겨요. 정확한 금액은 5월에 홈택스 '모두채움' 신고서나 세무사로 확인해 주세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>산출세액</dt><dd>과세표준에 세율(6~45%)을 곱해 나온 세금이에요. 아직 세액공제를 빼기 전 금액이에요.</dd></div><div><dt>결정세액</dt><dd>1년 동안 실제로 내야 할 최종 소득세예요. 산출세액에서 세액공제를 뺀 금액이에요.</dd></div><div><dt>지방소득세</dt><dd>소득세의 10%를 지방자치단체에 함께 내는 세금이에요.</dd></div><div><dt>부양가족 수</dt><dd>본인을 포함해 연 소득 100만원 이하(근로소득만 있으면 총급여 500만원 이하)인 가족 수예요. 회사에 낸 원천징수 신고 기준이에요.</dd></div><div><dt>필요경비</dt><dd>집을 사고팔면서 쓴 돈 중 비용으로 인정되는 금액이에요. 취득세, 중개보수, 법무사 비용, 샷시·확장 같은 공사비가 들어가요. 도배·장판 같은 수리비는 빠져요.</dd></div><div><dt>수입금액</dt><dd>1년 동안 받은 돈의 합계예요. 3.3%를 떼기 전 금액으로 넣어요. 홈택스 '지급명세서 조회'에서 볼 수 있어요.</dd></div><div><dt>기준경비율</dt><dd>직전 연도 수입이 많아 단순경비율을 못 쓰는 사업자에게 적용해요. 임차료·인건비 같은 주요경비는 증빙한 만큼, 나머지는 기준경비율만큼만 인정돼서 세금이 크게 늘 수 있어요.</dd></div><div><dt>주요경비</dt><dd>기준경비율로 신고할 때 영수증으로 증빙해야 하는 큰 비용이에요. 임차료, 직원 인건비, 매입한 상품·재료비가 해당돼요.</dd></div><div><dt>종소세 과세표준</dt><dd>사업·근로 등 종합소득금액에서 인적공제, 국민연금 같은 소득공제를 뺀 금액이에요. 여기에 6~45% 세율을 곱해요.</dd></div><div><dt>노란우산공제</dt><dd>소기업·소상공인을 위한 퇴직금 같은 공제부금이에요. 낸 금액을 사업소득금액에 따라 200만~600만 원까지 소득에서 빼 줘요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>3.3% 떼고 받았는데 종합소득세를 꼭 신고해야 하나요?</summary><p>네. 3.3%는 미리 뗀 세금이라서 다음 해 5월에 1년 치를 신고해서 정산해야 해요. 수입이 적으면 낸 세금을 돌려받는 경우가 많아요.</p></details><details><summary>직장인인데 부업 소득도 신고해야 하나요?</summary><p>부업으로 받은 사업소득이 있으면 근로소득과 합쳐서 5월에 신고해야 해요. 연말정산을 했더라도 마찬가지예요. 일시적인 강연료 같은 기타소득은 소득금액 300만 원 이하면 신고하지 않고 끝낼 수도 있어요.</p></details><details><summary>부업 소득이 생기면 건강보험료도 오르나요?</summary><p>직장인의 월급 외 소득(사업·기타·이자·배당 등)이 1년에 2,000만 원을 넘으면 넘는 부분에 건강보험료가 추가로 붙어요.</p></details><details><summary>단순경비율을 쓸 수 있는지는 어떻게 아나요?</summary><p>프리랜서(인적용역)는 보통 직전 연도 수입이 3,600만 원 미만이면 단순경비율을 써요. 5월에 홈택스에서 신고 안내문을 보면 내 경비율 유형이 적혀 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "3.3% 떼고 받았는데 종합소득세를 꼭 신고해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 3.3%는 미리 뗀 세금이라서 다음 해 5월에 1년 치를 신고해서 정산해야 해요. 수입이 적으면 낸 세금을 돌려받는 경우가 많아요."}}, {"@type": "Question", "name": "직장인인데 부업 소득도 신고해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "부업으로 받은 사업소득이 있으면 근로소득과 합쳐서 5월에 신고해야 해요. 연말정산을 했더라도 마찬가지예요. 일시적인 강연료 같은 기타소득은 소득금액 300만 원 이하면 신고하지 않고 끝낼 수도 있어요."}}, {"@type": "Question", "name": "부업 소득이 생기면 건강보험료도 오르나요?", "acceptedAnswer": {"@type": "Answer", "text": "직장인의 월급 외 소득(사업·기타·이자·배당 등)이 1년에 2,000만 원을 넘으면 넘는 부분에 건강보험료가 추가로 붙어요."}}, {"@type": "Question", "name": "단순경비율을 쓸 수 있는지는 어떻게 아나요?", "acceptedAnswer": {"@type": "Answer", "text": "프리랜서(인적용역)는 보통 직전 연도 수입이 3,600만 원 미만이면 단순경비율을 써요. 5월에 홈택스에서 신고 안내문을 보면 내 경비율 유형이 적혀 있어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/tax-calendar/" data-k="내 1년 세금 달력 자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>내 1년 세금 달력</strong><span>자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/property-tax/" data-k="재산세 계산기 공시가격으로 7월·9월 재산세와 1주택 특례 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>재산세 계산기</strong><span>공시가격으로 7월·9월 재산세와 1주택 특례 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/comprehensive-tax/" data-k="종합부동산세 계산기 12월 종부세와 농특세, 고령자·장기보유 공제 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>종합부동산세 계산기</strong><span>12월 종부세와 농특세, 고령자·장기보유 공제 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const PRG=(B,t)=>{let s=0,lo=0,top=0;for(const[hi,r]of t){if(B>lo){s+=(Math.min(B,hi)-lo)*r;top=r}lo=hi}return[s,top]};
+const GT=[[1e8,.1],[5e8,.2],[1e9,.3],[3e9,.4],[Infinity,.5]];
+const IT=[[14e6,.06],[5e7,.15],[88e6,.24],[15e7,.35],[3e8,.38],[5e8,.40],[1e9,.42],[Infinity,.45]];
+const pct=r=>Math.round(r*1000)/10+'%';
+const ttl=(b,pos,neg)=>{const t=document.querySelector('.slip .total span');if(t)t.textContent=b?pos:neg};
+let mode='free';
+function calc(){
+  const work=mode==='work',kind=$('kind').value,etc=kind==='etc',em=$('em').value,R=W('rev');
+  $('biz-w').hidden=etc;$('sr-w').hidden=em!=='simple'&&em!=='std';$('std-w').hidden=em!=='std';$('book-w').hidden=em!=='book';
+  $('free-w').hidden=work;$('work-w').hidden=!work;$('yu-w').hidden=etc;$('l-ded').hidden=work;$('l-std').hidden=work;
+  let inc,enote;
+  if(etc){inc=Math.floor(R*.4);enote='기타소득 필요경비 60%'}
+  else{const sr=Math.min(100,Math.max(0,+$('sr').value||0))/100,xr=Math.max(0,1-(1-sr)*1.4);
+    const simple=R<=4e7?R*(1-sr):4e7*(1-sr)+(R-4e7)*(1-xr);
+    if(em==='simple'){inc=simple;enote=R>4e7?`단순경비율 ${pct(sr)} · 4천만 초과분 ${pct(xr)}`:`단순경비율 ${pct(sr)}`}
+    else if(em==='std'){const br=Math.min(100,Math.max(0,+$('br').value||0))/100,v=Math.max(0,R-W('main')-R*br);inc=Math.min(v,simple*3.4);enote=v>simple*3.4?'단순경비율 소득의 3.4배 한도':`주요경비 + 기준경비율 ${pct(br)}`}
+    else{inc=Math.max(0,R-W('book'));enote='장부 기준'}
+    inc=Math.floor(inc)}
+  const wh=$('wh').checked,paid=wh?(etc?Math.floor(inc*.2):Math.floor(R*.03)):0;
+  let B,raw,top,std=0,ded=0;
+  if(work){const bw=W('bw'),[a,t]=PRG(bw+inc,IT),[b]=PRG(bw,IT);B=bw+inc;raw=Math.floor(a)-Math.floor(b);top=t}
+  else{const fam=Math.max(1,Math.floor(+$('fam').value||1)),yu=etc?0:Math.min(W('yu'),inc<=4e7?6e6:inc<=1e8?4e6:2e6);
+    ded=Math.min(inc,1.5e6*fam+W('nps')+yu);B=Math.max(0,inc-ded);const[s,t]=PRG(B,IT);raw=Math.floor(s);top=t;std=Math.min(raw,7e4)}
+  let det=raw-std,sep=etc&&inc<=3e6&&inc>0?Math.floor(inc*.2):null,useSep=sep!==null&&sep<=det;
+  if(useSep)det=sep;
+  const diff=det-paid,ldiff=Math.floor(det*.1)-Math.floor(paid*.1),tot=diff+ldiff;
+  $('o-mode').textContent=(work?'직장인 + 부업':'프리랜서')+' · '+(etc?'기타소득':'사업소득');
+  $('o-rev').textContent=won(R);$('o-exp').textContent='− '+won(R-inc);$('o-expnote').textContent=enote;$('o-inc').textContent=won(inc);
+  $('o-ded').textContent='− '+won(ded);$('o-base').textContent=won(B);$('o-bnote').textContent=work?'근로 과세표준 + 부업 소득':'';
+  $('o-raw').textContent=won(raw);$('o-ratenote').textContent=work?'부업으로 늘어나는 세금 · 최고 '+pct(top):(raw?'최고 구간 '+pct(top):'');
+  $('o-std').textContent=std?'− '+won(std):'없음';
+  $('o-det').textContent=won(det);$('o-detnote').textContent=useSep?'분리과세 20%가 더 유리해요':(work?'부업분만':'');
+  $('o-paid').textContent=paid?'− '+won(paid):'없음';$('o-paidnote').textContent=etc?'소득금액의 20%':'수입의 3%';
+  const sg=v=>(v>0?'+ ':v<0?'− ':'')+won(Math.abs(v));
+  $('o-diff').textContent=sg(diff);$('o-ldiff').textContent=sg(ldiff);
+  ttl(tot<0,'5월에 돌려받을 세금','5월에 더 낼 세금');$('o-total').textContent=won(Math.abs(tot));
+  const st=$('o-status');st.className='status ok';
+  if(!R){st.className='status warn';st.textContent='1년 수입금액을 넣어 주세요.';return}
+  let msg=useSep?`기타소득금액이 300만원 이하라 이미 뗀 8.8%로 끝내는 분리과세가 유리해요. 신고하지 않아도 돼요.`
+    :tot<0?`2027년 5월 신고하면 ${won(-tot)}을 돌려받아요. 신고하지 않으면 못 받으니 꼭 신고하세요.`
+    :tot>0?`2027년 5월 1~31일에 ${won(tot)}을 더 내요.`+(tot>1e7?' 1천만원이 넘어서 일부를 2개월 안에 나눠 낼 수 있어요.':''):'이미 뗀 세금과 같아서 더 낼 돈도 돌려받을 돈도 없어요.';
+  if(!etc&&em==='simple'&&R>=36e6){st.className='status warn';msg+=' 올해 수입이 3,600만원 이상이라 다음 해에는 기준경비율이나 장부 신고 대상이 돼요.'}
+  if(work&&inc>2e7)msg+=' 월급 외 소득이 2천만원을 넘어서 건강보험료가 추가로 나올 수 있어요.';
+  st.textContent=msg;
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));calc()}));
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{$('kind').value='biz';$('rev').value=3000;$('em').value='simple';$('sr').value=64.1;$('br').value=13.4;$('main').value=0;$('book').value=1000;$('wh').checked=true;$('fam').value=1;$('nps').value=0;$('yu').value=0;$('bw').value=3000;document.querySelector('.seg button').click()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>

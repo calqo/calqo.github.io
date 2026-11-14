@@ -243,3 +243,21 @@ form.panel .ftop button.reset:hover{color:var(--accent);background:var(--accent-
 .group .card{padding:13px 16px}
 .group .card .ct span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .group .cards{gap:10px}
+/* v13: 세금 달력 */
+.cal{display:flex;flex-direction:column;margin-top:4px;border-top:1px solid var(--line)}
+.cm{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:start;padding:11px 0;border-bottom:1px solid var(--line)}
+.cm:last-child{border-bottom:0}
+.cm .mo{font-weight:800;color:var(--accent);font-variant-numeric:tabular-nums;padding-top:1px}
+.cm .mi{display:flex;flex-direction:column;gap:5px;min-width:0}
+.cm .mi b{font-variant-numeric:tabular-nums;font-weight:700}
+.cm .mi small{color:var(--ink-2);font-size:12.5px;line-height:1.55}
+.cm .bar{height:7px}
+.cm.none{padding:7px 0}
+.cm.none .mo,.cm.none b{color:var(--ink-3);font-weight:600}
+.cm.top .bar i{background:var(--accent)}
+.cal-act{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.cal-act .share:disabled{opacity:.5;cursor:default}
+
+/* v14: hidden 속성은 항상 숨김 (.row2 등 display 지정 요소 포함) · 세로 묶음 */
+[hidden]{display:none!important}
+.stack{display:flex;flex-direction:column;gap:12px}

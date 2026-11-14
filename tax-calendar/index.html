@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>내 1년 세금 달력 2027 · 자동차세 재산세 주민세 종부세 월별 납부 일정과 금액 | 캘코</title>
+<meta name="description" content="차와 집 정보를 넣으면 자동차세, 재산세, 주민세, 종합부동산세를 언제 얼마씩 내는지 달마다 보여 줘요. 휴대폰 캘린더에 납부 일정을 한 번에 넣을 수 있어요.">
+<link rel="canonical" href="https://calqo.kr/tax-calendar/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="내 1년 세금 달력 2027 · 자동차세 재산세 주민세 종부세 월별 납부 일정과 금액 | 캘코">
+<meta property="og:description" content="차와 집 정보를 넣으면 자동차세, 재산세, 주민세, 종합부동산세를 언제 얼마씩 내는지 달마다 보여 줘요. 휴대폰 캘린더에 납부 일정을 한 번에 넣을 수 있어요.">
+<meta property="og:url" content="https://calqo.kr/tax-calendar/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>내 1년 세금 달력</h1>
+    <p class="lead">차와 집 정보를 넣으면 자동차세, 재산세, 주민세, 종합부동산세를 언제 얼마씩 내는지 달마다 보여 줘요. 휴대폰 캘린더에 납부 일정을 한 번에 넣을 수 있어요.</p>
+    <span class="tag">2026·2027년 지방세·종부세 납부 일정 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <label for="year">기준 연도<select id="year"><option value="2026">2026년</option><option value="2027" selected>2027년</option></select><span class="hint">2027년은 2026년 세율이 그대로라고 가정해요</span></label>
+      <h2 style="font-size:15px;margin:4px 0 0">자동차</h2>
+      <div class="row2">
+        <label for="car">내 차<select id="car"><option value="ice" selected>일반 승용차</option><option value="ev">전기·수소차</option><option value="none">차 없음</option></select></label>
+        <label for="cc" id="cc-w">배기량 (cc)<input id="cc" type="number" inputmode="numeric" min="0" step="1" value="1598"></label>
+      </div>
+      <div class="row2" id="car-w">
+        <label for="reg">최초 등록 연도<input id="reg" type="number" inputmode="numeric" min="1980" max="2030" step="1" value="2021"></label>
+        <label for="pre">자동차세 내는 방법<select id="pre"><option value="1" selected>1월에 연납 (5% 할인)</option><option value="0">6월·12월 나눠 내기</option></select></label>
+      </div>
+      <h2 style="font-size:15px;margin:4px 0 0">집</h2>
+      <div class="row2">
+        <label for="house">가진 주택<select id="house"><option value="one" selected>1세대 1주택</option><option value="two">2주택</option><option value="three">3주택 이상</option><option value="none">집 없음</option></select></label>
+        <label for="hp" id="hp-w">공시가격 합계 (만원)<input id="hp" data-warn="1000000" type="number" inputmode="decimal" min="0" step="1" value="60000"></label>
+      </div>
+      <div id="city-w"><label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="city" type="checkbox" style="width:auto" checked> 도시지역에 있어요 (대부분의 아파트)</label></div>
+      <div class="row2" id="cr-w" hidden>
+        <label for="age">나이 (종부세 공제용)<select id="age"><option value="0" selected>만 60세 미만</option><option value="60">만 60~64세</option><option value="65">만 65~69세</option><option value="70">만 70세 이상</option></select></label>
+        <label for="hold">집을 가진 기간<select id="hold"><option value="0" selected>5년 미만</option><option value="5">5~10년</option><option value="10">10~15년</option><option value="15">15년 이상</option></select></label>
+      </div>
+      <h2 style="font-size:15px;margin:4px 0 0">주민세</h2>
+      <div class="row2">
+        <label for="head">세대주인가요?<select id="head"><option value="1" selected>네, 세대주예요</option><option value="0">아니요</option></select></label>
+        <label for="res">주민세 개인분 (원)<input id="res" type="number" inputmode="numeric" min="0" max="30000" step="100" value="6000"><span class="hint">서울 6,000원. 다른 지역은 작년 8월 고지서 금액</span></label>
+      </div>
+      <span class="hint">예시: 2021년식 1,598cc 승용차와 공시가격 6억 원 아파트 한 채를 가진 서울 세대주예요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>세금 달력 <small id="o-mode"></small></h2>
+      <div class="total"><span>1년 세금 합계</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span>자동차세<em>지방교육세 포함</em></span><b id="o-car"></b></div>
+        <div class="line"><span>재산세<em>도시지역분·지방교육세 포함</em></span><b id="o-prop"></b></div>
+        <div class="line"><span>주민세 개인분</span><b id="o-res"></b></div>
+        <div class="line"><span>종합부동산세<em>농특세 포함</em></span><b id="o-jong"></b></div>
+        <div class="line"><span>한 달 평균으로 모으면</span><b id="o-avg"></b></div>
+      </div>
+      <div class="cal" id="o-cal"></div>
+      <div class="cal-act"><button type="button" class="share" id="ics"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>휴대폰 캘린더에 넣기 (.ics)</button><span class="share-msg" id="ics-msg" role="status"></span></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>1년 세금 일정 한눈에 보기</h2>
+    <p>집과 차를 가진 직장인은 월급에서 떼는 세금 말고도 해마다 정해진 달에 세금 고지서를 받아요. 미리 알아 두면 목돈이 나가는 달을 대비할 수 있어요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>달</th><th>세금</th><th>납부 기간</th><th>기준일</th></tr></thead>
+      <tbody>
+        <tr><td>1월</td><td>자동차세 연납 (신청한 경우)</td><td>1월 16~31일</td><td>-</td></tr>
+        <tr><td>6월</td><td>자동차세 1기분 (1~6월분)</td><td>6월 16~30일</td><td>6월 1일 소유자</td></tr>
+        <tr><td>7월</td><td>재산세 1기분 (주택 절반 + 건물)</td><td>7월 16~31일</td><td>6월 1일 소유자</td></tr>
+        <tr><td>8월</td><td>주민세 개인분</td><td>8월 16~31일</td><td>7월 1일 세대주</td></tr>
+        <tr><td>9월</td><td>재산세 2기분 (주택 절반 + 토지)</td><td>9월 16~30일</td><td>6월 1일 소유자</td></tr>
+        <tr><td>12월</td><td>종합부동산세</td><td>12월 1~15일</td><td>6월 1일 소유자</td></tr>
+        <tr><td>12월</td><td>자동차세 2기분 (7~12월분)</td><td>12월 16~31일</td><td>12월 1일 소유자</td></tr>
+      </tbody>
+    </table></div>
+    <p>납부 마감일이 주말이나 공휴일이면 다음 평일까지 낼 수 있어요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>세금 아끼는 방법</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>자동차세 1월 연납:</b> 1월 16~31일에 1년 치를 미리 내면 약 4.6%를 아껴요. <a href="/car-tax/">자동차세 계산기</a>에서 정확한 금액을 볼 수 있어요.</li>
+      <li><b>집 살 때 잔금일:</b> 재산세와 종부세는 6월 1일 소유자가 1년 치를 모두 내요. 사는 사람은 잔금을 6월 2일 이후로 잡으면 그해 보유세를 피할 수 있어요.</li>
+      <li><b>자동이체·전자고지:</b> 위택스에서 지방세 전자송달과 자동이체를 함께 신청하면 건당 세액공제를 받을 수 있어요(지역마다 금액이 달라요).</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>이 달력에 없는 세금</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>근로소득세:</b> 매달 월급에서 떼고, 2월 <a href="/year-end-tax/">연말정산</a>으로 정산해요.</li>
+      <li><b>종합소득세:</b> 부업·임대·이자배당 소득이 있으면 5월에 신고해요.</li>
+      <li><b>집·차 살 때 세금:</b> <a href="/acquisition-tax/">주택 취득세</a>, <a href="/car-acquisition-tax/">자동차 취득세</a>는 산 날부터 60일 안에 내요.</li>
+    </ul>
+    <p class="hint">집이 여러 채면 재산세는 집마다 따로 계산해야 해서, 공시가격 합계로 계산한 이 달력과 조금 다를 수 있어요. 재산세 1주택 공정시장가액비율과 종부세는 2027년 법 개정에 따라 바뀔 수 있어요. 자세한 금액은 <a href="/property-tax/">재산세 계산기</a>와 <a href="/comprehensive-tax/">종부세 계산기</a>에서 확인해 주세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>최초 등록 연도</dt><dd>자동차등록증의 '최초등록일' 연도예요. 중고차를 샀더라도 처음 등록된 날을 기준으로 차령(자동차 나이)을 세요.</dd></div><div><dt>주민세 개인분</dt><dd>지역에 주소를 둔 세대주가 매년 8월에 내는 세금이에요. 금액은 지역 조례로 정하고, 지방교육세 25%가 함께 붙어요. 서울은 합계 6,000원이에요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>세금 달력의 금액은 실제 고지서와 같나요?</summary><p>공식 세율로 계산한 예상액이에요. 공시가격이 크게 오른 해의 과세표준 상한, 각종 감면, 지역 조례에 따라 실제 고지서와 조금 다를 수 있어요. 정확한 금액은 위택스와 홈택스에서 확인해 주세요.</p></details><details><summary>고지서를 못 받았어요. 어디서 확인하나요?</summary><p>자동차세·재산세·주민세 같은 지방세는 위택스(서울은 서울시 이택스)에서, 종합부동산세는 홈택스에서 조회하고 낼 수 있어요.</p></details><details><summary>세금을 신용카드로 내도 수수료가 없나요?</summary><p>자동차세·재산세·주민세 같은 지방세는 신용카드로 내도 수수료가 없어요. 종부세 같은 국세는 카드로 내면 납부 대행 수수료가 붙어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "세금 달력의 금액은 실제 고지서와 같나요?", "acceptedAnswer": {"@type": "Answer", "text": "공식 세율로 계산한 예상액이에요. 공시가격이 크게 오른 해의 과세표준 상한, 각종 감면, 지역 조례에 따라 실제 고지서와 조금 다를 수 있어요. 정확한 금액은 위택스와 홈택스에서 확인해 주세요."}}, {"@type": "Question", "name": "고지서를 못 받았어요. 어디서 확인하나요?", "acceptedAnswer": {"@type": "Answer", "text": "자동차세·재산세·주민세 같은 지방세는 위택스(서울은 서울시 이택스)에서, 종합부동산세는 홈택스에서 조회하고 낼 수 있어요."}}, {"@type": "Question", "name": "세금을 신용카드로 내도 수수료가 없나요?", "acceptedAnswer": {"@type": "Answer", "text": "자동차세·재산세·주민세 같은 지방세는 신용카드로 내도 수수료가 없어요. 종부세 같은 국세는 카드로 내면 납부 대행 수수료가 붙어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/property-tax/" data-k="재산세 계산기 공시가격으로 7월·9월 재산세와 1주택 특례 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>재산세 계산기</strong><span>공시가격으로 7월·9월 재산세와 1주택 특례 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/comprehensive-tax/" data-k="종합부동산세 계산기 12월 종부세와 농특세, 고령자·장기보유 공제 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>종합부동산세 계산기</strong><span>12월 종부세와 농특세, 고령자·장기보유 공제 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/car-tax/" data-k="자동차세 계산기 (연납·차령 경감) 1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차세 계산기 (연납·차령 경감)</strong><span>1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const f10=n=>Math.floor(Math.round(n*1000)/10000)*10;
+const PT={ratio:(P,one)=>!one?.6:P<=3e8?.43:P<=6e8?.44:.45,
+  rate(B,sp){if(sp){if(B<=6e7)return B*.0005;if(B<=1.5e8)return 3e4+(B-6e7)*.001;if(B<=3e8)return 12e4+(B-1.5e8)*.002;return 42e4+(B-3e8)*.0035}
+    if(B<=6e7)return B*.001;if(B<=1.5e8)return 6e4+(B-6e7)*.0015;if(B<=3e8)return 19.5e4+(B-1.5e8)*.0025;return 57e4+(B-3e8)*.004},
+  calc(P,one,city){const r=PT.ratio(P,one),B=Math.floor(P*r/1000)*1000,sp=one&&P<=9e8;
+    const prop=f10(PT.rate(B,sp)),urb=city?f10(B*.0014):0,edu=f10(prop*.2),main=prop+urb,split=main>2e5;
+    const jul=split?f10(prop/2)+f10(urb/2)+f10(edu/2):main+edu;
+    return{r,B,sp,prop,urb,edu,total:main+edu,jul,sep:main+edu-jul,split}}};
+const JT={N:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.013],[50e8,.015],[94e8,.02],[Infinity,.027]],
+  H:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.02],[50e8,.03],[94e8,.04],[Infinity,.05]],
+  prog(B,t){let s=0,lo=0,top=0;for(const[hi,r]of t){if(B>lo){s+=(Math.min(B,hi)-lo)*r;top=r}lo=hi}return[s,top]},
+  calc(P,type,age,hold){const one=type==='one',D=one?12e8:9e8,B=Math.max(0,Math.floor((P-D)*.6/1000)*1000);
+    const heavy=type==='three'&&B>12e8,[s,top]=JT.prog(B,heavy?JT.H:JT.N),raw=f10(s);
+    const pr=PT.ratio(P,one),ded=B?f10(Math.min(PT.rate(Math.floor(P*pr),false),Math.max(0,P-D)*.6*pr*.004)):0;
+    const after=Math.max(0,raw-ded);
+    let cr=0;if(one)cr=Math.min(.8,(age>=70?.4:age>=65?.3:age>=60?.2:0)+(hold>=15?.5:hold>=10?.4:hold>=5?.2:0));
+    const crAmt=f10(after*cr),tax=after-crAmt,agri=f10(tax*.2);
+    return{D,B,heavy,top,raw,ded,cr,crAmt,tax,agri,total:tax+agri}}};
+const CT={per:(k,cc)=>k==='biz'?(cc<=1600?18:cc<=2500?19:24):(cc<=1000?80:cc<=1600?140:200),
+  red:(k,a)=>k==='biz'||a<3?0:Math.min(50,(a-2)*5)/100,
+  calc(k,cc,Y,reg,late){const raw=k==='ev'?1e5:cc*CT.per(k,cc),half=raw/2;
+    const a1=Math.max(1,late?Y-reg:Y-reg+1),a2=Math.max(1,Y-reg+1),r1=CT.red(k,a1),r2=CT.red(k,a2);
+    const h1=f10(half*(1-r1)),h2=f10(half*(1-r2));return{raw,a1,a2,r1,r2,h1,h2,year:h1+h2,lump:h1+h2<=1e5}},
+  pre(c,Y,w,rate){const D=(m,d)=>new Date(Y,m-1,d),dd=(a,b)=>Math.round((b-a)/864e5);
+    const H1=dd(D(1,1),D(7,1)),H2=dd(D(7,1),D(13,1)),st=D(w+1,1);
+    const r1=w<6?dd(st,D(7,1)):0,r2=w<6?H2:dd(st,D(13,1));
+    return f10((c.h1*r1/H1+c.h2*r2/H2)*rate)}};
+const ed=x=>x+f10(x*.3);
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+let ITEMS=[],YR=2027;
+const due=(m,s,e)=>`${m}월 ${s}~${e}일`;
+function calc(){
+  const Y=+$('year').value,car=$('car').value,house=$('house').value,hp=W('hp'),items=[];YR=Y;
+  $('cc-w').hidden=car!=='ice';$('car-w').hidden=car==='none';
+  $('hp-w').hidden=$('city-w').hidden=house==='none';$('cr-w').hidden=!(house==='one'&&hp>12e8);
+  let carT=0,propT=0,resT=0,jongT=0;
+  if(car!=='none'){const c=CT.calc(car,Math.max(0,Math.floor(+$('cc').value||0)),Y,Math.floor(+$('reg').value||Y),false);
+    if($('pre').value==='1'){carT=ed(c.year-CT.pre(c,Y,1,.05));items.push({m:1,s:16,e:31,n:'자동차세 1월 연납',a:carT})}
+    else if(c.lump){carT=ed(c.year);items.push({m:6,s:16,e:30,n:'자동차세 (1년 치)',a:carT})}
+    else{const a=ed(c.h1),b=ed(c.h2);carT=a+b;items.push({m:6,s:16,e:30,n:'자동차세 1기분',a},{m:12,s:16,e:31,n:'자동차세 2기분',a:b})}}
+  if(house!=='none'&&hp>0){const p=PT.calc(hp,house==='one',$('city').checked);propT=p.total;
+    items.push({m:7,s:16,e:31,n:p.split?'재산세 1기분':'재산세 (1년 치)',a:p.jul});if(p.split)items.push({m:9,s:16,e:30,n:'재산세 2기분',a:p.sep});
+    const j=JT.calc(hp,house,+$('age').value,+$('hold').value);jongT=j.total;if(jongT)items.push({m:12,s:1,e:15,n:'종합부동산세',a:jongT})}
+  if($('head').value==='1'){resT=Math.max(0,Math.floor(+$('res').value||0));if(resT)items.push({m:8,s:16,e:31,n:'주민세 개인분',a:resT})}
+  items.sort((x,y)=>x.m-y.m||x.s-y.s);ITEMS=items;
+  const total=carT+propT+resT+jongT,mon=Array.from({length:12},()=>[]);items.forEach(i=>mon[i.m-1].push(i));
+  const sums=mon.map(l=>l.reduce((s,i)=>s+i.a,0)),mx=Math.max(...sums),top=sums.indexOf(mx);
+  $('o-mode').textContent=Y+'년';$('o-total').textContent=won(total);
+  $('o-car').textContent=car==='none'?'없음':won(carT);$('o-prop').textContent=propT?won(propT):'없음';
+  $('o-res').textContent=resT?won(resT):'없음';$('o-jong').textContent=jongT?won(jongT):(house==='none'?'없음':'없음 (공제 이하)');
+  $('o-avg').textContent=won(total/12);
+  $('o-cal').innerHTML=sums.map((s,i)=>`<div class="cm${s?'':' none'}${s&&i===top?' top':''}"><span class="mo">${i+1}월</span><div class="mi"><b>${s?won(s):'-'}</b>`+
+    (s?`<small>${mon[i].map(x=>x.n+' · '+due(x.m,x.s,x.e)).join('<br>')}</small><div class="bar"><i style="width:${Math.max(3,s/mx*100)}%"></i></div>`:'')+`</div></div>`).join('');
+  const st=$('o-status');$('ics').disabled=!items.length;
+  if(!items.length){st.className='status warn';st.textContent='차나 집, 주민세 정보를 넣으면 달마다 낼 세금이 나와요.'}
+  else{st.className='status ok';st.textContent=`${Y}년에는 ${top+1}월에 가장 많은 ${won(mx)}을 내요. 한 달에 ${won(total/12)}씩 모아 두면 편해요.`}
+}
+$('ics').addEventListener('click',()=>{if(!ITEMS.length)return;
+  const p=n=>String(n).padStart(2,'0'),d=(m,day)=>`${YR}${p(m)}${p(day)}`,nx=(m,day)=>{const t=new Date(YR,m-1,day+1);return `${t.getFullYear()}${p(t.getMonth()+1)}${p(t.getDate())}`};
+  const stamp=new Date().toISOString().replace(/[-:]/g,'').slice(0,15)+'Z';
+  let s='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//calqo.kr//tax-calendar//KO\r\nCALSCALE:GREGORIAN\r\n';
+  ITEMS.forEach((i,k)=>{s+=`BEGIN:VEVENT\r\nUID:calqo-${YR}-${k}-${i.m}${i.s}@calqo.kr\r\nDTSTAMP:${stamp}\r\nDTSTART;VALUE=DATE:${d(i.m,i.s)}\r\nDTEND;VALUE=DATE:${nx(i.m,i.e)}\r\nSUMMARY:${i.n} 약 ${won(i.a)}\r\nDESCRIPTION:납부 기간 ${due(i.m,i.s,i.e)} (마감일이 휴일이면 다음 평일). 캘코 세금 달력 예상액 https://calqo.kr/tax-calendar/\r\nBEGIN:VALARM\r\nACTION:DISPLAY\r\nDESCRIPTION:${i.n} 납부\r\nTRIGGER:PT9H\r\nEND:VALARM\r\nEND:VEVENT\r\n`});
+  s+='END:VCALENDAR\r\n';
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/calendar;charset=utf-8'}));a.download=`calqo-tax-${YR}.ics`;document.body.appendChild(a);a.click();
+  setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
+  $('ics-msg').textContent=`${ITEMS.length}개 일정을 파일로 받았어요. 파일을 열면 캘린더에 추가돼요.`;});
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+$('city').addEventListener('change',calc);
+$('reset').addEventListener('click',()=>{$('year').value='2027';$('car').value='ice';$('cc').value=1598;$('reg').value=2021;$('pre').value='1';$('house').value='one';$('hp').value=60000;$('city').checked=true;$('age').value='0';$('hold').value='0';$('head').value='1';$('res').value=6000;calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>

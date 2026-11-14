@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>자동차세 연납 계산기 2027 · 1월에 내면 얼마 아낄까 | 캘코</title>
-<meta name="description" content="배기량과 차량 등록 연도를 넣으면 1년 자동차세와 지방교육세, 1월·3월·6월·9월 연납 때 공제받는 금액을 계산해요. 차령 경감과 전기차도 반영했어요.">
+<title>자동차세 계산기 2027 · 연납 할인, 차령 경감, 앞으로 10년 자동차세 | 캘코</title>
+<meta name="description" content="배기량과 최초 등록 연도를 넣으면 6월·12월 자동차세와 지방교육세, 1월·3월·6월·9월 연납 할인액, 앞으로 10년 동안의 자동차세를 계산해요. 하반기 등록 차량의 차령 계산과 전기차·영업용도 반영했어요.">
 <link rel="canonical" href="https://calqo.kr/car-tax/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="캘코 calqo">
-<meta property="og:title" content="자동차세 연납 계산기 2027 · 1월에 내면 얼마 아낄까 | 캘코">
-<meta property="og:description" content="배기량과 차량 등록 연도를 넣으면 1년 자동차세와 지방교육세, 1월·3월·6월·9월 연납 때 공제받는 금액을 계산해요. 차령 경감과 전기차도 반영했어요.">
+<meta property="og:title" content="자동차세 계산기 2027 · 연납 할인, 차령 경감, 앞으로 10년 자동차세 | 캘코">
+<meta property="og:description" content="배기량과 최초 등록 연도를 넣으면 6월·12월 자동차세와 지방교육세, 1월·3월·6월·9월 연납 할인액, 앞으로 10년 동안의 자동차세를 계산해요. 하반기 등록 차량의 차령 계산과 전기차·영업용도 반영했어요.">
 <meta property="og:url" content="https://calqo.kr/car-tax/">
 <meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
@@ -19,58 +19,64 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=5">
+<link rel="stylesheet" href="/assets/style.css?v=7">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
 <header class="site-head"><div class="wrap">
   <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
-  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#life" class=on aria-current=page>생활·날짜</a><a href="/market/">시장</a></nav>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
 </div></header>
 <main class="wrap">
   <header>
-    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
-    <h1>자동차세 연납 계산기</h1>
-    <p class="lead">배기량과 차량 등록 연도를 넣으면 1년 자동차세와 지방교육세, 1월·3월·6월·9월 연납 때 공제받는 금액을 계산해요. 차령 경감과 전기차도 반영했어요.</p>
-    <span class="tag">비영업용 승용차 · 차령 경감 · 연납 공제 반영</span>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>자동차세 계산기 (연납·차령 경감)</h1>
+    <p class="lead">배기량과 최초 등록 연도를 넣으면 6월·12월 자동차세와 지방교육세, 1월·3월·6월·9월 연납 할인액, 앞으로 10년 동안의 자동차세를 계산해요. 하반기 등록 차량의 차령 계산과 전기차·영업용도 반영했어요.</p>
+    <span class="tag">비영업용·영업용 승용차 · 차령 경감 · 연납 공제 반영</span>
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
       <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <div><div class="hint" style="margin-bottom:6px">차 종류</div>
       <div class="seg" role="group" aria-label="차 종류">
-        <button type="button" data-m="ice" aria-pressed="true">일반 승용 (배기량)</button>
+        <button type="button" data-m="ice" aria-pressed="true">일반 승용</button>
         <button type="button" data-m="ev" aria-pressed="false">전기·수소차</button>
+        <button type="button" data-m="biz" aria-pressed="false">영업용 (택시·렌터카)</button>
       </div></div>
       <label for="cc" id="cc-w">배기량 (cc)<input id="cc" type="number" inputmode="numeric" min="0" step="1" value="1998"><span class="hint">자동차등록증의 배기량을 그대로 넣어 주세요</span></label>
       <div class="row2">
         <label for="reg">최초 등록 연도<input id="reg" type="number" inputmode="numeric" min="1980" max="2030" step="1" value="2022"></label>
-        <label for="year">세금 내는 해<select id="year"><option value="2026">2026년</option><option value="2027" selected>2027년</option></select></label>
+        <label for="year">세금 내는 해<select id="year"><option value="2026">2026년</option><option value="2027" selected>2027년</option><option value="2028">2028년</option></select></label>
       </div>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="late" type="checkbox" style="width:auto"> 하반기(7~12월)에 처음 등록했어요</label>
       <div class="row2">
         <label for="when">연납 신청 달<select id="when"><option value="1" selected>1월 (16~31일)</option><option value="3">3월 (16~31일)</option><option value="6">6월 (16~30일)</option><option value="9">9월 (16~30일)</option></select></label>
-        <label for="disc">연납 공제율 (%)<input id="disc" type="number" inputmode="decimal" min="0" max="10" step="0.5" value="5"><span class="hint">2026년 5%. 2027년분은 발표 전이라 5%로 가정</span></label>
+        <label for="disc">연납 공제율 (%)<input id="disc" type="number" inputmode="decimal" min="0" max="10" step="0.5" value="5"><span class="hint">현행 시행령 5%</span></label>
       </div>
-      <span class="hint">예시: 2022년에 등록한 1,998cc 승용차를 2027년 1월에 연납하는 경우예요.</span>
+      <span class="hint">예시: 2022년 상반기에 등록한 1,998cc 승용차를 2027년 1월에 연납하는 경우예요.</span>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>자동차세 결과 <small id="o-age"></small></h2>
       <div class="total"><span>연납으로 아끼는 금액</span><b id="o-save"></b></div>
       <div class="status ok" id="o-status"></div>
       <div class="lines">
-        <div class="line"><span>1년 자동차세<em id="o-basenote"></em></span><b id="o-base"></b></div>
+        <div class="line"><span>1기분 (1~6월분)<em id="o-h1note"></em></span><b id="o-h1"></b></div>
+        <div class="line"><span>2기분 (7~12월분)<em id="o-h2note"></em></span><b id="o-h2"></b></div>
         <div class="line"><span>지방교육세<em>자동차세의 30%</em></span><b id="o-edu"></b></div>
-        <div class="line"><span>그냥 낼 때 1년 합계<em>6월·12월 두 번 나눠 내기</em></span><b id="o-normal"></b></div>
+        <div class="line"><span>그냥 낼 때 1년 합계<em id="o-normalnote"></em></span><b id="o-normal"></b></div>
         <div class="line"><span>연납 공제액<em id="o-discnote"></em></span><b id="o-disc"></b></div>
         <div class="line"><span>연납할 때 1년 합계<em>지방교육세 포함</em></span><b id="o-annual"></b></div>
         <div class="line"><span>연납 달에 낼 금액<em id="o-paynote"></em></span><b id="o-pay"></b></div>
       </div>
+      <details><summary>앞으로 10년 자동차세 보기</summary><div class="tbl"><table>
+        <thead><tr><th>연도</th><th>차령</th><th>경감</th><th>그냥 낼 때</th><th>1월 연납</th></tr></thead>
+        <tbody id="o-years"></tbody></table></div></details>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
   <article>
     <h2>자동차세 연납이란?</h2>
-    <p>자동차세는 원래 6월(1~6월분)과 12월(7~12월분)에 나눠 내요. 연납은 1년 치를 미리 한 번에 내고, <b>미리 낸 기간만큼 세금을 깎아 주는 제도</b>예요. 1월에 내면 2월부터 12월까지 11개월분에 공제율이 붙어서 혜택이 가장 커요. 공제율 5% 기준으로 실제로는 1년 세금의 약 4.6%가 줄어요.</p>
+    <p>자동차세는 원래 6월(1~6월분)과 12월(7~12월분)에 나눠 내요. 연납은 1년 치를 미리 한 번에 내고, <b>미리 낸 기간만큼 세금을 깎아 주는 제도</b>예요. 1월에 내면 2월부터 12월까지 11개월분에 공제율 5%가 붙어서, 1년 세금 기준으로 약 4.6%가 줄어요.</p>
     <div class="tbl"><table>
       <thead><tr><th>신청 달</th><th>공제 기간</th><th>1년 세금 대비 할인 (공제율 5%)</th></tr></thead>
       <tbody>
@@ -81,65 +87,108 @@
       </tbody>
     </table></div>
     <div class="more-h">더 알아보기</div>
-    <details class="sec"><summary><h2>자동차세 계산 방법 (비영업용 승용차)</h2></summary><div class="sec-b">
+    <details class="sec"><summary><h2>자동차세 계산 방법</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>배기량</th><th>비영업용 (cc당)</th><th>영업용 (cc당)</th></tr></thead>
+      <tbody>
+        <tr><td>1,000cc 이하</td><td>80원</td><td>18원</td></tr>
+        <tr><td>1,600cc 이하</td><td>140원</td><td>18원</td></tr>
+        <tr><td>2,500cc 이하</td><td>200원</td><td>19원</td></tr>
+        <tr><td>2,500cc 초과</td><td>200원</td><td>24원</td></tr>
+        <tr><td>전기·수소차</td><td>1년 10만원</td><td>1년 2만원</td></tr>
+      </tbody>
+    </table></div>
     <ul>
-      <li><b>배기량별 세액:</b> 1,000cc 이하는 cc당 80원, 1,600cc 이하는 140원, 1,600cc 초과는 200원이에요.</li>
-      <li><b>전기차·수소차:</b> 배기량과 관계없이 1년 10만원이에요.</li>
-      <li><b>차령 경감:</b> 3년째 되는 해부터 매년 5%씩 깎아 주고, 12년째부터는 최대 50%까지 줄어요. 차령은 "세금 내는 해 − 최초 등록 연도 + 1"로 계산해요.</li>
-      <li><b>지방교육세:</b> 자동차세의 30%가 함께 붙어요.</li>
+      <li><b>지방교육세:</b> 비영업용 승용차는 자동차세의 30%가 함께 붙어요.</li>
+      <li><b>차령 경감:</b> 비영업용 승용차는 차령 3년째부터 매년 5%씩 깎아 주고, 12년째부터는 50%로 고정돼요. 차령은 "세금 내는 해 − 최초 등록 연도 + 1"로 세요.</li>
+      <li><b>하반기 등록 차량:</b> 7~12월에 처음 등록한 차는 1기분(1~6월분)의 차령을 1년 적게 세요. 그래서 같은 해에도 1기분과 2기분 세금이 다를 수 있어요.</li>
+      <li><b>10만원 이하:</b> 1년 자동차세가 10만원 이하인 경차·전기차 등은 6월에 1년 치를 한꺼번에 고지해요.</li>
     </ul>
     </div></details>
     <details class="sec"><summary><h2>연납 신청 방법</h2></summary><div class="sec-b">
     <ul>
       <li><b>위택스·스마트위택스 앱</b>(서울은 이택스·STAX)에서 간편인증으로 로그인한 뒤 자동차세 연납 신고·납부를 하면 돼요.</li>
-      <li>작년에 연납했다면 올해 1월에 연납 고지서가 자동으로 오는 경우가 많아요.</li>
+      <li>한 번 1월에 연납하면 다음 해부터 1월에 연납 고지서가 자동으로 와요.</li>
       <li>연납한 뒤 차를 팔거나 폐차하면 남은 기간의 세금은 돌려받을 수 있어요.</li>
-      <li>지방세라서 신용카드로 내도 납부 대행 수수료가 붙지 않아요.</li>
     </ul>
-    <p class="hint">2026년 연납 공제율은 5%예요. 2027년 1월 연납 공제율은 2026년 11월 현재 발표 전이라 5%로 가정했어요. 발표가 나오면 공제율 칸에 바꿔 넣거나 캘코가 업데이트할게요. 차령 계산은 연초 등록 기준으로 단순화했어요(그해 하반기 첫 등록 차량 등은 실제 고지서와 다를 수 있어요). 10원 미만은 버렸어요.</p>
+    <p class="hint">연납 이자율은 지방세법 시행령으로 5%가 정해져 있어요(2024년부터). 정부가 바꾸면 공제율 칸에 새 값을 넣거나 캘코가 업데이트할게요. 승합·화물차는 세율 체계가 달라 계산하지 않아요. 10원 미만은 버렸어요.</p>
     </div></details>
     <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
-    <dl class="terms"><div><dt>지방교육세</dt><dd>교육 재원으로 쓰는 지방세예요. 취득세나 자동차세에 일정 비율로 함께 붙어요.</dd></div><div><dt>연납 공제액</dt><dd>자동차세를 미리 한 번에 내서 깎이는 금액이에요.</dd></div><div><dt>연납 공제율</dt><dd>자동차세를 미리 낼 때 남은 기간의 세금에서 깎아 주는 비율이에요. 매년 정부가 정해요.</dd></div></dl>
+    <dl class="terms"><div><dt>지방교육세</dt><dd>교육 재원으로 쓰는 지방세예요. 취득세나 자동차세에 일정 비율로 함께 붙어요.</dd></div><div><dt>연납 공제액</dt><dd>자동차세를 미리 한 번에 내서 깎이는 금액이에요.</dd></div><div><dt>연납 공제율</dt><dd>자동차세를 미리 낼 때 남은 기간의 세금에서 깎아 주는 비율이에요. 매년 정부가 정해요.</dd></div><div><dt>최초 등록 연도</dt><dd>자동차등록증의 '최초등록일' 연도예요. 중고차를 샀더라도 처음 등록된 날을 기준으로 차령(자동차 나이)을 세요.</dd></div><div><dt>1기분</dt><dd>1~6월 보유분 자동차세예요. 6월 16~30일에 내요. 2기분은 7~12월분으로 12월 16~31일에 내요.</dd></div><div><dt>2기분</dt><dd>7~12월 보유분 자동차세예요. 12월 16~31일에 내요.</dd></div></dl>
     </div></details>
 
     <h2>자주 묻는 질문</h2>
-    <div class="faq"><details><summary>자동차세 연납은 언제 신청하나요?</summary><p>1월 16~31일에 신청하면 혜택이 가장 커요. 3월, 6월, 9월에도 신청할 수 있지만 공제 기간이 짧아져요.</p></details><details><summary>연납한 뒤 차를 팔면 어떻게 되나요?</summary><p>남은 기간의 세금은 돌려받을 수 있어요.</p></details><details><summary>신용카드로 내도 수수료가 붙나요?</summary><p>아니요. 자동차세는 지방세라서 신용카드로 내도 납부 대행 수수료가 없어요.</p></details></div>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "자동차세 연납은 언제 신청하나요?", "acceptedAnswer": {"@type": "Answer", "text": "1월 16~31일에 신청하면 혜택이 가장 커요. 3월, 6월, 9월에도 신청할 수 있지만 공제 기간이 짧아져요."}}, {"@type": "Question", "name": "연납한 뒤 차를 팔면 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "남은 기간의 세금은 돌려받을 수 있어요."}}, {"@type": "Question", "name": "신용카드로 내도 수수료가 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 자동차세는 지방세라서 신용카드로 내도 납부 대행 수수료가 없어요."}}]}</script>
+    <div class="faq"><details><summary>자동차세 연납은 언제 신청하나요?</summary><p>1월 16~31일에 신청하면 혜택이 가장 커요. 3월, 6월, 9월에도 신청할 수 있지만 공제 기간이 짧아져요.</p></details><details><summary>하반기에 처음 등록한 차는 차령을 어떻게 세나요?</summary><p>7~12월에 처음 등록한 차는 1기분(1~6월분)의 차령을 1년 적게 세요. 그래서 경감이 반년 늦게 시작돼요. &#x27;하반기에 처음 등록했어요&#x27;를 체크하면 반영돼요.</p></details><details><summary>연납한 뒤 차를 팔면 어떻게 되나요?</summary><p>판 날 이후 기간의 세금은 돌려받을 수 있어요. 사는 사람이 동의하면 미리 낸 세금을 사는 사람이 낸 것으로 넘겨 처리할 수도 있어요.</p></details><details><summary>신용카드로 내도 수수료가 붙나요?</summary><p>아니요. 자동차세는 지방세라서 신용카드로 내도 납부 대행 수수료가 없어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "자동차세 연납은 언제 신청하나요?", "acceptedAnswer": {"@type": "Answer", "text": "1월 16~31일에 신청하면 혜택이 가장 커요. 3월, 6월, 9월에도 신청할 수 있지만 공제 기간이 짧아져요."}}, {"@type": "Question", "name": "하반기에 처음 등록한 차는 차령을 어떻게 세나요?", "acceptedAnswer": {"@type": "Answer", "text": "7~12월에 처음 등록한 차는 1기분(1~6월분)의 차령을 1년 적게 세요. 그래서 경감이 반년 늦게 시작돼요. '하반기에 처음 등록했어요'를 체크하면 반영돼요."}}, {"@type": "Question", "name": "연납한 뒤 차를 팔면 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "판 날 이후 기간의 세금은 돌려받을 수 있어요. 사는 사람이 동의하면 미리 낸 세금을 사는 사람이 낸 것으로 넘겨 처리할 수도 있어요."}}, {"@type": "Question", "name": "신용카드로 내도 수수료가 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 자동차세는 지방세라서 신용카드로 내도 납부 대행 수수료가 없어요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-14</p>
   </article>
-  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/discharge/" data-k="전역일 계산기 입대일로 전역일, 남은 날, 복무율 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>전역일 계산기</strong><span>입대일로 전역일, 남은 날, 복무율 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/age/" data-k="만 나이 계산기 생년월일로 만 나이와 다음 생일까지 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>만 나이 계산기</strong><span>생년월일로 만 나이와 다음 생일까지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 2026년 4대보험·세금 빼고 월급 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기</strong><span>2026년 4대보험·세금 빼고 월급 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/tax-calendar/" data-k="내 1년 세금 달력 자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>내 1년 세금 달력</strong><span>자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/property-tax/" data-k="재산세 계산기 공시가격으로 7월·9월 재산세와 1주택 특례 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>재산세 계산기</strong><span>공시가격으로 7월·9월 재산세와 1주택 특례 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/comprehensive-tax/" data-k="종합부동산세 계산기 12월 종부세와 농특세, 고령자·장기보유 공제 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>종합부동산세 계산기</strong><span>12월 종부세와 농특세, 고령자·장기보유 공제 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
 </main>
 <script>
 const $=id=>document.getElementById(id);
 const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
 const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const f10=n=>Math.floor(Math.round(n*1000)/10000)*10;
+const PT={ratio:(P,one)=>!one?.6:P<=3e8?.43:P<=6e8?.44:.45,
+  rate(B,sp){if(sp){if(B<=6e7)return B*.0005;if(B<=1.5e8)return 3e4+(B-6e7)*.001;if(B<=3e8)return 12e4+(B-1.5e8)*.002;return 42e4+(B-3e8)*.0035}
+    if(B<=6e7)return B*.001;if(B<=1.5e8)return 6e4+(B-6e7)*.0015;if(B<=3e8)return 19.5e4+(B-1.5e8)*.0025;return 57e4+(B-3e8)*.004},
+  calc(P,one,city){const r=PT.ratio(P,one),B=Math.floor(P*r/1000)*1000,sp=one&&P<=9e8;
+    const prop=f10(PT.rate(B,sp)),urb=city?f10(B*.0014):0,edu=f10(prop*.2),main=prop+urb,split=main>2e5;
+    const jul=split?f10(prop/2)+f10(urb/2)+f10(edu/2):main+edu;
+    return{r,B,sp,prop,urb,edu,total:main+edu,jul,sep:main+edu-jul,split}}};
+const JT={N:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.013],[50e8,.015],[94e8,.02],[Infinity,.027]],
+  H:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.02],[50e8,.03],[94e8,.04],[Infinity,.05]],
+  prog(B,t){let s=0,lo=0,top=0;for(const[hi,r]of t){if(B>lo){s+=(Math.min(B,hi)-lo)*r;top=r}lo=hi}return[s,top]},
+  calc(P,type,age,hold){const one=type==='one',D=one?12e8:9e8,B=Math.max(0,Math.floor((P-D)*.6/1000)*1000);
+    const heavy=type==='three'&&B>12e8,[s,top]=JT.prog(B,heavy?JT.H:JT.N),raw=f10(s);
+    const pr=PT.ratio(P,one),ded=B?f10(Math.min(PT.rate(Math.floor(P*pr),false),Math.max(0,P-D)*.6*pr*.004)):0;
+    const after=Math.max(0,raw-ded);
+    let cr=0;if(one)cr=Math.min(.8,(age>=70?.4:age>=65?.3:age>=60?.2:0)+(hold>=15?.5:hold>=10?.4:hold>=5?.2:0));
+    const crAmt=f10(after*cr),tax=after-crAmt,agri=f10(tax*.2);
+    return{D,B,heavy,top,raw,ded,cr,crAmt,tax,agri,total:tax+agri}}};
+const CT={per:(k,cc)=>k==='biz'?(cc<=1600?18:cc<=2500?19:24):(cc<=1000?80:cc<=1600?140:200),
+  red:(k,a)=>k==='biz'||a<3?0:Math.min(50,(a-2)*5)/100,
+  calc(k,cc,Y,reg,late){const raw=k==='ev'?1e5:cc*CT.per(k,cc),half=raw/2;
+    const a1=Math.max(1,late?Y-reg:Y-reg+1),a2=Math.max(1,Y-reg+1),r1=CT.red(k,a1),r2=CT.red(k,a2);
+    const h1=f10(half*(1-r1)),h2=f10(half*(1-r2));return{raw,a1,a2,r1,r2,h1,h2,year:h1+h2,lump:h1+h2<=1e5}},
+  pre(c,Y,w,rate){const D=(m,d)=>new Date(Y,m-1,d),dd=(a,b)=>Math.round((b-a)/864e5);
+    const H1=dd(D(1,1),D(7,1)),H2=dd(D(7,1),D(13,1)),st=D(w+1,1);
+    const r1=w<6?dd(st,D(7,1)):0,r2=w<6?H2:dd(st,D(13,1));
+    return f10((c.h1*r1/H1+c.h2*r2/H2)*rate)}};
+const ed=x=>x+f10(x*.3);
 let mode='ice';
-const f10=n=>Math.floor(n/10)*10;
+const pct=r=>Math.round(r*100)+'%';
 function calc(){
-  const Y=+$('year').value, reg=Math.floor(+$('reg').value||Y), cc=Math.max(0,Math.floor(+$('cc').value||0)), w=+$('when').value, rate=Math.max(0,+$('disc').value||0)/100;
-  const age=Math.max(1,Y-reg+1), red=age>=3?Math.min(.5,(age-2)*.05):0;
-  const per=cc<=1000?80:cc<=1600?140:200;
-  const raw=mode==='ev'?1e5:cc*per, base=f10(raw*(1-red)), edu=f10(base*.3);
-  const ydays=(Y%4===0&&Y%100!==0)||Y%400===0?366:365;
-  const start=new Date(Y,w,1), days=Math.round((new Date(Y+1,0,1)-start)/864e5);
-  const disc=f10(base*rate*days/ydays), afterTax=base-disc, afterEdu=f10(afterTax*.3);
-  const normal=base+edu, annual=afterTax+afterEdu, save=normal-annual;
-  const half=f10(base/2), halfEdu=f10(half*.3);
-  let pay=annual, pnote='1년 치를 한 번에';
-  if(w===9){pay=annual-(half+halfEdu);pnote='1기분은 6월에 이미 냈다고 보고 2기분만';}
-  else if(w===6){pnote='6월 1기분과 2기분(공제 후)을 함께';}
-  $('o-age').textContent='차령 '+age+'년'+(red?' · '+Math.round(red*100)+'% 경감':'');
-  $('o-save').textContent=won(save);
-  $('o-base').textContent=won(base);$('o-basenote').textContent=mode==='ev'?'전기·수소차 10만원'+(red?' − 차령 경감':''):`${cc.toLocaleString('ko-KR')}cc × ${per}원`+(red?' − 차령 경감':'');
-  $('o-edu').textContent=won(edu);$('o-normal').textContent=won(normal);
-  $('o-disc').textContent='− '+won(disc);$('o-discnote').textContent=`${(rate*100).toFixed(1)}% × ${days}일/${ydays}일 (${w+1}월~12월분)`;
+  const Y=+$('year').value,reg=Math.floor(+$('reg').value||Y),cc=Math.max(0,Math.floor(+$('cc').value||0)),w=+$('when').value,rate=Math.max(0,+$('disc').value||0)/100,late=$('late').checked;
+  const c=CT.calc(mode,cc,Y,reg,late),edu=f10(c.h1*.3)+f10(c.h2*.3),normal=c.year+edu;
+  const noPre=mode==='biz'||(c.lump&&w>=6),disc=noPre?0:CT.pre(c,Y,w,rate);
+  let annual,pay,pnote;
+  if(w>=6){const x=c.h2-disc;annual=(w===6?ed(c.h1+x):ed(c.h1)+ed(x));pay=w===6?ed(c.h1+x):ed(x);pnote=w===6?'6월 1기분과 2기분(공제 후)을 함께':'1기분은 6월에 따로 내고 2기분만 미리'}
+  else{annual=ed(c.year-disc);pay=annual;pnote='1년 치를 한 번에'}
+  const save=normal-annual;
+  const ag=c.a1===c.a2?'차령 '+c.a2+'년':'차령 '+c.a1+'→'+c.a2+'년';
+  $('o-age').textContent=ag+(c.r2?' · '+(c.r1!==c.r2?pct(c.r1)+'→':'')+pct(c.r2)+' 경감':'');
+  const basis=mode==='ev'?'전기·수소차 10만원':`${cc.toLocaleString('ko-KR')}cc × ${CT.per(mode,cc)}원`;
+  $('o-h1').textContent=won(c.h1);$('o-h1note').textContent=basis+' ÷ 2'+(c.r1?' − '+pct(c.r1)+' 경감':'')+(c.lump?' · 6월에 1년 치 함께':' · 6월에 내요');
+  $('o-h2').textContent=won(c.h2);$('o-h2note').textContent=basis+' ÷ 2'+(c.r2?' − '+pct(c.r2)+' 경감':'')+(c.lump?'':' · 12월에 내요');
+  $('o-edu').textContent=won(edu);$('o-normal').textContent=won(normal);$('o-normalnote').textContent=c.lump?'6월에 한 번에':'6월·12월 나눠 내기';
+  $('o-disc').textContent=disc?'− '+won(disc):'없음';
+  $('o-discnote').textContent=mode==='biz'?'영업용은 이 계산기에서 연납을 따로 계산하지 않아요':`남은 기간(${w+1}월~12월) 세액 × ${(rate*100).toFixed(1)}%`;
   $('o-annual').textContent=won(annual);$('o-pay').textContent=won(pay);$('o-paynote').textContent=pnote;
-  $('o-status').textContent=`${Y}년 ${w}월에 연납하면 ${won(save)}을 아껴요. 1년 세금 대비 약 ${(normal?save/normal*100:0).toFixed(1)}% 할인이에요.`+(w!==1?` 1월에 냈다면 더 아낄 수 있어요.`:'');
+  $('o-save').textContent=won(save);
+  const st=$('o-status');st.className='status ok';
+  if(mode==='biz'){st.textContent=`영업용은 1년 ${won(normal)}이에요. 차령 경감은 비영업용 승용차에만 있어요.`}
+  else if(c.lump&&w>=6){st.className='status warn';st.textContent='1년 자동차세가 10만원 이하라서 6월에 1년 치를 한꺼번에 내요. 연납 할인을 받으려면 1월이나 3월에 신청하세요.'}
+  else st.textContent=`${Y}년 ${w}월에 연납하면 ${won(save)}을 아껴요. 1년 세금 대비 약 ${(normal?save/normal*100:0).toFixed(1)}% 할인이에요.`+(w!==1?' 1월에 냈다면 더 아낄 수 있어요.':'');
+  let rows='';for(let y=Y;y<Y+10;y++){const k=CT.calc(mode,cc,y,reg,late),n=ed(k.h1)+ed(k.h2),j=mode==='biz'?n:ed(k.year-CT.pre(k,y,1,rate));
+    rows+=`<tr><td>${y}년</td><td>${k.a1===k.a2?k.a2:k.a1+'→'+k.a2}년</td><td>${k.r2?pct(k.r2):'-'}</td><td>${won(n)}</td><td>${mode==='biz'?'-':won(j)}</td></tr>`}
+  $('o-years').innerHTML=rows;
 }
 document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('cc-w').hidden=mode==='ev';calc()}));
 document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
-$('reset').addEventListener('click',()=>{$('cc').value=1998;$('reg').value=2022;$('year').value='2027';$('when').value='1';$('disc').value=5;document.querySelector('.seg button').click()});
+$('late').addEventListener('change',calc);
+$('reset').addEventListener('click',()=>{$('cc').value=1998;$('reg').value=2022;$('year').value='2027';$('when').value='1';$('disc').value=5;$('late').checked=false;document.querySelector('.seg button').click()});
 calc();
 </script>
 <script>
@@ -236,7 +285,7 @@ r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[ar
   </div>
   <div class="fcols">
     <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
-    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
     <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
   </div>
 </div></footer>

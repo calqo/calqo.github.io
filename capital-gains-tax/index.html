@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>양도소득세 계산기 2026 · 아파트 양도세, 1주택 12억 비과세, 장기보유특별공제, 다주택 중과 | 캘코</title>
+<meta name="description" content="집을 판 가격과 산 가격, 날짜를 넣으면 양도소득세와 지방소득세를 계산해요. 1세대 1주택 12억 비과세, 장기보유특별공제(최대 80%), 단기 양도 세율, 2026년 5월 10일부터 다시 적용되는 조정대상지역 다주택 중과까지 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/capital-gains-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="양도소득세 계산기 2026 · 아파트 양도세, 1주택 12억 비과세, 장기보유특별공제, 다주택 중과 | 캘코">
+<meta property="og:description" content="집을 판 가격과 산 가격, 날짜를 넣으면 양도소득세와 지방소득세를 계산해요. 1세대 1주택 12억 비과세, 장기보유특별공제(최대 80%), 단기 양도 세율, 2026년 5월 10일부터 다시 적용되는 조정대상지역 다주택 중과까지 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/capital-gains-tax/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>양도소득세 계산기 (주택)</h1>
+    <p class="lead">집을 판 가격과 산 가격, 날짜를 넣으면 양도소득세와 지방소득세를 계산해요. 1세대 1주택 12억 비과세, 장기보유특별공제(최대 80%), 단기 양도 세율, 2026년 5월 10일부터 다시 적용되는 조정대상지역 다주택 중과까지 반영했어요.</p>
+    <span class="tag">2026년 주택 양도분 기준 (다주택 중과 유예 종료 반영)</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <label for="type">파는 시점 주택 수<select id="type"><option value="one" selected>1세대 1주택</option><option value="temp">일시적 2주택 (새 집 산 지 3년 안에 기존 집 팔기)</option><option value="two">2주택</option><option value="three">3주택 이상</option></select></label>
+      <div class="row2">
+        <label for="sale">판 가격 (만원)<input id="sale" data-warn="1000000" type="number" inputmode="decimal" min="0" step="1" value="150000"><span class="hint">잔금 기준 실거래가</span></label>
+        <label for="buy">산 가격 (만원)<input id="buy" data-warn="1000000" type="number" inputmode="decimal" min="0" step="1" value="80000"><span class="hint">계약서상 실거래가</span></label>
+      </div>
+      <label for="exp">필요경비 (만원)<input id="exp" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="2000"><span class="hint">취득세·중개보수·샷시 등 공사비 합계</span></label>
+      <div class="row2">
+        <label for="d1">산 날 (잔금일)<input id="d1" type="date" value="2018-03-15"></label>
+        <label for="d2">파는 날 (잔금일)<input id="d2" type="date" value="2026-12-21"></label>
+      </div>
+      <div id="one-w" class="stack">
+        <label for="res">실제로 산 기간 (년)<input id="res" type="number" inputmode="numeric" min="0" step="1" value="5"><span class="hint">전입해서 거주한 햇수 · 2년 이상이면 장기보유특별공제가 커져요</span></label>
+        <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="adjb" type="checkbox" style="width:auto"> 살 때 조정대상지역이었어요 (비과세에 2년 거주 필요)</label>
+      </div>
+      <div id="adj-w"><label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="adjn" type="checkbox" style="width:auto" checked> 파는 집이 지금 조정대상지역이에요 (서울 전역·경기 12곳 등)</label></div>
+      <span class="hint">예시: 2018년에 8억 원에 사서 5년 산 아파트를 2026년 12월에 15억 원에 파는 1주택자예요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>양도세 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span>낼 양도세 (지방소득세 포함)</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span>보유기간</span><b id="o-hold"></b></div>
+        <div class="line"><span>양도차익<em>판 가격 − 산 가격 − 필요경비</em></span><b id="o-gain"></b></div>
+        <div class="line"><span>비과세되는 차익<em id="o-exnote"></em></span><b id="o-ex"></b></div>
+        <div class="line"><span>장기보유특별공제<em id="o-ltnote"></em></span><b id="o-lt"></b></div>
+        <div class="line"><span>양도소득 기본공제</span><b id="o-basic"></b></div>
+        <div class="line"><span>양도세 과세표준</span><b id="o-base"></b></div>
+        <div class="line"><span>적용 세율</span><b id="o-rate"></b></div>
+        <div class="line"><span>양도소득세</span><b id="o-tax"></b></div>
+        <div class="line"><span>지방소득세<em>양도소득세의 10%</em></span><b id="o-local"></b></div>
+        <div class="line"><span>세금 내고 남는 차익</span><b id="o-left"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>양도세 계산 순서</h2>
+    <ol>
+      <li><b>양도차익:</b> 판 가격 − 산 가격 − 필요경비(취득세, 중개보수, 샷시·확장 공사비 등)</li>
+      <li><b>1세대 1주택 비과세:</b> 2년 이상 보유(살 때 조정대상지역이었다면 2년 거주)하면 판 가격 12억 원까지 비과세예요. 12억 원을 넘으면 <b>(판 가격 − 12억) ÷ 판 가격</b> 비율만큼만 세금을 매겨요.</li>
+      <li><b>장기보유특별공제:</b> 3년 이상 가졌으면 차익을 깎아 줘요.</li>
+      <li><b>기본공제 250만 원</b>을 빼고 세율을 곱한 뒤, 지방소득세 10%를 더해요.</li>
+    </ol>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>장기보유특별공제율</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>보유기간</th><th>일반 (다주택 등)</th><th>1세대 1주택 · 2년 이상 거주</th></tr></thead>
+      <tbody>
+        <tr><td>3년</td><td>6%</td><td>보유 12% + 거주 최대 12%</td></tr>
+        <tr><td>5년</td><td>10%</td><td>보유 20% + 거주 최대 20%</td></tr>
+        <tr><td>10년</td><td>20%</td><td>보유 40% + 거주 최대 40%</td></tr>
+        <tr><td>15년 이상</td><td>30%</td><td>보유 40% + 거주 40% = 최대 80%</td></tr>
+      </tbody>
+    </table></div>
+    <p>1세대 1주택 공제는 보유기간 연 4%와 거주기간 연 4%를 따로 계산해서 더해요. 거주가 2년 미만이면 일반 공제율(연 2%)을 써요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>주택 양도세율</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>세율</th></tr></thead>
+      <tbody>
+        <tr><td>보유 1년 미만</td><td>70%</td></tr>
+        <tr><td>보유 1년 ~ 2년 미만</td><td>60%</td></tr>
+        <tr><td>보유 2년 이상</td><td>기본세율 6~45%</td></tr>
+        <tr><td>조정대상지역 2주택</td><td>기본세율 + 20%p (장기보유특별공제 없음)</td></tr>
+        <tr><td>조정대상지역 3주택 이상</td><td>기본세율 + 30%p (장기보유특별공제 없음)</td></tr>
+      </tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>다주택 중과가 다시 시작됐어요</h2></summary><div class="sec-b">
+    <p>2022년부터 미뤄 왔던 다주택자 양도세 중과 유예가 <b>2026년 5월 9일로 끝났어요.</b> 그래서 5월 10일 이후 조정대상지역(서울 전역과 경기 12곳 등)의 집을 파는 2주택 이상 보유자는 중과세율이 적용되고 장기보유특별공제도 받지 못해요. 5월 9일 전에 계약하고 계약금을 받은 경우는 정해진 잔금 기한까지 중과를 빼 주는 경과 규정이 있어요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>2028년부터 바뀔 수 있어요</h2></summary><div class="sec-b">
+    <p>정부는 2026년 8월 세제개편안에서 주택 장기보유특별공제를 <b>거주 기간 중심</b>으로 바꾸는 방안을 냈어요. 2027년 양도분은 지금과 같고, 2028년부터 보유기간 공제가 줄어드는 내용이에요. 2026년 11월 현재 국회 심사 중이라 이 계산기에는 반영하지 않았어요.</p>
+    <p class="hint">분양권·입주권, 상속받은 집, 임대사업자 주택, 오피스텔, 고가 겸용주택은 계산 방법이 달라요. 비조정지역 주택이나 지방 저가주택 등은 다주택이라도 중과에서 빠질 수 있어요. 실제 신고 전에는 홈택스 양도소득세 모의계산이나 세무사로 꼭 확인해 주세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>지방소득세</dt><dd>소득세의 10%를 지방자치단체에 함께 내는 세금이에요.</dd></div><div><dt>양도차익</dt><dd>판 가격에서 산 가격과 필요경비를 뺀 이익이에요. 세금은 이 이익에만 붙어요.</dd></div><div><dt>필요경비</dt><dd>집을 사고팔면서 쓴 돈 중 비용으로 인정되는 금액이에요. 취득세, 중개보수, 법무사 비용, 샷시·확장 같은 공사비가 들어가요. 도배·장판 같은 수리비는 빠져요.</dd></div><div><dt>장기보유특별공제</dt><dd>오래 가진 부동산의 양도차익을 깎아 줘요. 3년 이상 보유하면 일반은 연 2%(최대 30%), 2년 이상 산 1세대 1주택은 보유·거주 각각 연 4%(최대 80%)예요.</dd></div><div><dt>양도소득 기본공제</dt><dd>양도소득금액에서 1년에 1인당 250만 원을 빼 줘요. 같은 해에 여러 번 팔면 한 번만 적용돼요.</dd></div><div><dt>양도세 과세표준</dt><dd>양도차익에서 장기보유특별공제와 기본공제 250만 원을 뺀 금액이에요. 여기에 양도세율을 곱해요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>1세대 1주택이면 무조건 양도세가 없나요?</summary><p>2년 이상 보유하고(살 때 조정대상지역이었다면 2년 거주까지) 판 가격이 12억 원 이하여야 전액 비과세예요. 12억 원을 넘으면 넘는 부분 비율만큼만 세금을 내요.</p></details><details><summary>일시적 2주택은 어떻게 계산하나요?</summary><p>기존 집을 산 지 1년이 지나서 새 집을 사고, 새 집을 산 날부터 3년 안에 기존 집을 팔면 1세대 1주택처럼 비과세를 받을 수 있어요. 이 경우 &#x27;일시적 2주택&#x27;을 고르면 돼요.</p></details><details><summary>양도세는 언제 신고하나요?</summary><p>잔금을 받은 날(양도일)이 속한 달의 말일부터 2개월 안에 예정신고하고 내요. 1세대 1주택으로 전액 비과세면 신고하지 않아도 돼요.</p></details><details><summary>인테리어 비용도 필요경비로 빼 주나요?</summary><p>샷시 교체, 발코니 확장, 보일러 교체처럼 집의 가치를 높이는 공사비는 빼 줘요. 도배, 장판, 페인트처럼 원래 상태를 유지하는 수리비는 빼 주지 않아요. 영수증이나 계좌이체 내역을 꼭 남겨 두세요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "1세대 1주택이면 무조건 양도세가 없나요?", "acceptedAnswer": {"@type": "Answer", "text": "2년 이상 보유하고(살 때 조정대상지역이었다면 2년 거주까지) 판 가격이 12억 원 이하여야 전액 비과세예요. 12억 원을 넘으면 넘는 부분 비율만큼만 세금을 내요."}}, {"@type": "Question", "name": "일시적 2주택은 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "기존 집을 산 지 1년이 지나서 새 집을 사고, 새 집을 산 날부터 3년 안에 기존 집을 팔면 1세대 1주택처럼 비과세를 받을 수 있어요. 이 경우 '일시적 2주택'을 고르면 돼요."}}, {"@type": "Question", "name": "양도세는 언제 신고하나요?", "acceptedAnswer": {"@type": "Answer", "text": "잔금을 받은 날(양도일)이 속한 달의 말일부터 2개월 안에 예정신고하고 내요. 1세대 1주택으로 전액 비과세면 신고하지 않아도 돼요."}}, {"@type": "Question", "name": "인테리어 비용도 필요경비로 빼 주나요?", "acceptedAnswer": {"@type": "Answer", "text": "샷시 교체, 발코니 확장, 보일러 교체처럼 집의 가치를 높이는 공사비는 빼 줘요. 도배, 장판, 페인트처럼 원래 상태를 유지하는 수리비는 빼 주지 않아요. 영수증이나 계좌이체 내역을 꼭 남겨 두세요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/tax-calendar/" data-k="내 1년 세금 달력 자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>내 1년 세금 달력</strong><span>자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/property-tax/" data-k="재산세 계산기 공시가격으로 7월·9월 재산세와 1주택 특례 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>재산세 계산기</strong><span>공시가격으로 7월·9월 재산세와 1주택 특례 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/comprehensive-tax/" data-k="종합부동산세 계산기 12월 종부세와 농특세, 고령자·장기보유 공제 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>종합부동산세 계산기</strong><span>12월 종부세와 농특세, 고령자·장기보유 공제 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const fmt=d=>`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+const dd=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/864e5);
+function addM(d,m){const t=new Date(d.getFullYear(),d.getMonth()+m,1);const last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();t.setDate(Math.min(d.getDate(),last));return t}
+function monthsBetween(a,b){let m=(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth());if(addM(a,m)>b)m--;return Math.max(0,m)}
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const PRG=(B,t)=>{let s=0,lo=0,top=0;for(const[hi,r]of t){if(B>lo){s+=(Math.min(B,hi)-lo)*r;top=r}lo=hi}return[s,top]};
+const IT=[[14e6,.06],[5e7,.15],[88e6,.24],[15e7,.35],[3e8,.38],[5e8,.40],[1e9,.42],[Infinity,.45]];
+const pct=r=>Math.round(r*1000)/10+'%';
+const yrs=(a,b)=>{let y=b.getFullYear()-a.getFullYear();if(b.getMonth()<a.getMonth()||(b.getMonth()===a.getMonth()&&b.getDate()<a.getDate()))y--;return Math.max(0,y)};
+function calc(){
+  const type=$('type').value,one=type==='one'||type==='temp',S=W('sale'),A=W('buy'),E=W('exp'),d1=pd($('d1').value),d2=pd($('d2').value);
+  $('one-w').hidden=!one;$('adj-w').hidden=one;
+  const ok=d1&&d2&&d2>d1,H=ok?yrs(d1,d2):0,res=Math.min(H,Math.max(0,Math.floor(+$('res').value||0))),adjB=$('adjb').checked;
+  const after=ok&&d2>new Date(2026,4,9),heavy=!one&&$('adjn').checked&&after?(type==='three'?.3:.2):0;
+  const gain=Math.max(0,S-A-E),exOK=one&&H>=2&&(!adjB||res>=2);
+  const tg=exOK?(S<=12e8?0:Math.floor(gain*(S-12e8)/S)):gain;
+  let lr=0,lnote='3년 미만 보유';
+  if(heavy){lnote='중과 대상이라 없음'}
+  else if(H>=3){if(exOK&&res>=2){const a=Math.min(.4,.04*H),b=Math.min(.4,.04*res);lr=a+b;lnote=`보유 ${pct(a)} + 거주 ${pct(b)}`}else{lr=Math.min(.3,.02*H);lnote='일반 '+pct(lr)}}
+  const lt=Math.floor(tg*lr),inc=tg-lt,basic=Math.min(25e5,inc),B=inc-basic;
+  const[bs,top]=PRG(B,IT),prog=bs+B*heavy,short=H<1?B*.7:H<2?B*.6:0,useShort=short>prog;
+  const tax=Math.floor(Math.max(prog,short)),local=Math.floor(tax*.1),total=tax+local;
+  const mode={one:'1세대 1주택',temp:'일시적 2주택',two:'2주택',three:'3주택 이상'}[type];
+  $('o-mode').textContent=mode+(heavy?' · 중과':'');
+  $('o-hold').textContent=ok?`${H}년`+(one?` (거주 ${res}년)`:''):'날짜를 확인해 주세요';
+  $('o-gain').textContent=won(gain);
+  $('o-ex').textContent=exOK?'− '+won(gain-tg):'없음';$('o-exnote').textContent=exOK?(S<=12e8?'12억 이하 전액 비과세':'12억 이하 부분'):(one?'비과세 요건 안 됨':'다주택은 비과세 없음');
+  $('o-lt').textContent=lt?'− '+won(lt):'없음';$('o-ltnote').textContent=lnote;
+  $('o-basic').textContent=basic?'− '+won(basic):'없음';$('o-base').textContent=won(B);
+  $('o-rate').textContent=!B?'-':useShort?(H<1?'70% (1년 미만)':'60% (2년 미만)'):(heavy?`${pct(top)} + 중과 ${Math.round(heavy*100)}%p`:`기본세율 (최고 구간 ${pct(top)})`);
+  $('o-tax').textContent=won(tax);$('o-local').textContent=won(local);$('o-total').textContent=won(total);
+  $('o-left').textContent=won(Math.max(0,S-A-E)-total);
+  const st=$('o-status');st.className='status ok';
+  if(!ok){st.className='status warn';st.textContent='산 날과 파는 날을 확인해 주세요. 파는 날이 더 늦어야 해요.';return}
+  if(!S){st.className='status warn';st.textContent='판 가격을 넣어 주세요.';return}
+  const dl=new Date(d2.getFullYear(),d2.getMonth()+3,0);
+  let msg='';
+  if(!gain)msg='양도차익이 없어서 양도세가 없어요.';
+  else if(exOK&&S<=12e8)msg='1세대 1주택 비과세 요건을 채워서 양도세가 없어요. 신고하지 않아도 돼요.';
+  else msg=`${fmt(dl)}까지 ${won(total)}을 예정신고·납부해요.`;
+  if(one&&!exOK&&gain){st.className='status warn';msg+=H<2?' 2년 이상 보유해야 1주택 비과세를 받을 수 있어요.':' 살 때 조정대상지역이었다면 2년 이상 거주해야 비과세예요.'}
+  if(heavy)msg+=' 조정대상지역 다주택이라 중과세율이 붙고 장기보유특별공제가 없어요.';
+  st.textContent=msg;
+}
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{$('type').value='one';$('sale').value=150000;$('buy').value=80000;$('exp').value=2000;$('d1').value='2018-03-15';$('d2').value='2026-12-21';$('res').value=5;$('adjb').checked=false;$('adjn').checked=true;calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>

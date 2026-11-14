@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>재산세 계산기 2026 · 아파트 공시가격으로 7월 9월 재산세, 1주택 특례 | 캘코</title>
+<meta name="description" content="주택 공시가격을 넣으면 재산세와 도시지역분, 지방교육세를 합친 1년 재산세와 7월·9월에 나눠 낼 금액을 계산해요. 1세대 1주택 특례세율과 공정시장가액비율 43~45%를 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/property-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="재산세 계산기 2026 · 아파트 공시가격으로 7월 9월 재산세, 1주택 특례 | 캘코">
+<meta property="og:description" content="주택 공시가격을 넣으면 재산세와 도시지역분, 지방교육세를 합친 1년 재산세와 7월·9월에 나눠 낼 금액을 계산해요. 1세대 1주택 특례세율과 공정시장가액비율 43~45%를 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/property-tax/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>재산세 계산기</h1>
+    <p class="lead">주택 공시가격을 넣으면 재산세와 도시지역분, 지방교육세를 합친 1년 재산세와 7월·9월에 나눠 낼 금액을 계산해요. 1세대 1주택 특례세율과 공정시장가액비율 43~45%를 반영했어요.</p>
+    <span class="tag">2026년 주택분 재산세 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <label for="price">공시가격 (만원)<input id="price" data-warn="1000000" type="number" inputmode="decimal" min="0" step="1" value="50000"><span class="hint">부동산 공시가격 알리미에서 동·호수로 조회</span></label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="one" type="checkbox" style="width:auto" checked> 1세대 1주택이에요 (세대원 전체가 이 집 한 채만 가지고 있어요)</label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="city" type="checkbox" style="width:auto" checked> 도시지역에 있어요 (대부분의 아파트·도심 주택)</label>
+      <span class="hint">예시: 공시가격 5억 원 아파트 한 채를 가진 경우예요. 금액은 만원 단위로 넣어 주세요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>재산세 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span>1년 재산세 합계</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span>7월에 낼 금액<em>7월 16~31일</em></span><b id="o-jul"></b></div>
+        <div class="line"><span>9월에 낼 금액<em>9월 16~30일</em></span><b id="o-sep"></b></div>
+        <div class="line"><span>공정시장가액비율</span><b id="o-ratio"></b></div>
+        <div class="line"><span>재산세 과세표준<em>공시가격 × 공정시장가액비율</em></span><b id="o-base"></b></div>
+        <div class="line"><span>재산세 (본세)<em id="o-ratenote"></em></span><b id="o-prop"></b></div>
+        <div class="line"><span>도시지역분<em>과세표준 × 0.14%</em></span><b id="o-urb"></b></div>
+        <div class="line"><span>지방교육세<em>재산세의 20%</em></span><b id="o-edu"></b></div>
+        <div class="line"><span>1주택 특례로 아끼는 금액<em>일반 기준과 비교</em></span><b id="o-save"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>재산세 계산 순서</h2>
+    <p>재산세는 매년 <b>6월 1일 현재</b> 집을 가진 사람에게 나와요. <b>공시가격 × 공정시장가액비율 = 과세표준</b>을 구하고, 여기에 세율을 곱한 뒤 도시지역분(0.14%)과 지방교육세(재산세의 20%)를 더해요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>공정시장가액비율 (2026년)</th></tr></thead>
+      <tbody>
+        <tr><td>1세대 1주택, 공시가격 3억 원 이하</td><td>43%</td></tr>
+        <tr><td>1세대 1주택, 3억 초과 ~ 6억 이하</td><td>44%</td></tr>
+        <tr><td>1세대 1주택, 6억 원 초과</td><td>45%</td></tr>
+        <tr><td>그 외 주택 (다주택 등)</td><td>60%</td></tr>
+      </tbody>
+    </table></div>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>주택 재산세율</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>과세표준</th><th>일반 세율</th><th>1주택 특례세율 (공시가격 9억 이하)</th></tr></thead>
+      <tbody>
+        <tr><td>6천만원 이하</td><td>0.1%</td><td>0.05%</td></tr>
+        <tr><td>6천만원 ~ 1.5억</td><td>6만원 + 초과분 0.15%</td><td>3만원 + 초과분 0.1%</td></tr>
+        <tr><td>1.5억 ~ 3억</td><td>19만 5천원 + 초과분 0.25%</td><td>12만원 + 초과분 0.2%</td></tr>
+        <tr><td>3억 초과</td><td>57만원 + 초과분 0.4%</td><td>42만원 + 초과분 0.35%</td></tr>
+      </tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>7월과 9월에 나눠 내요</h2></summary><div class="sec-b">
+    <ul>
+      <li>주택 재산세는 절반을 <b>7월 16~31일</b>, 나머지 절반을 <b>9월 16~30일</b>에 내요.</li>
+      <li>1년 재산세(도시지역분 포함)가 <b>20만원 이하</b>면 7월에 한꺼번에 내요.</li>
+      <li>위택스(서울은 이택스)나 은행 앱에서 내고, 신용카드로 내도 수수료가 없어요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
+    <ul>
+      <li>공시가격이 크게 오른 해에는 과세표준 상한제 때문에 실제 고지서가 이 계산보다 적을 수 있어요.</li>
+      <li>여러 채를 가졌다면 집마다 따로 계산해서 더해야 해요. 이 계산기는 한 채씩 넣어 주세요.</li>
+      <li>1주택 공정시장가액비율(43~45%)은 해마다 시행령으로 정해요. 2026년분까지 정해져 있고, 1주택 특례세율은 2029년까지 연장하는 개정안이 국회에 제출돼 있어요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>지방교육세</dt><dd>교육 재원으로 쓰는 지방세예요. 취득세나 자동차세에 일정 비율로 함께 붙어요.</dd></div><div><dt>공시가격</dt><dd>정부가 매년 1월 1일 기준으로 정해 4월 말쯤 발표하는 주택 가격이에요. 보통 시세보다 낮고, 재산세와 종부세의 기준이 돼요. 부동산 공시가격 알리미에서 동·호수로 볼 수 있어요.</dd></div><div><dt>공정시장가액비율</dt><dd>공시가격 중 세금을 매길 때 반영하는 비율이에요. 재산세는 주택 60%(1세대 1주택은 43~45%), 종부세는 60%예요.</dd></div><div><dt>재산세 과세표준</dt><dd>공시가격에 공정시장가액비율을 곱한 금액이에요. 여기에 재산세율(0.05~0.4%)을 곱해요.</dd></div><div><dt>도시지역분</dt><dd>도시지역 안에 있는 집에 재산세와 함께 붙는 세금이에요. 재산세 과세표준의 0.14%예요. 예전 이름은 도시계획세예요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>재산세는 누가 내나요?</summary><p>매년 6월 1일 현재 집 주인이 그해 재산세를 모두 내요. 그래서 6월 1일 전에 잔금을 치르면 산 사람이, 6월 2일 이후에 치르면 판 사람이 내요.</p></details><details><summary>1세대 1주택 특례는 따로 신청해야 하나요?</summary><p>보통 주민등록상 세대 기준으로 자동 적용돼요. 고지서의 세율이나 과세표준이 이상하면 구청 세무과에 확인해 주세요.</p></details><details><summary>재산세가 많이 나오면 나눠 낼 수 있나요?</summary><p>한 번에 낼 재산세가 250만원을 넘으면 납부기한이 지난 날부터 3개월 안에 나눠 낼 수 있어요. 구청에 분할납부를 신청하면 돼요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "재산세는 누가 내나요?", "acceptedAnswer": {"@type": "Answer", "text": "매년 6월 1일 현재 집 주인이 그해 재산세를 모두 내요. 그래서 6월 1일 전에 잔금을 치르면 산 사람이, 6월 2일 이후에 치르면 판 사람이 내요."}}, {"@type": "Question", "name": "1세대 1주택 특례는 따로 신청해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "보통 주민등록상 세대 기준으로 자동 적용돼요. 고지서의 세율이나 과세표준이 이상하면 구청 세무과에 확인해 주세요."}}, {"@type": "Question", "name": "재산세가 많이 나오면 나눠 낼 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "한 번에 낼 재산세가 250만원을 넘으면 납부기한이 지난 날부터 3개월 안에 나눠 낼 수 있어요. 구청에 분할납부를 신청하면 돼요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/tax-calendar/" data-k="내 1년 세금 달력 자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>내 1년 세금 달력</strong><span>자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/comprehensive-tax/" data-k="종합부동산세 계산기 12월 종부세와 농특세, 고령자·장기보유 공제 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>종합부동산세 계산기</strong><span>12월 종부세와 농특세, 고령자·장기보유 공제 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/car-tax/" data-k="자동차세 계산기 (연납·차령 경감) 1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차세 계산기 (연납·차령 경감)</strong><span>1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const f10=n=>Math.floor(Math.round(n*1000)/10000)*10;
+const PT={ratio:(P,one)=>!one?.6:P<=3e8?.43:P<=6e8?.44:.45,
+  rate(B,sp){if(sp){if(B<=6e7)return B*.0005;if(B<=1.5e8)return 3e4+(B-6e7)*.001;if(B<=3e8)return 12e4+(B-1.5e8)*.002;return 42e4+(B-3e8)*.0035}
+    if(B<=6e7)return B*.001;if(B<=1.5e8)return 6e4+(B-6e7)*.0015;if(B<=3e8)return 19.5e4+(B-1.5e8)*.0025;return 57e4+(B-3e8)*.004},
+  calc(P,one,city){const r=PT.ratio(P,one),B=Math.floor(P*r/1000)*1000,sp=one&&P<=9e8;
+    const prop=f10(PT.rate(B,sp)),urb=city?f10(B*.0014):0,edu=f10(prop*.2),main=prop+urb,split=main>2e5;
+    const jul=split?f10(prop/2)+f10(urb/2)+f10(edu/2):main+edu;
+    return{r,B,sp,prop,urb,edu,total:main+edu,jul,sep:main+edu-jul,split}}};
+const JT={N:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.013],[50e8,.015],[94e8,.02],[Infinity,.027]],
+  H:[[3e8,.005],[6e8,.007],[12e8,.01],[25e8,.02],[50e8,.03],[94e8,.04],[Infinity,.05]],
+  prog(B,t){let s=0,lo=0,top=0;for(const[hi,r]of t){if(B>lo){s+=(Math.min(B,hi)-lo)*r;top=r}lo=hi}return[s,top]},
+  calc(P,type,age,hold){const one=type==='one',D=one?12e8:9e8,B=Math.max(0,Math.floor((P-D)*.6/1000)*1000);
+    const heavy=type==='three'&&B>12e8,[s,top]=JT.prog(B,heavy?JT.H:JT.N),raw=f10(s);
+    const pr=PT.ratio(P,one),ded=B?f10(Math.min(PT.rate(Math.floor(P*pr),false),Math.max(0,P-D)*.6*pr*.004)):0;
+    const after=Math.max(0,raw-ded);
+    let cr=0;if(one)cr=Math.min(.8,(age>=70?.4:age>=65?.3:age>=60?.2:0)+(hold>=15?.5:hold>=10?.4:hold>=5?.2:0));
+    const crAmt=f10(after*cr),tax=after-crAmt,agri=f10(tax*.2);
+    return{D,B,heavy,top,raw,ded,cr,crAmt,tax,agri,total:tax+agri}}};
+const CT={per:(k,cc)=>k==='biz'?(cc<=1600?18:cc<=2500?19:24):(cc<=1000?80:cc<=1600?140:200),
+  red:(k,a)=>k==='biz'||a<3?0:Math.min(50,(a-2)*5)/100,
+  calc(k,cc,Y,reg,late){const raw=k==='ev'?1e5:cc*CT.per(k,cc),half=raw/2;
+    const a1=Math.max(1,late?Y-reg:Y-reg+1),a2=Math.max(1,Y-reg+1),r1=CT.red(k,a1),r2=CT.red(k,a2);
+    const h1=f10(half*(1-r1)),h2=f10(half*(1-r2));return{raw,a1,a2,r1,r2,h1,h2,year:h1+h2,lump:h1+h2<=1e5}},
+  pre(c,Y,w,rate){const D=(m,d)=>new Date(Y,m-1,d),dd=(a,b)=>Math.round((b-a)/864e5);
+    const H1=dd(D(1,1),D(7,1)),H2=dd(D(7,1),D(13,1)),st=D(w+1,1);
+    const r1=w<6?dd(st,D(7,1)):0,r2=w<6?H2:dd(st,D(13,1));
+    return f10((c.h1*r1/H1+c.h2*r2/H2)*rate)}};
+const ed=x=>x+f10(x*.3);
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+function calc(){
+  const P=W('price'),one=$('one').checked,city=$('city').checked,p=PT.calc(P,one,city);
+  const g=PT.calc(P,false,city);
+  $('o-mode').textContent=one?(p.sp?'1주택 특례세율':'1주택 · 공시가 9억 초과 일반세율'):'일반 기준';
+  $('o-total').textContent=won(p.total);$('o-jul').textContent=won(p.jul);$('o-sep').textContent=p.split?won(p.sep):'없음 (7월에 한 번에)';
+  $('o-ratio').textContent=Math.round(p.r*100)+'%';$('o-base').textContent=won(p.B);
+  $('o-prop').textContent=won(p.prop);$('o-ratenote').textContent=p.sp?'1주택 특례세율 0.05~0.35%':'일반 세율 0.1~0.4%';
+  $('o-urb').textContent=city?won(p.urb):'해당 없음';$('o-edu').textContent=won(p.edu);
+  $('o-save').textContent=one?won(g.total-p.total):'해당 없음';
+  const st=$('o-status');st.className='status ok';
+  if(!P){st.className='status warn';st.textContent='공시가격을 넣어 주세요.'}
+  else st.textContent=p.split?`7월에 ${won(p.jul)}, 9월에 ${won(p.sep)}을 내요.`:`재산세가 20만원 이하라서 7월에 ${won(p.total)}을 한 번에 내요.`;
+}
+document.querySelectorAll('form input').forEach(el=>el.addEventListener('input',calc));
+['one','city'].forEach(i=>$(i).addEventListener('change',calc));
+$('reset').addEventListener('click',()=>{$('price').value=50000;$('one').checked=true;$('city').checked=true;calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
