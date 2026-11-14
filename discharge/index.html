@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <label for="start">입대일<input id="start" type="date" value="2026-01-05"></label>
       <div><div class="hint" style="margin-bottom:6px">복무 형태</div>
       <div class="seg" role="group" aria-label="복무 형태">
@@ -46,25 +47,25 @@
         <button type="button" data-m="21" data-n="사회복무요원" aria-pressed="false">사회복무요원 21개월</button>
       </div></div>
       <span class="hint">예시 입대일이 들어가 있어요. 오늘 날짜를 기준으로 남은 날을 계산해요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>전역일 계산 결과 <small id="o-type"></small></h2>
       <div class="total"><span>전역일</span><b id="o-end"></b></div>
+      <div class="status ok" id="o-status"></div>
       <div class="bar" role="img" id="o-barwrap"><i id="o-bar" style="width:0"></i></div>
       <div class="lines">
         <div class="line"><span>복무율</span><b id="o-pct"></b></div>
         <div class="line"><span>전역까지</span><b id="o-dday"></b></div>
         <div class="line"><span>복무한 날 / 전체</span><b id="o-days"></b></div>
       </div>
-      <div class="status ok" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
   <article>
     <h2>전역일 계산 방법</h2>
     <p>입대한 날을 복무 첫날로 넣고, 복무기간(개월)이 끝나는 날을 전역일로 계산해요. 공식으로 쓰면 <b>전역일 = 입대일 + 복무 개월 − 1일</b>이에요. 예를 들어 2026년 1월 5일에 육군으로 입대하면 2027년 7월 4일이 전역일이에요.</p>
-    <h2>군별 복무기간</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>군별 복무기간</h2></summary><div class="sec-b">
     <div class="tbl"><table>
       <thead><tr><th>구분</th><th>복무기간</th></tr></thead>
       <tbody>
@@ -74,15 +75,19 @@
         <tr><td>사회복무요원</td><td>21개월</td></tr>
       </tbody>
     </table></div>
-    <h2>주의할 점</h2>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
     <ul>
       <li>영창 대체 징계, 군 병원 장기 입원 등으로 복무기간이 늘어날 수 있어요.</li>
       <li>전역 전 휴가를 쓰면 부대에서 나오는 날은 더 빨라질 수 있지만, 공식 전역일은 같아요.</li>
       <li>정확한 전역일은 소속 부대 인사과나 병무청에서 확인해 주세요.</li>
     </ul>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>복무율</dt><dd>전체 복무일 중 지금까지 복무한 날의 비율이에요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>군별 복무기간은 얼마인가요?</summary><p>육군·해병대 18개월, 해군 20개월, 공군과 사회복무요원은 21개월이에요.</p></details><details><summary>전역일은 어떻게 계산하나요?</summary><p>입대일에 복무 개월 수를 더하고 하루를 빼요. 2026년 1월 5일에 육군으로 입대하면 2027년 7월 4일이 전역일이에요.</p></details><details><summary>말년 휴가를 쓰면 전역일이 빨라지나요?</summary><p>부대에서 나오는 날은 빨라질 수 있지만 공식 전역일은 같아요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "군별 복무기간은 얼마인가요?", "acceptedAnswer": {"@type": "Answer", "text": "육군·해병대 18개월, 해군 20개월, 공군과 사회복무요원은 21개월이에요."}}, {"@type": "Question", "name": "전역일은 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "입대일에 복무 개월 수를 더하고 하루를 빼요. 2026년 1월 5일에 육군으로 입대하면 2027년 7월 4일이 전역일이에요."}}, {"@type": "Question", "name": "말년 휴가를 쓰면 전역일이 빨라지나요?", "acceptedAnswer": {"@type": "Answer", "text": "부대에서 나오는 날은 빨라질 수 있지만 공식 전역일은 같아요."}}]}</script>
@@ -193,6 +198,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

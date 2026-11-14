@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <div class="row2">
         <label for="birth">생년월일<input id="birth" type="date" value="1991-05-10"></label>
         <label for="ref">모집공고일 (기준일)<input id="ref" type="date"><span class="hint">오늘 날짜로 들어가 있어요</span></label>
@@ -56,11 +57,11 @@
         <label for="sacc">배우자 청약통장 가입일<input id="sacc" type="date" value="2018-07-01"><span class="hint">없으면 비워 두세요</span></label>
       </div>
       <span class="hint">예시: 1991년생, 2020년 결혼, 집을 가진 적 없는 부부와 자녀 1명이에요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>청약 가점 결과 <small id="o-sub"></small></h2>
       <div class="total"><span>내 청약 가점</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
       <div class="bar" aria-hidden="true"><i id="o-bar" style="display:block;height:100%;background:var(--accent);width:0"></i></div>
       <div class="lines">
         <div class="line"><span>무주택기간 점수<em id="o-hnote"></em></span><b id="o-h"></b></div>
@@ -68,7 +69,6 @@
         <div class="line"><span>청약통장 점수<em id="o-anote"></em></span><b id="o-a"></b></div>
         <div class="line"><span>다음 점수 오르는 날<em id="o-nextnote"></em></span><b id="o-next"></b></div>
       </div>
-      <div class="status ok" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
@@ -82,28 +82,34 @@
         <tr><td>청약통장 가입기간</td><td>6개월 미만 1점, 6개월~1년 2점, 이후 1년마다 1점씩 더해요</td><td>17점 (15년 이상)</td></tr>
       </tbody>
     </table></div>
-    <h2>무주택기간은 언제부터 세나요?</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>무주택기간은 언제부터 세나요?</h2></summary><div class="sec-b">
     <ul>
       <li><b>만 30세가 된 날</b>부터 세요. 만 30세 전에 혼인신고를 했다면 <b>혼인신고일</b>부터 세요.</li>
       <li>집을 가졌다가 팔았다면, 위 날짜와 <b>마지막으로 무주택이 된 날</b> 중 늦은 날부터 세요.</li>
       <li>신청자와 배우자, 같은 등본의 세대원 모두 집이 없어야 해요. 만 60세 이상 부모님이 가진 집 등 일부는 예외로 집으로 보지 않아요.</li>
     </ul>
-    <h2>부양가족으로 인정받는 사람</h2>
+    </div></details>
+    <details class="sec"><summary><h2>부양가족으로 인정받는 사람</h2></summary><div class="sec-b">
     <ul>
       <li><b>배우자:</b> 주민등록이 따로 있어도 인정돼요.</li>
       <li><b>부모님·조부모님 (배우자 쪽 포함):</b> 신청자가 세대주이고, 모집공고일 기준 3년 이상 계속 같은 등본에 있어야 해요. 부모님이 집을 갖고 있으면 빠져요.</li>
       <li><b>자녀:</b> 미혼이어야 해요. 만 30세 이상 자녀는 1년 이상 같은 등본에 있어야 해요.</li>
     </ul>
-    <h2>청약통장 점수 팁</h2>
+    </div></details>
+    <details class="sec"><summary><h2>청약통장 점수 팁</h2></summary><div class="sec-b">
     <ul>
       <li>2024년 3월 25일부터 배우자 통장 가입기간의 절반을 점수로 더해 줘요(최대 3점). 배우자가 2년 이상 가입했으면 3점이에요.</li>
       <li>미성년자 때 가입한 기간은 최대 5년까지 인정돼요.</li>
       <li>가점이 같으면 청약통장 가입기간이 긴 사람이 먼저 당첨돼요.</li>
     </ul>
     <p class="hint">민영주택 일반공급 가점제 기준이에요. 특별공급과 공공분양(국민주택)은 기준이 달라요. 가점을 잘못 넣으면 당첨이 취소되고 일정 기간 청약이 제한될 수 있으니, 신청 전에 청약홈(applyhome.co.kr)에서 한 번 더 확인해 주세요. 단지별 당첨 가점은 청약홈 '당첨 가점 조회'에서 볼 수 있어요.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>무주택기간 점수</dt><dd>만 30세(그 전에 결혼했다면 혼인신고일)부터 집 없이 지낸 기간 점수예요. 1년 미만 2점, 1년마다 2점씩 늘어 15년 이상 32점이에요.</dd></div><div><dt>부양가족 점수</dt><dd>본인을 뺀 부양가족 수 점수예요. 0명 5점, 1명마다 5점씩 늘어 6명 이상 35점이에요.</dd></div><div><dt>청약통장 점수</dt><dd>청약통장 가입기간 점수예요. 6개월 미만 1점, 1년마다 1점씩 늘어 15년 이상 17점이에요. 배우자 통장 점수를 최대 3점까지 더해요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>부양가족에 나 자신도 넣나요?</summary><p>아니요. 본인은 빼고 배우자, 3년 이상 같은 등본의 부모님, 미혼 자녀를 세요. 부양가족이 없으면 5점이에요.</p></details><details><summary>30살 전에 결혼했는데 무주택기간은 언제부터 세나요?</summary><p>만 30세 전에 혼인신고를 했다면 혼인신고일부터 세요. 결혼하지 않았다면 만 30세가 된 날부터 세요.</p></details><details><summary>가점을 틀리게 넣으면 어떻게 되나요?</summary><p>당첨 뒤 서류 확인에서 부적격으로 당첨이 취소되고, 일정 기간 다른 청약에 당첨될 수 없어요. 신청 전에 청약홈의 가점 계산기와 등본으로 꼭 확인하세요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "부양가족에 나 자신도 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 본인은 빼고 배우자, 3년 이상 같은 등본의 부모님, 미혼 자녀를 세요. 부양가족이 없으면 5점이에요."}}, {"@type": "Question", "name": "30살 전에 결혼했는데 무주택기간은 언제부터 세나요?", "acceptedAnswer": {"@type": "Answer", "text": "만 30세 전에 혼인신고를 했다면 혼인신고일부터 세요. 결혼하지 않았다면 만 30세가 된 날부터 세요."}}, {"@type": "Question", "name": "가점을 틀리게 넣으면 어떻게 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "당첨 뒤 서류 확인에서 부적격으로 당첨이 취소되고, 일정 기간 다른 청약에 당첨될 수 없어요. 신청 전에 청약홈의 가점 계산기와 등본으로 꼭 확인하세요."}}]}</script>
@@ -237,6 +243,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

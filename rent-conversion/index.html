@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <div><div class="hint" style="margin-bottom:6px">어느 쪽으로 바꾸나요?</div>
       <div class="seg" role="group" aria-label="전환 방향">
         <button type="button" data-m="toMonthly" aria-pressed="true">전세 → 월세</button>
@@ -57,37 +58,42 @@
         <label for="rate">적용 전환율 (%)<input id="rate" type="number" inputmode="decimal" min="0" step="0.1" value="5"></label>
         <label for="br">한국은행 기준금리 (%)<input id="br" type="number" inputmode="decimal" min="0" step="0.25" value="3"><span class="hint">2026년 11월 기준 3.00%</span></label>
       </div>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>전환 결과 <small id="o-mode"></small></h2>
       <div class="total"><span id="o-label"></span><b id="o-main"></b></div>
+      <div class="status" id="o-status"></div>
       <div class="lines">
         <div class="line"><span>월세로 바뀌는 보증금</span><b id="o-gap"></b></div>
         <div class="line"><span>1년 월세 합계</span><b id="o-year"></b></div>
         <div class="line"><span>법정 상한 전환율<em>기준금리 + 2%, 최대 10%</em></span><b id="o-cap"></b></div>
         <div class="line"><span>법정 상한일 때 금액</span><b id="o-capv"></b></div>
       </div>
-      <div class="status" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
   <article>
     <h2>전월세 전환율이란?</h2>
     <p>보증금 일부를 월세로 바꿀 때 쓰는 연 이자율이에요. 예를 들어 전환율 5%면 보증금 1억 원을 빼는 대신 1년에 500만 원, 한 달에 약 41.7만 원의 월세를 내는 셈이에요.</p>
-    <h2>계산 공식</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>계산 공식</h2></summary><div class="sec-b">
     <ul>
       <li><b>전세 → 월세:</b> 월세 = (전세보증금 − 바꾼 뒤 보증금) × 전환율 ÷ 12</li>
       <li><b>월세 → 전세:</b> 전세보증금 = 월세보증금 + 월세 × 12 ÷ 전환율</li>
     </ul>
-    <h2>법정 전환율 상한</h2>
+    </div></details>
+    <details class="sec"><summary><h2>법정 전환율 상한</h2></summary><div class="sec-b">
     <p>주택임대차보호법에 따라 계약 기간 중이나 계약을 갱신하면서 전세를 월세로 바꿀 때는 <b>"연 10%"와 "한국은행 기준금리 + 2%" 중 낮은 비율</b>을 넘을 수 없어요. 기준금리가 3.00%라면 상한은 5%예요.</p>
     <p>새로 계약할 때는 이 상한이 적용되지 않아서, 시장에서 실제 쓰이는 전환율은 지역과 집 종류에 따라 더 높을 수 있어요. 한국부동산원 부동산통계정보에서 지역별 전월세 전환율을 확인할 수 있어요.</p>
-    <h2>전세와 월세, 뭐가 유리할까?</h2>
+    </div></details>
+    <details class="sec"><summary><h2>전세와 월세, 뭐가 유리할까?</h2></summary><div class="sec-b">
     <p>전세대출 금리가 전환율보다 낮으면 보통 전세가 유리하고, 높으면 월세가 유리해요. 월세는 연말정산 월세 세액공제(최대 17%)도 받을 수 있으니 함께 따져 보세요.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>법정 상한 전환율</dt><dd>계약 기간 중이나 갱신 때 전세를 월세로 바꾸면 넘을 수 없는 비율이에요. 연 10%와 기준금리+2% 중 낮은 쪽이에요.</dd></div><div><dt>한국은행 기준금리</dt><dd>한국은행이 정하는 정책 금리예요. 전월세 전환율 법정 상한을 계산할 때 써요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>새로 계약할 때도 법정 전환율 상한이 적용되나요?</summary><p>아니요. 상한은 계약 기간 중이나 갱신하면서 전세를 월세로 바꿀 때만 적용돼요. 새 계약에서는 시장 전환율이 더 높을 수 있어요.</p></details><details><summary>전세와 월세 중 어느 쪽이 유리한가요?</summary><p>전세대출 금리가 전환율보다 낮으면 보통 전세가 유리하고, 높으면 월세가 유리해요. 월세 세액공제도 함께 따져 보세요.</p></details><details><summary>한국은행 기준금리는 어디서 보나요?</summary><p>한국은행 홈페이지 첫 화면에서 확인할 수 있어요. 바뀌면 이 칸에 새 금리를 넣어 주세요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "새로 계약할 때도 법정 전환율 상한이 적용되나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 상한은 계약 기간 중이나 갱신하면서 전세를 월세로 바꿀 때만 적용돼요. 새 계약에서는 시장 전환율이 더 높을 수 있어요."}}, {"@type": "Question", "name": "전세와 월세 중 어느 쪽이 유리한가요?", "acceptedAnswer": {"@type": "Answer", "text": "전세대출 금리가 전환율보다 낮으면 보통 전세가 유리하고, 높으면 월세가 유리해요. 월세 세액공제도 함께 따져 보세요."}}, {"@type": "Question", "name": "한국은행 기준금리는 어디서 보나요?", "acceptedAnswer": {"@type": "Answer", "text": "한국은행 홈페이지 첫 화면에서 확인할 수 있어요. 바뀌면 이 칸에 새 금리를 넣어 주세요."}}]}</script>
@@ -197,6 +203,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

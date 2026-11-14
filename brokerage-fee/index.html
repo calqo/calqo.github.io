@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <div><div class="hint" style="margin-bottom:6px">거래 종류</div>
       <div class="seg" role="group" aria-label="거래 종류">
         <button type="button" data-m="sale" aria-pressed="true">매매</button>
@@ -49,18 +50,17 @@
       </div></div>
       <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="vat" type="checkbox" checked style="width:auto"> 부가세 10% 포함해서 보기 (일반과세자 중개사무소)</label>
       <span class="hint">예시로 7억 원 매매가 들어가 있어요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>중개보수 계산 결과 <small id="o-mode"></small></h2>
       <div class="total"><span>최대 중개보수</span><b id="o-fee"></b></div>
+      <div class="status ok" id="o-status"></div>
       <div class="lines">
         <div class="line"><span>거래 금액<em id="o-amtnote"></em></span><b id="o-amt"></b></div>
         <div class="line"><span>상한 요율</span><b id="o-rate"></b></div>
         <div class="line"><span>한도액</span><b id="o-lim"></b></div>
         <div class="line"><span>부가세 제외 금액</span><b id="o-base"></b></div>
       </div>
-      <div class="status ok" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
@@ -90,9 +90,11 @@
         <tr><td>15억원 이상</td><td>0.6%</td><td>없음</td></tr>
       </tbody>
     </table></div>
-    <h2>월세는 거래 금액을 이렇게 계산해요</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>월세는 거래 금액을 이렇게 계산해요</h2></summary><div class="sec-b">
     <p><b>거래 금액 = 보증금 + 월세 × 100</b>이에요. 이렇게 계산한 금액이 5천만원 미만이면 <b>보증금 + 월세 × 70</b>으로 다시 계산해요.</p>
-    <h2>알아 두면 좋은 점</h2>
+    </div></details>
+    <details class="sec"><summary><h2>알아 두면 좋은 점</h2></summary><div class="sec-b">
     <ul>
       <li>표의 요율은 <b>최대치</b>예요. 실제 중개보수는 이 범위 안에서 중개사와 협의해서 정해요. 계약 전에 미리 금액을 정해 두는 게 좋아요.</li>
       <li>중개보수는 집주인과 세입자(또는 매도인과 매수인)가 <b>각각</b> 내요.</li>
@@ -100,9 +102,12 @@
       <li>오피스텔(전용 85㎡ 이하, 주거용 시설)은 매매 0.5%, 임대차 0.4%가 상한이에요.</li>
     </ul>
     <p class="hint">기준: 공인중개사법 시행규칙(2021년 10월 19일 시행), 서울시 주택 중개보수 조례.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>상한 요율</dt><dd>법으로 정한 중개보수의 최고 비율이에요. 실제 금액은 이 범위 안에서 중개사와 협의해요.</dd></div><div><dt>한도액</dt><dd>요율로 계산한 금액이 이보다 크더라도 이 금액까지만 받을 수 있는 상한이에요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>중개보수에 부가세가 포함돼 있나요?</summary><p>아니요. 상한 요율은 부가세 별도예요. 중개사무소가 일반과세자면 10%가 더 붙을 수 있어요.</p></details><details><summary>월세 중개보수는 어떻게 계산하나요?</summary><p>보증금 + 월세 × 100을 거래 금액으로 봐요. 그 금액이 5천만원 미만이면 보증금 + 월세 × 70으로 다시 계산해요.</p></details><details><summary>중개보수를 깎을 수 있나요?</summary><p>네. 표의 요율은 최대치라서 그 안에서 협의할 수 있어요. 계약 전에 금액을 미리 정해 두는 게 좋아요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "중개보수에 부가세가 포함돼 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 상한 요율은 부가세 별도예요. 중개사무소가 일반과세자면 10%가 더 붙을 수 있어요."}}, {"@type": "Question", "name": "월세 중개보수는 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "보증금 + 월세 × 100을 거래 금액으로 봐요. 그 금액이 5천만원 미만이면 보증금 + 월세 × 70으로 다시 계산해요."}}, {"@type": "Question", "name": "중개보수를 깎을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 표의 요율은 최대치라서 그 안에서 협의할 수 있어요. 계약 전에 금액을 미리 정해 두는 게 좋아요."}}]}</script>
@@ -209,6 +214,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

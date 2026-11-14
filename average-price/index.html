@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <p class="hint" style="margin:0">가격은 원이든 달러든 같은 단위로 넣으면 돼요. 소수점도 넣을 수 있어요.</p>
       <div class="row2">
         <label for="q0">지금 보유 수량<input id="q0" type="number" inputmode="decimal" min="0" step="any" value="10"></label>
@@ -62,11 +63,11 @@
         <p class="hint" id="o-target" style="margin:8px 0 0"></p>
       </details>
       <span class="hint">예시: 6만원에 10주를 샀는데 4만원에 10주를 더 사는 경우예요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>평단가 결과 <small id="o-qty"></small></h2>
       <div class="total"><span>새 평균 단가</span><b id="o-avg"></b></div>
+      <div class="status ok" id="o-status"></div>
       <div class="lines">
         <div class="line"><span>평단가 변화<em id="o-chgnote"></em></span><b id="o-chg"></b></div>
         <div class="line"><span>총 매수 금액</span><b id="o-cost"></b></div>
@@ -75,30 +76,35 @@
         <div class="line"><span>현재가 기준 손익<em id="o-plnote"></em></span><b id="o-pl"></b></div>
         <div class="line"><span>본전까지 필요한 상승률<em>현재가에서 새 평단가까지</em></span><b id="o-be"></b></div>
       </div>
-      <div class="status ok" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
   <article>
     <h2>평단가 계산 방법</h2>
     <p>평균 단가는 <b>지금까지 산 금액의 합 ÷ 가진 수량의 합</b>이에요. 예를 들어 6만원에 10주(60만원), 4만원에 10주(40만원)를 샀다면 100만원 ÷ 20주 = 5만원이 새 평단가예요.</p>
-    <h2>물타기와 불타기</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>물타기와 불타기</h2></summary><div class="sec-b">
     <ul>
       <li><b>물타기:</b> 산 가격보다 내려갔을 때 더 사서 평단가를 낮추는 것이에요. 평단가는 내려가지만 그만큼 들어간 돈이 늘어나요.</li>
       <li><b>불타기:</b> 산 가격보다 올랐을 때 더 사서 수량을 늘리는 것이에요. 평단가는 올라가요.</li>
     </ul>
-    <h2>목표 평단가 역산 공식</h2>
+    </div></details>
+    <details class="sec"><summary><h2>목표 평단가 역산 공식</h2></summary><div class="sec-b">
     <p>지금 수량을 Q, 평단가를 A, 추가로 살 가격을 P, 목표 평단가를 T라고 하면 더 사야 할 수량은 <b>Q × (A − T) ÷ (T − P)</b>예요. 추가로 살 가격이 목표 평단가보다 낮아야 계산이 돼요.</p>
-    <h2>꼭 알아 두세요</h2>
+    </div></details>
+    <details class="sec"><summary><h2>꼭 알아 두세요</h2></summary><div class="sec-b">
     <ul>
       <li>평단가가 낮아져도 손실이 줄어드는 건 아니에요. 같은 가격에서 평가 손익은 그대로이고, 투자한 금액만 커져요.</li>
       <li>증권사 수수료와 세금은 빼고 계산했어요. 해외주식은 환율에 따라 원화 기준 평단가가 달라질 수 있어요.</li>
       <li>이 계산기는 산수를 도와주는 도구이며, 특정 종목의 매수·매도를 권하지 않아요. 투자 판단과 결과의 책임은 투자자 본인에게 있어요.</li>
     </ul>
     <p>시장 흐름이 궁금하면 <a href="/market/">오늘의 시장</a>에서 지수와 환율을 함께 확인해 보세요.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>본전까지 필요한 상승률</dt><dd>현재가가 평단가까지 오르려면 필요한 상승률이에요.</dd></div><div><dt>평단가 변화</dt><dd>추가로 산 뒤 평균 매수 단가가 얼마나 바뀌는지 보여 줘요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>해외주식도 계산할 수 있나요?</summary><p>네. 달러 가격을 그대로 넣으면 달러 기준 평단가가 나와요. 원화 기준 평단가는 환율에 따라 달라져요.</p></details><details><summary>일부를 팔면 평단가가 바뀌나요?</summary><p>국내 증권사 대부분이 쓰는 이동평균법에서는 일부를 팔아도 남은 주식의 평단가는 그대로예요.</p></details><details><summary>수수료와 세금도 포함되나요?</summary><p>포함하지 않았어요. 증권사 수수료와 세금은 따로 확인해 주세요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "해외주식도 계산할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 달러 가격을 그대로 넣으면 달러 기준 평단가가 나와요. 원화 기준 평단가는 환율에 따라 달라져요."}}, {"@type": "Question", "name": "일부를 팔면 평단가가 바뀌나요?", "acceptedAnswer": {"@type": "Answer", "text": "국내 증권사 대부분이 쓰는 이동평균법에서는 일부를 팔아도 남은 주식의 평단가는 그대로예요."}}, {"@type": "Question", "name": "수수료와 세금도 포함되나요?", "acceptedAnswer": {"@type": "Answer", "text": "포함하지 않았어요. 증권사 수수료와 세금은 따로 확인해 주세요."}}]}</script>
@@ -208,6 +214,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

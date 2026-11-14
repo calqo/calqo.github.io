@@ -214,3 +214,32 @@ dl.terms dd{margin:2px 0 0;color:var(--ink-2);font-size:14.5px}
 .faq summary::after{content:"+";flex:none;font-size:20px;font-weight:500;color:var(--ink-3);line-height:1}
 .faq details[open] summary::after{content:"−";color:var(--accent)}
 .faq details p{margin:0;padding:0 2px 14px;color:var(--ink-2)}
+/* v12: 페이지 정리 — 접는 설명 섹션, 고급 입력 */
+.more-h{margin:26px 0 -4px;font-size:13px;font-weight:700;color:var(--ink-3);letter-spacing:.02em}
+article details.sec{border:0;border-top:1px solid var(--line);padding:0}
+article details.sec:last-of-type{border-bottom:1px solid var(--line)}
+details.sec>summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 2px;cursor:pointer;color:var(--ink)}
+details.sec>summary::-webkit-details-marker{display:none}
+details.sec>summary h2{margin:0;font-size:17px;font-weight:700;letter-spacing:-.01em}
+details.sec>summary h2 small{display:none}
+details.sec>summary::after{content:"+";flex:none;font-size:20px;font-weight:500;color:var(--ink-3);line-height:1}
+details.sec[open]>summary::after{content:"−";color:var(--accent)}
+details.sec>summary:hover h2{color:var(--accent)}
+.sec-b{display:flex;flex-direction:column;gap:12px;padding:0 2px 18px}
+details.adv{border:0;padding:0}
+details.adv>summary{font-size:13.5px;font-weight:600;color:var(--ink-2);padding:2px 0}
+details.adv>summary span{font-weight:400;color:var(--ink-3);margin-left:4px}
+details.adv[open]>summary{margin-bottom:12px}
+/* v12: 예시 값 버튼을 작게, 입력칸 위 오른쪽으로 + 취소 */
+.ftop{display:flex;justify-content:flex-end;align-items:center;gap:10px;flex-wrap:wrap;margin:-8px -6px -8px 0;min-height:28px}
+form.panel .ftop button.reset{display:inline-flex;align-items:center;gap:5px;border:0;border-radius:8px;padding:5px 8px;font-size:12.5px;font-weight:600;color:var(--ink-3);background:none}
+form.panel .ftop button.reset .i{width:14px;height:14px}
+form.panel .ftop button.reset:hover{color:var(--accent);background:var(--accent-soft)}
+.undo{order:-1;display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2)}
+.undo[hidden]{display:none}
+.undo button{font:inherit;font-size:12.5px;font-weight:700;color:var(--accent);background:var(--accent-soft);border:0;border-radius:8px;padding:4px 10px;cursor:pointer}
+/* v12: 홈 카드 정리 — 분류별 목록은 아이콘 빼고 한 줄 설명 */
+.group .card .ico{display:none}
+.group .card{padding:13px 16px}
+.group .card .ct span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.group .cards{gap:10px}

@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <div class="row2">
         <label for="start">입사일<input id="start" type="date" value="2015-01-05"></label>
         <label for="end">퇴사일<input id="end" type="date" value="2026-12-31"></label>
@@ -55,11 +56,11 @@
         <label for="sev">법정 퇴직금 (만원)<input id="sev" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">0이면 기준 월급 × 근속연수로 추정</span></label>
       </div>
       <span class="hint">예시: 월 500만원, 근속 11년, 2N+12 공식이에요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>희망퇴직 계산 결과 <small id="o-ten"></small></h2>
       <div class="total"><span>세후 실수령액</span><b id="o-net"></b></div>
+      <div class="status ok" id="o-status"></div>
       <div class="lines">
         <div class="line"><span>위로금<em id="o-fml"></em></span><b id="o-bonus"></b></div>
         <div class="line"><span>기타 일시금</span><b id="o-extra"></b></div>
@@ -69,7 +70,6 @@
         <div class="line"><span>실효세율</span><b id="o-eff"></b></div>
         <div class="line"><span>위로금 때문에 늘어난 세금<em>퇴직금만 받을 때와 비교</em></span><b id="o-inc"></b></div>
       </div>
-      <div class="status ok" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
@@ -81,22 +81,28 @@
       <li><b>기준 월급:</b> 회사마다 기본급, 통상임금, 평균임금 등 기준이 달라요. 공고문의 기준을 확인해 넣어 주세요.</li>
       <li><b>상한:</b> "최대 60개월"처럼 상한을 두는 경우가 많아요.</li>
     </ul>
-    <h2>위로금에도 세금이 붙나요?</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>위로금에도 세금이 붙나요?</h2></summary><div class="sec-b">
     <p>퇴직을 이유로 받는 희망퇴직 위로금은 보통 <b>퇴직소득</b>으로 봐서, 법정 퇴직금과 합친 금액에 퇴직소득세를 매겨요. 근로소득보다 세율이 훨씬 낮아서 큰 금액을 받아도 실효세율이 생각보다 낮은 편이에요. 근속연수가 길수록 공제가 커져서 세금이 더 줄어요.</p>
-    <h2>세금을 줄이는 방법</h2>
+    </div></details>
+    <details class="sec"><summary><h2>세금을 줄이는 방법</h2></summary><div class="sec-b">
     <ul>
       <li><b>IRP 계좌로 받기:</b> 퇴직소득을 IRP로 받으면 바로 세금을 떼지 않고, 55세 이후 연금으로 나눠 받으면 퇴직소득세의 30%(10년 초과분은 40%)를 줄일 수 있어요.</li>
       <li><b>퇴직 시점 확인:</b> 근속연수는 1년 미만을 1년으로 올려서 세요. 입사일 기준으로 한 해가 막 바뀐 시점이면 공제가 늘어나요.</li>
     </ul>
-    <h2>주의할 점</h2>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
     <ul>
       <li>회사가 위로금을 근로소득으로 처리하는 경우도 있어요. 지급 기준과 원천징수 방식은 인사팀에 꼭 확인해 주세요.</li>
       <li>법정 퇴직금을 비워 두면 "기준 월급 × 근속연수"로 대략 추정해요. 정확한 금액은 퇴직금 계산기에서 구한 값을 넣어 주세요.</li>
       <li>희망퇴직도 회사의 권고로 그만두는 경우라면 실업급여를 받을 수 있는 경우가 많아요. 이직확인서의 퇴직 사유를 확인해 보세요.</li>
     </ul>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>실효세율</dt><dd>실제로 내는 세금을 전체 소득으로 나눈 비율이에요. 구간별 세율보다 낮게 나와요.</dd></div><div><dt>퇴직소득세</dt><dd>퇴직금에 붙는 세금이에요. 근속연수공제와 환산급여공제가 커서 같은 금액의 근로소득보다 세금이 훨씬 적어요.</dd></div><div><dt>퇴직소득 합계</dt><dd>법정 퇴직금, 희망퇴직 위로금, 기타 일시금처럼 퇴직 때문에 받는 돈을 모두 합친 금액이에요.</dd></div><div><dt>위로금</dt><dd>희망퇴직 때 법정 퇴직금과 별도로 회사가 더 얹어 주는 돈이에요.</dd></div><div><dt>법정 퇴직금</dt><dd>법으로 정한 퇴직금이에요. 1일 평균임금 × 30일 × (재직일수 ÷ 365)로 계산해요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>희망퇴직 위로금에도 세금이 붙나요?</summary><p>네. 보통 퇴직소득으로 보고 법정 퇴직금과 합쳐 퇴직소득세를 매겨요. 근로소득보다 세율이 낮지만, 회사마다 처리 방식이 다를 수 있어 인사팀에 확인해 주세요.</p></details><details><summary>2N+12에서 N은 무엇인가요?</summary><p>근속연수예요. 1년 미만 기간을 어떻게 셀지는 회사마다 달라서, 공고문 기준에 맞춰 &#x27;위로금 계산용 근속연수&#x27; 칸에 넣어 주세요.</p></details><details><summary>희망퇴직하면 실업급여를 받을 수 있나요?</summary><p>회사의 인원 감축 계획에 따라 희망퇴직하는 경우라면 받을 수 있는 경우가 많아요. 회사가 고용센터에 내는 이직확인서의 퇴직 사유를 확인해 보세요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "희망퇴직 위로금에도 세금이 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 보통 퇴직소득으로 보고 법정 퇴직금과 합쳐 퇴직소득세를 매겨요. 근로소득보다 세율이 낮지만, 회사마다 처리 방식이 다를 수 있어 인사팀에 확인해 주세요."}}, {"@type": "Question", "name": "2N+12에서 N은 무엇인가요?", "acceptedAnswer": {"@type": "Answer", "text": "근속연수예요. 1년 미만 기간을 어떻게 셀지는 회사마다 달라서, 공고문 기준에 맞춰 '위로금 계산용 근속연수' 칸에 넣어 주세요."}}, {"@type": "Question", "name": "희망퇴직하면 실업급여를 받을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "회사의 인원 감축 계획에 따라 희망퇴직하는 경우라면 받을 수 있는 경우가 많아요. 회사가 고용센터에 내는 이직확인서의 퇴직 사유를 확인해 보세요."}}]}</script>
@@ -219,6 +225,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

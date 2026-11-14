@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <div class="row2">
         <label for="wage">월 통상임금 (만원)<input id="wage" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="400"><span class="hint">기본급 + 매달 고정 수당, 세전</span></label>
         <label for="months">육아휴직 개월 수<input id="months" type="number" inputmode="numeric" min="1" max="18" step="1" value="12"><span class="hint">기본 12개월, 부모 각 3개월 이상 쓰면 18개월</span></label>
@@ -46,11 +47,11 @@
         <label for="swage">배우자 월 통상임금 (만원)<input id="swage" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="350"><span class="hint">부부 합계를 보려면 넣어 주세요</span></label>
       </div></div>
       <span class="hint">예시: 통상임금 400만원인 엄마가 12개월, 통상임금 350만원인 아빠가 6개월 쓰는 경우예요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>육아휴직 급여 결과 <small id="o-sub"></small></h2>
       <div class="total"><span>내 육아휴직 급여 총액</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
       <div class="lines">
         <div class="line"><span>첫 달 급여<em id="o-firstnote"></em></span><b id="o-first"></b></div>
         <div class="line"><span>한 달 평균</span><b id="o-avg"></b></div>
@@ -58,7 +59,6 @@
         <div class="line" id="l-sp"><span>배우자 급여 총액<em id="o-spnote"></em></span><b id="o-sp"></b></div>
         <div class="line" id="l-both"><span>부부 합계</span><b id="o-both"></b></div>
       </div>
-      <div class="status ok" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
@@ -68,7 +68,8 @@
       <thead><tr><th>개월</th><th>지급 기준</th><th>상한</th><th>받는 금액</th></tr></thead>
       <tbody id="t-body"></tbody>
     </table></div>
-    <h2>2026년 육아휴직 급여 기준</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>2026년 육아휴직 급여 기준</h2></summary><div class="sec-b">
     <div class="tbl"><table>
       <thead><tr><th>개월</th><th>일반</th><th>6+6 부모육아휴직제</th><th>한부모</th></tr></thead>
       <tbody>
@@ -82,22 +83,27 @@
       </tbody>
     </table></div>
     <p>모든 달의 하한은 월 70만원이에요. 2025년부터 급여의 25%를 복직 뒤에 주던 사후지급금이 없어져서, 휴직 중에 전액을 받아요. 육아휴직 급여는 비과세라 세금을 떼지 않아요.</p>
-    <h2>6+6 부모육아휴직제 조건</h2>
+    </div></details>
+    <details class="sec"><summary><h2>6+6 부모육아휴직제 조건</h2></summary><div class="sec-b">
     <ul>
       <li>같은 자녀가 <b>생후 18개월이 되기 전</b>에 부모가 모두 육아휴직을 써야 해요. 동시에 써도 되고 차례로 써도 돼요.</li>
       <li>특례는 부모 각자의 첫 6개월에 적용되는데, <b>두 사람 중 짧게 쓴 개월 수만큼만</b> 적용돼요. 배우자가 3개월만 쓰면 두 사람 모두 3개월째까지만 특례 상한을 받아요.</li>
       <li>먼저 휴직한 사람은 일반 기준으로 받다가, 배우자가 휴직을 시작하면 차액을 추가로 받아요.</li>
     </ul>
-    <h2>신청 방법</h2>
+    </div></details>
+    <details class="sec"><summary><h2>신청 방법</h2></summary><div class="sec-b">
     <ul>
       <li>회사에 휴직 시작 30일 전까지 신청하고, 회사가 고용센터에 '육아휴직 확인서'를 내요.</li>
       <li>휴직 시작 1개월 뒤부터 고용24(work24.go.kr)에서 매달 또는 몇 달치를 한꺼번에 신청해요. 휴직이 끝나고 12개월이 지나면 받을 수 없어요.</li>
       <li>휴직 전 고용보험 가입 기간(피보험 단위기간)이 180일 이상이어야 해요.</li>
     </ul>
     <p class="hint">한 달을 다 채우지 못한 달은 일수에 비례해 줄어들어요. 나눠 쓰면 개월 수를 이어서 세요(3개월 쓰고 복직 후 다시 쓰면 4개월째부터). 휴직 중 회사에서 받은 돈이 있으면 줄어들 수 있어요. 2026년 11월 기준이며, 정확한 금액은 고용24나 고용센터에서 확인해 주세요.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>월 통상임금</dt><dd>정기적·일률적으로 받는 임금의 한 달 치예요. 기본급과 매달 고정으로 나오는 수당을 더하고, 성과급이나 실적에 따른 수당은 빼요.</dd></div><div><dt>일반 육아휴직보다 더 받는 금액</dt><dd>6+6 부모육아휴직제나 한부모 특례로 늘어나는 금액이에요. 같은 기간을 일반 기준으로 받았을 때와 비교했어요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>육아휴직 급여에도 세금이 붙나요?</summary><p>아니요. 육아휴직 급여는 비과세라 세금을 떼지 않고 연말정산 때도 소득에 넣지 않아요.</p></details><details><summary>통상임금은 어떻게 확인하나요?</summary><p>급여명세서에서 기본급과 매달 고정으로 나오는 수당을 더하면 돼요. 정확한 금액은 회사 인사팀이나 고용센터에 문의하세요.</p></details><details><summary>아빠가 나중에 휴직해도 6+6이 적용되나요?</summary><p>네. 자녀가 생후 18개월이 되기 전에 시작하면 순서와 상관없이 적용돼요. 먼저 휴직한 사람은 일반 기준으로 받다가, 배우자가 휴직하면 차액을 추가로 받아요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "육아휴직 급여에도 세금이 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 육아휴직 급여는 비과세라 세금을 떼지 않고 연말정산 때도 소득에 넣지 않아요."}}, {"@type": "Question", "name": "통상임금은 어떻게 확인하나요?", "acceptedAnswer": {"@type": "Answer", "text": "급여명세서에서 기본급과 매달 고정으로 나오는 수당을 더하면 돼요. 정확한 금액은 회사 인사팀이나 고용센터에 문의하세요."}}, {"@type": "Question", "name": "아빠가 나중에 휴직해도 6+6이 적용되나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 자녀가 생후 18개월이 되기 전에 시작하면 순서와 상관없이 적용돼요. 먼저 휴직한 사람은 일반 기준으로 받다가, 배우자가 휴직하면 차액을 추가로 받아요."}}]}</script>
@@ -214,6 +220,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

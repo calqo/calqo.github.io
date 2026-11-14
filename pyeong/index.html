@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,10 +36,10 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <label for="py">평<input id="py" type="number" inputmode="decimal" min="0" step="0.01" value="34"></label>
       <label for="sqm">제곱미터 (㎡)<input id="sqm" type="number" inputmode="decimal" min="0" step="0.01"></label>
       <span class="hint">어느 칸이든 숫자를 넣으면 다른 칸이 자동으로 바뀌어요. 예시로 34평이 들어가 있어요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>변환 결과</h2>
@@ -55,12 +55,14 @@
   <article>
     <h2>1평은 몇 제곱미터?</h2>
     <p>1평은 약 <b>3.3058㎡</b>예요. 정확히는 400/121㎡이고, 반대로 1㎡는 약 0.3025평이에요. 간단히 계산할 때는 <b>㎡ × 0.3025 = 평</b>, <b>평 × 3.3058 = ㎡</b>로 기억하면 편해요.</p>
-    <h2>전용면적과 공급면적</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>전용면적과 공급면적</h2></summary><div class="sec-b">
     <ul>
       <li><b>전용면적:</b> 현관문 안쪽, 우리 집만 쓰는 공간이에요. 분양 공고의 59㎡, 84㎡가 이 기준이에요.</li>
       <li><b>공급면적:</b> 전용면적에 계단, 복도, 엘리베이터 같은 공용 공간을 더한 넓이예요. 흔히 말하는 "34평"은 보통 공급면적 기준이에요.</li>
     </ul>
-    <h2>자주 쓰는 아파트 평형</h2>
+    </div></details>
+    <details class="sec"><summary><h2>자주 쓰는 아파트 평형</h2></summary><div class="sec-b">
     <div class="tbl"><table>
       <thead><tr><th>전용면적</th><th>전용 평수</th><th>흔히 부르는 평형</th></tr></thead>
       <tbody>
@@ -71,6 +73,8 @@
       </tbody>
     </table></div>
     <p class="hint">공급면적은 단지마다 공용 면적이 달라서 같은 전용면적이어도 평형이 조금씩 다를 수 있어요. 2007년부터 법정 단위는 제곱미터예요.</p>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>84㎡는 몇 평이에요?</summary><p>전용면적 84㎡는 약 25.4평이에요. 공용 공간을 더한 공급면적으로는 보통 32~34평형이라고 불러요.</p></details><details><summary>1평은 정확히 몇 제곱미터예요?</summary><p>1평은 400/121㎡, 약 3.3058㎡예요. 반대로 1㎡는 약 0.3025평이에요.</p></details><details><summary>발코니 확장 면적도 전용면적에 들어가나요?</summary><p>아니요. 발코니는 서비스 면적이라 전용면적에 포함되지 않아요. 그래서 같은 84㎡라도 확장 여부에 따라 실제 쓰는 공간이 달라요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "84㎡는 몇 평이에요?", "acceptedAnswer": {"@type": "Answer", "text": "전용면적 84㎡는 약 25.4평이에요. 공용 공간을 더한 공급면적으로는 보통 32~34평형이라고 불러요."}}, {"@type": "Question", "name": "1평은 정확히 몇 제곱미터예요?", "acceptedAnswer": {"@type": "Answer", "text": "1평은 400/121㎡, 약 3.3058㎡예요. 반대로 1㎡는 약 0.3025평이에요."}}, {"@type": "Question", "name": "발코니 확장 면적도 전용면적에 들어가나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 발코니는 서비스 면적이라 전용면적에 포함되지 않아요. 그래서 같은 84㎡라도 확장 여부에 따라 실제 쓰는 공간이 달라요."}}]}</script>
@@ -163,6 +167,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

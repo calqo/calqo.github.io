@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <p class="hint" style="margin:0">금액은 모두 <b>만원 단위</b>로 넣어 주세요. 예시 값이 들어가 있어요.</p>
       <h2 style="font-size:15px;margin:4px 0 0">급여와 이미 낸 세금</h2>
       <div class="row2">
@@ -81,7 +82,6 @@
         <label for="edu">교육비<input id="edu" data-warn="50000" data-man type="number" inputmode="decimal" min="0" step="1" value="0"></label>
       </div>
       <label for="donate">기부금<input id="donate" data-warn="50000" data-man type="number" inputmode="decimal" min="0" step="1" value="0"></label>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>예상 정산 결과 <small id="o-mode"></small></h2>
@@ -112,14 +112,16 @@
       <li>산출세액에서 근로소득·자녀·연금저축·월세 같은 <b>세액공제</b>를 빼면 올해 내야 할 결정세액이에요.</li>
       <li>매달 월급에서 미리 뗀 세금(기납부세액)이 결정세액보다 많으면 <b>환급</b>, 적으면 <b>추가 납부</b>예요.</li>
     </ol>
-    <h2>2026년 귀속에서 달라진 점</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>2026년 귀속에서 달라진 점</h2></summary><div class="sec-b">
     <ul>
       <li><b>자녀세액공제 나이:</b> 만 8세 이상에서 <b>만 9세 이상</b>으로 바뀌었어요. 금액은 1명 25만원, 2명 55만원, 셋째부터 1명당 40만원 추가로 그대로예요.</li>
       <li><b>신용카드 공제 한도:</b> 자녀가 있으면 기본 한도가 늘어요. 총급여 7천만원 이하는 자녀 1명 350만원, 2명 이상 400만원이에요.</li>
       <li><b>월세 세액공제:</b> 주소가 다른 무주택 배우자도 공제받을 수 있게 됐어요.</li>
       <li><b>교육비:</b> 9세 미만(초등 2학년 이하) 자녀의 예능 학원·체육시설 수강료도 공제돼요.</li>
     </ul>
-    <h2>주요 공제율 한눈에 보기</h2>
+    </div></details>
+    <details class="sec"><summary><h2>주요 공제율 한눈에 보기</h2></summary><div class="sec-b">
     <div class="tbl"><table>
       <thead><tr><th>항목</th><th>공제율</th><th>한도</th></tr></thead>
       <tbody>
@@ -132,18 +134,23 @@
         <tr><td>의료비 · 교육비</td><td>15%</td><td>의료비는 총급여 3% 넘는 금액부터</td></tr>
       </tbody>
     </table></div>
-    <h2>환급을 늘리는 방법</h2>
+    </div></details>
+    <details class="sec"><summary><h2>환급을 늘리는 방법</h2></summary><div class="sec-b">
     <ul>
       <li>카드 사용액이 총급여의 25%를 넘었다면, 남은 기간엔 신용카드보다 <b>체크카드·현금영수증</b>을 쓰는 게 유리해요.</li>
       <li><b>연금저축·IRP</b>는 12월 31일까지 넣은 금액만 올해 공제돼요. 세액공제 효과가 가장 확실한 항목이에요.</li>
       <li>맞벌이라면 부양가족과 의료비를 누구 쪽으로 몰아줄지 따져 보세요. 보통 소득이 높은 쪽이 인적공제, 의료비는 소득이 낮은 쪽이 유리해요.</li>
     </ul>
-    <h2>계산에 넣지 않은 것</h2>
+    </div></details>
+    <details class="sec"><summary><h2>계산에 넣지 않은 것</h2></summary><div class="sec-b">
     <p>경로우대·장애인·한부모 추가공제, 주택담보대출 이자 공제, 의료비·교육비의 가족별 세부 한도, 소득공제 종합한도 같은 세부 규정은 반영하지 않았어요. 정확한 금액은 국세청 홈택스 연말정산 간소화 서비스(보통 1월 15일쯤 열려요)와 회사 정산 결과를 확인해 주세요.</p>
     <p class="hint">기준: 소득세법·조세특례제한법 2026년 귀속 기준. 특별공제를 받는 경우와 표준세액공제(13만원)를 받는 경우 중 세금이 적은 쪽으로 자동 계산해요.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>총급여</dt><dd>1년 동안 받은 급여에서 식대 같은 비과세 소득을 뺀 금액이에요. 원천징수영수증의 '총급여' 칸과 같아요.</dd></div><div><dt>근로소득공제</dt><dd>직장인에게 필요경비 대신 자동으로 빼 주는 금액이에요. 총급여가 많을수록 공제 비율이 낮아지고, 최대 2,000만원이에요.</dd></div><div><dt>소득공제 합계</dt><dd>세율을 곱하기 전에 소득에서 빼 주는 금액의 합이에요. 인적공제, 4대보험, 카드 사용액 공제 등이 들어가요.</dd></div><div><dt>과세표준</dt><dd>세율을 곱하는 기준 금액이에요. 소득에서 각종 소득공제를 모두 뺀 나머지예요.</dd></div><div><dt>산출세액</dt><dd>과세표준에 세율(6~45%)을 곱해 나온 세금이에요. 아직 세액공제를 빼기 전 금액이에요.</dd></div><div><dt>세액공제 합계</dt><dd>계산된 세금에서 직접 빼 주는 금액이에요. 근로소득·자녀·연금저축·월세 세액공제 등이 있어요.</dd></div><div><dt>결정세액</dt><dd>1년 동안 실제로 내야 할 최종 소득세예요. 산출세액에서 세액공제를 뺀 금액이에요.</dd></div><div><dt>이미 낸 소득세</dt><dd>매달 월급에서 미리 뗀 소득세의 1년 합계예요. 기납부세액이라고도 해요. 지방소득세는 빼고 넣어요.</dd></div><div><dt>지방소득세</dt><dd>소득세의 10%를 지방자치단체에 함께 내는 세금이에요.</dd></div><div><dt>국민연금</dt><dd>노후에 연금으로 돌려받는 보험료예요. 2026년 근로자 부담은 4.75%이고, 회사도 같은 금액을 내요. 소득 상한이 있어요.</dd></div><div><dt>기본공제 인원</dt><dd>본인을 포함해 연 소득 100만원 이하(근로소득만 있으면 총급여 500만원 이하)이고 나이 요건을 갖춘 가족 수예요. 1명당 150만원을 소득에서 빼 줘요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>총급여와 이미 낸 소득세는 어디서 확인하나요?</summary><p>회사 급여 시스템의 급여명세서에서 1월부터 지금까지의 합계를 보고, 남은 달 예상분을 더해 넣으면 돼요. 이미 낸 소득세는 지방소득세를 뺀 소득세만 넣어 주세요.</p></details><details><summary>결과가 추가 납부로 나오면 어떻게 하나요?</summary><p>보통 2월 급여에서 떼요. 추가로 낼 세금이 10만원을 넘으면 회사에 신청해 2~4월 급여에서 나눠 낼 수 있어요.</p></details><details><summary>연말정산 간소화 서비스는 언제 열리나요?</summary><p>국세청 홈택스에서 보통 1월 15일쯤 열려요. 그 전에는 이 계산기로 예상해 보고, 12월 31일까지 연금저축·IRP 납입처럼 아직 할 수 있는 것을 챙기세요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "총급여와 이미 낸 소득세는 어디서 확인하나요?", "acceptedAnswer": {"@type": "Answer", "text": "회사 급여 시스템의 급여명세서에서 1월부터 지금까지의 합계를 보고, 남은 달 예상분을 더해 넣으면 돼요. 이미 낸 소득세는 지방소득세를 뺀 소득세만 넣어 주세요."}}, {"@type": "Question", "name": "결과가 추가 납부로 나오면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "보통 2월 급여에서 떼요. 추가로 낼 세금이 10만원을 넘으면 회사에 신청해 2~4월 급여에서 나눠 낼 수 있어요."}}, {"@type": "Question", "name": "연말정산 간소화 서비스는 언제 열리나요?", "acceptedAnswer": {"@type": "Answer", "text": "국세청 홈택스에서 보통 1월 15일쯤 열려요. 그 전에는 이 계산기로 예상해 보고, 12월 31일까지 연금저축·IRP 납입처럼 아직 할 수 있는 것을 챙기세요."}}]}</script>
@@ -294,6 +301,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

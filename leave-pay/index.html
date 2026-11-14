@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <div><div class="hint" style="margin-bottom:6px">임금 입력 방식</div>
       <div class="seg" role="group" aria-label="임금 입력 방식">
         <button type="button" data-m="annual" aria-pressed="true">연봉으로</button>
@@ -52,17 +53,18 @@
         <label for="days">남은 연차 (일)<input id="days" type="number" inputmode="decimal" min="0" step="0.5" value="5"></label>
         <label for="paid">실제 받은 연차수당 (만원)<input id="paid" data-warn="3000" type="number" inputmode="decimal" min="0" step="any" value="70"><span class="hint">급여명세서의 세전 금액</span></label>
       </div>
+      <details class="adv"><summary>근무시간 바꾸기 <span>주 40시간이면 그대로 두세요</span></summary>
       <div class="row2">
-        <label for="mh">월 소정근로시간<input id="mh" type="number" inputmode="decimal" min="1" step="any" value="209"><span class="hint">주 40시간이면 209</span></label>
+        <label for="mh">월 소정근로시간<input id="mh" type="number" inputmode="decimal" min="1" step="any" value="209"></label>
         <label for="dh">1일 소정근로시간<input id="dh" type="number" inputmode="decimal" min="0.5" max="24" step="0.5" value="8"></label>
-      </div>
+      </div></details>
       <label for="promo">연차 사용촉진 통보를 받았나요?<select id="promo"><option value="0" selected>받지 않았어요 / 모르겠어요</option><option value="1">1차 촉구(서면)만 받았어요</option><option value="2">1차 촉구 + 2차 사용일 지정까지 서면으로 받았어요</option></select></label>
       <span class="hint">예시: 연봉 5천만원, 남은 연차 5일, 연차수당 70만원을 받은 경우예요. 금액은 만원 단위로 넣어 주세요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>연차수당 비교 결과 <small>세전 · 참고용</small></h2>
       <div class="total"><span>법정 기준 연차수당</span><b id="o-legal"></b></div>
+      <div class="status" id="o-status"></div>
       <div class="lines">
         <div class="line"><span>월 통상임금<em id="o-mnote"></em></span><b id="o-month"></b></div>
         <div class="line"><span>통상시급<em id="o-hnote"></em></span><b id="o-hour"></b></div>
@@ -71,7 +73,6 @@
         <div class="line"><span>실제 받은 연차수당</span><b id="o-paid"></b></div>
         <div class="line"><span>차이<em>받은 금액 − 법정 기준</em></span><b id="o-diff"></b></div>
       </div>
-      <div class="status" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
@@ -84,12 +85,14 @@
       <li><b>연차수당</b> = 1일 통상임금 × 남은 연차 일수</li>
     </ul>
     <p>209시간은 주 40시간에 유급 주휴 8시간을 더한 48시간에, 한 달 평균 주 수(365 ÷ 7 ÷ 12 ≈ 4.345주)를 곱한 값이에요. 하루 6시간처럼 소정근로시간이 짧은 단시간 근로자는 월 소정근로시간과 1일 소정근로시간을 계약서 기준으로 바꿔 넣으면 돼요.</p>
-    <h2>남은 연차 일수별 법정 연차수당 <small style="font-size:13px;color:var(--ink-3);font-weight:500" id="t-note"></small></h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>남은 연차 일수별 법정 연차수당 <small style="font-size:13px;color:var(--ink-3);font-weight:500" id="t-note"></small></h2></summary><div class="sec-b">
     <div class="tbl"><table>
       <thead><tr><th>남은 연차</th><th>법정 연차수당 (세전)</th></tr></thead>
       <tbody id="t-body"></tbody>
     </table></div>
-    <h2>통상임금에 들어가는 돈, 빠지는 돈</h2>
+    </div></details>
+    <details class="sec"><summary><h2>통상임금에 들어가는 돈, 빠지는 돈</h2></summary><div class="sec-b">
     <p>연차수당이 적게 나오는 가장 흔한 이유는 통상임금을 기본급만으로 계산하는 거예요. 2024년 12월 대법원 전원합의체 판결로 '고정성' 요건이 없어지면서, 소정근로의 대가로 <b>정기적·일률적</b>으로 주기로 한 임금이면 통상임금에 들어가요. 고용노동부도 2025년 2월 이 판결에 맞춰 통상임금 노사지도 지침을 바꿨어요.</p>
     <div class="tbl"><table>
       <thead><tr><th>항목</th><th>통상임금</th><th>설명</th></tr></thead>
@@ -104,7 +107,8 @@
       </tbody>
     </table></div>
     <p class="hint">'연봉으로' 입력할 때 연봉에 성과급이나 연장수당이 섞여 있으면 법정 기준이 실제보다 높게 나와요. 정확히 비교하려면 '월 통상임금으로'를 골라 급여명세서의 고정 항목만 더해 넣으세요.</p>
-    <h2>연차 사용촉진 제도란?</h2>
+    </div></details>
+    <details class="sec"><summary><h2>연차 사용촉진 제도란?</h2></summary><div class="sec-b">
     <p>회사가 근로기준법 제61조의 절차를 정확히 지켜 연차 사용을 촉진했는데도 직원이 연차를 쓰지 않았다면, 회사는 남은 연차의 수당을 주지 않아도 돼요. 절차는 두 단계이고, 둘 다 <b>서면</b>으로 해야 해요.</p>
     <div class="tbl"><table>
       <thead><tr><th>단계</th><th>1년 이상 근무자</th><th>입사 1년 미만 (월차)</th></tr></thead>
@@ -122,14 +126,16 @@
       <li>남은 연차 일수를 틀리게 적는 등 통보 내용이 정확하지 않은 경우</li>
       <li>지정된 휴가일에 출근했는데 회사가 일을 시켰거나, 출근을 거부한다는 뜻(노무수령 거부)을 분명히 밝히지 않은 경우</li>
     </ul>
-    <h2>적게 받았다면 이렇게 확인해 보세요</h2>
+    </div></details>
+    <details class="sec"><summary><h2>적게 받았다면 이렇게 확인해 보세요</h2></summary><div class="sec-b">
     <ul>
       <li><b>통상임금 항목:</b> 급여명세서에서 고정 수당과 정기상여금이 계산에 빠졌는지 확인해요.</li>
       <li><b>남은 일수:</b> 반차·반반차를 쓴 기록이 맞게 빠졌는지 확인해요. 입사일 기준 연차 일수는 <a href="/annual-leave/">연차 계산기</a>로 확인할 수 있어요.</li>
       <li><b>회사 문의:</b> 인사팀에 계산 근거를 요청하고, 해결되지 않으면 고용노동부 고객상담센터(국번 없이 1350)에 상담하거나 관할 노동청에 진정할 수 있어요.</li>
       <li><b>청구 기한:</b> 못 받은 연차수당은 임금이라서 3년 안에 청구해야 해요.</li>
     </ul>
-    <h2>주의할 점</h2>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
     <ul>
       <li>상시 근로자 5인 미만 사업장은 연차 규정이 적용되지 않아요.</li>
       <li>연차수당은 근로소득이라 세금과 4대보험이 붙어요. 이 계산기는 세전 금액끼리 비교해요.</li>
@@ -137,9 +143,12 @@
       <li>회사 규정이나 단체협약이 법보다 유리하게 정했다면 그 기준이 먼저 적용돼요.</li>
     </ul>
     <p class="hint">기준: 근로기준법 제60조(연차 유급휴가)·제61조(연차 유급휴가의 사용 촉진), 대법원 2024. 12. 19. 선고 2020다247190 전원합의체 판결, 고용노동부 통상임금 노사지도 지침(2025. 2. 6.). 계산 결과는 참고용이며 법률 자문이 아니에요.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>월 통상임금</dt><dd>정기적·일률적으로 받는 임금의 한 달 치예요. 기본급과 매달 고정으로 나오는 수당을 더하고, 성과급이나 실적에 따른 수당은 빼요.</dd></div><div><dt>1일 통상임금</dt><dd>하루 소정근로시간(보통 8시간)만큼의 통상임금이에요. 남은 연차 하루당 받는 연차수당이 이 금액이에요.</dd></div><div><dt>월 소정근로시간</dt><dd>한 달 동안 일하기로 정한 시간에 주휴시간을 더한 값이에요. 주 40시간 근무면 (40 + 8) × 4.345주 = 209시간이에요.</dd></div><div><dt>연차 사용촉진</dt><dd>회사가 법에 정한 시기에 서면으로 연차를 쓰라고 알리고 날짜까지 정해 주는 제도예요. 절차를 모두 지키면 남은 연차의 수당을 주지 않아도 돼요.</dd></div><div><dt>통상시급</dt><dd>정기적·일률적으로 받는 임금을 시간 단위로 나눈 금액이에요. 연차수당, 연장근로수당의 기준이에요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>연차수당에도 세금이 붙나요?</summary><p>네. 연차수당은 근로소득이라 소득세와 4대보험이 붙어요. 그래서 법정 기준과 비교할 때는 급여명세서의 세전 금액(지급액)을 넣어야 해요.</p></details><details><summary>재직자에게만 주는 정기상여금도 통상임금에 넣나요?</summary><p>2024년 12월 대법원 전원합의체 판결 이후로는 &#x27;지급일에 재직 중인 사람만 준다&#x27; 같은 조건이 붙어도, 정해진 시기에 모두에게 주는 상여금이면 통상임금에 들어가요. 1년에 받는 상여금을 12로 나눠 월 통상임금에 더해요.</p></details><details><summary>회사가 연차촉진을 했다며 수당을 안 줘요.</summary><p>사용 기간이 끝나기 6개월 전(10일 이내)의 서면 촉구와 2개월 전까지의 서면 사용일 지정이 모두 있었는지 확인하세요. 하나라도 빠졌거나 기한을 넘겼다면 남은 연차의 수당을 청구할 수 있어요.</p></details><details><summary>연차수당은 언제 받나요?</summary><p>연차를 쓸 수 있는 1년이 끝난 다음에 수당을 받을 권리가 생겨서, 보통 그 뒤 첫 급여일에 받아요. 퇴사하면 퇴사일로부터 14일 안에 정산받아요. 못 받은 수당은 3년 안에 청구할 수 있어요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "연차수당에도 세금이 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 연차수당은 근로소득이라 소득세와 4대보험이 붙어요. 그래서 법정 기준과 비교할 때는 급여명세서의 세전 금액(지급액)을 넣어야 해요."}}, {"@type": "Question", "name": "재직자에게만 주는 정기상여금도 통상임금에 넣나요?", "acceptedAnswer": {"@type": "Answer", "text": "2024년 12월 대법원 전원합의체 판결 이후로는 '지급일에 재직 중인 사람만 준다' 같은 조건이 붙어도, 정해진 시기에 모두에게 주는 상여금이면 통상임금에 들어가요. 1년에 받는 상여금을 12로 나눠 월 통상임금에 더해요."}}, {"@type": "Question", "name": "회사가 연차촉진을 했다며 수당을 안 줘요.", "acceptedAnswer": {"@type": "Answer", "text": "사용 기간이 끝나기 6개월 전(10일 이내)의 서면 촉구와 2개월 전까지의 서면 사용일 지정이 모두 있었는지 확인하세요. 하나라도 빠졌거나 기한을 넘겼다면 남은 연차의 수당을 청구할 수 있어요."}}, {"@type": "Question", "name": "연차수당은 언제 받나요?", "acceptedAnswer": {"@type": "Answer", "text": "연차를 쓸 수 있는 1년이 끝난 다음에 수당을 받을 권리가 생겨서, 보통 그 뒤 첫 급여일에 받아요. 퇴사하면 퇴사일로부터 14일 안에 정산받아요. 못 받은 수당은 3년 안에 청구할 수 있어요."}}]}</script>
@@ -259,6 +268,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,6 +36,7 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <label for="wage">퇴사 전 3개월 월평균 급여 (만원)<input id="wage" data-warn="10000" type="number" inputmode="decimal" min="0" step="1" value="350"><span class="hint">세전, 상여금 포함</span></label>
       <div class="row2">
         <label for="hours">하루 소정근로시간<input id="hours" type="number" inputmode="decimal" min="0" step="1" value="8"><span class="hint">하한액 계산에 쓰여요</span></label>
@@ -43,18 +44,17 @@
       </div>
       <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="old" type="checkbox" style="width:auto"> 퇴사일 기준 만 50세 이상이거나 장애인이에요</label>
       <span class="hint">예시 값이 들어가 있어요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>실업급여 예상 결과</h2>
       <div class="total"><span>총 예상 수령액</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
       <div class="lines">
         <div class="line"><span>1일 평균임금<em>월평균 급여 × 3 ÷ 91일</em></span><b id="o-avg"></b></div>
         <div class="line"><span>1일 구직급여<em id="o-daynote"></em></span><b id="o-day"></b></div>
         <div class="line"><span>받을 수 있는 날</span><b id="o-days"></b></div>
         <div class="line"><span>28일마다 받는 금액</span><b id="o-28"></b></div>
       </div>
-      <div class="status ok" id="o-status"></div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
@@ -66,7 +66,8 @@
       <li><b>하한액:</b> 최저임금의 80% × 하루 근로시간이에요. 하루 8시간이면 <b>66,048원</b>이에요.</li>
       <li>평균임금이 낮아도 하한액보다 적게 받지는 않아요.</li>
     </ul>
-    <h2>받을 수 있는 기간 (소정급여일수)</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>받을 수 있는 기간 (소정급여일수)</h2></summary><div class="sec-b">
     <div class="tbl"><table>
       <thead><tr><th>고용보험 가입 기간</th><th>1년 미만</th><th>1~3년</th><th>3~5년</th><th>5~10년</th><th>10년 이상</th></tr></thead>
       <tbody>
@@ -74,18 +75,23 @@
         <tr><td>50세 이상·장애인</td><td>120일</td><td>180일</td><td>210일</td><td>240일</td><td>270일</td></tr>
       </tbody>
     </table></div>
-    <h2>받을 수 있는 조건</h2>
+    </div></details>
+    <details class="sec"><summary><h2>받을 수 있는 조건</h2></summary><div class="sec-b">
     <ul>
       <li>퇴사 전 18개월 동안 고용보험 가입 기간(유급 근무일)이 <b>180일 이상</b>이어야 해요.</li>
       <li>권고사직, 계약 만료, 희망퇴직처럼 <b>본인 뜻이 아닌 퇴사</b>여야 해요. 자발적 퇴사도 임금 체불, 통근 곤란 같은 정당한 사유가 있으면 받을 수 있어요.</li>
       <li>퇴사 후 고용24에서 구직 신청을 하고, 정해진 날마다 구직 활동을 인정받아야 해요.</li>
     </ul>
-    <h2>2027년에 바뀔 수 있는 점</h2>
+    </div></details>
+    <details class="sec"><summary><h2>2027년에 바뀔 수 있는 점</h2></summary><div class="sec-b">
     <p>정부는 실업급여를 주 6일 기준으로 지급하는 개편안과 상한액 기준 변경을 추진하고 있어요. 아직 확정되지 않아서 이 계산기는 2026년 기준으로 계산해요. 확정되면 바로 반영할게요.</p>
     <p class="hint">기준: 고용보험법, 2026년 구직급여 상·하한액. 1일 평균임금은 3개월을 91일로 단순화해 계산했어요.</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>고용보험</dt><dd>실업급여 등에 쓰는 보험료예요. 근로자는 월급의 0.9%를 내요.</dd></div><div><dt>1일 평균임금</dt><dd>퇴사 전 3개월 동안 받은 임금 총액을 그 기간의 날짜 수로 나눈 금액이에요. 퇴직금과 실업급여의 기준이에요.</dd></div><div><dt>1일 구직급여</dt><dd>실업급여로 하루에 받는 금액이에요. 1일 평균임금의 60%이고, 상한액과 하한액이 있어요.</dd></div><div><dt>받을 수 있는 날</dt><dd>실업급여를 받는 날 수(소정급여일수)예요. 나이와 고용보험 가입 기간에 따라 120~270일이에요.</dd></div><div><dt>하루 소정근로시간</dt><dd>근로계약서에 정한 하루 근무시간이에요(최대 8시간). 실업급여 하한액을 계산할 때 써요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>자발적으로 퇴사해도 실업급여를 받을 수 있나요?</summary><p>원칙적으로는 받을 수 없어요. 다만 임금 체불, 통근이 어려워진 이사, 직장 내 괴롭힘 같은 정당한 사유가 있으면 받을 수 있어요.</p></details><details><summary>실업급여는 언제까지 신청해야 하나요?</summary><p>퇴사 다음 날부터 12개월 안에 다 받아야 해서, 늦게 신청하면 받을 수 있는 날이 줄어요. 퇴사 후 바로 고용24에서 구직 신청을 하는 게 좋아요.</p></details><details><summary>실업급여 받는 중에 아르바이트를 해도 되나요?</summary><p>할 수는 있지만 반드시 고용센터에 신고해야 해요. 신고하지 않으면 부정수급이 되어 받은 돈을 돌려줘야 하고 추가 징수도 될 수 있어요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "자발적으로 퇴사해도 실업급여를 받을 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "원칙적으로는 받을 수 없어요. 다만 임금 체불, 통근이 어려워진 이사, 직장 내 괴롭힘 같은 정당한 사유가 있으면 받을 수 있어요."}}, {"@type": "Question", "name": "실업급여는 언제까지 신청해야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "퇴사 다음 날부터 12개월 안에 다 받아야 해서, 늦게 신청하면 받을 수 있는 날이 줄어요. 퇴사 후 바로 고용24에서 구직 신청을 하는 게 좋아요."}}, {"@type": "Question", "name": "실업급여 받는 중에 아르바이트를 해도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "할 수는 있지만 반드시 고용센터에 신고해야 해요. 신고하지 않으면 부정수급이 되어 받은 돈을 돌려줘야 하고 추가 징수도 될 수 있어요."}}]}</script>
@@ -189,6 +195,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">

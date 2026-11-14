@@ -19,7 +19,7 @@
 <meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/style.css?v=4">
+<link rel="stylesheet" href="/assets/style.css?v=5">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -36,13 +36,13 @@
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
       <label for="wage">시급 (원)<input id="wage" type="number" inputmode="numeric" min="0" step="10" value="10700"></label>
       <div class="row2">
         <label for="days">주 근무일수<input id="days" type="number" inputmode="numeric" min="1" max="7" value="5"></label>
         <label for="hours">하루 근무시간<input id="hours" type="number" inputmode="decimal" min="0" max="24" step="0.5" value="4"></label>
       </div>
       <span class="hint">휴게시간은 빼고 실제 일한 시간만 넣어 주세요. 예시 값이 들어가 있어요.</span>
-      <button type="button" class="reset" id="reset">예시 값으로 되돌리기</button>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>예상 급여 명세 <small>세전 · 참고용</small></h2>
@@ -61,14 +61,16 @@
   <article>
     <h2>주휴수당이란?</h2>
     <p>일주일에 정해진 근무일을 모두 나온 근로자에게 쉬는 날 하루치 임금을 추가로 주는 제도예요. 근로기준법에 따라 주 15시간 이상 일하면 받을 수 있고, 5인 미만 사업장도 똑같이 적용돼요.</p>
-    <h2>계산 방법</h2>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>계산 방법</h2></summary><div class="sec-b">
     <ul>
       <li>주휴시간 = 주 근무시간 ÷ 40 × 8 (주 40시간 이상이면 8시간으로 고정)</li>
       <li>주휴수당 = 주휴시간 × 시급</li>
       <li>월 급여 = (주 근무시간 + 주휴시간) × 4.345주 × 시급</li>
     </ul>
     <p>4.345주는 1년 365일을 7일과 12개월로 나눈 값이에요. 주 40시간 근무자의 월 환산시간이 209시간이 되는 이유도 이 계산 때문이에요.</p>
-    <h2>2027년 최저임금 한눈에 보기</h2>
+    </div></details>
+    <details class="sec"><summary><h2>2027년 최저임금 한눈에 보기</h2></summary><div class="sec-b">
     <div class="tbl"><table>
       <thead><tr><th>구분</th><th>2026년</th><th>2027년</th><th>차이</th></tr></thead>
       <tbody>
@@ -77,16 +79,20 @@
         <tr><td>월급 (209시간)</td><td>2,156,880원</td><td>2,236,300원</td><td>+79,420원</td></tr>
       </tbody>
     </table></div>
-    <h2>주의할 점</h2>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
     <ul>
       <li>지각이나 조퇴는 결근이 아니라서, 그것만으로 주휴수당이 사라지지는 않아요.</li>
       <li>위 금액은 세금과 4대보험을 빼기 전 금액이에요.</li>
       <li>연장·야간·휴일 근무 가산수당은 포함되지 않아요.</li>
     </ul>
     <p class="hint">기준: 고용노동부 고시 2027년 적용 최저임금(시간급 10,700원).</p>
-    <h2>용어 풀이</h2>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
     <dl class="terms"><div><dt>주휴수당</dt><dd>주 15시간 이상 일하고 정해진 근무일에 모두 나오면 받는, 쉬는 날 하루치 임금이에요.</dd></div><div><dt>주휴시간</dt><dd>주휴수당을 계산하는 시간이에요. 주 근무시간 ÷ 40 × 8이고, 최대 8시간이에요.</dd></div><div><dt>월 환산시간</dt><dd>한 달 급여를 계산할 때 쓰는 시간이에요. (주 근무시간 + 주휴시간) × 4.345주로 구해요.</dd></div></dl>
+    </div></details>
+
     <h2>자주 묻는 질문</h2>
     <div class="faq"><details><summary>주 15시간 미만으로 일하면 주휴수당이 없나요?</summary><p>네, 4주 평균 주 15시간 미만으로 일하면 주휴수당을 받을 수 없어요.</p></details><details><summary>5인 미만 사업장도 주휴수당을 줘야 하나요?</summary><p>네. 주휴수당은 5인 미만 사업장에도 똑같이 적용돼요.</p></details><details><summary>한 번 결근하면 주휴수당이 없어지나요?</summary><p>그 주의 주휴수당만 받을 수 없어요. 지각이나 조퇴는 결근이 아니라서 그것만으로 사라지지는 않아요.</p></details></div>
     <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "주 15시간 미만으로 일하면 주휴수당이 없나요?", "acceptedAnswer": {"@type": "Answer", "text": "네, 4주 평균 주 15시간 미만으로 일하면 주휴수당을 받을 수 없어요."}}, {"@type": "Question", "name": "5인 미만 사업장도 주휴수당을 줘야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 주휴수당은 5인 미만 사업장에도 똑같이 적용돼요."}}, {"@type": "Question", "name": "한 번 결근하면 주휴수당이 없어지나요?", "acceptedAnswer": {"@type": "Answer", "text": "그 주의 주휴수당만 받을 수 없어요. 지각이나 조퇴는 결근이 아니라서 그것만으로 사라지지는 않아요."}}]}</script>
@@ -190,6 +196,17 @@ document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
 document.addEventListener('input',close);
 addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
 </script>
 <footer class="site-foot"><div class="wrap">
   <div style="display:flex;flex-direction:column;gap:10px">
