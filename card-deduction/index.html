@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>신용카드 소득공제 계산기 2026 · 체크카드 언제 바꿀까, 25% 문턱과 남은 한도 | 캘코</title>
+<meta name="description" content="올해 카드·체크카드·현금영수증 사용액을 넣으면 총급여 25% 문턱을 넘었는지, 소득공제가 얼마인지, 연말까지 신용카드와 체크카드 중 무엇을 쓰는 게 이득인지 계산해요. 자녀 수에 따라 늘어난 2026년 한도까지 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/card-deduction/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="신용카드 소득공제 계산기 2026 · 체크카드 언제 바꿀까, 25% 문턱과 남은 한도 | 캘코">
+<meta property="og:description" content="올해 카드·체크카드·현금영수증 사용액을 넣으면 총급여 25% 문턱을 넘었는지, 소득공제가 얼마인지, 연말까지 신용카드와 체크카드 중 무엇을 쓰는 게 이득인지 계산해요. 자녀 수에 따라 늘어난 2026년 한도까지 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/card-deduction/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>신용카드 소득공제 계산기</h1>
+    <p class="lead">올해 카드·체크카드·현금영수증 사용액을 넣으면 총급여 25% 문턱을 넘었는지, 소득공제가 얼마인지, 연말까지 신용카드와 체크카드 중 무엇을 쓰는 게 이득인지 계산해요. 자녀 수에 따라 늘어난 2026년 한도까지 반영했어요.</p>
+    <span class="tag">2026년 귀속 (2027년 1월 연말정산) 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div class="row2">
+        <label for="gross">총급여 (만원)<input id="gross" data-warn="100000" type="number" inputmode="decimal" min="0" step="1" value="5000"><span class="hint">연봉에서 식대 등 비과세를 뺀 금액</span></label>
+        <label for="kids">기본공제 받는 자녀·손자녀<select id="kids"><option value="0" selected>없음</option><option value="1">1명</option><option value="2">2명 이상</option></select></label>
+      </div>
+      <h2 style="font-size:15px;margin:4px 0 0">1월부터 지금까지 쓴 금액</h2>
+      <div class="row2">
+        <label for="card">신용카드 (만원)<input id="card" data-warn="50000" type="number" inputmode="decimal" min="0" step="1" value="1100"></label>
+        <label for="debit">체크카드·현금영수증 (만원)<input id="debit" data-warn="50000" type="number" inputmode="decimal" min="0" step="1" value="200"></label>
+      </div>
+      <div class="row2">
+        <label for="market">전통시장 (만원)<input id="market" data-warn="10000" type="number" inputmode="decimal" min="0" step="1" value="0"></label>
+        <label for="transit">대중교통 (만원)<input id="transit" data-warn="10000" type="number" inputmode="decimal" min="0" step="1" value="50"><span class="hint">버스·지하철·KTX 등</span></label>
+      </div>
+      <div id="cu-w"><label for="culture">도서·공연·영화·헬스장·수영장 (만원)<input id="culture" data-warn="10000" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">총급여 7천만원 이하만 따로 공제</span></label></div>
+      <h2 style="font-size:15px;margin:4px 0 0">12월 31일까지</h2>
+      <label for="more">더 쓸 것 같은 금액 (만원)<input id="more" data-warn="30000" type="number" inputmode="decimal" min="0" step="1" value="300"><span class="hint">신용카드로 쓸 때와 체크카드로 쓸 때를 비교해 드려요</span></label>
+      <span class="hint">예시: 총급여 5,000만 원, 신용카드 1,100만 원·체크카드 200만 원을 쓰고 연말까지 300만 원을 더 쓸 직장인이에요. 카드사 앱이나 홈택스 '연말정산 미리보기'에서 지금까지 쓴 금액을 볼 수 있어요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>카드 소득공제 결과 <small id="o-mode"></small></h2>
+      <div class="total"><span id="o-tlabel">카드 공제로 아끼는 세금</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span>총급여의 25%<em>이만큼은 써야 공제가 시작돼요</em></span><b id="o-thr"></b></div>
+        <div class="line"><span>지금까지 쓴 금액</span><b id="o-used"></b></div>
+        <div class="line"><span>문턱까지 남은 금액</span><b id="o-gap"></b></div>
+        <div class="line"><span>기본 공제 한도<em id="o-basenote"></em></span><b id="o-base"></b></div>
+        <div class="line"><span>추가 공제 한도<em>전통시장·대중교통·문화</em></span><b id="o-xlim"></b></div>
+        <div class="line"><span>카드 소득공제액<em>지금까지 쓴 금액 기준</em></span><b id="o-now"></b></div>
+        <div class="line"><span>연말까지 신용카드로 쓰면<em id="o-cnote"></em></span><b id="o-c"></b></div>
+        <div class="line"><span>연말까지 체크카드로 쓰면<em id="o-dnote"></em></span><b id="o-d"></b></div>
+        <div class="line"><span>체크카드로 더 써도 공제가 느는 금액<em>이 금액을 넘으면 기본 한도가 차요</em></span><b id="o-room"></b></div>
+        <div class="line"><span>내 세율<em>지방소득세 포함 · 대략</em></span><b id="o-rate"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>계산 순서</h2>
+    <ol>
+      <li>1년 동안 쓴 금액이 <b>총급여의 25%</b>를 넘는지 봐요. 넘지 못하면 공제가 0원이에요.</li>
+      <li>25%까지는 <b>신용카드 사용액부터</b> 채운 것으로 쳐요. 그래서 문턱 안쪽은 공제율이 낮은 신용카드로 쓴 셈이 돼요.</li>
+      <li>문턱을 넘은 금액에 결제수단별 공제율을 곱해요.</li>
+      <li>기본 한도까지 공제하고, 전통시장·대중교통·문화 사용분은 추가 한도만큼 더 공제해요.</li>
+      <li>공제액만큼 과세표준이 줄어서 <b>공제액 × 내 세율</b>만큼 세금이 줄어요.</li>
+    </ol>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>결제수단별 공제율 (2026년 사용분)</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>사용처·결제수단</th><th>공제율</th></tr></thead>
+      <tbody>
+        <tr><td>신용카드</td><td>15%</td></tr>
+        <tr><td>체크카드·직불카드·현금영수증</td><td>30%</td></tr>
+        <tr><td>도서·공연·박물관·영화·헬스장·수영장 (총급여 7천만원 이하)</td><td>30%</td></tr>
+        <tr><td>전통시장</td><td>40%</td></tr>
+        <tr><td>대중교통</td><td>40%</td></tr>
+      </tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>공제 한도</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>총급여</th><th>기본 한도</th><th>자녀 1명</th><th>자녀 2명 이상</th><th>추가 한도</th></tr></thead>
+      <tbody>
+        <tr><td>7천만원 이하</td><td>300만원</td><td>350만원</td><td>400만원</td><td>300만원</td></tr>
+        <tr><td>7천만원 초과</td><td>250만원</td><td>275만원</td><td>300만원</td><td>200만원</td></tr>
+      </tbody>
+    </table></div>
+    <p>자녀에 따라 한도가 늘어나는 제도는 2026년 1월 1일 사용분부터 적용돼요. 기본공제를 받는 자녀·손자녀가 대상이에요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>남은 두 달, 이렇게 쓰세요</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>문턱 전이라면</b> 할인·적립이 큰 신용카드를 쓰세요. 어떤 카드로 써도 공제는 0원이에요.</li>
+      <li><b>문턱을 넘었다면</b> 체크카드·현금영수증으로 바꾸세요. 같은 돈을 써도 공제가 두 배예요.</li>
+      <li><b>기본 한도가 찼다면</b> 다시 혜택 좋은 신용카드로 돌아가세요. 전통시장·대중교통은 추가 한도가 남아 있으면 계속 공제돼요.</li>
+      <li>공제를 받으려고 필요 없는 소비를 늘리는 건 손해예요. 100만 원을 써도 줄어드는 세금은 많아야 몇만 원이에요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>내년부터 바뀔 수 있어요</h2></summary><div class="sec-b">
+    <p>정부의 2026년 세제개편안에는 2027년 사용분부터 <b>대중교통 40% 우대공제율을 없애고 추가 한도를 줄이는</b> 내용이 들어 있어요. 2026년 11월 현재 국회 심사 중이고, <b>올해(2026년) 쓴 금액은 이 계산기 그대로</b> 적용돼요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>계산에 넣지 않은 것</h2></summary><div class="sec-b">
+    <p>내 세율과 줄어드는 세금은 총급여와 자녀 수로 대략 추정했어요. 소득공제 종합한도(2,500만 원), 다른 공제·감면에 따라 실제 금액은 달라질 수 있어요. 정확한 금액은 홈택스 '연말정산 미리보기'와 1월 중순에 열리는 간소화 서비스로 확인해 주세요. 전체 환급액은 <a href="/year-end-tax/">연말정산 환급 계산기</a>로 계산해 보세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>총급여</dt><dd>1년 동안 받은 급여에서 식대 같은 비과세 소득을 뺀 금액이에요. 원천징수영수증의 '총급여' 칸과 같아요.</dd></div><div><dt>기본공제</dt><dd>종부세를 계산할 때 공시가격 합계에서 먼저 빼 주는 금액이에요. 1세대 1주택 12억 원, 그 외 9억 원이에요.</dd></div><div><dt>총급여의 25%</dt><dd>신용카드 소득공제는 1년 카드 사용액이 총급여의 25%를 넘어야 시작돼요. 이 문턱(최저사용금액)까지 쓴 금액은 공제가 없고, 넘게 쓴 금액에만 공제율을 곱해요.</dd></div><div><dt>기본 공제 한도</dt><dd>신용카드·체크카드 등으로 받을 수 있는 소득공제의 기본 상한이에요. 총급여 7천만 원 이하 300만 원, 초과 250만 원이고, 2026년부터 기본공제 받는 자녀·손자녀 1명당 50만 원(7천만 원 초과 25만 원)씩 최대 2명까지 늘어나요.</dd></div><div><dt>추가 공제 한도</dt><dd>전통시장·대중교통·도서공연·체육시설 사용분은 기본 한도를 넘어도 따로 더 공제해 줘요. 총급여 7천만 원 이하 300만 원, 초과 200만 원까지예요.</dd></div><div><dt>카드 소득공제액</dt><dd>문턱(총급여 25%)을 넘게 쓴 금액에 결제수단별 공제율을 곱하고 한도를 적용한 금액이에요. 이 금액만큼 과세표준이 줄어서, 내 세율만큼 세금이 줄어요.</dd></div><div><dt>내 세율</dt><dd>소득공제로 줄어드는 과세표준에 곱해지는 세율이에요. 총급여와 가족 수로 대략 추정했고, 지방소득세 10%를 더한 값이에요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>언제부터 체크카드로 바꾸는 게 좋아요?</summary><p>올해 카드 사용액이 총급여의 25%를 넘은 순간부터예요. 그 전까지 쓴 금액은 어떤 카드로 쓰든 공제가 0원이라서, 할인·적립이 큰 신용카드를 쓰는 게 이득이에요. 문턱을 넘은 뒤에는 체크카드·현금영수증이 공제율 30%로 신용카드(15%)의 두 배예요.</p></details><details><summary>한도가 이미 찼으면 어떻게 하나요?</summary><p>기본 한도가 찼다면 더 써도 공제가 늘지 않으니 혜택 좋은 신용카드로 돌아가세요. 다만 전통시장·대중교통·도서공연·헬스장·수영장 사용분은 추가 한도가 따로 있어서 계속 공제될 수 있어요.</p></details><details><summary>공제가 안 되는 사용액은 뭐가 있나요?</summary><p>보험료, 세금·공과금, 아파트 관리비, 상품권 구입, 해외 결제, 대학 등록금, 국민연금·건강보험료, 새 차 구입비(중고차는 10%만 인정)는 사용액에서 빠져요. 홈택스 연말정산 미리보기에서 공제 대상 금액만 따로 볼 수 있어요.</p></details><details><summary>맞벌이 부부는 누구 카드로 몰아 쓰는 게 좋아요?</summary><p>보통 총급여가 낮은 쪽이 25% 문턱을 넘기 쉬워서 유리해요. 다만 소득이 낮으면 세율도 낮아서 줄어드는 세금이 작을 수 있으니, 두 사람 총급여로 각각 계산해 보고 정하세요. 배우자 카드 사용액은 배우자가 기본공제 대상(연 소득 100만 원 이하)일 때만 합칠 수 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "언제부터 체크카드로 바꾸는 게 좋아요?", "acceptedAnswer": {"@type": "Answer", "text": "올해 카드 사용액이 총급여의 25%를 넘은 순간부터예요. 그 전까지 쓴 금액은 어떤 카드로 쓰든 공제가 0원이라서, 할인·적립이 큰 신용카드를 쓰는 게 이득이에요. 문턱을 넘은 뒤에는 체크카드·현금영수증이 공제율 30%로 신용카드(15%)의 두 배예요."}}, {"@type": "Question", "name": "한도가 이미 찼으면 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "기본 한도가 찼다면 더 써도 공제가 늘지 않으니 혜택 좋은 신용카드로 돌아가세요. 다만 전통시장·대중교통·도서공연·헬스장·수영장 사용분은 추가 한도가 따로 있어서 계속 공제될 수 있어요."}}, {"@type": "Question", "name": "공제가 안 되는 사용액은 뭐가 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "보험료, 세금·공과금, 아파트 관리비, 상품권 구입, 해외 결제, 대학 등록금, 국민연금·건강보험료, 새 차 구입비(중고차는 10%만 인정)는 사용액에서 빠져요. 홈택스 연말정산 미리보기에서 공제 대상 금액만 따로 볼 수 있어요."}}, {"@type": "Question", "name": "맞벌이 부부는 누구 카드로 몰아 쓰는 게 좋아요?", "acceptedAnswer": {"@type": "Answer", "text": "보통 총급여가 낮은 쪽이 25% 문턱을 넘기 쉬워서 유리해요. 다만 소득이 낮으면 세율도 낮아서 줄어드는 세금이 작을 수 있으니, 두 사람 총급여로 각각 계산해 보고 정하세요. 배우자 카드 사용액은 배우자가 기본공제 대상(연 소득 100만 원 이하)일 때만 합칠 수 있어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-14</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/pension-tax-credit/" data-k="연금저축·IRP 세액공제 계산기 연말까지 얼마 더 넣으면 얼마 돌려받는지 16.5%·13.2%로 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>연금저축·IRP 세액공제 계산기</strong><span>연말까지 얼마 더 넣으면 얼마 돌려받는지 16.5%·13.2%로 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/tax-calendar/" data-k="내 1년 세금 달력 자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>내 1년 세금 달력</strong><span>자동차세·재산세·주민세·종부세를 달마다 얼마 내는지 한눈에</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/property-tax/" data-k="재산세 계산기 공시가격으로 7월·9월 재산세와 1주택 특례 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>재산세 계산기</strong><span>공시가격으로 7월·9월 재산세와 1주택 특례 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>(Math.round(n/1000)/10).toLocaleString('ko-KR')+'만원';
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const PRG=(B,t)=>{let s=0,lo=0,top=0;for(const[hi,r]of t){if(B>lo){s+=(Math.min(B,hi)-lo)*r;top=r}lo=hi}return[s,top]};
+const GT=[[1e8,.1],[5e8,.2],[1e9,.3],[3e9,.4],[Infinity,.5]];
+const IT=[[14e6,.06],[5e7,.15],[88e6,.24],[15e7,.35],[3e8,.38],[5e8,.40],[1e9,.42],[Infinity,.45]];
+const pct=r=>Math.round(r*1000)/10+'%';
+const ttl=(b,pos,neg)=>{const t=document.querySelector('.slip .total span');if(t)t.textContent=b?pos:neg};
+function earnDed(G){let d;if(G<=5e6)d=G*.7;else if(G<=15e6)d=3.5e6+(G-5e6)*.4;else if(G<=45e6)d=7.5e6+(G-15e6)*.15;else if(G<=1e8)d=12e6+(G-45e6)*.05;else d=14.75e6+(G-1e8)*.02;return Math.min(d,2e7)}
+const BRK=[[14e6,.06,0],[50e6,.15,1.26e6],[88e6,.24,5.76e6],[150e6,.35,15.44e6],[300e6,.38,19.94e6],[500e6,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+const itax=T=>{for(const[l,r,q]of BRK)if(T<=l)return Math.max(0,T*r-q)};
+const rateOf=T=>{for(const[l,r]of BRK)if(T<=l)return r};
+function earnCredit(c,G){const v=c<=1.3e6?c*.55:715000+(c-1.3e6)*.3;let lim;
+  if(G<=33e6)lim=740000;else if(G<=70e6)lim=Math.max(740000-(G-33e6)*.008,660000);
+  else if(G<=120e6)lim=Math.max(660000-(G-70e6)/2,500000);else lim=Math.max(500000-(G-120e6)/2,200000);
+  return Math.min(v,lim)}
+const insEst=G=>{const mo=G/12;return 6*Math.min(mo,6.37e6)*.0475+6*Math.min(mo,6.59e6)*.0475+G*(.03595+.004724+.009)};
+const baseEst=(G,fam)=>Math.max(0,G-earnDed(G)-1.5e6*fam-insEst(G));
+const detTax=(G,B)=>{const c=itax(B);return Math.max(0,c-earnCredit(c,G)-13e4)};
+const dday=()=>{const n=new Date(),e=new Date(n.getFullYear(),11,31);return Math.round((e-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5)};
+function cded(G,k,c,d,cu,m,t){const low=G<=70e6;if(!low){c+=cu;cu=0}
+  let rem=G*.25;const take=x=>{const u=Math.min(x,rem);rem-=u;return x-u};
+  const c2=take(c),d2=take(d),cu2=take(cu),m2=take(m),t2=take(t);
+  const raw=c2*.15+d2*.3+cu2*.3+m2*.4+t2*.4,lim=(low?3e6:2.5e6)+Math.min(k,2)*(low?5e5:2.5e5);
+  const basic=Math.min(raw,lim),xl=low?3e6:2e6,extra=Math.min(raw-basic,m2*.4+t2*.4+cu2*.3,xl);
+  return{v:basic+extra,raw,lim,xl,full:raw>=lim}}
+function calc(){
+  const G=W('gross'),k=+$('kids').value,low=G<=70e6;$('cu-w').hidden=!low;
+  const c=W('card'),d=W('debit'),cu=low?W('culture'):0,m=W('market'),t=W('transit'),more=W('more');
+  const used=c+d+cu+m+t,thr=G*.25,gap=Math.max(0,thr-used);
+  const B=baseEst(G,1+k),sv=v=>(detTax(G,B)-detTax(G,Math.max(0,B-v)))*1.1;
+  const now=cded(G,k,c,d,cu,m,t),C=cded(G,k,c+more,d,cu,m,t),D=cded(G,k,c,d+more,cu,m,t);
+  const sNow=sv(now.v),sC=sv(C.v),sD=sv(D.v),r=rateOf(B)*1.1;
+  const room=now.full?0:gap+(now.lim-Math.min(now.raw,now.lim))/.3;
+  $('o-mode').textContent='총급여 '+man(G);
+  $('o-thr').textContent=won(thr);$('o-used').textContent=won(used);$('o-gap').textContent=gap?won(gap):'문턱을 넘었어요';
+  $('o-base').textContent=won(now.lim);$('o-basenote').textContent=k?'자녀 '+(k>1?'2명 이상':'1명')+' 반영':(low?'총급여 7천만원 이하':'총급여 7천만원 초과');
+  $('o-xlim').textContent=won(now.xl);$('o-now').textContent=won(now.v);
+  $('o-c').textContent='공제 '+won(C.v);$('o-cnote').textContent='세금 약 '+won(sC)+' 줄어요';
+  $('o-d').textContent='공제 '+won(D.v);$('o-dnote').textContent='세금 약 '+won(sD)+' 줄어요';
+  $('o-room').textContent=now.full?'이미 한도가 찼어요':won(room);$('o-rate').textContent=pct(r);
+  const diff=sD-sC,st=$('o-status');st.className='status ok';
+  $('o-tlabel').textContent=more?'연말까지 체크카드로 쓰면 아끼는 세금':'카드 공제로 아끼는 세금';$('o-total').textContent=won(more?sD:sNow);
+  if(!G){st.className='status warn';st.textContent='총급여를 넣어 주세요.';return}
+  if(used+more<=thr){st.className='status warn';st.textContent=`연말까지 써도 문턱(${man(thr)})을 넘지 못해서 카드 공제가 없어요. 남은 기간엔 할인·적립 혜택이 큰 신용카드를 쓰는 게 이득이에요.`}
+  else if(now.full)st.textContent=`기본 한도(${man(now.lim)})가 이미 찼어요. 더 써도 공제가 늘지 않으니 혜택 좋은 신용카드를 쓰세요. 전통시장·대중교통은 추가 한도 안에서 계속 공제돼요.`;
+  else if(!more)st.textContent=gap?`문턱까지 ${man(gap)} 남았어요. 그만큼은 혜택 좋은 신용카드로, 그 뒤부터는 체크카드·현금영수증으로 쓰세요.`:`문턱을 넘었어요. 지금부터는 체크카드·현금영수증으로 쓰면 공제율이 두 배예요. 체크카드로 ${man(room)}까지 공제가 늘어요.`;
+  else if(diff<1000)st.textContent='남은 사용액은 어떤 카드로 써도 줄어드는 세금이 거의 같아요. 할인·적립 혜택이 큰 카드를 쓰세요.';
+  else st.textContent=(gap?`문턱까지 ${man(gap)}은 신용카드로 쓰고, 그 뒤부터 `:'지금부터 ')+`체크카드·현금영수증으로 쓰면 신용카드만 쓸 때보다 세금이 약 ${won(diff)} 더 줄어요.`+(D.full?' 다만 중간에 기본 한도가 차니, 한도가 찬 뒤엔 신용카드가 나아요.':'');
+}
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{const D={gross:5000,card:1100,debit:200,market:0,transit:50,culture:0,more:300};for(const k in D)$(k).value=D[k];$('kids').value='0';calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
