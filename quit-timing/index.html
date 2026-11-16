@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>퇴사 시기 비교 계산기 · 12월 31일 vs 1월 퇴사, 퇴직금·연차수당·성과급 | 캘코</title>
+<meta name="description" content="입사일과 월급, 성과급 지급일을 넣고 마지막 근무일 후보를 최대 3개 고르면 날짜별로 퇴직금, 미사용 연차수당, 성과급을 합쳐 언제 나가는 게 유리한지 비교해요. 1년 + 1일 연차 기준(2021 대법원 판결)을 반영했어요.">
+<link rel="canonical" href="https://calqo.kr/quit-timing/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="퇴사 시기 비교 계산기 · 12월 31일 vs 1월 퇴사, 퇴직금·연차수당·성과급 | 캘코">
+<meta property="og:description" content="입사일과 월급, 성과급 지급일을 넣고 마지막 근무일 후보를 최대 3개 고르면 날짜별로 퇴직금, 미사용 연차수당, 성과급을 합쳐 언제 나가는 게 유리한지 비교해요. 1년 + 1일 연차 기준(2021 대법원 판결)을 반영했어요.">
+<meta property="og:url" content="https://calqo.kr/quit-timing/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay" class=on aria-current=page>급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#pay">급여·근로</a></div>
+    <h1>퇴사 시기 비교 계산기</h1>
+    <p class="lead">입사일과 월급, 성과급 지급일을 넣고 마지막 근무일 후보를 최대 3개 고르면 날짜별로 퇴직금, 미사용 연차수당, 성과급을 합쳐 언제 나가는 게 유리한지 비교해요. 1년 + 1일 연차 기준(2021 대법원 판결)을 반영했어요.</p>
+    <span class="tag">2026년 11월 기준 · 근로기준법 제60조 · 1년+1일 연차 판례 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <label for="start">입사일<input id="start" type="date" value="2021-01-04"></label>
+      <div class="row2">
+        <label for="pay">월급 (만원)<input id="pay" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="400"><span class="hint">기본급 + 고정수당, 세전</span></label>
+        <label for="sbonus">1년 정기 상여금 (만원)<input id="sbonus" data-warn="30000" type="number" inputmode="decimal" min="0" step="1" value="400"><span class="hint">없으면 0</span></label>
+      </div>
+      <label for="left">지금 남은 연차 (일)<input id="left" type="number" inputmode="decimal" min="0" step="0.5" value="3"><span class="hint">오늘 기준 아직 쓰지 않은 연차</span></label>
+      <h2 style="font-size:15px;margin:4px 0 0">성과급 (지급일에 재직해야 받는 경우)</h2>
+      <div class="row2">
+        <label for="pbonus">성과급 (만원)<input id="pbonus" data-warn="30000" type="number" inputmode="decimal" min="0" step="1" value="500"><span class="hint">없으면 0</span></label>
+        <label for="pday">성과급 지급일<input id="pday" type="date" value="2027-01-15"></label>
+      </div>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="preq" type="checkbox" style="width:auto" checked> 지급일에 재직해야 받아요 (대부분 회사)</label>
+      <h2 style="font-size:15px;margin:4px 0 0">비교할 마지막 근무일</h2>
+      <div class="row2">
+        <label for="d1">A안<input id="d1" type="date" value="2026-12-31"></label>
+        <label for="d2">B안<input id="d2" type="date" value="2027-01-04"></label>
+      </div>
+      <label for="d3">C안 <span class="hint" style="display:inline">(비워 두면 2개만 비교)</span><input id="d3" type="date" value="2027-01-15"></label>
+      <span class="hint">예시: 2021년 1월 4일 입사, 월급 400만 원인 직장인이 12월 31일·1월 4일·1월 15일 중 언제 나갈지 고르는 경우예요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>퇴사 날짜별 비교 <small>세전 · 참고용</small></h2>
+      <div class="total"><span id="o-bestlab">가장 유리한 날</span><b id="o-best"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span id="o-l1"></span><b id="o-v1"></b></div>
+        <div class="line"><span id="o-l2"></span><b id="o-v2"></b></div>
+        <div class="line" id="o-r3"><span id="o-l3"></span><b id="o-v3"></b></div>
+        <div class="line"><span>놓치면 아까운 날<em id="o-keynote"></em></span><b id="o-key"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>날짜별 자세히 보기</h2>
+    <p>각 날짜까지 일하고 나갈 때 받는 돈을 항목별로 나눴어요. 금액은 모두 세금 떼기 전이고, 퇴직금만 세후 금액을 함께 적었어요.</p>
+    <div class="tbl"><table>
+      <thead id="t-head"></thead>
+      <tbody id="t-body"></tbody>
+    </table></div>
+    <p class="hint">'퇴사할 때 받는 돈'에는 그 사이 일하고 받는 월급은 넣지 않았어요. 며칠 더 다니면 그만큼 월급도 더 받아요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>퇴사 날짜 하나로 달라지는 4가지</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>퇴직금 (1년):</b> 입사일부터 365일을 채워야 받아요. 1년에서 하루만 모자라도 법정 퇴직금이 없어요.</li>
+      <li><b>연차 (1년 + 1일):</b> 1년 근로를 마친 <b>다음 날</b>, 즉 입사 기념일에 재직해야 15일(3년 차부터 2년마다 1일 추가) 연차가 새로 생겨요. 쓰지 못하고 나가면 수당으로 받아요. 입사 첫해에는 한 달 개근하고 다음 날 재직할 때마다 1일씩 생겨요.</li>
+      <li><b>성과급 (지급일 재직):</b> 대부분 회사는 지급일에 재직 중인 사람에게만 성과급을 줘요. 지급일 하루 전에 나가면 1년 일한 성과급을 못 받을 수 있어요.</li>
+      <li><b>평균임금 (3개월 날짜 수):</b> 퇴직금은 퇴직 전 3개월 임금을 그 기간 날짜 수로 나눠 계산해요. 2월이 낀 3개월(89~90일)은 날짜가 적어서 평균임금이 조금 올라가요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>12월 말 퇴사 vs 1월 퇴사</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>구분</th><th>12월 31일까지 근무</th><th>1월에 퇴사</th></tr></thead>
+      <tbody>
+        <tr><td>연말정산</td><td>퇴사할 때 회사가 기본 공제만으로 그해 연말정산을 해요. 빠진 카드·의료비 같은 공제는 5월 종합소득세 신고로 돌려받을 수 있어요.</td><td>지난해 연말정산도 퇴사하는 회사에서 해요. 간소화 자료는 1월 15일쯤 열려서, 그 전에 나가면 5월에 직접 신고하는 경우가 많아요. 올해 1월 근무분은 새 회사에 합치거나 다음 해 5월에 신고해요.</td></tr>
+        <tr><td>건강보험</td><td>퇴사하면서 그해 보험료를 정산하고, 1월부터는 지역가입자나 가족의 피부양자로 바뀌어요.</td><td>1월에 하루라도 재직하면 1월분 보험료도 직장 보험료로 내요.</td></tr>
+        <tr><td>연차·성과급</td><td>1월에 생기는 연차, 1월 지급 성과급은 못 받을 수 있어요.</td><td>입사 기념일·성과급 지급일이 지나면 받을 수 있어요.</td></tr>
+      </tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>퇴사 날짜 정할 때 확인할 것</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>취업규칙:</b> 성과급·상여금이 지급일 재직자에게만 나오는지, 퇴사자에게 일할 계산해 주는지 확인하세요.</li>
+      <li><b>회계연도 기준 연차:</b> 1월 1일에 모든 직원에게 연차를 주는 회사도 퇴사할 때는 입사일 기준으로 다시 계산해 덜 받은 만큼 정산해 줘야 해요. 이 계산기는 법정 최소인 입사일 기준으로 계산해요.</li>
+      <li><b>실업급여:</b> 자발적 퇴사는 원칙적으로 받을 수 없어요. 권고사직·계약 만료라면 <a href="/unemployment/">실업급여 계산기</a>로 따로 확인하세요.</li>
+      <li><b>새 회사 입사일:</b> 이직이라면 새 회사 입사일과 겹치지 않게 마지막 근무일을 정해야 해요. 4대보험 이중 가입은 원칙적으로 정리 대상이에요.</li>
+      <li><b>퇴직금 세금:</b> 퇴직금만 따로 확인하려면 <a href="/severance/">퇴직금 계산기</a>, 남은 연차수당은 <a href="/leave-pay/">연차수당 계산기</a>를 써 보세요.</li>
+    </ul>
+    <p class="hint">기준: 근로자퇴직급여 보장법 제8조, 근로기준법 제2조(평균임금)·제60조(연차 유급휴가), 대법원 2021. 10. 14. 선고 2021다227100 판결, 고용노동부 연차 행정해석 변경(2021. 12. 16.). 출근율 80% 이상, 주 40시간(월 209시간) 근무를 가정했어요. 계산 결과는 참고용이며 법률 자문이 아니에요.</p>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>12월 31일에 퇴사하는 게 1월보다 손해인가요?</summary><p>입사일과 성과급 지급일에 따라 달라요. 입사 기념일이 1월 초라면 그날까지 다녀야 1년치 연차(15일 이상)가 새로 생기고, 1월에 성과급이 나오는 회사라면 지급일에 재직해야 받는 경우가 많아요. 반대로 이런 날짜가 없다면 12월 말 퇴사가 연말정산이 간단해서 편할 수 있어요.</p></details><details><summary>1년 하고 하루 더 일해야 한다는 게 무슨 뜻인가요?</summary><p>2021년 대법원 판결 뒤로 연차는 1년 근로를 마친 다음 날(366일째)에 재직하고 있어야 생겨요. 365일만 일하고 나가면 첫해 월차 최대 11일만 받고, 하루 더 일하면 15일이 더 생겨 최대 26일분 수당을 받을 수 있어요. 퇴직금은 365일만 채우면 받아요.</p></details><details><summary>퇴사일과 마지막 근무일은 어떻게 다른가요?</summary><p>회사와 4대보험에서는 마지막 근무일 다음 날을 퇴사일(자격 상실일)로 적는 경우가 많아요. 예를 들어 12월 31일까지 일하면 서류상 퇴사일은 1월 1일이에요. 연차·성과급 조건은 &#x27;그날 재직했는지&#x27;가 중요해서 이 계산기는 마지막 근무일로 넣어요.</p></details><details><summary>퇴사할 때 남은 연차는 쓰는 게 나을까요, 수당으로 받는 게 나을까요?</summary><p>쓰면 그만큼 마지막 근무일이 뒤로 밀려 재직 기간이 늘어나고, 그 사이 입사 기념일이 끼면 연차가 새로 생길 수도 있어요. 수당으로 받으면 퇴사 후 14일 안에 돈으로 받아요. 회사와 마지막 근무일을 정할 때 함께 따져 보세요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "12월 31일에 퇴사하는 게 1월보다 손해인가요?", "acceptedAnswer": {"@type": "Answer", "text": "입사일과 성과급 지급일에 따라 달라요. 입사 기념일이 1월 초라면 그날까지 다녀야 1년치 연차(15일 이상)가 새로 생기고, 1월에 성과급이 나오는 회사라면 지급일에 재직해야 받는 경우가 많아요. 반대로 이런 날짜가 없다면 12월 말 퇴사가 연말정산이 간단해서 편할 수 있어요."}}, {"@type": "Question", "name": "1년 하고 하루 더 일해야 한다는 게 무슨 뜻인가요?", "acceptedAnswer": {"@type": "Answer", "text": "2021년 대법원 판결 뒤로 연차는 1년 근로를 마친 다음 날(366일째)에 재직하고 있어야 생겨요. 365일만 일하고 나가면 첫해 월차 최대 11일만 받고, 하루 더 일하면 15일이 더 생겨 최대 26일분 수당을 받을 수 있어요. 퇴직금은 365일만 채우면 받아요."}}, {"@type": "Question", "name": "퇴사일과 마지막 근무일은 어떻게 다른가요?", "acceptedAnswer": {"@type": "Answer", "text": "회사와 4대보험에서는 마지막 근무일 다음 날을 퇴사일(자격 상실일)로 적는 경우가 많아요. 예를 들어 12월 31일까지 일하면 서류상 퇴사일은 1월 1일이에요. 연차·성과급 조건은 '그날 재직했는지'가 중요해서 이 계산기는 마지막 근무일로 넣어요."}}, {"@type": "Question", "name": "퇴사할 때 남은 연차는 쓰는 게 나을까요, 수당으로 받는 게 나을까요?", "acceptedAnswer": {"@type": "Answer", "text": "쓰면 그만큼 마지막 근무일이 뒤로 밀려 재직 기간이 늘어나고, 그 사이 입사 기념일이 끼면 연차가 새로 생길 수도 있어요. 수당으로 받으면 퇴사 후 14일 안에 돈으로 받아요. 회사와 마지막 근무일을 정할 때 함께 따져 보세요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-17</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/severance/" data-k="퇴직금 계산기 평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>퇴직금 계산기</strong><span>평균임금으로 퇴직금과 퇴직소득세, 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/leave-pay/" data-k="연차수당 계산기 받은 연차수당이 법정 기준보다 적은지 확인 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연차수당 계산기</strong><span>받은 연차수당이 법정 기준보다 적은지 확인</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const fmt=d=>`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+const dd=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/864e5);
+function addM(d,m){const t=new Date(d.getFullYear(),d.getMonth()+m,1);const last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();t.setDate(Math.min(d.getDate(),last));return t}
+function monthsBetween(a,b){let m=(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth());if(addM(a,m)>b)m--;return Math.max(0,m)}
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const BR=[[14e6,.06,0],[50e6,.15,1.26e6],[88e6,.24,5.76e6],[150e6,.35,15.44e6],[300e6,.38,19.94e6],[500e6,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+function baseTax(T){for(const[l,r,q]of BR)if(T<=l)return Math.max(0,T*r-q)}
+function yearsCeil(a,b){const m=monthsBetween(a,b);const exact=addM(a,m).getTime()===b.getTime();return Math.max(1,Math.ceil(m/12)+((m%12===0&&!exact)?1:0))}
+function tenureDed(y){if(y<=5)return y*1e6;if(y<=10)return 5e6+(y-5)*2e6;if(y<=20)return 15e6+(y-10)*2.5e6;return 40e6+(y-20)*3e6}
+function convDed(c){if(c<=8e6)return c;if(c<=70e6)return 8e6+(c-8e6)*.6;if(c<=1e8)return 45.2e6+(c-70e6)*.55;if(c<=3e8)return 61.7e6+(c-1e8)*.45;return 151.7e6+(c-3e8)*.35}
+function retTax(P,y){const td=Math.min(P,tenureDed(y));const conv=(P-td)*12/y;const base=Math.max(0,conv-convDed(conv));const t=Math.floor(baseTax(base)/12*y);return{td,conv,cd:conv-base,base,tax:t,local:Math.floor(t*.1)}}
+const NV=id=>Math.max(0,+$(id).value||0);
+const TODAY=(()=>{const t=new Date();return new Date(t.getFullYear(),t.getMonth(),t.getDate())})();
+const addD=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+const md=d=>`${d.getMonth()+1}/${d.getDate()}`;
+const mk=d=>`${d.getMonth()+1}월 ${d.getDate()}일`;
+const WD='일월화수목금토';
+const mdw=d=>`${d.getFullYear()}.${d.getMonth()+1}.${d.getDate()}(${WD[d.getDay()]})`;
+// 오늘 다음 날 ~ 마지막 근무일 사이에 새로 생기는 법정 연차 (입사일 기준)
+function newLeave(s,last){let n=0;const ev=[];
+  for(let m=1;m<=11;m++){const d=addM(s,m);if(d>last)break;if(d>TODAY){n+=1;ev.push([d,1,'월차'])}}
+  for(let k=1;k<60;k++){const d=addM(s,12*k);if(d>last)break;if(d>TODAY){const g=Math.min(25,15+Math.floor((k-1)/2));n+=g;ev.push([d,g,k+'년'])}}
+  return{n,ev}}
+function scen(s,last){
+  const e=addD(last,1),work=dd(s,e),d3=dd(addM(e,-3),e);
+  const mon=NV('pay')*1e4,wage3=mon*3+NV('sbonus')*1e4*3/12,avg=wage3/d3;
+  let sev=0,net=0;if(work>=365){sev=Math.floor(avg*30*work/365);const r=retTax(sev,yearsCeil(s,e));net=sev-r.tax-r.local}
+  const lv=newLeave(s,last),day=mon/209*8,days=NV('left')+lv.n,lpay=Math.floor(day*days);
+  const pd_=pd($('pday').value),pb=NV('pbonus')*1e4;
+  const gotB=pb>0&&(!$('preq').checked||(pd_&&last>=pd_));const bon=gotB?pb:0;
+  const m=monthsBetween(s,e);
+  return{last,e,work,d3,avg,sev,net,lv,days,lpay,bon,gotB,pb,total:sev+lpay+bon,ten:`${Math.floor(m/12)}년 ${m%12}개월`}}
+function calc(){
+  const s=pd($('start').value),st=$('o-status');
+  const L=['A','B','C'],ds=['d1','d2','d3'].map(i=>pd($(i).value));
+  const list=ds.map((d,i)=>d?{k:L[i],d}:null).filter(Boolean);
+  const bad=m=>{st.className='status warn';st.textContent=m;['o-best','o-v1','o-v2','o-v3','o-key'].forEach(i=>$(i).textContent='–');$('t-body').innerHTML='';};
+  if(!s)return bad('입사일을 넣어 주세요.');
+  if(list.length<2)return bad('비교할 마지막 근무일을 2개 이상 넣어 주세요.');
+  if(list.some(x=>x.d<s))return bad('마지막 근무일은 입사일보다 뒤여야 해요.');
+  const R=list.map(x=>Object.assign({k:x.k},scen(s,x.d)));
+  const base=R.reduce((a,b)=>b.last<a.last?b:a);
+  const best=R.reduce((a,b)=>b.total>a.total||(b.total===a.total&&b.last<a.last)?b:a);
+  // 결과 줄
+  for(let i=0;i<3;i++){const r=R[i],row=$('o-r'+(i+1));if(row)row.hidden=!r;if(!r)continue;
+    const parts=[];if(r.sev)parts.push('퇴직금');parts.push(`연차 ${r.days}일`);if(r.bon)parts.push('성과급');
+    $('o-l'+(i+1)).innerHTML=`${r.k}안 · ${mdw(r.last)}까지<em>${parts.join(' + ')}</em>`;
+    const dif=r.total-base.total;$('o-v'+(i+1)).textContent=man(r.total)+(r===base?'':` (+${man(dif)})`)}
+  $('o-bestlab').textContent=`가장 유리한 날 · ${best.k}안 ${mdw(best.last)}`;
+  $('o-best').textContent=best===base?man(best.total):`+${man(best.total-base.total)} 더 받아요`;
+  // 결론 문장
+  const why=[];const more=dd(base.last,best.last);
+  if(best!==base){
+    const nl=best.lv.n-base.lv.n;if(nl>0){const ev=best.lv.ev.filter(x=>x[0]>base.last);const big=ev.find(x=>x[2]!=='월차');
+      why.push(big?`${mk(big[0])} 입사 기념일에 재직해서 연차 ${big[1]}일이 새로 생겨요`:`월차 ${nl}일이 더 생겨요`)}
+    if(best.bon>base.bon)why.push(`성과급 지급일(${mk(pd($('pday').value))})까지 재직해서 성과급 ${man(best.bon)}을 받아요`);
+    if(best.sev&&!base.sev)why.push('입사 1년을 채워 퇴직금이 생겨요');
+    st.className='status ok';
+    st.textContent=`${base.k}안(${mk(base.last)})보다 ${more}일 늦게 나가면 ${man(best.total-base.total)}을 더 받아요. `+(why.length?why.join('. ')+'.':'퇴직금이 근무일수만큼 조금 늘어요.');
+  }else{st.className='status ok';st.textContent=`가장 이른 ${base.k}안(${md(base.last)})에 나가도 손해 보는 날짜가 없어요. 더 다녀도 늘어나는 건 근무일수만큼의 퇴직금 정도예요.`}
+  if(R.some(r=>r.last<TODAY)){st.className='status warn';st.textContent+=' 이미 지난 날짜는 새로 생기는 연차를 계산하지 않았어요.'}
+  // 놓치면 아까운 날
+  const lastMax=R.reduce((a,b)=>b.last>a.last?b:a).last,keys=[];
+  const k1=addD(s,364);if(k1>TODAY)keys.push([k1,'퇴직금 1년']);
+  for(let k=1;k<60;k++){const d=addM(s,12*k);if(d>TODAY){keys.push([d,'연차 '+Math.min(25,15+Math.floor((k-1)/2))+'일 생김']);break}}
+  const p=pd($('pday').value);if(p&&NV('pbonus')>0&&p>=TODAY&&$('preq').checked)keys.push([p,'성과급 지급']);
+  keys.sort((a,b)=>a[0]-b[0]);
+  $('o-key').textContent=keys.length?keys.slice(0,2).map(x=>md(x[0])).join(' · '):'–';
+  $('o-keynote').textContent=keys.length?keys.slice(0,2).map(x=>x[1]).join(' · ')+' (이날까지 재직)':'';
+  // 표
+  $('t-head').innerHTML='<tr><th>구분</th>'+R.map(r=>`<th>${r.k}안 · ${md(r.last)}</th>`).join('')+'</tr>';
+  const row=(n,f,b)=>`<tr${b?' style="font-weight:700"':''}><td>${n}</td>${R.map(r=>`<td>${f(r)}</td>`).join('')}</tr>`;
+  $('t-body').innerHTML=
+    row('서류상 퇴사일',r=>fmt(r.e))+
+    row('재직 기간',r=>`${r.ten}<br><small>${r.work.toLocaleString('ko-KR')}일</small>`)+
+    row('1일 평균임금',r=>`${won(r.avg)}<br><small>3개월 ${r.d3}일</small>`)+
+    row('퇴직금 (세전)',r=>r.sev?man(r.sev):'1년 미만')+
+    row('퇴직금 (세후)',r=>r.sev?man(r.net):'–')+
+    row('남은 연차 + 새로 생기는 연차',r=>`${NV('left')}일 + ${r.lv.n}일`)+
+    row('연차수당',r=>man(r.lpay))+
+    row('성과급',r=>r.pb>0?(r.gotB?man(r.bon):'못 받음'):'–')+
+    row('퇴사할 때 받는 돈',r=>man(r.total),1)+
+    row(`${base.k}안보다`,r=>r===base?'기준':(r.total-base.total>=0?'+':'')+man(r.total-base.total),1);
+}
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{$('start').value='2021-01-04';$('pay').value=400;$('sbonus').value=400;$('left').value=3;$('pbonus').value=500;$('pday').value='2027-01-15';$('preq').checked=true;$('d1').value='2026-12-31';$('d2').value='2027-01-04';$('d3').value='2027-01-15';calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
