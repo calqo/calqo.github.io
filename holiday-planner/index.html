@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>연차 꿀조합 계산기 · 2027 연휴 플래너 (공휴일·대체공휴일 반영) | 캘코</title>
+<meta name="description" content="남은 연차 일수를 넣으면 2027년 공휴일·대체공휴일 사이 어디에 연차를 붙여야 가장 길게 쉬는지 골라 드려요. 추석 연차 2일로 9일, 설 연차 3일로 9일처럼 꿀조합과 1년 연차 계획을 달력으로 보여 줘요.">
+<link rel="canonical" href="https://calqo.kr/holiday-planner/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="연차 꿀조합 계산기 · 2027 연휴 플래너 (공휴일·대체공휴일 반영) | 캘코">
+<meta property="og:description" content="남은 연차 일수를 넣으면 2027년 공휴일·대체공휴일 사이 어디에 연차를 붙여야 가장 길게 쉬는지 골라 드려요. 추석 연차 2일로 9일, 설 연차 3일로 9일처럼 꿀조합과 1년 연차 계획을 달력으로 보여 줘요.">
+<meta property="og:url" content="https://calqo.kr/holiday-planner/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life" class=on aria-current=page>생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
+    <h1>연차 꿀조합 계산기 (2027 연휴 플래너)</h1>
+    <p class="lead">남은 연차 일수를 넣으면 2027년 공휴일·대체공휴일 사이 어디에 연차를 붙여야 가장 길게 쉬는지 골라 드려요. 추석 연차 2일로 9일, 설 연차 3일로 9일처럼 꿀조합과 1년 연차 계획을 달력으로 보여 줘요.</p>
+    <span class="tag">2027년 월력요항(우주항공청) 기준 · 노동절·제헌절 대체공휴일 반영</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div class="row2">
+        <label for="total">쓸 수 있는 연차 (일)<input id="total" type="number" inputmode="numeric" min="1" max="30" step="1" value="15"><span class="hint">2027년에 쓸 연차, 보통 15일</span></label>
+        <label for="maxk">한 번에 붙여 쓸 연차<select id="maxk"><option value="1">최대 1일</option><option value="2">최대 2일</option><option value="3">최대 3일</option><option value="4" selected>최대 4일</option><option value="5">최대 5일</option></select><span class="hint">길게 빼기 어렵다면 줄이세요</span></label>
+      </div>
+      <label for="from">언제부터 계획할까요<input id="from" type="date" min="2027-01-01" max="2027-12-31" value="2027-01-01"><span class="hint">이 날짜 이후 연휴만 골라요</span></label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="hol" type="checkbox" style="width:auto" checked> 명절·공휴일 낀 연휴만 추천 (평범한 주말 붙이기는 빼기)</label>
+      <span class="hint">예시: 2027년 연차 15일, 한 번에 최대 4일까지 붙여 쓰는 직장인이에요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>내 연차 꿀조합 <small>2027년 · 주 5일 근무</small></h2>
+      <div class="total"><span id="o-lab">연차로 만드는 연휴</span><b id="o-total"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span id="o-l1"></span><b id="o-v1"></b></div>
+        <div class="line"><span id="o-l2"></span><b id="o-v2"></b></div>
+        <div class="line"><span id="o-l3"></span><b id="o-v3"></b></div>
+        <div class="line"><span>1년 쉬는 날<em>주말·공휴일 119일 + 연차</em></span><b id="o-year"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>내 연차 플랜 달력</h2>
+    <p>위 계산 결과대로 연차를 쓰면 이렇게 쉬어요. <span class="hp-key"><i class="k-off"></i>주말·공휴일 <i class="k-lv"></i>연차 <i class="k-wk"></i>출근</span></p>
+    <div id="plan" class="hp-plan"></div>
+    <p class="hint" id="plan-note"></p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>연차 개수별 꿀조합 TOP</h2></summary><div class="sec-b">
+    <p>연차를 1일만 써도 4~6일, 2일이면 최대 9일을 쉴 수 있어요. 같은 연차로 가장 길게 쉬는 조합부터 보여 줘요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>연차</th><th>연휴</th><th>쉬는 기간</th><th>연차 쓸 날</th></tr></thead>
+      <tbody id="top"></tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>연차 없이 3일 이상 쉬는 연휴 10번</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>연휴</th><th>기간</th><th>일수</th></tr></thead>
+      <tbody id="free"></tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>2027년 공휴일·대체공휴일 24일</h2></summary><div class="sec-b">
+    <p>일요일을 포함한 관공서 공휴일은 76일이고, 주말과 겹치는 날을 빼면 주 5일 근무자는 1년에 119일을 쉬어요. 2026년부터 공휴일이 된 노동절과 제헌절도 주말과 겹쳐 대체공휴일이 생겼어요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>날짜</th><th>공휴일 (굵은 글씨 = 대체공휴일)</th></tr></thead>
+      <tbody><tr><td>1월 1일 (금)</td><td>신정</td></tr><tr><td>2월 6일 (토)</td><td>설 연휴</td></tr><tr><td>2월 7일 (일)</td><td>설날</td></tr><tr><td>2월 8일 (월)</td><td>설 연휴</td></tr><tr><td>2월 9일 (화)</td><td><b>대체공휴일(설)</b></td></tr><tr><td>3월 1일 (월)</td><td>삼일절</td></tr><tr><td>5월 1일 (토)</td><td>노동절</td></tr><tr><td>5월 3일 (월)</td><td><b>대체공휴일(노동절)</b></td></tr><tr><td>5월 5일 (수)</td><td>어린이날</td></tr><tr><td>5월 13일 (목)</td><td>부처님오신날</td></tr><tr><td>6월 6일 (일)</td><td>현충일</td></tr><tr><td>7월 17일 (토)</td><td>제헌절</td></tr><tr><td>7월 19일 (월)</td><td><b>대체공휴일(제헌절)</b></td></tr><tr><td>8월 15일 (일)</td><td>광복절</td></tr><tr><td>8월 16일 (월)</td><td><b>대체공휴일(광복절)</b></td></tr><tr><td>9월 14일 (화)</td><td>추석 연휴</td></tr><tr><td>9월 15일 (수)</td><td>추석</td></tr><tr><td>9월 16일 (목)</td><td>추석 연휴</td></tr><tr><td>10월 3일 (일)</td><td>개천절</td></tr><tr><td>10월 4일 (월)</td><td><b>대체공휴일(개천절)</b></td></tr><tr><td>10월 9일 (토)</td><td>한글날</td></tr><tr><td>10월 11일 (월)</td><td><b>대체공휴일(한글날)</b></td></tr><tr><td>12월 25일 (토)</td><td>성탄절</td></tr><tr><td>12월 27일 (월)</td><td><b>대체공휴일(성탄절)</b></td></tr></tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>꿀조합 고르는 요령</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>평일에 낀 명절부터:</b> 2027년 추석(9/14~16)처럼 화~목에 걸린 명절은 앞뒤 하루씩만 내면 주말까지 이어져요.</li>
+      <li><b>월요일 대체공휴일 다음 화요일:</b> 2027년은 월요일 대체공휴일이 6번이에요. 금요일 대신 화요일에 연차를 내면 붐비는 금요일 출발을 피할 수 있어요.</li>
+      <li><b>징검다리 5월:</b> 5/1(토) 노동절, 5/3(월) 대체공휴일, 5/5(수) 어린이날 사이 5/4(화) 하루만 내면 5일, 5/6·5/7까지 내면 9일을 쉬어요.</li>
+      <li><b>10월 두 번의 3일 연휴:</b> 개천절과 한글날 대체공휴일 사이 4일(10/5~8)을 내면 10/2~10/11 10일 연휴가 돼요.</li>
+      <li><b>팀 일정 먼저:</b> 꿀조합은 모두가 노리는 날이에요. 팀 휴가 일정을 일찍 정하고, 항공권·숙소는 연휴가 확정되자마자 예약하세요.</li>
+    </ul>
+    <p class="hint">기준: 우주항공청 「2027년도 월력요항」(2026. 6. 29. 발표), 공휴일에 관한 법률, 관공서의 공휴일에 관한 규정(노동절·제헌절 대체공휴일 적용). 토·일 휴무, 상시 5명 이상 사업장(공휴일 유급휴일 적용)을 가정했어요. 선거일·임시공휴일은 아직 정해지지 않아 넣지 않았어요. 결과는 참고용이에요.</p>
+    <style>
+    .hp-key{display:inline-flex;gap:10px;align-items:center;font-size:13px;color:var(--ink-3);flex-wrap:wrap}
+    .hp-key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:4px;vertical-align:-1px;border:1px solid var(--line)}
+    .k-off,.hp-d.off{background:var(--accent-soft)}.k-lv,.hp-d.lv{background:var(--brand)}.k-wk,.hp-d.wk{background:var(--surface-2)}
+    .hp-plan{display:flex;flex-direction:column;gap:12px;margin:8px 0}
+    .hp-b{border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--surface)}
+    .hp-b h3{margin:0 0 2px;font-size:15px}.hp-b p{margin:0 0 8px;font-size:13px;color:var(--ink-3)}
+    .hp-s{display:flex;gap:4px;overflow-x:auto;padding-bottom:2px}
+    .hp-d{flex:0 0 auto;width:44px;border-radius:8px;text-align:center;padding:4px 0;font-size:12px;line-height:1.3;color:var(--ink-2)}
+    .hp-d b{display:block;font-size:15px;color:var(--ink)}
+    .hp-d.off b{color:var(--accent)}.hp-d.lv,.hp-d.lv b{color:#fff}.hp-d.wk{opacity:.7}
+    .hp-d small{display:block;font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 2px}
+    </style>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>한 번에 붙여 쓸 연차</dt><dd>연휴 한 번에 최대 며칠까지 연차를 붙일지 정해요. 회사에서 한 번에 길게 쓰기 어렵다면 2~3일로 줄여 보세요.</dd></div><div><dt>1년 쉬는 날</dt><dd>주말과 공휴일(대체공휴일 포함)에 계획한 연차를 더한 날짜 수예요. 2027년 주 5일 근무자는 연차 없이 119일을 쉬어요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>2027년 대체공휴일은 며칠인가요?</summary><p>7일이에요. 2월 9일(설), 5월 3일(노동절), 7월 19일(제헌절), 8월 16일(광복절), 10월 4일(개천절), 10월 11일(한글날), 12월 27일(성탄절)이에요. 현충일(6월 6일, 일요일)은 대체공휴일 대상이 아니에요.</p></details><details><summary>2027년 추석에 연차 며칠을 쓰면 가장 길게 쉬나요?</summary><p>추석 연휴가 9월 14일(화)~16일(목)이라, 9월 13일(월)과 17일(금) 이틀만 연차를 내면 9월 11일(토)부터 19일(일)까지 9일을 쉬어요. 2027년 꿀조합 중 연차 대비 효율이 가장 좋아요.</p></details><details><summary>노동절과 제헌절도 회사가 쉬나요?</summary><p>2026년 법 개정으로 노동절(5월 1일)과 제헌절(7월 17일)이 공휴일이 됐고, 주말과 겹치면 대체공휴일도 생겨요. 상시 5명 이상 회사는 공휴일·대체공휴일을 유급휴일로 줘야 해요. 5명 미만 회사는 노동절만 법정 유급휴일이라 회사 규정을 확인하세요.</p></details><details><summary>회사 창립기념일이나 12월 31일 휴무는 어떻게 하나요?</summary><p>이 계산기는 법정 공휴일만 넣었어요. 회사 휴무일이 있다면 그 주변 조합이 더 좋아질 수 있으니, 결과 달력에서 그 날짜를 같이 확인해 보세요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "2027년 대체공휴일은 며칠인가요?", "acceptedAnswer": {"@type": "Answer", "text": "7일이에요. 2월 9일(설), 5월 3일(노동절), 7월 19일(제헌절), 8월 16일(광복절), 10월 4일(개천절), 10월 11일(한글날), 12월 27일(성탄절)이에요. 현충일(6월 6일, 일요일)은 대체공휴일 대상이 아니에요."}}, {"@type": "Question", "name": "2027년 추석에 연차 며칠을 쓰면 가장 길게 쉬나요?", "acceptedAnswer": {"@type": "Answer", "text": "추석 연휴가 9월 14일(화)~16일(목)이라, 9월 13일(월)과 17일(금) 이틀만 연차를 내면 9월 11일(토)부터 19일(일)까지 9일을 쉬어요. 2027년 꿀조합 중 연차 대비 효율이 가장 좋아요."}}, {"@type": "Question", "name": "노동절과 제헌절도 회사가 쉬나요?", "acceptedAnswer": {"@type": "Answer", "text": "2026년 법 개정으로 노동절(5월 1일)과 제헌절(7월 17일)이 공휴일이 됐고, 주말과 겹치면 대체공휴일도 생겨요. 상시 5명 이상 회사는 공휴일·대체공휴일을 유급휴일로 줘야 해요. 5명 미만 회사는 노동절만 법정 유급휴일이라 회사 규정을 확인하세요."}}, {"@type": "Question", "name": "회사 창립기념일이나 12월 31일 휴무는 어떻게 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "이 계산기는 법정 공휴일만 넣었어요. 회사 휴무일이 있다면 그 주변 조합이 더 좋아질 수 있으니, 결과 달력에서 그 날짜를 같이 확인해 보세요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-17</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/annual-leave/" data-k="연차 계산기 입사일 기준 연차 일수와 연차수당 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연차 계산기</strong><span>입사일 기준 연차 일수와 연차수당 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/leave-pay/" data-k="연차수당 계산기 받은 연차수당이 법정 기준보다 적은지 확인 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연차수당 계산기</strong><span>받은 연차수당이 법정 기준보다 적은지 확인</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 2026년 4대보험·세금 빼고 월급 실수령액 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기</strong><span>2026년 4대보험·세금 빼고 월급 실수령액 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+const pd=s=>{if(!s)return null;const[a,b,c]=s.split('-').map(Number);return new Date(a,b-1,c)};
+const iso=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const fmt=d=>`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
+const dd=(a,b)=>Math.round((Date.UTC(b.getFullYear(),b.getMonth(),b.getDate())-Date.UTC(a.getFullYear(),a.getMonth(),a.getDate()))/864e5);
+function addM(d,m){const t=new Date(d.getFullYear(),d.getMonth()+m,1);const last=new Date(t.getFullYear(),t.getMonth()+1,0).getDate();t.setDate(Math.min(d.getDate(),last));return t}
+function monthsBetween(a,b){let m=(b.getFullYear()-a.getFullYear())*12+(b.getMonth()-a.getMonth());if(addM(a,m)>b)m--;return Math.max(0,m)}
+const W=id=>Math.max(0,+$(id).value||0)*10000;
+const HOL={"2027-01-01": "신정", "2027-02-06": "설 연휴", "2027-02-07": "설날", "2027-02-08": "설 연휴", "2027-02-09": "대체공휴일(설)", "2027-03-01": "삼일절", "2027-05-01": "노동절", "2027-05-03": "대체공휴일(노동절)", "2027-05-05": "어린이날", "2027-05-13": "부처님오신날", "2027-06-06": "현충일", "2027-07-17": "제헌절", "2027-07-19": "대체공휴일(제헌절)", "2027-08-15": "광복절", "2027-08-16": "대체공휴일(광복절)", "2027-09-14": "추석 연휴", "2027-09-15": "추석", "2027-09-16": "추석 연휴", "2027-10-03": "개천절", "2027-10-04": "대체공휴일(개천절)", "2027-10-09": "한글날", "2027-10-11": "대체공휴일(한글날)", "2027-12-25": "성탄절", "2027-12-27": "대체공휴일(성탄절)"};
+const WD='일월화수목금토';
+const Y0=new Date(2027,0,1),N=365;
+const DAYS=[...Array(N)].map((_,i)=>new Date(2027,0,1+i));
+const OFF=DAYS.map(d=>d.getDay()===0||d.getDay()===6||!!HOL[iso(d)]);
+const md=d=>`${d.getMonth()+1}/${d.getDate()}`;
+const mdw=d=>`${md(d)}(${WD[d.getDay()]})`;
+const short=n=>n.includes('대체')?'대체휴일':n.replace(' 연휴','').replace('부처님오신날','부처님').replace('설날','설');
+// 연휴 이름: 안에 든 공휴일 중 대표 이름
+function hname(i,j){const ns=[];for(let t=i;t<=j;t++){const h=HOL[iso(DAYS[t])];if(!h)continue;let n=h.replace(/대체공휴일\((.*)\)/,'$1').replace(' 연휴','').replace('설날','설').replace('설','설 연휴').replace(/^추석$/,'추석 연휴');if(!ns.includes(n))ns.push(n)}
+  if(!ns.length)return '주말 연휴';if(ns.includes('노동절')&&ns.includes('어린이날'))return '노동절·어린이날';if(ns.includes('개천절')&&ns.includes('한글날'))return '개천절·한글날';return ns.slice(0,2).join('·')}
+function cands(from,maxk,holOnly){const C=[];
+  for(let i=from;i<N;i++){if(i>from&&OFF[i-1])continue;let k=0;
+    for(let j=i;j<N&&j<i+20;j++){if(!OFF[j])k++;if(k>maxk)break;if(j<N-1&&OFF[j+1])continue;if(k<1)continue;
+      let h=0;for(let t=i;t<=j;t++)if(HOL[iso(DAYS[t])])h++;
+      if(holOnly&&!h)continue;if(!OFF[i]&&!OFF[j]&&j-i+1===k)continue;
+      C.push({i,j,k,len:j-i+1,h})}}
+  return C}
+function plan(C,budget){C=C.slice().sort((a,b)=>a.j-b.j);const n=C.length;
+  const val=c=>c.len*100+c.h;
+  const prev=C.map(c=>{let lo=-1;for(let q=0;q<n;q++)if(C[q].j<c.i-1)lo=q;else break;return lo});
+  const dp=[...Array(n+1)].map(()=>new Array(budget+1).fill(0));
+  for(let x=1;x<=n;x++){const c=C[x-1];for(let b=0;b<=budget;b++){let v=dp[x-1][b];if(c.k<=b){const w=dp[prev[x-1]+1][b-c.k]+val(c);if(w>v)v=w}dp[x][b]=v}}
+  const out=[];let x=n,b=budget;while(x>0){const c=C[x-1];if(dp[x][b]!==dp[x-1][b]){out.push(c);b-=c.k;x=prev[x-1]+1}else x--}
+  return out.reverse()}
+function strip(c){let s='';const a=Math.max(0,c.i-1),z=Math.min(N-1,c.j+1);
+  for(let t=a;t<=z;t++){const d=DAYS[t],inn=t>=c.i&&t<=c.j,cls=!inn?'wk':OFF[t]?'off':'lv',h=HOL[iso(d)];
+    s+=`<div class="hp-d ${cls}">${WD[d.getDay()]}<b>${d.getDate()}</b><small>${inn?(h?short(h):OFF[t]?'':'연차'):'출근'}</small></div>`}
+  return `<div class="hp-s">${s}</div>`}
+const lvdays=c=>{const r=[];for(let t=c.i;t<=c.j;t++)if(!OFF[t])r.push(mdw(DAYS[t]));return r};
+const range=c=>`${mdw(DAYS[c.i])} ~ ${mdw(DAYS[c.j])}`;
+function calc(){
+  const tot=Math.min(30,Math.max(0,Math.floor(+$('total').value||0))),maxk=+$('maxk').value,holOnly=$('hol').checked,st=$('o-status');
+  const f=pd($('from').value);let from=0;if(f&&f.getFullYear()===2027)from=dd(Y0,f);
+  if(!tot){st.className='status warn';st.textContent='쓸 수 있는 연차를 1일 이상 넣어 주세요.';['o-total','o-v1','o-v2','o-v3','o-year'].forEach(i=>$(i).textContent='–');$('plan').innerHTML='';return}
+  const C=cands(from,maxk,holOnly);const P=plan(C,tot);
+  const used=P.reduce((a,c)=>a+c.k,0),days=P.reduce((a,c)=>a+c.len,0);
+  $('o-lab').textContent=`연차 ${used}일로 만드는 연휴 ${P.length}번`;
+  $('o-total').textContent=`총 ${days}일 쉬어요`;
+  const R=P.slice().sort((a,b)=>b.len-a.len||a.k-b.k||a.i-b.i);
+  const E=P.slice().sort((a,b)=>b.len/b.k-a.len/a.k||b.len-a.len)[0];
+  for(let x=0;x<3;x++){const c=R[x];const l=$('o-l'+(x+1)),v=$('o-v'+(x+1));l.parentNode.hidden=!c;if(!c)continue;
+    l.innerHTML=`${x+1}순위 · ${hname(c.i,c.j)}<em>${range(c)} · 연차 ${lvdays(c).join(', ')}</em>`;v.style.whiteSpace='nowrap';v.textContent=`연차 ${c.k}일 → ${c.len}일`}
+  let offN=0;for(let t=0;t<N;t++)if(OFF[t])offN++;
+  $('o-year').textContent=`${offN+used}일`;
+  const eff=used?Math.round(days/used*10)/10:0;
+  st.className='status ok';
+  st.textContent=R.length?`연차 1일당 평균 ${eff}일을 이어서 쉬어요. 가장 효율 좋은 조합은 ${hname(E.i,E.j)}(연차 ${E.k}일 → ${E.len}일 연휴)예요.`:'조건에 맞는 연휴가 없어요. 계획 시작일을 앞당기거나 한 번에 붙여 쓸 연차를 늘려 보세요.';
+  if(tot>used&&R.length){st.className='status warn';st.textContent+=` 연차 ${tot-used}일은 남아요. 평범한 주말에 붙이려면 아래 체크를 풀어 보세요.`}
+  // 플랜 달력
+  $('plan').innerHTML=P.map(c=>`<div class="hp-b"><h3>${hname(c.i,c.j)} · ${c.len}일 연휴</h3><p>${range(c)} · 연차 ${c.k}일 (${lvdays(c).join(', ')})</p>${strip(c)}</div>`).join('')||'<p>조건에 맞는 연휴가 없어요.</p>';
+  $('plan-note').textContent=P.length?`연차 ${used}일 + 주말·공휴일로 총 ${days}일을 연휴로 쉬어요. 같은 연차로 더 쉬는 방법이 없도록 1년 전체를 비교해 골랐어요.`:'';
+  // 개수별 TOP
+  const all=cands(from,5,true);let rows='';
+  for(let k=1;k<=5;k++){const ck=all.filter(c=>c.k===k).sort((a,b)=>b.len-a.len||a.i-b.i);const seen=new Set(),pick=[];
+    for(const c of ck){const n=hname(c.i,c.j);if(seen.has(n))continue;seen.add(n);pick.push(c);if(pick.length>=(k<=2?3:4))break}
+    pick.forEach((c,x)=>{rows+=`<tr${x===0?' style="font-weight:700"':''}><td style="white-space:nowrap">${k}일</td><td style="white-space:nowrap">${hname(c.i,c.j)}</td><td>${range(c)}<br><small>${c.len}일 연속</small></td><td>${lvdays(c).join(', ')}</td></tr>`})}
+  $('top').innerHTML=rows;
+  // 연차 없는 연휴
+  let fr='';for(let i=0;i<N;i++){if(!OFF[i]||(i>0&&OFF[i-1]))continue;let j=i;while(j+1<N&&OFF[j+1])j++;if(j-i+1>=3){const h=hname(i,j);if(h!=='주말 연휴')fr+=`<tr><td>${h}</td><td>${mdw(DAYS[i])} ~ ${mdw(DAYS[j])}</td><td>${j-i+1}일</td></tr>`}}
+  $('free').innerHTML=fr;
+}
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{$('total').value=15;$('maxk').value='4';$('from').value='2027-01-01';$('hol').checked=true;calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
