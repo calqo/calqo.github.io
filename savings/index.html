@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>예금 적금 이자 계산기 · 세후 만기 수령액 | 캘코</title>
-<meta name="description" content="예금이나 적금의 금액, 금리, 기간을 넣으면 이자소득세 15.4%를 뺀 세후 이자와 만기 수령액을 계산해요. 단리·월복리, 비과세·상호금융 저율과세도 비교할 수 있어요.">
+<title>예금 적금 이자 계산기 · 1천만원 모으기 목표 역산 | 캘코</title>
+<meta name="description" content="예금이나 적금의 금액, 금리, 기간을 넣으면 이자소득세 15.4%를 뺀 세후 이자와 만기 수령액을 계산해요. 1천만원처럼 목표 금액을 넣으면 매달 얼마씩 넣어야 하는지도 거꾸로 계산해 드려요.">
 <link rel="canonical" href="https://calqo.kr/savings/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="캘코 calqo">
-<meta property="og:title" content="예금 적금 이자 계산기 · 세후 만기 수령액 | 캘코">
-<meta property="og:description" content="예금이나 적금의 금액, 금리, 기간을 넣으면 이자소득세 15.4%를 뺀 세후 이자와 만기 수령액을 계산해요. 단리·월복리, 비과세·상호금융 저율과세도 비교할 수 있어요.">
+<meta property="og:title" content="예금 적금 이자 계산기 · 1천만원 모으기 목표 역산 | 캘코">
+<meta property="og:description" content="예금이나 적금의 금액, 금리, 기간을 넣으면 이자소득세 15.4%를 뺀 세후 이자와 만기 수령액을 계산해요. 1천만원처럼 목표 금액을 넣으면 매달 얼마씩 넣어야 하는지도 거꾸로 계산해 드려요.">
 <meta property="og:url" content="https://calqo.kr/savings/">
 <meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
@@ -31,18 +31,20 @@
   <header>
     <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#loan">대출·금융</a></div>
     <h1>예·적금 이자 계산기</h1>
-    <p class="lead">예금이나 적금의 금액, 금리, 기간을 넣으면 이자소득세 15.4%를 뺀 세후 이자와 만기 수령액을 계산해요. 단리·월복리, 비과세·상호금융 저율과세도 비교할 수 있어요.</p>
-    <span class="tag">이자소득세 15.4% · 단리/월복리 · 비과세 비교</span>
+    <p class="lead">예금이나 적금의 금액, 금리, 기간을 넣으면 이자소득세 15.4%를 뺀 세후 이자와 만기 수령액을 계산해요. 1천만원처럼 목표 금액을 넣으면 매달 얼마씩 넣어야 하는지도 거꾸로 계산해 드려요.</p>
+    <span class="tag">이자소득세 15.4% · 단리/월복리 · 목표 금액 역산</span>
   </header>
   <div class="grid">
     <form class="panel" onsubmit="return false">
       <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
-      <div><div class="hint" style="margin-bottom:6px">상품 종류</div>
-      <div class="seg" role="group" aria-label="상품 종류">
-        <button type="button" data-m="dep" aria-pressed="false">예금 (목돈 한 번에)</button>
-        <button type="button" data-m="ins" aria-pressed="true">적금 (매달 넣기)</button>
+      <div><div class="hint" style="margin-bottom:6px">무엇을 계산할까요?</div>
+      <div class="seg" role="group" aria-label="계산 종류">
+        <button type="button" data-m="dep" aria-pressed="false">예금 (목돈)</button>
+        <button type="button" data-m="ins" aria-pressed="true">적금 (매달)</button>
+        <button type="button" data-m="goal" aria-pressed="false">목표 금액 모으기</button>
       </div></div>
-      <label for="amt"><span id="amt-l">매달 넣는 금액 (만원)</span><input id="amt" data-warn="50000" type="number" inputmode="decimal" min="0" step="any" value="50"></label>
+      <label for="amt" id="amt-w"><span id="amt-l">매달 넣는 금액 (만원)</span><input id="amt" data-warn="50000" type="number" inputmode="decimal" min="0" step="any" value="50"></label>
+      <label for="goal" id="goal-w" hidden>모으고 싶은 금액 (만원)<input id="goal" data-warn="500000" type="number" inputmode="decimal" min="0" step="any" value="1000"><span class="hint">만기에 세후로 손에 쥐고 싶은 금액이에요</span></label>
       <div class="row2">
         <label for="rate">연 이율 (%)<input id="rate" type="number" inputmode="decimal" min="0" step="0.01" value="3.5"></label>
         <label for="months">기간 (개월)<input id="months" type="number" inputmode="numeric" min="1" max="600" step="1" value="12"></label>
@@ -56,32 +58,46 @@
           <option value="0">비과세 0%</option>
         </select></label>
       </div>
-      <span class="hint">예시: 매달 50만원을 연 3.5% 단리 적금에 1년 넣은 경우예요.</span>
+      <span class="hint" id="ex-hint">예시: 매달 50만원을 연 3.5% 단리 적금에 1년 넣은 경우예요.</span>
     </form>
     <section class="panel slip" aria-live="polite">
-      <h2>만기 결과 <small id="o-kind"></small></h2>
-      <div class="total"><span>세후 만기 수령액</span><b id="o-total"></b></div>
+      <h2><span id="o-h">만기 결과</span> <small id="o-kind"></small></h2>
+      <div class="total"><span id="o-tl">세후 만기 수령액</span><b id="o-total"></b></div>
       <div class="status ok" id="o-status"></div>
       <div class="lines">
+        <div class="line g-only" hidden><span>목표 금액</span><b id="o-goal"></b></div>
         <div class="line"><span>넣은 원금</span><b id="o-prin"></b></div>
         <div class="line"><span>세전 이자</span><b id="o-int"></b></div>
         <div class="line"><span>이자 세금<em id="o-taxnote"></em></span><b id="o-tax"></b></div>
         <div class="line"><span>세후 이자</span><b id="o-net"></b></div>
-        <div class="line"><span>실제 체감 수익률<em id="o-effnote"></em></span><b id="o-eff"></b></div>
+        <div class="line g-only" hidden><span>세후 만기 수령액</span><b id="o-mat"></b></div>
+        <div class="line g-only" hidden><span>이자 없이 모으면<em>목표 ÷ 개월 수</em></span><b id="o-plain"></b></div>
+        <div class="line n-goal"><span>실제 체감 수익률<em id="o-effnote"></em></span><b id="o-eff"></b></div>
+      </div>
+      <div class="g-only" hidden>
+        <h3 style="margin:18px 0 6px;font-size:15px">목표 금액별 매달 넣을 돈 <small id="g-note" style="font-weight:400;color:var(--ink-3)"></small></h3>
+        <div class="tbl"><table style="min-width:0">
+          <thead><tr><th>목표</th><th>매달 넣을 돈</th><th>세후 이자</th></tr></thead>
+          <tbody id="g-body"></tbody>
+        </table></div>
       </div>
       <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
     </section>
   </div>
   <article>
-    <h2>적금 이자가 생각보다 적은 이유</h2>
-    <p>연 4% 적금에 매달 100만원씩 1년을 넣어도, 이자는 1,200만원의 4%인 48만원이 아니라 약 26만원이에요. 첫 달에 넣은 돈은 12개월 동안 이자가 붙지만, 마지막 달에 넣은 돈은 1개월만 붙기 때문이에요. 그래서 적금의 실제 수익률은 <b>표시 금리의 절반 정도</b>예요. 위 결과의 "실제 체감 수익률"이 바로 이 값이에요.</p>
+    <h2>목표 금액, 매달 얼마씩 넣어야 할까?</h2>
+    <p>위에서 <b>목표 금액 모으기</b>를 누르고 모으고 싶은 금액과 기간을 넣으면, 적금 이자(세후)까지 계산해서 매달 넣어야 할 돈을 거꾸로 알려 드려요. 예를 들어 연 3.5% 단리 적금(일반과세)으로 1년 뒤 1천만원을 만들려면 매달 <b>약 82만원</b>이면 돼요. 이자 없이 모을 때(83만3,334원)보다 매달 1만3천원 정도 덜 넣어도 되는 셈이에요.</p>
     <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>적금 이자가 생각보다 적은 이유</h2></summary><div class="sec-b">
+    <p>연 4% 적금에 매달 100만원씩 1년을 넣어도, 이자는 1,200만원의 4%인 48만원이 아니라 약 26만원이에요. 첫 달에 넣은 돈은 12개월 동안 이자가 붙지만, 마지막 달에 넣은 돈은 1개월만 붙기 때문이에요. 그래서 적금의 실제 수익률은 <b>표시 금리의 절반 정도</b>예요. 위 결과의 "실제 체감 수익률"이 바로 이 값이에요.</p>
+    </div></details>
     <details class="sec"><summary><h2>계산 방법</h2></summary><div class="sec-b">
     <ul>
       <li><b>예금 단리:</b> 원금 × 연 이율 × 개월 수 ÷ 12</li>
       <li><b>예금 월복리:</b> 원금 × (1 + 연 이율 ÷ 12)<sup>개월 수</sup> − 원금</li>
       <li><b>적금 단리:</b> 월 납입액 × 연 이율 ÷ 12 × 개월 수 × (개월 수 + 1) ÷ 2</li>
       <li><b>적금 월복리:</b> 매달 넣은 돈마다 남은 개월 수만큼 복리를 붙여 더해요.</li>
+      <li><b>목표 금액 역산:</b> 목표 금액 ÷ (개월 수 + 1원을 매달 넣었을 때 붙는 세후 이자)로 구하고, 10원 단위로 올려서 만기 수령액이 목표 이상이 되게 맞춰요.</li>
     </ul>
     </div></details>
     <details class="sec"><summary><h2>이자에 붙는 세금 정리</h2></summary><div class="sec-b">
@@ -99,13 +115,13 @@
     </div></details>
     <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
     <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
-    <dl class="terms"><div><dt>세전 이자</dt><dd>세금을 떼기 전 이자예요.</dd></div><div><dt>이자 세금</dt><dd>이자에 붙는 세금이에요. 일반과세는 소득세 14%와 지방소득세 1.4%를 합친 15.4%예요.</dd></div><div><dt>세후 이자</dt><dd>이자에서 세금을 떼고 실제로 받는 이자예요.</dd></div><div><dt>실제 체감 수익률</dt><dd>넣은 원금 전체 대비 실제로 받는 이자의 비율이에요. 적금은 돈마다 이자가 붙는 기간이 달라서 표시 금리보다 낮아요.</dd></div></dl>
+    <dl class="terms"><div><dt>세전 이자</dt><dd>세금을 떼기 전 이자예요.</dd></div><div><dt>이자 세금</dt><dd>이자에 붙는 세금이에요. 일반과세는 소득세 14%와 지방소득세 1.4%를 합친 15.4%예요.</dd></div><div><dt>세후 이자</dt><dd>이자에서 세금을 떼고 실제로 받는 이자예요.</dd></div></dl>
     </div></details>
 
     <h2>자주 묻는 질문</h2>
-    <div class="faq"><details><summary>적금 이자가 생각보다 적은 이유는 뭔가요?</summary><p>매달 넣는 돈마다 이자가 붙는 기간이 달라서예요. 첫 달 돈은 12개월, 마지막 달 돈은 1개월만 이자가 붙어서 실제 수익률은 표시 금리의 절반 정도예요.</p></details><details><summary>단리와 월복리는 얼마나 차이 나나요?</summary><p>기간이 짧고 금리가 낮으면 차이가 작아요. 위에서 방식을 바꿔 가며 같은 조건으로 비교해 보세요.</p></details><details><summary>세금을 덜 내는 예적금도 있나요?</summary><p>농협·수협·신협·새마을금고 조합원 예탁금은 1인 3천만원까지 1.4%만 내요. 비과세종합저축처럼 세금이 없는 상품도 있어요.</p></details></div>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "적금 이자가 생각보다 적은 이유는 뭔가요?", "acceptedAnswer": {"@type": "Answer", "text": "매달 넣는 돈마다 이자가 붙는 기간이 달라서예요. 첫 달 돈은 12개월, 마지막 달 돈은 1개월만 이자가 붙어서 실제 수익률은 표시 금리의 절반 정도예요."}}, {"@type": "Question", "name": "단리와 월복리는 얼마나 차이 나나요?", "acceptedAnswer": {"@type": "Answer", "text": "기간이 짧고 금리가 낮으면 차이가 작아요. 위에서 방식을 바꿔 가며 같은 조건으로 비교해 보세요."}}, {"@type": "Question", "name": "세금을 덜 내는 예적금도 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "농협·수협·신협·새마을금고 조합원 예탁금은 1인 3천만원까지 1.4%만 내요. 비과세종합저축처럼 세금이 없는 상품도 있어요."}}]}</script>
-    <p class="hint">최종 업데이트: 2026-11-18</p>
+    <div class="faq"><details><summary>적금 이자가 생각보다 적은 이유는 뭔가요?</summary><p>매달 넣는 돈마다 이자가 붙는 기간이 달라서예요. 첫 달 돈은 12개월, 마지막 달 돈은 1개월만 이자가 붙어서 실제 수익률은 표시 금리의 절반 정도예요.</p></details><details><summary>단리와 월복리는 얼마나 차이 나나요?</summary><p>기간이 짧고 금리가 낮으면 차이가 작아요. 위에서 방식을 바꿔 가며 같은 조건으로 비교해 보세요.</p></details><details><summary>세금을 덜 내는 예적금도 있나요?</summary><p>농협·수협·신협·새마을금고 조합원 예탁금은 1인 3천만원까지 1.4%만 내요. 비과세종합저축처럼 세금이 없는 상품도 있어요.</p></details><details><summary>1년에 1천만원 모으려면 매달 얼마 넣어야 하나요?</summary><p>연 3.5% 단리 적금, 일반과세 15.4% 기준으로 매달 약 82만원이에요. 이자 없이 모으면 83만3,334원이니 이자 덕분에 매달 1만3천원 정도 덜 넣어도 돼요. 위에서 &#x27;목표 금액&#x27; 버튼을 눌러 내 조건으로 계산해 보세요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "적금 이자가 생각보다 적은 이유는 뭔가요?", "acceptedAnswer": {"@type": "Answer", "text": "매달 넣는 돈마다 이자가 붙는 기간이 달라서예요. 첫 달 돈은 12개월, 마지막 달 돈은 1개월만 이자가 붙어서 실제 수익률은 표시 금리의 절반 정도예요."}}, {"@type": "Question", "name": "단리와 월복리는 얼마나 차이 나나요?", "acceptedAnswer": {"@type": "Answer", "text": "기간이 짧고 금리가 낮으면 차이가 작아요. 위에서 방식을 바꿔 가며 같은 조건으로 비교해 보세요."}}, {"@type": "Question", "name": "세금을 덜 내는 예적금도 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "농협·수협·신협·새마을금고 조합원 예탁금은 1인 3천만원까지 1.4%만 내요. 비과세종합저축처럼 세금이 없는 상품도 있어요."}}, {"@type": "Question", "name": "1년에 1천만원 모으려면 매달 얼마 넣어야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "연 3.5% 단리 적금, 일반과세 15.4% 기준으로 매달 약 82만원이에요. 이자 없이 모으면 83만3,334원이니 이자 덕분에 매달 1만3천원 정도 덜 넣어도 돼요. 위에서 '목표 금액' 버튼을 눌러 내 조건으로 계산해 보세요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-19</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/loan-interest/" data-k="대출 이자 계산기 원리금균등·원금균등·만기일시 상환 비교 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>대출 이자 계산기</strong><span>원리금균등·원금균등·만기일시 상환 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/mortgage-limit/" data-k="주담대 한도 계산기 (DSR·LTV) 스트레스 DSR·LTV·6억 한도로 주택담보대출 최대 한도 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>주담대 한도 계산기 (DSR·LTV)</strong><span>스트레스 DSR·LTV·6억 한도로 주택담보대출 최대 한도 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/marriage-loan/" data-k="혼인신고 전후 대출 비교 계산기 혼인신고 전·후 디딤돌·신생아 특례·보금자리론·주담대 한도와 주택 수 비교 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>혼인신고 전후 대출 비교 계산기</strong><span>혼인신고 전·후 디딤돌·신생아 특례·보금자리론·주담대 한도와 주택 수 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
 </main>
@@ -115,23 +131,40 @@ const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
 const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
 let mode='ins';
 const f10=n=>Math.floor(n/10)*10;
-function calc(){
-  const P=Math.max(0,+$('amt').value||0)*1e4, r=Math.max(0,+$('rate').value||0)/100, n=Math.max(1,Math.floor(+$('months').value||1)), comp=$('itype').value==='comp', tr=+$('tax').value, i=r/12;
-  let prin,int;
-  if(mode==='dep'){prin=P;int=comp?P*(Math.pow(1+i,n)-1):P*r*n/12}
+function run(P,n,i,comp,tr,dep){let prin,int;
+  if(dep){prin=P;int=comp?P*(Math.pow(1+i,n)-1):P*i*n}
   else{prin=P*n;if(comp){int=0;for(let k=1;k<=n;k++)int+=P*(Math.pow(1+i,k)-1)}else int=P*i*n*(n+1)/2}
-  int=Math.floor(int);const tax=f10(int*tr),net=int-tax;
-  const avgYears=mode==='dep'?n/12:(n+1)/24;
-  const eff=prin&&avgYears?net/prin/(n/12)*100:0;
-  $('o-kind').textContent=(mode==='dep'?'예금':'적금')+' · '+n+'개월 · '+(comp?'월복리':'단리');
-  $('o-total').textContent=won(prin+net);$('o-prin').textContent=won(prin);$('o-int').textContent='+ '+won(int);
-  $('o-tax').textContent='− '+won(tax);$('o-taxnote').textContent=$('tax').selectedOptions[0].textContent;$('o-net').textContent='+ '+won(net);
-  $('o-eff').textContent='연 '+eff.toFixed(2)+'%';$('o-effnote').textContent=mode==='dep'?'세후 이자 ÷ 원금, 1년 기준':'넣은 돈 전체를 처음부터 맡겼다고 볼 때';
-  $('o-status').textContent=mode==='ins'?`매달 ${man(P)}씩 ${n}개월 넣으면 세후 이자 ${won(net)}을 받아요. 적금은 표시 금리 ${(r*100).toFixed(2)}%의 절반 정도가 실제 수익률이에요.`:`${man(P)}을 ${n}개월 맡기면 세후 이자 ${won(net)}을 받아요.`;
+  int=Math.floor(int);const tax=f10(int*tr);return{prin,int,tax,net:int-tax,total:prin+int-tax}}
+function need(G,n,i,comp,tr){const u=run(1e6,n,i,comp,tr,false);let P=Math.ceil(G/(u.total/1e6)/10)*10;
+  while(P>10&&run(P-10,n,i,comp,tr,false).total>=G)P-=10;while(run(P,n,i,comp,tr,false).total<G)P+=10;return P}
+const show=(sel,on)=>document.querySelectorAll(sel).forEach(e=>e.hidden=!on);
+function calc(){
+  const r=Math.max(0,+$('rate').value||0)/100, n=Math.max(1,Math.floor(+$('months').value||1)), comp=$('itype').value==='comp', tr=+$('tax').value, i=r/12;
+  const g=mode==='goal';show('.g-only',g);show('.n-goal',!g);$('amt-w').hidden=g;$('goal-w').hidden=!g;
+  $('o-taxnote').textContent=$('tax').selectedOptions[0].textContent;
+  const kind=n+'개월 · 연 '+(r*100).toFixed(2).replace(/\.?0+$/,'')+'% · '+(comp?'월복리':'단리');
+  if(g){const G=Math.max(0,+$('goal').value||0)*1e4,P=G?need(G,n,i,comp,tr):0,x=run(P,n,i,comp,tr,false),plain=Math.ceil(G/n);
+    $('o-h').textContent='목표 달성 계획';$('o-kind').textContent='적금 · '+kind;$('o-tl').textContent='매달 넣을 돈';$('o-total').textContent=won(P);
+    $('o-goal').textContent=man(G);$('o-prin').textContent=won(x.prin);$('o-int').textContent='+ '+won(x.int);$('o-tax').textContent='− '+won(x.tax);
+    $('o-net').textContent='+ '+won(x.net);$('o-mat').textContent=won(x.total);$('o-plain').textContent=won(plain)+' / 월';
+    $('o-status').textContent=G?`${n}개월 뒤 ${man(G)}을 모으려면 매달 ${won(P)}씩 넣으면 돼요. 이자 없이 모을 때보다 매달 ${won(Math.max(0,plain-P))} 덜 넣어도 되고, 세후 이자는 ${won(x.net)}이에요.`:'모으고 싶은 금액을 넣어 주세요.';
+    let rows='';[300,500,1000,2000,3000,5000,10000].forEach(v=>{const q=need(v*1e4,n,i,comp,tr),y=run(q,n,i,comp,tr,false),on=Math.abs(v*1e4-G)<1;
+      rows+=`<tr${on?' style="font-weight:700;color:var(--accent)"':''}><td>${man(v*1e4)}</td><td>${won(q)}</td><td>+ ${won(y.net)}</td></tr>`});
+    $('g-body').innerHTML=rows;$('g-note').textContent='· '+kind;return}
+  const P=Math.max(0,+$('amt').value||0)*1e4,dep=mode==='dep',x=run(P,n,i,comp,tr,dep);
+  const eff=x.prin?x.net/x.prin/(n/12)*100:0;
+  $('o-h').textContent='만기 결과';$('o-kind').textContent=(dep?'예금':'적금')+' · '+kind;$('o-tl').textContent='세후 만기 수령액';
+  $('o-total').textContent=won(x.total);$('o-prin').textContent=won(x.prin);$('o-int').textContent='+ '+won(x.int);
+  $('o-tax').textContent='− '+won(x.tax);$('o-net').textContent='+ '+won(x.net);
+  $('o-eff').textContent='연 '+eff.toFixed(2)+'%';$('o-effnote').textContent=dep?'세후 이자 ÷ 원금, 1년 기준':'넣은 돈 전체를 처음부터 맡겼다고 볼 때';
+  $('o-status').textContent=!dep?`매달 ${man(P)}씩 ${n}개월 넣으면 세후 이자 ${won(x.net)}을 받아요. 적금은 표시 금리 ${(r*100).toFixed(2)}%의 절반 정도가 실제 수익률이에요.`:`${man(P)}을 ${n}개월 맡기면 세후 이자 ${won(x.net)}을 받아요.`;
 }
-document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('amt-l').textContent=mode==='dep'?'맡기는 금액 (만원)':'매달 넣는 금액 (만원)';calc()}));
+const hints={dep:'예시: 1천만원을 연 3.5% 단리 예금에 1년 맡긴 경우예요.',ins:'예시: 매달 50만원을 연 3.5% 단리 적금에 1년 넣은 경우예요.',goal:'예시: 1년 뒤 1천만원을 연 3.5% 단리 적금으로 모으는 경우예요.'};
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{const prev=mode;mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  $('amt-l').textContent=mode==='dep'?'맡기는 금액 (만원)':'매달 넣는 금액 (만원)';$('ex-hint').textContent=hints[mode];calc()}));
 document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
-$('reset').addEventListener('click',()=>{$('amt').value=50;$('rate').value=3.5;$('months').value=12;$('itype').value='simple';$('tax').value='0.154';document.querySelectorAll('.seg button')[1].click()});
+$('reset').addEventListener('click',()=>{const m=mode;$('amt').value=m==='dep'?1000:50;$('goal').value=1000;$('rate').value=3.5;$('months').value=12;$('itype').value='simple';$('tax').value='0.154';[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===m).click()});
+if(new URLSearchParams(location.search).get('m')==='goal')document.querySelector('.seg button[data-m=goal]').click();
 calc();
 </script>
 <script>
