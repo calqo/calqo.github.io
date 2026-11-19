@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>내 연봉 상위 몇 % 계산기 · 직장인 연봉 순위 (국세청 통계) | 캘코</title>
+<meta name="description" content="연봉이나 월 실수령액을 넣으면 국세청 연말정산 통계(직장인 2,107만 명)로 내가 상위 몇 %인지, 100명 중 몇 번째인지 계산해요. 연봉 구간별 상위 %와 상위 10%·1% 연봉 문턱도 한눈에 볼 수 있어요.">
+<link rel="canonical" href="https://calqo.kr/salary-rank/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="내 연봉 상위 몇 % 계산기 · 직장인 연봉 순위 (국세청 통계) | 캘코">
+<meta property="og:description" content="연봉이나 월 실수령액을 넣으면 국세청 연말정산 통계(직장인 2,107만 명)로 내가 상위 몇 %인지, 100명 중 몇 번째인지 계산해요. 연봉 구간별 상위 %와 상위 10%·1% 연봉 문턱도 한눈에 볼 수 있어요.">
+<meta property="og:url" content="https://calqo.kr/salary-rank/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay" class=on aria-current=page>급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#pay">급여·근로</a></div>
+    <h1>내 연봉 상위 몇 % 계산기</h1>
+    <p class="lead">연봉이나 월 실수령액을 넣으면 국세청 연말정산 통계(직장인 2,107만 명)로 내가 상위 몇 %인지, 100명 중 몇 번째인지 계산해요. 연봉 구간별 상위 %와 상위 10%·1% 연봉 문턱도 한눈에 볼 수 있어요.</p>
+    <span class="tag">국세청 2024년 귀속 연말정산 통계 · 직장인 21,078,535명 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div><div class="hint" style="margin-bottom:6px">무엇으로 계산할까요?</div>
+      <div class="seg" role="group" aria-label="입력 방식">
+        <button type="button" data-m="y" aria-pressed="true">연봉으로</button>
+        <button type="button" data-m="n" aria-pressed="false">월 실수령액으로</button>
+      </div></div>
+      <label for="annual" id="annual-w">연봉 (만원)<input id="annual" data-warn="300000" type="number" inputmode="decimal" min="0" step="1" value="5000"><span class="hint">계약서상 세전 연봉, 퇴직금 별도</span></label>
+      <label for="net" id="net-w" hidden>월 실수령액 (만원)<input id="net" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="350"><span class="hint">통장에 들어오는 월급 (성과급 달 제외)</span></label>
+      <div class="row2">
+        <label for="bonus">1년 성과급·상여 (만원)<input id="bonus" data-warn="300000" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">연봉에 안 들어간 돈, 없으면 0</span></label>
+        <label for="nontax">월 비과세 (만원)<input id="nontax" data-warn="1000" type="number" inputmode="decimal" min="0" step="1" value="20"><span class="hint">식대 등, 보통 20만원</span></label>
+      </div>
+      <span class="hint" id="ex-hint">예시: 연봉 5천만원, 식대 비과세 월 20만원인 직장인이에요. 금액은 만원 단위로 넣어 주세요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <style>.rk-bar{position:relative;height:12px;background:var(--surface-2);border:1px solid var(--line);border-radius:99px;margin:14px 0 4px}.rk-bar i{display:block;height:100%;background:var(--accent);border-radius:99px;opacity:.85}.rk-pin{position:absolute;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;background:var(--surface);border:3px solid var(--accent);border-radius:50%;box-shadow:var(--shadow)}.rk-ax{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-bottom:6px}</style>
+      <h2>내 연봉 위치 <small>2024년 귀속 · 직장인 2,107만 명</small></h2>
+      <div class="total"><span>직장인 중</span><b id="o-top"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="rk-bar" role="img" id="o-barwrap"><i id="o-bar"></i><span class="rk-pin" id="o-pin"></span></div>
+      <div class="rk-ax"><span>하위</span><span>중위</span><span>상위</span></div>
+      <div class="lines">
+        <div class="line" id="o-r0" hidden><span>추정 세전 연봉<em>2026년 4대보험·세금, 1인 가구로 역산</em></span><b id="o-est"></b></div>
+        <div class="line"><span>총급여 (국세청 기준)<em>연봉 + 성과급 − 비과세</em></span><b id="o-g"></b></div>
+        <div class="line"><span>전체 등수<em>21,078,535명 중</em></span><b id="o-rank"></b></div>
+        <div class="line"><span>중위 연봉 3,400만원과<em>딱 가운데 직장인</em></span><b id="o-med"></b></div>
+        <div class="line"><span>평균 연봉 약 4,500만원과<em>고액 연봉자 포함 평균</em></span><b id="o-avg"></b></div>
+        <div class="line" id="o-rn"><span id="o-nextl">다음 단계까지</span><b id="o-next"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>연봉 구간별 상위 몇 %</h2>
+    <p>국세청 2024년 귀속 연말정산 통계로 계산한 연봉(총급여)별 위치예요. 내 연봉과 가까운 줄을 색으로 표시했어요.</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>총급여</th><th>위치</th><th>더 받는 사람</th></tr></thead>
+      <tbody id="t-body"><tr data-v="2000"><td>2,000만원</td><td><b>상위 74.6%</b></td><td>약 1,572만 명</td></tr><tr data-v="2500"><td>2,500만원 *</td><td><b>상위 64.1%</b></td><td>약 1,351만 명</td></tr><tr data-v="3000"><td>3,000만원</td><td><b>상위 56.6%</b></td><td>약 1,193만 명</td></tr><tr data-v="3400"><td>3,400만원 *</td><td><b>상위 49.1%</b></td><td>약 1,035만 명</td></tr><tr data-v="4000"><td>4,000만원</td><td><b>상위 40.8%</b></td><td>약 860만 명</td></tr><tr data-v="4500"><td>4,500만원 *</td><td><b>상위 34.7%</b></td><td>약 731만 명</td></tr><tr data-v="5000"><td>5,000만원</td><td><b>상위 30.0%</b></td><td>약 632만 명</td></tr><tr data-v="6000"><td>6,000만원</td><td><b>상위 22.6%</b></td><td>약 476만 명</td></tr><tr data-v="7000"><td>7,000만원 *</td><td><b>상위 16.9%</b></td><td>약 356만 명</td></tr><tr data-v="8000"><td>8,000만원</td><td><b>상위 13.1%</b></td><td>약 276만 명</td></tr><tr data-v="9000"><td>9,000만원 *</td><td><b>상위 9.6%</b></td><td>약 203만 명</td></tr><tr data-v="10000"><td>1억원</td><td><b>상위 7.3%</b></td><td>약 154만 명</td></tr><tr data-v="12000"><td>1억 2,000만원 *</td><td><b>상위 4.3%</b></td><td>약 89.7만 명</td></tr><tr data-v="15000"><td>1억 5,000만원 *</td><td><b>상위 2.2%</b></td><td>약 46.4만 명</td></tr><tr data-v="20000"><td>2억원</td><td><b>상위 0.94%</b></td><td>약 19.8만 명</td></tr><tr data-v="30000"><td>3억원</td><td><b>상위 0.35%</b></td><td>약 7.4만 명</td></tr><tr data-v="50000"><td>5억원</td><td><b>상위 0.11%</b></td><td>약 2.3만 명</td></tr><tr data-v="100000"><td>10억원</td><td><b>상위 0.02%</b></td><td>약 4,216명</td></tr></tbody>
+    </table></div>
+    <p class="hint">* 표시는 국세청 구간 사이를 계산으로 이은 추정값이에요. 표시 없는 줄(2천만·3천만·…·1억·2억·3억·5억·10억원)은 국세청이 공개한 구간 경계 그대로예요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>상위 10%, 상위 1% 되려면 연봉 얼마?</h2></summary><div class="sec-b">
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>위치</th><th>연봉 (총급여)</th><th>월로 나누면</th><th>해당 인원</th></tr></thead>
+      <tbody><tr><td>상위 50% (딱 중간)</td><td><b>3,350만원</b></td><td>월 280만원</td><td>약 1,054만 명</td></tr><tr><td>상위 40%</td><td><b>4,060만원</b></td><td>월 340만원</td><td>약 843만 명</td></tr><tr><td>상위 30%</td><td><b>5,000만원</b></td><td>월 420만원</td><td>약 632만 명</td></tr><tr><td>상위 20%</td><td><b>6,400만원</b></td><td>월 530만원</td><td>약 422만 명</td></tr><tr><td>상위 10%</td><td><b>8,870만원</b></td><td>월 740만원</td><td>약 211만 명</td></tr><tr><td>상위 5%</td><td><b>1억 1,370만원</b></td><td>월 950만원</td><td>약 105만 명</td></tr><tr><td>상위 3%</td><td><b>1억 3,510만원</b></td><td>월 1,130만원</td><td>약 63.2만 명</td></tr><tr><td>상위 1%</td><td><b>1억 9,590만원</b></td><td>월 1,630만원</td><td>약 21.1만 명</td></tr><tr><td>상위 0.1%</td><td><b>5억 1,980만원</b></td><td>월 4,330만원</td><td>약 2.1만 명</td></tr></tbody>
+    </table></div>
+    <p>위 표는 구간 인원으로 추정한 값이라, 국세청이 국회에 낸 천분위 자료(상위 10% 9,100만원, 상위 20% 6,500만원 등)와 몇십만~몇백만 원 차이가 날 수 있어요. 천분위 자료로 보면 딱 가운데(상위 50%) 직장인의 연봉은 3,400만원이고, 평균 연봉 약 4,500만원 이상을 받는 사람은 상위 35% 안쪽이에요. 평균이 중위보다 1,100만원 높은 건 연봉 수억 원인 소수가 평균을 끌어올리기 때문이에요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>내 연봉을 넣을 때 알아 둘 것</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>세전 기준이에요.</b> 국세청 통계는 세금과 4대보험을 떼기 전 금액이에요. 월급 실수령액만 안다면 '월 실수령액으로'를 눌러 보세요.</li>
+      <li><b>성과급·상여도 넣어요.</b> 연말정산 총급여에는 성과급, 상여, 각종 수당이 모두 들어가요. 연봉 계약서 금액만 넣으면 실제보다 낮게 나올 수 있어요.</li>
+      <li><b>비과세는 빼요.</b> 식대(월 20만원), 자가운전보조금, 6세 이하 보육수당처럼 세금이 안 붙는 돈은 총급여에서 빠져요.</li>
+      <li><b>2024년 숫자예요.</b> 그사이 임금이 올랐기 때문에 2026년 연봉을 넣으면 실제 위치는 결과보다 조금 낮을 수 있어요.</li>
+      <li><b>1년을 다 일하지 않은 사람도 들어 있어요.</b> 중간에 입사·퇴사했거나 아르바이트처럼 짧게 일한 사람도 연말정산 인원에 포함돼요. 그래서 1년 내내 일한 직장인끼리만 비교하면 위치가 조금 내려가요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>억대 연봉은 몇 명일까</h2></summary><div class="sec-b">
+    <p>2024년 귀속 연말정산에서 총급여 1억원을 넘은 직장인은 <b>154만 5,725명</b>으로 전체의 7.3%예요. 2022년 131만 명, 2023년 139만 명에서 해마다 늘었어요. 총급여 2억원 초과는 19만 8,436명(0.94%), 3억원 초과는 7만 3,951명(0.35%)이에요.</p>
+    <p class="hint">기준: 국세청 국세통계포털 4-2-11 주소지별·과세대상 근로소득 규모별 연말정산 신고 현황(2024년 귀속, 2025. 12. 공개), 신고 인원 21,078,535명. 중위 연봉·평균 연봉은 국세청 2024년 귀속 근로소득 천분위 자료(2026. 2. 국회 제출). 구간 사이 값은 로그 보간으로 추정했어요. 월 실수령액 역산은 <a href="/salary/">연봉 실수령액 계산기</a>와 같은 2026년 4대보험 요율·간이세액 산식(부양가족 1명)을 썼어요. 계산 결과는 참고용이에요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>총급여</dt><dd>1년 동안 받은 세전 근로소득에서 식대 같은 비과세 소득을 뺀 금액이에요. 연봉에 성과급·상여를 더하고 비과세를 빼서 구해요. 국세청 통계가 이 기준이에요.</dd></div><div><dt>중위 연봉</dt><dd>직장인을 연봉 순서로 한 줄로 세웠을 때 딱 가운데 있는 사람의 연봉이에요. 고액 연봉자에 끌려 올라가는 평균보다 '보통 직장인'에 가까워요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>연봉 5천만원이면 상위 몇 %인가요?</summary><p>국세청 2024년 귀속 연말정산 통계로 총급여 5,000만원을 넘는 직장인은 상위 30.0%예요. 직장인 10명 중 3명만 5천만원보다 많이 받아요. 연봉 5천만원에 식대 비과세 월 20만원이 있다면 총급여는 4,760만원이라 상위 약 32%예요.</p></details><details><summary>억대 연봉은 상위 몇 %인가요?</summary><p>총급여 1억원을 넘는 직장인은 154만 5,725명으로 전체 21,078,535명의 7.3%예요. 100명 중 7명 정도예요.</p></details><details><summary>상위 10%, 상위 1% 연봉은 얼마예요?</summary><p>구간 통계로 추정하면 상위 10%는 약 8,870만원, 상위 1%는 약 1억 9,590만원부터예요. 2억원을 넘는 직장인은 0.94%라 연봉 2억이면 상위 1% 안에 들어요.</p></details><details><summary>평균 연봉과 중위 연봉은 왜 달라요?</summary><p>2024년 귀속 직장인 평균 총급여는 약 4,500만원이지만, 딱 가운데 사람의 연봉(중위)은 3,400만원이에요. 연봉 수억 원인 소수가 평균을 끌어올리기 때문이에요. 내 위치를 볼 때는 중위 연봉과 비교하는 게 더 정확해요.</p></details><details><summary>세후 월급만 알아도 계산할 수 있나요?</summary><p>네. &#x27;월 실수령액으로&#x27;를 누르고 통장에 들어오는 월급을 넣으면, 4대보험과 근로소득세를 거꾸로 계산해 세전 연봉을 추정한 뒤 상위 몇 %인지 보여 드려요.</p></details><details><summary>왜 2024년 통계를 쓰나요?</summary><p>국세청은 연말정산이 끝난 다음 해 12월쯤 통계를 공개해요. 2025년 귀속 통계는 2026년 12월쯤 나올 예정이라 지금은 2024년 귀속이 가장 최신이에요. 그사이 임금이 올랐으니 올해 연봉으로 비교하면 실제 위치는 결과보다 조금 낮을 수 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "연봉 5천만원이면 상위 몇 %인가요?", "acceptedAnswer": {"@type": "Answer", "text": "국세청 2024년 귀속 연말정산 통계로 총급여 5,000만원을 넘는 직장인은 상위 30.0%예요. 직장인 10명 중 3명만 5천만원보다 많이 받아요. 연봉 5천만원에 식대 비과세 월 20만원이 있다면 총급여는 4,760만원이라 상위 약 32%예요."}}, {"@type": "Question", "name": "억대 연봉은 상위 몇 %인가요?", "acceptedAnswer": {"@type": "Answer", "text": "총급여 1억원을 넘는 직장인은 154만 5,725명으로 전체 21,078,535명의 7.3%예요. 100명 중 7명 정도예요."}}, {"@type": "Question", "name": "상위 10%, 상위 1% 연봉은 얼마예요?", "acceptedAnswer": {"@type": "Answer", "text": "구간 통계로 추정하면 상위 10%는 약 8,870만원, 상위 1%는 약 1억 9,590만원부터예요. 2억원을 넘는 직장인은 0.94%라 연봉 2억이면 상위 1% 안에 들어요."}}, {"@type": "Question", "name": "평균 연봉과 중위 연봉은 왜 달라요?", "acceptedAnswer": {"@type": "Answer", "text": "2024년 귀속 직장인 평균 총급여는 약 4,500만원이지만, 딱 가운데 사람의 연봉(중위)은 3,400만원이에요. 연봉 수억 원인 소수가 평균을 끌어올리기 때문이에요. 내 위치를 볼 때는 중위 연봉과 비교하는 게 더 정확해요."}}, {"@type": "Question", "name": "세후 월급만 알아도 계산할 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. '월 실수령액으로'를 누르고 통장에 들어오는 월급을 넣으면, 4대보험과 근로소득세를 거꾸로 계산해 세전 연봉을 추정한 뒤 상위 몇 %인지 보여 드려요."}}, {"@type": "Question", "name": "왜 2024년 통계를 쓰나요?", "acceptedAnswer": {"@type": "Answer", "text": "국세청은 연말정산이 끝난 다음 해 12월쯤 통계를 공개해요. 2025년 귀속 통계는 2026년 12월쯤 나올 예정이라 지금은 2024년 귀속이 가장 최신이에요. 그사이 임금이 올랐으니 올해 연봉으로 비교하면 실제 위치는 결과보다 조금 낮을 수 있어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-20</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/salary/" data-k="연봉 실수령액 계산기 (2027 반영) 2027년 국민연금 5% 인상 반영, 2026년보다 월급이 얼마 줄어드는지 비교 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 실수령액 계산기 (2027 반영)</strong><span>2027년 국민연금 5% 인상 반영, 2026년보다 월급이 얼마 줄어드는지 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/raise/" data-k="연봉 인상률 계산기 인상 후 월 실수령액이 실제로 얼마나 느는지 계산 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>연봉 인상률 계산기</strong><span>인상 후 월 실수령액이 실제로 얼마나 느는지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/bonus-tax/" data-k="성과급 세금 계산기 성과급 세후 실수령액과 원천징수·연말정산 환급 예상 급여·근로"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h15a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V7z"/><path d="M3 7l12-3v3"/><circle cx="16.5" cy="13.5" r="1.2"/></svg></span><span class="ct"><span class="kicker">급여·근로</span><strong>성과급 세금 계산기</strong><span>성과급 세후 실수령액과 원천징수·연말정산 환급 예상</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+const BR=[[14e6,.06,0],[50e6,.15,1.26e6],[88e6,.24,5.76e6],[150e6,.35,15.44e6],[300e6,.38,19.94e6],[500e6,.40,25.94e6],[1e9,.42,35.94e6],[Infinity,.45,65.94e6]];
+function baseTax(T){for(const[l,r,q]of BR)if(T<=l)return Math.max(0,T*r-q)}
+const NTX=id=>Math.max(0,+$(id).value||0)*10000;
+function earnDed(G){let d;if(G<=5e6)d=G*.7;else if(G<=15e6)d=3.5e6+(G-5e6)*.4;else if(G<=45e6)d=7.5e6+(G-15e6)*.15;else if(G<=1e8)d=12e6+(G-45e6)*.05;else d=14.75e6+(G-1e8)*.02;return Math.min(d,2e7)}
+function earnCredit(c,G){const v=c<=1.3e6?c*.55:715000+(c-1.3e6)*.3;let lim;
+  if(G<=33e6)lim=740000;else if(G<=70e6)lim=Math.max(740000-(G-33e6)*.008,660000);
+  else if(G<=120e6)lim=Math.max(660000-(G-70e6)/2,500000);else lim=Math.max(500000-(G-120e6)/2,200000);return Math.min(v,lim)}
+const f10=n=>Math.floor(n/10)*10;
+function special(G,n){const big=n>=3,b=n>=3?5e6:n===2?3.6e6:3.1e6,o4=big?Math.max(0,G-4e7)*.04:0;
+  if(G<=3e7)return b+G*(big?.07:.04);if(G<=4.5e7)return b+G*(big?.07:.04)-(G-3e7)*.05+o4;
+  if(G<=7e7)return b+G*(big?.05:.015)+o4;return b+G*(big?.03:.005)+o4}
+const RATES={2026:{nps:.0475,hi:.03595,ltc:.1314,ei:.009},2027:{nps:.05,hi:.03595,ltc:.139,ei:.01}};
+function month(A,nt,people,kids,ratio,yr){
+  const R=RATES[yr||2026], gm=A/12, tm=Math.max(0,gm-nt);
+  const nps=f10(Math.min(Math.max(tm,4e5),6.59e6)*R.nps), hi=f10(tm*R.hi), ltc=f10(hi*R.ltc), ei=f10(tm*R.ei);
+  const G=tm*12, inc=G-earnDed(G), ded=people*1.5e6+nps*12+special(G,people);
+  const T=Math.max(0,inc-ded), t=baseTax(T);
+  const kid=kids===0?0:kids===1?25e4:kids===2?55e4:55e4+(kids-2)*4e5;
+  const fin=Math.max(0,t-earnCredit(t,G)-kid);
+  const tax=f10(fin/12*ratio), local=f10(tax*.1);
+  const sum=nps+hi+ltc+ei+tax+local;
+  return{gm,nps,hi,ltc,ei,tax,local,sum,net:gm-sum}}
+const K=[[0, 100], [1000, 86.4], [2000, 74.6], [3000, 56.6], [4000, 40.8], [5000, 30.0], [6000, 22.6], [8000, 13.1], [10000, 7.3], [20000, 0.94], [30000, 0.35], [50000, 0.11], [100000, 0.02]],N=21078535,MED=3400,AVG=4500;
+let mode='y';
+function topP(x){if(x<=0)return 100;for(let i=1;i<K.length;i++){const[a,pa]=K[i-1],[b,pb]=K[i];if(x<=b){if(a===0)return pa+(pb-pa)*x/b;const t=Math.log(x/a)/Math.log(b/a);return Math.exp(Math.log(pa)+t*(Math.log(pb)-Math.log(pa)))}}
+  const[a,pa]=K[K.length-2],[b,pb]=K[K.length-1];return Math.max(.001,pb*Math.pow(x/b,Math.log(pb/pa)/Math.log(b/a)))}
+function salP(p){for(let i=1;i<K.length;i++){const[a,pa]=K[i-1],[b,pb]=K[i];if(p>=pb){if(a===0)return(pa-p)/(pa-pb)*b;return a*Math.exp(Math.log(p/pa)/Math.log(pb/pa)*Math.log(b/a))}}return K[K.length-1][0]}
+const pf=p=>p<1?p.toFixed(2)+'%':p.toFixed(1)+'%';
+const ppl=n=>n>=1e6?'약 '+Math.round(n/1e4).toLocaleString('ko-KR')+'만':n>=1e4?'약 '+(Math.round(n/1e3)/10).toLocaleString('ko-KR')+'만':'약 '+Math.max(1,Math.round(n)).toLocaleString('ko-KR');
+const sgn=n=>(n>=0?'+':'−')+man(Math.abs(n));
+function fromNet(net,nt){if(net<=0)return 0;let lo=0,hi=3e9;for(let i=0;i<60;i++){const mid=(lo+hi)/2;month(mid,nt,1,0,1,2026).net<net?lo=mid:hi=mid}return Math.round(hi/1e4)*1e4}
+const NV=id=>Math.max(0,+$(id).value||0);
+function calc(){
+  const nt=NV('nontax')*1e4,bon=NV('bonus')*1e4,st=$('o-status');
+  let A;if(mode==='n'){A=fromNet(NV('net')*1e4,nt);$('o-est').textContent=man(A);}else A=NV('annual')*1e4;
+  $('o-r0').hidden=mode!=='n';
+  const G=Math.max(0,A+bon-nt*12),g=G/1e4,p=topP(g);
+  $('o-top').textContent='상위 '+pf(p);$('o-g').textContent=man(G);
+  const above=N*p/100;$('o-rank').textContent=ppl(above)+(above>=1e4?' 등':'등');
+  $('o-med').textContent=sgn((g-MED)*1e4);$('o-avg').textContent=sgn((g-AVG)*1e4);
+  const w=Math.min(100,Math.max(0,100-p));$('o-bar').style.width=w+'%';$('o-pin').style.left=w+'%';
+  $('o-barwrap').setAttribute('aria-label','직장인 중 상위 '+pf(p));
+  if(G<=0){st.className='status warn';st.textContent='연봉이나 월 실수령액을 넣어 주세요.';}
+  else{st.className='status ok';
+    const line=p>=1?`직장인 100명을 연봉 순서로 세우면 앞에서 ${Math.max(1,Math.ceil(p))}번째예요.`:`직장인 1,000명 중 앞에서 ${Math.max(1,Math.ceil(p*10))}번째예요.`;
+    st.textContent=line+` 나보다 적게 받는 직장인이 ${ppl(N-above)} 명이에요.`+(g<MED?` 딱 가운데 연봉(3,400만원)까지 연 ${man((MED-g)*1e4)} 남았어요.`:'');}
+  const goal=[50,40,30,20,10,5,3,1,.1].find(t=>t<p-1e-9);
+  if(goal&&G>0){$('o-rn').hidden=false;$('o-nextl').innerHTML=`상위 ${goal}%까지<em>연봉(총급여) 약 ${man(Math.ceil(salP(goal)/10)*10*1e4)}부터</em>`;$('o-next').textContent='연 +'+man(Math.max(0,Math.ceil(salP(goal)/10)*10-g)*1e4);}
+  else $('o-rn').hidden=true;
+  let best=null,bd=1e18;document.querySelectorAll('#t-body tr').forEach(r=>{r.style.cssText='';const d=Math.abs(+r.dataset.v-g);if(d<bd){bd=d;best=r}});
+  if(best&&G>0)best.style.cssText='font-weight:700;color:var(--accent);background:var(--accent-soft)';
+}
+const hints={y:'예시: 연봉 5천만원, 식대 비과세 월 20만원인 직장인이에요. 금액은 만원 단위로 넣어 주세요.',n:'예시: 월급 실수령액 350만원, 식대 비과세 월 20만원인 직장인이에요. 부양가족 1명 기준으로 세전 연봉을 역산해요.'};
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  $('annual-w').hidden=mode!=='y';$('net-w').hidden=mode!=='n';$('ex-hint').textContent=hints[mode];calc()}));
+document.querySelectorAll('form input').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{$('annual').value=5000;$('net').value=350;$('bonus').value=0;$('nontax').value=20;calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
