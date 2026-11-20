@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://calqo.kr/sitemap.xml
+
+#DaumWebMasterTool:6c8896955ab473fd2897d40eeb72cfedb2cc48d0ef93c2f4e20713bf63fc5525:9OXzxfMP1b1VGCOsL/bJCQ==
