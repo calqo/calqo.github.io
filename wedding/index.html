@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>축의금 얼마? 결혼식 비용 계산기 | 캘코</title>
+<meta name="description" content="관계·참석 인원·식대로 적정 축의금을 계산해요. 예비부부는 하객 수로 결혼식 비용과 축의금 수입을 확인해요.">
+<link rel="canonical" href="https://calqo.kr/wedding/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="축의금 얼마? 결혼식 비용 계산기 | 캘코">
+<meta property="og:description" content="관계·참석 인원·식대로 적정 축의금을 계산해요. 예비부부는 하객 수로 결혼식 비용과 축의금 수입을 확인해요.">
+<meta property="og:url" content="https://calqo.kr/wedding/">
+<meta property="og:image" content="https://calqo.kr/assets/logo-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=7">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life" class=on aria-current=page>생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
+    <h1>축의금 · 결혼 비용 계산기</h1>
+    <p class="lead">친구·직장 동료·가족 관계와 함께 가는 인원, 예식장 식대를 넣으면 적정 축의금을 계산해요. 예비부부는 하객 수로 결혼식 비용과 축의금 수입, 본전이 되는 평균 축의금까지 확인할 수 있어요.</p>
+    <span class="tag">2025년 평균 축의금 11만 7천원 · 소비자원 2026년 결혼서비스 가격 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div><div class="hint" style="margin-bottom:6px">무엇을 계산할까요?</div>
+      <div class="seg" role="group" aria-label="계산 종류">
+        <button type="button" data-m="g" aria-pressed="true">축의금 얼마 낼까</button>
+        <button type="button" data-m="c" aria-pressed="false">결혼식 비용·축의금 수입</button>
+      </div></div>
+      <div data-g style="display:contents">
+      <label for="rel">신랑·신부와 나의 관계<select id="rel"><option value="acq">얼굴만 아는 지인·거래처</option><option value="work">직장 동료 (일로 아는 사이)</option><option value="team">친한 동료·같은 팀·선후배</option><option value="friend" selected>친구</option><option value="best">아주 친한 친구</option><option value="family">가족·친척</option></select></label>
+      <label for="att">결혼식 참석<select id="att"><option value="0">참석 안 함 (계좌·봉투만)</option><option value="1" selected>혼자 참석</option><option value="2">둘이 참석 (배우자·연인)</option><option value="3">셋이 참석 (아이 포함)</option><option value="4">넷이 참석</option></select></label>
+      <div class="row2">
+        <label for="meal">1인 식대 (만원)<input id="meal" data-warn="30" type="number" inputmode="decimal" min="0" step="1" value="6"><span class="hint">모르면 6만원, 강남·호텔은 9만원+</span></label>
+        <label for="recv">상대가 내게 낸 축의금 (만원)<input id="recv" data-warn="1000" type="number" inputmode="decimal" min="0" step="1" value="0"><span class="hint">내 결혼식 때, 없으면 0</span></label>
+      </div>
+      </div>
+      <div data-c style="display:contents" hidden>
+      <div class="row2">
+        <label for="guests">식사 하객 수 (명)<input id="guests" type="number" inputmode="decimal" min="0" step="1" value="250"><span class="hint">보증인원보다 적으면 보증인원</span></label>
+        <label for="env">축의금 봉투 수 (개)<input id="env" type="number" inputmode="decimal" min="0" step="1" value="200"><span class="hint">보통 하객의 70~80%</span></label>
+      </div>
+      <div class="row2">
+        <label for="cmeal">1인 식대 (만원)<input id="cmeal" data-warn="30" type="number" inputmode="decimal" min="0" step="1" value="6"><span class="hint">전국 중간 6만원, 강남 9만원</span></label>
+        <label for="hall">대관료·연출·꽃 (만원)<input id="hall" data-warn="10000" type="number" inputmode="decimal" min="0" step="1" value="300"><span class="hint">견적서의 식대 외 금액</span></label>
+      </div>
+      <div class="row2">
+        <label for="sdm">스드메 (만원)<input id="sdm" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="292"><span class="hint">중간가 292만원, 드메만 160만원</span></label>
+        <label for="etc">기타 예식 비용 (만원)<input id="etc" data-warn="5000" type="number" inputmode="decimal" min="0" step="1" value="200"><span class="hint">본식 스냅·영상·청첩장·답례품</span></label>
+      </div>
+      <label for="gift">평균 축의금 (만원)<input id="gift" data-warn="100" type="number" inputmode="decimal" min="0" step="0.1" value="11.7"><span class="hint">2025년 평균 11.7만원, 부모님 손님 몫은 빼고</span></label>
+      </div>
+      <span class="hint" id="ex-hint"></span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>계산 결과</h2>
+      <div class="total"><span id="o-total-l">추천 축의금</span><b id="o-top"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines" data-g>
+        <div class="line"><span>무난한 범위<em>더 친하면 한 단계 위로</em></span><b id="o-range"></b></div>
+        <div class="line" id="g-eat"><span id="o-eatl">함께 먹는 식대</span><b id="o-eat"></b></div>
+        <div class="line" id="g-left"><span>신랑·신부에게 남는 돈<em>축의금 − 식대</em></span><b id="o-left"></b></div>
+        <div class="line"><span>평균 축의금 11만 7천원과<em>2025년 NH농협은행 이체 분석</em></span><b id="o-avg"></b></div>
+      </div>
+      <div class="lines" data-c hidden>
+        <div class="line"><span>결혼식 비용 합계<em>식대 + 대관료 + 스드메 + 기타</em></span><b id="o-cost"></b></div>
+        <div class="line"><span>그중 식대<em>하객 수 × 1인 식대</em></span><b id="o-meals"></b></div>
+        <div class="line"><span>축의금 수입<em>봉투 수 × 평균 축의금</em></span><b id="o-inc"></b></div>
+        <div class="line"><span>하객 1명당 드는 돈</span><b id="o-per"></b></div>
+        <div class="line"><span>본전 되는 평균 축의금<em>봉투 하나에 이만큼</em></span><b id="o-be"></b></div>
+        <div class="line"><span>성수기 평균 2,156만원과<em>소비자원 예식장+스드메, 기타 빼고 비교</em></span><b id="o-vs"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>관계별 축의금 한눈에 보기</h2>
+    <p>1인 식대 6만원(소비자원 성수기 중간가격) 기준으로 이 계산기가 추천하는 금액이에요. 고른 관계를 색으로 표시했어요.</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>관계</th><th>불참</th><th>혼자</th><th>둘이</th></tr></thead>
+      <tbody id="t-rel"><tr data-r="acq"><td>지인·거래처</td><td style="white-space:nowrap">5만원</td><td style="white-space:nowrap"><b>10만원</b></td><td style="white-space:nowrap">15만원</td></tr><tr data-r="work"><td>직장 동료</td><td style="white-space:nowrap">5만원</td><td style="white-space:nowrap"><b>10만원</b></td><td style="white-space:nowrap">15만원</td></tr><tr data-r="team"><td>친한 동료·선후배</td><td style="white-space:nowrap">5만원</td><td style="white-space:nowrap"><b>10만원</b></td><td style="white-space:nowrap">15만원</td></tr><tr data-r="friend"><td>친구</td><td style="white-space:nowrap">5만원</td><td style="white-space:nowrap"><b>10만원</b></td><td style="white-space:nowrap">15만원</td></tr><tr data-r="best"><td>아주 친한 친구</td><td style="white-space:nowrap">10만원</td><td style="white-space:nowrap"><b>20만원</b></td><td style="white-space:nowrap">20만원</td></tr><tr data-r="family"><td>가족·친척</td><td style="white-space:nowrap">10만원</td><td style="white-space:nowrap"><b>30만원</b></td><td style="white-space:nowrap">30만원</td></tr></tbody>
+    </table></div>
+    <p>계산 원칙은 간단해요. 관계별 기본 금액을 정하고, 함께 가는 사람이 먹는 식대를 넘도록 3·5·10·15·20·30·50만원처럼 관례 단위로 올려요. 상대가 내 결혼식에 낸 금액이 있으면 그보다 적지 않게 맞춰요. 4만원·6만원처럼 짝수 금액은 피하는 경우가 많아요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>요즘 축의금, 숫자로 보면</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>평균 11만 7천원.</b> NH농협은행이 2023~2025년 축의금 이체 533만 건을 분석한 결과 2025년 평균은 11만 7천원으로, 2023년 11만원에서 2년 동안 6.9% 올랐어요.</li>
+      <li><b>5만원 vs 10만원.</b> 가장 많이 보낸 금액은 5만원(42.3%)과 10만원(39.7%)으로 둘이 82%예요. 20만원은 7.5%예요. 5만원 비중은 해마다 줄고 있어요.</li>
+      <li><b>직장 동료는 10만원.</b> 인크루트 조사(2025년 5월)에서 동료 결혼식에 참석해 식사한다면 10만원이 적당하다는 답이 61.8%였어요.</li>
+      <li><b>친구는 미혼 13만원, 기혼 29만원.</b> 가연 조사(2026년 8월)에서 결혼한 사람은 '내 결혼식 때 상대가 낸 돈'을 기준으로 삼는 경우가 많아 금액이 두 배 넘게 높았어요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>결혼식 비용은 얼마나 들까</h2></summary><div class="sec-b">
+    <p>한국소비자원이 2025년 4월~2026년 6월 결혼서비스 계약 11만 299건을 분석한 결과, 예식장과 스드메를 합친 평균은 성수기(3~6월·9~12월) <b>2,156만원</b>, 비수기(1·2·7·8월) <b>1,954만원</b>이었어요. 4월이 2,238만원으로 가장 비싸고 1월이 1,913만원으로 가장 싸서 날짜만 바꿔도 325만원 차이가 났어요.</p>
+    <ul>
+      <li><b>1인 식대:</b> 중간가격 성수기 6만원, 비수기 5만 5천원. 서울 강남은 2025년 12월 9만원을 넘었어요.</li>
+      <li><b>스드메:</b> 중간가격 292만원. 스튜디오 촬영을 빼고 드레스·메이크업만 하는 '드메'는 160만원으로, 계약 비중이 11.0%(2025년 4월)에서 19.2%(2026년 6월)로 늘었어요.</li>
+      <li><b>예물·신혼여행·혼수까지:</b> 듀오 2026 결혼비용 보고서에서 신혼집을 뺀 결혼 준비 비용은 평균 5,912만원이었어요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>하객 수별 결혼식 비용과 축의금 수입</h2></summary><div class="sec-b">
+    <p>식대 6만원, 대관료·연출 300만원, 스드메 292만원, 기타 200만원, 봉투는 하객의 80%, 평균 축의금 11만 7천원으로 계산한 예시예요.</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>하객</th><th>결혼식 비용</th><th>봉투</th><th>축의금 수입</th><th>남는 돈</th></tr></thead>
+      <tbody><tr><td>100명</td><td>1,392만원</td><td>80개</td><td>936만원</td><td><b>−456만원</b></td></tr><tr><td>150명</td><td>1,692만원</td><td>120개</td><td>1,404만원</td><td><b>−288만원</b></td></tr><tr><td>200명</td><td>1,992만원</td><td>160개</td><td>1,872만원</td><td><b>−120만원</b></td></tr><tr><td>250명</td><td>2,292만원</td><td>200개</td><td>2,340만원</td><td><b>+48만원</b></td></tr><tr><td>300명</td><td>2,592만원</td><td>240개</td><td>2,808만원</td><td><b>+216만원</b></td></tr><tr><td>400명</td><td>3,192만원</td><td>320개</td><td>3,744만원</td><td><b>+552만원</b></td></tr></tbody>
+    </table></div>
+    <p>하객이 많을수록 식대도 늘지만, 봉투 하나에 들어오는 돈(11만 7천원)이 1인 식대(6만원)의 두 배쯤이라 하객이 늘수록 남는 돈이 커져요. 반대로 하객이 적은 스몰웨딩은 대관료·스드메 같은 고정비를 나눌 사람이 적어 부족해지기 쉬워요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>예비부부가 알아 둘 것</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>보증인원:</b> 예식장과 약속한 최소 식사 인원이에요. 하객이 덜 와도 보증인원만큼 식대를 내니, 식사 하객 수에는 보증인원과 실제 예상 인원 중 큰 값을 넣으세요.</li>
+      <li><b>부모님 손님 축의금:</b> 혼주 손님이 낸 축의금은 부모님께 드리는 경우가 많아요. 그 몫은 평균 축의금이나 봉투 수에서 빼고 넣어야 정확해요.</li>
+      <li><b>축의금과 세금:</b> 사회 통념 범위의 축의금은 세금이 없지만, 혼주 몫 축의금을 자녀가 받아 집 사는 데 쓰면 증여로 볼 수 있어요. <a href="/gift-tax/">증여세 계산기</a>에서 결혼·출산 공제 1억원을 확인해 보세요.</li>
+      <li><b>혼인신고 시기:</b> 신혼부부 대출은 혼인신고 전후로 소득 기준과 한도가 달라져요. <a href="/marriage-loan/">혼인신고 전후 대출 비교 계산기</a>로 미리 비교해 보세요.</li>
+    </ul>
+    <p class="hint">기준: NH농협은행 「결혼식 축의금, 얼마 해야 할까요?」 트렌드 보고서(2026. 5., 2023. 1.~2025. 12. 이체 533만 건), 인크루트 직장인 844명 설문(2025. 5.), 가연 25~39세 1,008명 「결혼 비용 및 축의금 인식 조사」(2026. 8.), 한국소비자원 결혼서비스 가격 동향 분석(2026. 8. 5. 발표, 2025. 4.~2026. 6. 계약 11만 299건)·2025년 12월 결혼서비스 가격 동향, 듀오 2026 결혼비용 보고서. 추천 축의금은 조사 결과를 바탕으로 한 참고 금액이며, 집안이나 지역의 관례가 있다면 그쪽을 먼저 따르세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>용어 풀이</h2></summary><div class="sec-b">
+    <p>결과와 입력 칸의 <b>?</b> 표시를 누르면 같은 설명을 바로 볼 수 있어요.</p>
+    <dl class="terms"><div><dt>스드메</dt><dd>스튜디오 촬영, 드레스, 메이크업을 묶어 부르는 말이에요. 스튜디오 촬영을 빼고 드레스와 메이크업만 하면 '드메'라고 해요.</dd></div></dl>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>요즘 축의금 평균은 얼마인가요?</summary><p>NH농협은행이 2023~2025년 축의금 이체 533만 건을 분석했더니 2025년 평균은 11만 7천원이었어요. 가장 많이 보낸 금액은 5만원(42.3%), 그다음이 10만원(39.7%)이고 20만원은 7.5%였어요. 5만원 비중은 2023년 46.5%에서 줄고 10만원 이상이 늘고 있어요.</p></details><details><summary>직장 동료 결혼식 축의금은 얼마가 적당해요?</summary><p>인크루트가 직장인 844명에게 물었더니, 참석해서 식사까지 한다면 10만원이 적당하다는 답이 61.8%로 가장 많았고 5만원은 32.8%였어요. 참석하지 않고 봉투만 보낸다면 5만원이 무난해요.</p></details><details><summary>친구 결혼식은 얼마 내야 하나요?</summary><p>가연 조사(2026년 8월)에서 친구 결혼식에 참석할 때 적당한 축의금은 미혼 평균 13만원, 기혼 평균 29만원이었어요. 결혼해 본 사람일수록 &#x27;내가 받은 만큼&#x27;을 기준으로 삼아 금액이 높아져요. 보통 친구는 10만원, 아주 친한 친구는 20만원 이상이 많아요.</p></details><details><summary>둘이 같이 가면 얼마 내야 하나요?</summary><p>함께 가는 사람도 식사를 하니 식대만큼은 더 내는 게 무난해요. 1인 식대가 6만원이면 둘이 12만원어치를 먹는 셈이라, 혼자 10만원 낼 사이라면 둘이서는 15만원 이상을 많이 내요. 강남·호텔 예식장처럼 식대가 9만원 이상이면 20만원이 안전해요.</p></details><details><summary>결혼식 비용은 평균 얼마나 들어요?</summary><p>한국소비자원이 2025년 4월~2026년 6월 계약 11만 건을 분석했더니 예식장과 스드메를 합친 평균은 성수기(3~6월·9~12월) 2,156만원, 비수기(1·2·7·8월) 1,954만원이었어요. 4월이 2,238만원으로 가장 비싸고 1월이 1,913만원으로 가장 쌌어요. 예물·신혼여행·혼수는 빠진 금액이에요.</p></details><details><summary>축의금으로 결혼식 비용을 다 낼 수 있나요?</summary><p>하객 수와 축의금 평균에 따라 달라요. 하객 250명(봉투 200개)·식대 6만원·대관료 300만원·스드메 292만원·기타 200만원이면 비용 2,292만원, 축의금은 평균 11만 7천원으로 2,340만원이라 거의 본전이에요. 다만 부모님 손님 축의금을 부모님이 가져가면 그만큼 모자라요.</p></details><details><summary>축의금에도 세금이 붙나요?</summary><p>사회 통념상 인정되는 범위의 축의금은 증여세를 내지 않아요. 다만 혼주(부모님) 손님이 낸 축의금은 부모님 몫으로 보기 때문에, 그 돈을 자녀가 받아 집을 사는 데 쓰면 증여로 볼 수 있어요. 큰돈을 받을 때는 증여세 계산기로 혼인 공제(1억원)를 함께 확인해 보세요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "요즘 축의금 평균은 얼마인가요?", "acceptedAnswer": {"@type": "Answer", "text": "NH농협은행이 2023~2025년 축의금 이체 533만 건을 분석했더니 2025년 평균은 11만 7천원이었어요. 가장 많이 보낸 금액은 5만원(42.3%), 그다음이 10만원(39.7%)이고 20만원은 7.5%였어요. 5만원 비중은 2023년 46.5%에서 줄고 10만원 이상이 늘고 있어요."}}, {"@type": "Question", "name": "직장 동료 결혼식 축의금은 얼마가 적당해요?", "acceptedAnswer": {"@type": "Answer", "text": "인크루트가 직장인 844명에게 물었더니, 참석해서 식사까지 한다면 10만원이 적당하다는 답이 61.8%로 가장 많았고 5만원은 32.8%였어요. 참석하지 않고 봉투만 보낸다면 5만원이 무난해요."}}, {"@type": "Question", "name": "친구 결혼식은 얼마 내야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "가연 조사(2026년 8월)에서 친구 결혼식에 참석할 때 적당한 축의금은 미혼 평균 13만원, 기혼 평균 29만원이었어요. 결혼해 본 사람일수록 '내가 받은 만큼'을 기준으로 삼아 금액이 높아져요. 보통 친구는 10만원, 아주 친한 친구는 20만원 이상이 많아요."}}, {"@type": "Question", "name": "둘이 같이 가면 얼마 내야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "함께 가는 사람도 식사를 하니 식대만큼은 더 내는 게 무난해요. 1인 식대가 6만원이면 둘이 12만원어치를 먹는 셈이라, 혼자 10만원 낼 사이라면 둘이서는 15만원 이상을 많이 내요. 강남·호텔 예식장처럼 식대가 9만원 이상이면 20만원이 안전해요."}}, {"@type": "Question", "name": "결혼식 비용은 평균 얼마나 들어요?", "acceptedAnswer": {"@type": "Answer", "text": "한국소비자원이 2025년 4월~2026년 6월 계약 11만 건을 분석했더니 예식장과 스드메를 합친 평균은 성수기(3~6월·9~12월) 2,156만원, 비수기(1·2·7·8월) 1,954만원이었어요. 4월이 2,238만원으로 가장 비싸고 1월이 1,913만원으로 가장 쌌어요. 예물·신혼여행·혼수는 빠진 금액이에요."}}, {"@type": "Question", "name": "축의금으로 결혼식 비용을 다 낼 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "하객 수와 축의금 평균에 따라 달라요. 하객 250명(봉투 200개)·식대 6만원·대관료 300만원·스드메 292만원·기타 200만원이면 비용 2,292만원, 축의금은 평균 11만 7천원으로 2,340만원이라 거의 본전이에요. 다만 부모님 손님 축의금을 부모님이 가져가면 그만큼 모자라요."}}, {"@type": "Question", "name": "축의금에도 세금이 붙나요?", "acceptedAnswer": {"@type": "Answer", "text": "사회 통념상 인정되는 범위의 축의금은 증여세를 내지 않아요. 다만 혼주(부모님) 손님이 낸 축의금은 부모님 몫으로 보기 때문에, 그 돈을 자녀가 받아 집을 사는 데 쓰면 증여로 볼 수 있어요. 큰돈을 받을 때는 증여세 계산기로 혼인 공제(1억원)를 함께 확인해 보세요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-20</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/marriage-loan/" data-k="혼인신고 전후 대출 비교 계산기 혼인신고 전·후 디딤돌·신생아 특례·보금자리론·주담대 한도와 주택 수 비교 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>혼인신고 전후 대출 비교 계산기</strong><span>혼인신고 전·후 디딤돌·신생아 특례·보금자리론·주담대 한도와 주택 수 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/gift-tax/" data-k="증여세 계산기 자녀·배우자 증여 공제, 결혼·출산 1억, 10년 합산 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>증여세 계산기</strong><span>자녀·배우자 증여 공제, 결혼·출산 1억, 10년 합산 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/home-budget/" data-k="집 살 때 필요한 돈 계산기 주담대 한도·취득세·복비까지 합쳐 내 현금이 얼마 필요한지 계산 부동산"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v10h12V10"/><path d="M10 20v-5h4v5"/></svg></span><span class="ct"><span class="kicker">부동산</span><strong>집 살 때 필요한 돈 계산기</strong><span>주담대 한도·취득세·복비까지 합쳐 내 현금이 얼마 필요한지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+const REL={"acq": ["acq", "얼굴만 아는 지인·거래처", 5, 5], "work": ["work", "직장 동료", 5, 10], "team": ["team", "친한 동료·같은 팀·선후배", 5, 10], "friend": ["friend", "친구", 5, 10], "best": ["best", "아주 친한 친구", 10, 20], "family": ["family", "가족·친척", 10, 30]},UNITS=[3, 5, 10, 15, 20, 30, 50, 70, 100, 150, 200, 300, 500],AVG=11.7,MEAL=6,COSTAVG=2156;
+let mode='g';
+const up=x=>{for(const u of UNITS)if(u>=x-1e-9)return u;return Math.ceil(x/100)*100};
+const nextU=x=>{for(const u of UNITS)if(u>x+1e-9)return u;return x+100};
+const NV=id=>Math.max(0,+$(id).value||0);
+const mw=n=>man(n*1e4);
+const sg=n=>(n>=0?'+':'−')+mw(Math.abs(n));
+function calcG(){
+  const r=REL[$('rel').value],n=+$('att').value,m=NV('meal'),recv=NV('recv'),st=$('o-status');
+  let rec=n===0?r[2]:Math.max(r[3],up(n*m));const base=rec;if(recv>0)rec=Math.max(rec,up(recv));
+  $('o-total-l').textContent='추천 축의금';$('o-top').textContent=mw(rec);
+  $('o-range').textContent=mw(rec)+' ~ '+mw(nextU(rec));
+  const eat=n*m;$('g-eat').hidden=n===0;$('g-left').hidden=n===0;
+  $('o-eat').textContent=mw(eat);$('o-eatl').innerHTML='함께 먹는 식대<em>'+m+'만원 × '+n+'명</em>';
+  $('o-left').textContent=sg(rec-eat);$('o-avg').textContent=sg(rec-AVG);
+  const who=r[1];let s;
+  if(n===0)s=`${who} 결혼식에 가지 못하면 ${mw(rec)}을 계좌로 보내는 게 무난해요.`;
+  else s=`${who} 결혼식에 ${n===1?'혼자':n+'명이'} 간다면 ${mw(rec)}이 무난해요.`+(eat>=base&&n>1?` 함께 먹는 식대(${mw(eat)})를 넘기도록 맞췄어요.`:'');
+  if(recv>0)s+=rec>base?` 상대가 내 결혼식에 ${mw(recv)}을 냈으니 그만큼 맞췄어요. 몇 년 지났다면 한 단계 올려도 좋아요.`:` 상대가 낸 ${mw(recv)}보다 많아요.`;
+  st.className='status '+(n>0&&rec<eat?'warn':'ok');st.textContent=s;
+  document.querySelectorAll('#t-rel tr').forEach(t=>t.style.cssText=t.dataset.r===$('rel').value?'font-weight:700;color:var(--accent);background:var(--accent-soft)':'');
+}
+function calcC(){
+  const g=NV('guests'),e=NV('env'),m=NV('cmeal'),cost=g*m+NV('hall')+NV('sdm')+NV('etc'),inc=e*NV('gift'),net=inc-cost,st=$('o-status');
+  $('o-total-l').textContent=net>=0?'축의금으로 남는 돈':'우리가 더 내야 할 돈';$('o-top').textContent=mw(Math.abs(net));
+  $('o-cost').textContent=mw(cost);$('o-meals').textContent=mw(g*m);$('o-inc').textContent=mw(inc);
+  $('o-per').textContent=g>0?mw(cost/g):'-';$('o-be').textContent=e>0?mw(Math.ceil(cost/e*10)/10):'-';
+  $('o-vs').textContent=sg(cost-NV('etc')-COSTAVG);
+  if(g<=0){st.className='status warn';st.textContent='하객 수를 넣어 주세요.';return}
+  st.className='status '+(net>=0?'ok':'warn');
+  st.textContent=(net>=0?`축의금으로 결혼식 비용을 다 내고 ${mw(net)}이 남아요.`:`축의금만으로는 ${mw(-net)}이 모자라요.`)+(e>0?` 봉투 하나에 평균 ${mw(Math.ceil(cost/e*10)/10)} 이상 들어오면 본전이에요.`:'');
+}
+function calc(){mode==='g'?calcG():calcC()}
+const hints={g:'예시: 친구 결혼식에 혼자 가고, 1인 식대가 6만원(전국 중간가격)인 경우예요.',c:'예시: 하객 250명(봉투 200개), 식대 6만원, 스드메 292만원(소비자원 중간가격), 평균 축의금 11만 7천원이에요.'};
+function show(){document.querySelectorAll('[data-g]').forEach(x=>x.hidden=mode!=='g');document.querySelectorAll('[data-c]').forEach(x=>x.hidden=mode!=='c');$('ex-hint').textContent=hints[mode]}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));show();calc()}));
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{$('rel').value='friend';$('att').value='1';$('meal').value=6;$('recv').value=0;$('guests').value=250;$('env').value=200;$('cmeal').value=6;$('hall').value=300;$('sdm').value=292;$('etc').value=200;$('gift').value=11.7;calc()});
+show();calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
