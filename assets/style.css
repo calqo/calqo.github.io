@@ -261,3 +261,20 @@ form.panel .ftop button.reset:hover{color:var(--accent);background:var(--accent-
 /* v14: hidden 속성은 항상 숨김 (.row2 등 display 지정 요소 포함) · 세로 묶음 */
 [hidden]{display:none!important}
 .stack{display:flex;flex-direction:column;gap:12px}
+
+/* v29: 결과 이미지 저장 버튼·미리보기 창 */
+.share-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media (max-width:360px){.share-btns{grid-template-columns:1fr}}
+button.share:disabled{opacity:.6;cursor:progress}
+.imgm{position:fixed;inset:0;z-index:100;background:rgba(17,24,39,.55);display:grid;place-items:center;padding:16px}
+.imgm-b{background:var(--surface);border-radius:var(--r);box-shadow:var(--shadow);width:min(460px,100%);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;gap:12px;padding:16px}
+.imgm-h{display:flex;justify-content:space-between;align-items:center}
+.imgm-x{font:inherit;font-size:18px;background:none;border:0;color:var(--ink-3);cursor:pointer;padding:4px 8px;border-radius:8px}
+.imgm-p{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface-2);min-height:0;flex:1}
+.imgm-p img{display:block;width:100%;height:auto;-webkit-touch-callout:default}
+.imgm-t{margin:0;font-size:13px;color:var(--ink-3);text-align:center}
+.imgm-a{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.imgm-a .share{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-size:15px;font-weight:700;border:1px solid;border-radius:12px;padding:12px 14px;cursor:pointer;text-decoration:none;background:var(--accent);color:#fff;border-color:var(--accent)}
+.imgm-a .share:hover{color:#fff;opacity:.92}
+.imgm-a .imgm-s{background:#fee500;color:#191919;border-color:#fee500}
+.imgm-a .imgm-s:hover{color:#191919}
