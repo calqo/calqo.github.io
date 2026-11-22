@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>해외주식 양도세 계산기 · 연말 손실 정리 | 캘코</title>
+<meta name="description" content="미국주식 이익 250만원 넘으면 22%. 손실 종목을 같이 팔면 세금이 얼마 줄까? 12월 29일 마감, 환율 손익까지 계산해요.">
+<link rel="canonical" href="https://calqo.kr/us-stock-tax/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="해외주식 양도세 계산기 · 연말 손실 정리 | 캘코">
+<meta property="og:description" content="미국주식 이익 250만원 넘으면 22%. 손실 종목을 같이 팔면 세금이 얼마 줄까? 12월 29일 마감, 환율 손익까지 계산해요.">
+<meta property="og:url" content="https://calqo.kr/us-stock-tax/">
+<meta property="og:image" content="https://calqo.kr/assets/og/us-stock-tax.png?v=29">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="해외주식 양도세 계산기 · 연말 손실 정리 | 캘코">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="해외주식 양도세 계산기 · 연말 손실 정리 | 캘코">
+<meta name="twitter:description" content="미국주식 이익 250만원 넘으면 22%. 손실 종목을 같이 팔면 세금이 얼마 줄까? 12월 29일 마감, 환율 손익까지 계산해요.">
+<meta name="twitter:image" content="https://calqo.kr/assets/og/us-stock-tax.png?v=29">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax" class=on aria-current=page>세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#tax">세금</a></div>
+    <h1>해외주식 양도세 계산기 (연말 절세)</h1>
+    <p class="lead">올해 판 해외주식 이익과 물린 종목의 손실을 넣으면 그냥 둘 때와 손실 종목도 같이 팔 때 세금을 비교해요. 250만원 공제, 22% 세율, 환율 손익까지 계산하고 2026년으로 잡히는 마지막 매도일도 알려 드려요.</p>
+    <span class="tag">2026년 귀속 · 250만원 공제 · 22% · 2026년 11월 22일 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div><div class="hint" style="margin-bottom:6px">무엇을 계산할까요?</div>
+      <div class="seg" role="group" aria-label="계산 종류">
+        <button type="button" data-m="y" aria-pressed="true">올해 세금 · 연말 손실 정리</button>
+        <button type="button" data-m="f" aria-pressed="false">종목 하나, 환율까지</button>
+      </div></div>
+      <div data-y style="display:contents">
+      <label for="gain">올해 이미 판 해외주식 손익 (만원)<input id="gain" type="number" inputmode="decimal" step="any" value="1000"><span class="hint">결제 끝난 매도분의 이익−손실 합계, 손해면 −로</span></label>
+      <div class="row2">
+        <label for="more">연말까지 더 팔 종목 이익 (만원)<input id="more" type="number" inputmode="decimal" min="0" step="any" value="0"><span class="hint">수익 종목을 더 팔 계획이면</span></label>
+        <label for="loss">팔면 확정될 손실 (만원)<input id="loss" type="number" inputmode="decimal" min="0" step="any" value="400"><span class="hint">물린 종목의 평가손실, + 숫자로</span></label>
+      </div>
+      <details><summary>RIA(국내시장복귀계좌)로 판 이익이 있다면</summary>
+        <div style="margin-top:10px"><label for="ria">RIA 계좌에서 판 이익 (만원)<input id="ria" type="number" inputmode="decimal" min="0" step="any" value="0"><span class="hint">2026년 8~12월 결제분은 이익의 50%를 공제</span></label></div>
+      </details>
+      </div>
+      <div data-f style="display:contents" hidden>
+      <div class="row2">
+        <label for="bp">산 가격 (달러)<input id="bp" type="number" inputmode="decimal" min="0" step="any" value="150"></label>
+        <label for="q">수량 (주)<input id="q" type="number" inputmode="decimal" min="0" step="any" value="20"></label>
+      </div>
+      <div class="row2">
+        <label for="bfx">살 때 환율 (원)<input id="bfx" type="number" inputmode="decimal" min="0" step="any" value="1470"><span class="hint">1달러 = ○원</span></label>
+        <label for="cp">지금 가격 (달러)<input id="cp" type="number" inputmode="decimal" min="0" step="any" value="120"></label>
+      </div>
+      <div class="row2">
+        <label for="cfx">지금 환율 (원)<input id="cfx" type="number" inputmode="decimal" min="0" step="any" value="1335"><span class="hint">증권사 앱의 원/달러</span></label>
+        <label for="fee">매매 수수료율 (%)<input id="fee" type="number" inputmode="decimal" min="0" step="any" value="0.25"><span class="hint">증권사·이벤트마다 달라요</span></label>
+      </div>
+      </div>
+      <span class="hint" id="ex-hint"></span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>계산 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span id="o-tl">손실 종목도 같이 팔면 줄어드는 세금</span><b id="o-top"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines" data-y>
+        <div class="line"><span>그냥 두면 낼 세금<em id="o-t0n"></em></span><b id="o-t0"></b></div>
+        <div class="line"><span>손실 종목도 팔면 낼 세금<em id="o-t1n"></em></span><b id="o-t1"></b></div>
+        <div class="line"><span>세금 0원이 되는 손실<em>이만큼만 확정하면 충분해요</em></span><b id="o-need"></b></div>
+        <div class="line"><span>남은 250만원 공제<em>세금 없이 더 확정할 수 있는 이익</em></span><b id="o-room"></b></div>
+        <div class="line"><span>올해로 잡히는 마지막 매도<em>미국 현지 체결일, 증권사 공지 확인</em></span><b id="o-last"></b></div>
+        <div class="line"><span>신고·납부<em>홈택스 또는 증권사 신고 대행</em></span><b>2027년 5월 1일~31일</b></div>
+      </div>
+      <div class="lines" data-f hidden>
+        <div class="line"><span>원화 기준 수익률<em>수수료 포함</em></span><b id="o-krr"></b></div>
+        <div class="line"><span>달러 기준 수익률<em>주가만 봤을 때</em></span><b id="o-usr"></b></div>
+        <div class="line"><span>주가 변동 손익<em>환율이 그대로였다면</em></span><b id="o-px"></b></div>
+        <div class="line"><span>환율 변동 손익<em id="o-fxn"></em></span><b id="o-fx"></b></div>
+        <div class="line"><span>수수료<em>살 때 + 팔 때</em></span><b id="o-fee"></b></div>
+        <div class="line"><span>원화 본전 가격<em>지금 환율 그대로라면</em></span><b id="o-be"></b></div>
+        <div class="line"><span>지금 팔면 세금<em>올해 다른 매매가 없을 때</em></span><b id="o-tax"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>해외주식 양도세, 이렇게 계산해요</h2>
+    <ol>
+      <li><b>1년 동안 판 것을 모두 더해요.</b> 1월 1일~12월 31일에 결제된 해외주식 매도의 이익과 손실을 합쳐요(손익통산).</li>
+      <li><b>250만원을 빼요.</b> 1년에 한 번 받는 기본공제예요.</li>
+      <li><b>22%를 매겨요.</b> 양도소득세 20%에 지방소득세 2%(양도세의 10%)가 붙어요.</li>
+    </ol>
+    <p>모든 금액은 원화로 계산해요. 산 날과 판 날의 결제일 환율로 각각 바꾸기 때문에 <b>환율로 번 돈(환차익)도 이익</b>에 들어가요. 증권사 수수료는 필요경비로 빼 줘요.</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>1년 순이익</th><th>250만원 뺀 금액</th><th>세금(22%)</th></tr></thead>
+      <tbody><tr><td>250만원</td><td>0원</td><td><b>0원</b></td></tr><tr><td>500만원</td><td>250만원</td><td><b>55만원</b></td></tr><tr><td>1,000만원</td><td>750만원</td><td><b>165만원</b></td></tr><tr><td>2,000만원</td><td>1,750만원</td><td><b>385만원</b></td></tr><tr><td>3,000만원</td><td>2,750만원</td><td><b>605만원</b></td></tr><tr><td>5,000만원</td><td>4,750만원</td><td><b>1,045만원</b></td></tr><tr><td>1억원</td><td>9,750만원</td><td><b>2,145만원</b></td></tr></tbody>
+    </table></div>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>2026년 연말, 언제까지 팔아야 올해로 잡힐까</h2></summary><div class="sec-b">
+    <p>세금은 주문이 체결된 날이 아니라 <b>돈이 오가는 결제일</b> 기준이에요. 미국 주식은 국내 결제까지 체결 후 2영업일쯤 걸리고, 1월 1일은 휴일이라 연말에 하루만 늦어도 다음 해로 넘어가요.</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>미국 현지 체결일</th><th>국내 결제일</th><th>세금 계산</th></tr></thead>
+      <tbody>
+        <tr><td>12월 28일(월)</td><td>12월 30일(수)</td><td>2026년</td></tr>
+        <tr style="font-weight:700;color:var(--accent);background:var(--accent-soft)"><td>12월 29일(화)</td><td>12월 31일(목)</td><td>2026년 (마지막)</td></tr>
+        <tr><td>12월 30일(수)</td><td>2027년 1월 4일(월)</td><td>2027년</td></tr>
+      </tbody>
+    </table></div>
+    <p>미국 현지 12월 29일(화) 정규장은 한국 시간으로 12월 29일 밤 11시 30분에 열려 <b>12월 30일(수) 새벽 6시</b>에 끝나요. 증권사들은 보통 12월 중에 '연내 결제 마지막 거래일'을 공지하니, 쓰는 증권사 공지로 한 번 더 확인하세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>손실 종목을 같이 팔면 세금이 줄어요</h2></summary><div class="sec-b">
+    <p>올해 수익 난 종목을 팔아 이익이 확정됐다면, 손해 보고 있는 종목을 연말 전에 같이 팔아 손실을 확정하는 방법이 있어요. 이익과 손실이 합쳐져 세금을 매기는 금액이 줄어들기 때문이에요.</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>이익 1,000만원 확정</th><th>순이익</th><th>250만원 뺀 금액</th><th>세금</th></tr></thead>
+      <tbody><tr><td>수익 종목만 팔았을 때</td><td>1,000만원</td><td>750만원</td><td><b>165만원</b></td></tr><tr><td>손실 종목 400만원도 같이 팔면</td><td>600만원</td><td>350만원</td><td><b>77만원</b></td></tr><tr><td>손실 750만원을 같이 팔면</td><td>250만원</td><td>0원</td><td><b>0원</b></td></tr></tbody>
+    </table></div>
+    <ul>
+      <li><b>필요한 만큼만:</b> 남는 손실은 다음 해로 넘어가지 않아요. 순이익이 250만원 이하가 되면 세금이 0원이라, 그 이상 손실을 확정해도 이번 세금은 더 줄지 않아요.</li>
+      <li><b>팔고 다시 사기:</b> 국내 세법에는 손실 확정 후 바로 다시 사는 것을 막는 규정이 없어요. 대신 수수료·환전 비용이 들고, 다시 사는 사이 가격과 환율이 움직일 수 있어요.</li>
+      <li><b>무엇과 합쳐지나:</b> 해외주식끼리, 그리고 대주주·비상장처럼 세금을 내는 국내 주식과 합쳐져요. 세금이 없는 국내 상장주식(소액주주) 손실은 합쳐지지 않아요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>이익이 250만원보다 적다면</h2></summary><div class="sec-b">
+    <p>올해 순이익이 250만원보다 적으면 남은 공제가 그냥 사라져요. 수익 난 종목을 남은 공제만큼 팔았다가 다시 사면, 세금 없이 이익을 확정하고 사는 가격(취득가)이 올라가 나중에 팔 때 세금이 줄어요. 계산기의 '남은 250만원 공제'가 그 금액이에요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>RIA(국내시장복귀계좌)를 쓴다면</h2></summary><div class="sec-b">
+    <p>2026년에만 있는 제도예요. 2025년 12월 23일 이전부터 가진 해외주식을 RIA 계좌로 옮겨 팔고, 그 돈을 국내 주식·국내 주식형 펀드·예수금으로 1년 이상 두면 양도세를 깎아 줘요.</p>
+    <ul>
+      <li><b>공제율:</b> 결제일 기준 5월 말까지 100%, 7월 말까지 80%, <b>8월~12월 31일 50%</b>예요. 지금 팔면 RIA에서 판 이익의 50%를 공제해요.</li>
+      <li><b>한도:</b> RIA에서 팔 수 있는 금액은 모든 증권사를 합쳐 1인 5천만원이에요.</li>
+      <li><b>주의:</b> 다른 계좌에서 해외주식을 새로 사면 그 금액만큼 공제가 줄어요. 공제는 손익통산과 250만원 공제 뒤 마지막에 빼요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>신고와 증여할 때 주의할 점</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>신고:</b> 2026년 결제분은 <b>2027년 5월 1일~31일</b>에 홈택스로 직접 신고·납부해요. 많은 증권사가 3~4월에 무료 신고 대행을 받아요.</li>
+      <li><b>배우자 증여:</b> 배우자는 10년 동안 6억원까지 증여세 없이 줄 수 있어 이익 난 주식을 증여한 뒤 파는 방법이 알려져 있어요. 다만 증여받고 1년 안에 팔면 원래 산 가격으로 계산해 효과가 없어요. <a href="/gift-tax/">증여세 계산기</a>로 공제 한도를 확인해 보세요.</li>
+      <li><b>국내 주식은?</b> 국내 상장주식은 한 종목을 50억원 이상 가진 대주주가 아니면 팔 때 양도세가 없어요(2026년 11월 22일 기준).</li>
+    </ul>
+    <p>주식이 떨어져 고민이라면 <a href="/loss-recovery/">주식 손실 회복 계산기</a>로 본전까지 몇 % 올라야 하는지, <a href="/average-price/">평단가 계산기</a>로 물타기 후 평단가를 확인해 보세요. 이 계산기는 세금 계산을 돕는 도구이며 특정 종목의 매수·매도를 권하지 않아요.</p>
+    <p class="hint">기준: 소득세법 제94조(국외주식 양도소득)·제98조(양도 시기)·제103조(기본공제)·제104조(세율), 조세특례제한법 국내시장복귀계좌 과세특례(2026), 증권사 RIA 안내(공제율·5천만원 한도), 삼성증권 '2025년 해외주식 양도소득세 마지막 거래일 일정 안내'(결제일 계산 방식). 실제 세액은 증권사 양도소득 내역과 환율에 따라 달라질 수 있어요.</p>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>해외주식 양도세는 얼마부터 내나요?</summary><p>1년 동안 해외주식으로 번 돈(이익−손실)이 250만원을 넘으면, 넘는 부분에 22%(양도소득세 20% + 지방소득세 2%)를 내요. 이익이 1,000만원이면 750만원의 22%인 165만원이에요.</p></details><details><summary>12월 31일에 팔면 2026년 거래로 잡히나요?</summary><p>아니요. 세금은 체결일이 아니라 결제일 기준이에요. 미국 주식은 국내 결제가 체결 후 2영업일쯤 걸려서, 2026년에는 미국 현지 12월 29일(화)까지 체결돼야 올해로 잡혀요. 증권사가 12월에 공지하는 &#x27;연내 결제 마지막 거래일&#x27;을 꼭 확인하세요.</p></details><details><summary>손실 난 종목을 팔고 바로 다시 사도 되나요?</summary><p>국내 세법에는 미국의 워시세일 같은 재매수 제한 규정이 없어서, 팔아서 손실을 확정한 뒤 다시 사는 경우가 많아요. 다만 수수료·환전 비용이 들고, 다시 사는 사이 가격과 환율이 움직일 수 있어요.</p></details><details><summary>남는 손실은 내년으로 넘길 수 있나요?</summary><p>넘길 수 없어요. 해외주식 손실은 그해 이익하고만 합칠 수 있어서, 세금을 0원으로 만드는 데 필요한 만큼만 확정하면 충분해요. 계산기의 &#x27;세금 0원이 되는 손실&#x27;이 그 금액이에요.</p></details><details><summary>환율이 올라도 세금이 늘어나나요?</summary><p>네. 살 때와 팔 때 각각 결제일 환율로 원화로 바꿔 계산해서, 주가가 그대로여도 환율이 오르면 이익(환차익)이 생기고 세금도 붙어요. 반대로 환율이 내리면 손실이 커져요.</p></details><details><summary>국내 증시에 상장된 미국 ETF도 이 계산기로 되나요?</summary><p>아니요. 국내 상장 해외 ETF는 팔 때 이익에 배당소득세 15.4%가 붙고, 250만원 공제나 손익통산이 없어요. 이 계산기는 미국 증시 등 해외에 직접 상장된 주식·ETF용이에요.</p></details><details><summary>신고는 증권사가 해 주나요?</summary><p>해외주식 양도세는 직접 신고가 원칙이에요. 2027년 5월 1일~31일에 홈택스로 신고·납부하고, 많은 증권사가 봄에 무료 신고 대행 신청을 받아요. 이익이 250만원 이하라 낼 세금이 0원이면 가산세도 없어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "해외주식 양도세는 얼마부터 내나요?", "acceptedAnswer": {"@type": "Answer", "text": "1년 동안 해외주식으로 번 돈(이익−손실)이 250만원을 넘으면, 넘는 부분에 22%(양도소득세 20% + 지방소득세 2%)를 내요. 이익이 1,000만원이면 750만원의 22%인 165만원이에요."}}, {"@type": "Question", "name": "12월 31일에 팔면 2026년 거래로 잡히나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 세금은 체결일이 아니라 결제일 기준이에요. 미국 주식은 국내 결제가 체결 후 2영업일쯤 걸려서, 2026년에는 미국 현지 12월 29일(화)까지 체결돼야 올해로 잡혀요. 증권사가 12월에 공지하는 '연내 결제 마지막 거래일'을 꼭 확인하세요."}}, {"@type": "Question", "name": "손실 난 종목을 팔고 바로 다시 사도 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "국내 세법에는 미국의 워시세일 같은 재매수 제한 규정이 없어서, 팔아서 손실을 확정한 뒤 다시 사는 경우가 많아요. 다만 수수료·환전 비용이 들고, 다시 사는 사이 가격과 환율이 움직일 수 있어요."}}, {"@type": "Question", "name": "남는 손실은 내년으로 넘길 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "넘길 수 없어요. 해외주식 손실은 그해 이익하고만 합칠 수 있어서, 세금을 0원으로 만드는 데 필요한 만큼만 확정하면 충분해요. 계산기의 '세금 0원이 되는 손실'이 그 금액이에요."}}, {"@type": "Question", "name": "환율이 올라도 세금이 늘어나나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 살 때와 팔 때 각각 결제일 환율로 원화로 바꿔 계산해서, 주가가 그대로여도 환율이 오르면 이익(환차익)이 생기고 세금도 붙어요. 반대로 환율이 내리면 손실이 커져요."}}, {"@type": "Question", "name": "국내 증시에 상장된 미국 ETF도 이 계산기로 되나요?", "acceptedAnswer": {"@type": "Answer", "text": "아니요. 국내 상장 해외 ETF는 팔 때 이익에 배당소득세 15.4%가 붙고, 250만원 공제나 손익통산이 없어요. 이 계산기는 미국 증시 등 해외에 직접 상장된 주식·ETF용이에요."}}, {"@type": "Question", "name": "신고는 증권사가 해 주나요?", "acceptedAnswer": {"@type": "Answer", "text": "해외주식 양도세는 직접 신고가 원칙이에요. 2027년 5월 1일~31일에 홈택스로 신고·납부하고, 많은 증권사가 봄에 무료 신고 대행 신청을 받아요. 이익이 250만원 이하라 낼 세금이 0원이면 가산세도 없어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-22</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/loss-recovery/" data-k="주식 손실 회복 계산기 −30%면 몇 % 올라야 본전? 회복 기간과 물타기 후 필요한 상승률 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>주식 손실 회복 계산기</strong><span>−30%면 몇 % 올라야 본전? 회복 기간과 물타기 후 필요한 상승률 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/average-price/" data-k="평단가 계산기 (물타기) 추가 매수 후 평균 단가와 목표 평단 수량 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>평단가 계산기 (물타기)</strong><span>추가 매수 후 평균 단가와 목표 평단 수량 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/pension-tax-credit/" data-k="연금저축·IRP 세액공제 계산기 연말까지 얼마 더 넣으면 얼마 돌려받는지 16.5%·13.2%로 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>연금저축·IRP 세액공제 계산기</strong><span>연말까지 얼마 더 넣으면 얼마 돌려받는지 16.5%·13.2%로 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+let mode='y';
+const NV=id=>{const v=parseFloat($(id).value);return isFinite(v)?v:0};
+const PV=id=>Math.max(0,NV(id));
+const tax=b=>{b=Math.max(0,b);const t=Math.floor(b*0.2);return t+Math.floor(t*0.1)};
+const sgn=n=>(n>0?'+':n<0?'−':'')+man(Math.abs(n));
+const pct=n=>(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(1)+'%';
+const nf=n=>n.toLocaleString('ko-KR',{maximumFractionDigits:2});
+const DL=new Date('2026-12-30T06:00:00+09:00');
+const dday=()=>{const d=Math.ceil((DL-new Date())/864e5);return d>0?'D-'+d:(d===0?'오늘 새벽 마감':'올해 마감 지남')};
+function calcY(){
+  const B=2.5e6,G=NV('gain')*1e4,M=PV('more')*1e4,L=PV('loss')*1e4,rd=PV('ria')*1e4*0.5;
+  const g0=G+M,g1=g0-L,t0=tax(g0-B-rd),t1=tax(g1-B-rd),save=t0-t1;
+  const need=Math.max(0,g0-B-rd),room=Math.max(0,B+rd-g1);
+  $('o-sub').textContent='2026년 결제분';
+  $('o-tl').textContent=L>0&&t0>0?'손실 종목도 같이 팔면 줄어드는 세금':'올해 해외주식 양도세';
+  $('o-top').textContent=man(L>0&&t0>0?save:t1);
+  $('o-t0').textContent=man(t0);$('o-t0n').textContent='이익 '+sgn(g0)+' − 공제 250만원'+(rd?' − RIA '+man(rd):'');
+  $('o-t1').textContent=L>0?man(t1):'—';$('o-t1n').textContent=L>0?'이익 '+sgn(g1)+'으로 줄어요':'팔 손실을 넣어 주세요';
+  $('o-need').textContent=need>0?man(need):'필요 없어요';
+  $('o-room').textContent=room>0?man(room):'다 썼어요';
+  $('o-last').textContent='12/29(화) · '+dday();
+  const st=$('o-status');let s;
+  if(t0===0){s=`올해는 낼 세금이 없어요.`+(room>0?` 수익 난 종목을 ${man(room)}어치 이익만큼 더 팔아도 세금이 0원이에요. 팔고 다시 사면 사는 가격(취득가)이 올라가 내년 세금이 줄어요.`:'');st.className='status ok'}
+  else if(L>0){s=`손실 종목을 같이 팔면 세금이 ${man(t0)}에서 ${man(t1)}으로 ${man(save)} 줄어요.`+(L>need?` 세금을 0원으로 만드는 데는 손실 ${man(need)}만 확정해도 충분해요. 남는 손실은 내년으로 넘어가지 않아요.`:'');st.className='status ok'}
+  else{s=`이익 ${man(g0)}에서 250만원을 빼고 22%를 매겨 ${man(t0)}을 내요. 손해 보고 있는 종목이 있다면 '팔면 확정될 손실'에 넣어 보세요.`;st.className='status warn'}
+  st.textContent=s+` 올해로 잡으려면 미국 현지 12월 29일(화), 한국 시간 12월 30일(수) 새벽 6시까지 팔아야 해요.`;
+}
+function calcF(){
+  const bp=PV('bp'),q=PV('q'),bfx=PV('bfx'),cp=PV('cp'),cfx=PV('cfx'),fr=PV('fee')/100,st=$('o-status');
+  if(!bp||!q||!bfx||!cp||!cfx){st.className='status warn';st.textContent='가격·수량·환율을 모두 넣어 주세요.';$('o-top').textContent='—';return}
+  const buy=bp*q*bfx,sell=cp*q*cfx,fee=buy*fr+sell*fr,pl=sell-buy-fee,px=(cp-bp)*q*bfx,fx=cp*q*(cfx-bfx);
+  const usr=(cp/bp-1)*100,krr=pl/buy*100,be=buy*(1+fr)/(q*cfx*(1-fr)),tx=pl>0?tax(pl-2.5e6):0;
+  $('o-sub').textContent=nf(q)+'주';
+  $('o-tl').textContent=pl>=0?'원화 기준 이익':'원화 기준 손실';$('o-top').textContent=sgn(pl);
+  $('o-krr').textContent=pct(krr);$('o-usr').textContent=pct(usr);$('o-px').textContent=sgn(px);
+  $('o-fx').textContent=sgn(fx);$('o-fxn').textContent='환율 '+nf(bfx)+'원 → '+nf(cfx)+'원';
+  $('o-fee').textContent=man(fee);$('o-be').textContent='$'+nf(Math.ceil(be*100)/100);
+  $('o-tax').textContent=pl>0?man(tx):'없음 (손실)';
+  const d=cfx-bfx;let s=`달러로는 ${pct(usr)}, 원화로는 ${pct(krr)}예요.`;
+  if(Math.abs(d)>=1)s+=` 살 때보다 환율이 ${nf(Math.abs(d))}원 ${d>0?'올라서(원화 약세) 원화 수익이 늘었어요':'내려서(원화 강세) 원화로는 그만큼 손해가 커졌어요'}.`;
+  s+=pl<0?` 올해 이익 난 해외주식이 있다면, 이 손실 ${man(-pl)}을 같이 확정해 세금을 줄일 수 있어요.`:` 올해 다른 매매가 없다면 250만원을 빼고 22%, ${man(tx)}을 내요.`;
+  st.className='status '+(pl<0?'warn':'ok');st.textContent=s;
+}
+function calc(){mode==='y'?calcY():calcF()}
+const hints={y:'예시: 올해 수익 난 종목을 팔아 이익 1,000만원이 확정됐고, 들고 있는 종목 중 400만원 손해 보고 있는 경우예요.',f:'예시: 환율 1,470원일 때 150달러에 20주를 샀는데, 지금 120달러에 환율이 1,335원인 경우예요.'};
+function show(){document.querySelectorAll('[data-y]').forEach(x=>x.hidden=mode!=='y');document.querySelectorAll('[data-f]').forEach(x=>x.hidden=mode!=='f');$('ex-hint').textContent=hints[mode]}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));show();calc()}));
+document.querySelectorAll('form input,form select').forEach(el=>{el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{const d={gain:1000,more:0,loss:400,ria:0,bp:150,q:20,bfx:1470,cp:120,cfx:1335,fee:0.25};for(const k in d)$(k).value=d[k];calc()});
+if(new URLSearchParams(location.search).get('m')==='f'){mode='f';document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x.dataset.m==='f'))}
+show();calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const sb=document.getElementById('share'),slip=document.querySelector('.slip');if(!sb||!slip||!window.HTMLCanvasElement)return;
+// v29: 결과 이미지 저장 — 결과 칸을 1080px 카드 이미지로 그려서 저장·공유해요
+const row=sb.parentNode,wrap=document.createElement('div');wrap.className='share-btns';row.insertBefore(wrap,sb);wrap.appendChild(sb);
+const ib=document.createElement('button');ib.type='button';ib.className='share';ib.id='saveimg';
+ib.innerHTML='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>결과 이미지 저장';wrap.appendChild(ib);
+sb.lastChild.textContent='결과 링크 공유';
+const vis=e=>e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
+const txt=e=>{if(!e)return'';const c=e.cloneNode(true);c.querySelectorAll('em,button,.tip,svg').forEach(x=>x.remove());return c.textContent.replace(/\s+/g,' ').trim()};
+const slug=location.pathname.replace(/^\/|\/$/g,'')||'calqo';
+let logo=null;const li=new Image();li.onload=()=>logo=li;li.src='/assets/logo-180.png';
+function collect(){
+  const h=document.querySelector('h1'),s=document.querySelector('.seg button[aria-pressed="true"]'),h2=slip.querySelector('h2');
+  const d={title:txt(h),mode:s?txt(s):'',sub:h2?txt(h2.querySelector('small')):'',totals:[],status:[],lines:[],bars:[]};
+  slip.querySelectorAll('.total').forEach(t=>{if(vis(t))d.totals.push([txt(t.querySelector('span')),txt(t.querySelector('b'))])});
+  slip.querySelectorAll('.status').forEach(t=>{const x=txt(t);if(x&&vis(t))d.status.push([x,t.classList.contains('warn')])});
+  slip.querySelectorAll('.bar i').forEach(i=>{if(vis(i.parentNode))d.bars.push(Math.max(0,Math.min(100,parseFloat(i.style.width)||0)))});
+  slip.querySelectorAll('.line').forEach(l=>{if(!vis(l))return;const sp=l.querySelector('span'),b=l.querySelector(':scope>b');const v=txt(b);if(!v)return;
+    d.lines.push([txt(sp),sp&&sp.querySelector('em')?sp.querySelector('em').textContent.trim():'',v])});
+  d.lines=d.lines.slice(0,12);return d}
+function render(d){
+  const W=1080,P=64,F=getComputedStyle(document.body).fontFamily,c=document.createElement('canvas'),x=c.getContext('2d');
+  const C={bg:'#fffaf7',card:'#ffffff',ink:'#111827',ink2:'#4b5563',ink3:'#6b7280',acc:'#c4512f',brand:'#e56a48',soft:'#fdeee8',line:'#eee3de',ok:'#15803d',warn:'#b45309'};
+  const fnt=(w,s)=>w+' '+s+'px '+F;
+  const wrap=(t,f,mw)=>{x.font=f;const out=[];let cur='';for(const ch of t.split(/(\s+)/)){const tt=cur+ch;if(x.measureText(tt).width<=mw||!cur.trim()){cur=tt;while(x.measureText(cur).width>mw){let i=cur.length;while(i>1&&x.measureText(cur.slice(0,i)).width>mw)i--;out.push(cur.slice(0,i));cur=cur.slice(i)}}else{out.push(cur.trim());cur=ch.trim()}}if(cur.trim())out.push(cur.trim());return out};
+  const rr=(x0,y0,w,h,r,fill)=>{x.beginPath();x.moveTo(x0+r,y0);x.arcTo(x0+w,y0,x0+w,y0+h,r);x.arcTo(x0+w,y0+h,x0,y0+h,r);x.arcTo(x0,y0+h,x0,y0,r);x.arcTo(x0,y0,x0+w,y0,r);x.closePath();x.fillStyle=fill;x.fill()};
+  function pass(draw){let y=P;const T=(t,f,col,X,Y,al)=>{if(!draw)return;x.font=f;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='top';x.fillText(t,X,Y)};
+    // 머리
+    if(draw&&logo)x.drawImage(logo,P,y,56,56);
+    T('캘코',fnt(800,32),C.ink,P+70,y+8);x.font=fnt(800,32);const lw=x.measureText('캘코').width;T('calqo.kr',fnt(500,26),C.ink3,P+82+lw,y+14);
+    const dt=new Date(),ds=dt.getFullYear()+'.'+String(dt.getMonth()+1).padStart(2,'0')+'.'+String(dt.getDate()).padStart(2,'0')+' 계산';T(ds,fnt(500,24),C.ink3,W-P,y+16,'right');
+    y+=96;
+    // 카드
+    const cy=y,cx=P-8,cw=W-2*(P-8);if(draw){x.save();x.shadowColor='rgba(17,24,39,.08)';x.shadowBlur=30;x.shadowOffsetY=8;rr(cx,cy,cw,d._h||10,36,C.card);x.restore()}
+    y+=48;const L=P+32,R=W-P-32,IW=R-L;
+    for(const l of wrap(d.title,fnt(800,48),IW)){T(l,fnt(800,48),C.ink,L,y);y+=64}
+    const tag=[d.mode,d.sub].filter(Boolean).join(' · ');if(tag){y+=4;for(const l of wrap(tag,fnt(600,28),IW)){T(l,fnt(600,28),C.ink3,L,y);y+=40}}
+    y+=20;
+    d.totals.forEach(([lab,val])=>{let vs=76;x.font=fnt(800,vs);while(x.measureText(val).width>IW-56&&vs>40){vs-=4;x.font=fnt(800,vs)}
+      const ll=wrap(lab,fnt(700,32),IW-56),h=40+ll.length*44+vs*1.15+36;if(draw)rr(L,y,IW,h,28,C.soft);let yy=y+36;
+      ll.forEach(l=>{T(l,fnt(700,32),C.ink,L+28,yy);yy+=44});T(val,fnt(800,vs),C.acc,L+28,yy+4);y+=h+20});
+    d.bars.forEach(p=>{if(draw){rr(L,y,IW,22,11,'#f1e7e3');if(p>0)rr(L,y,Math.max(22,IW*p/100),22,11,C.brand)}y+=44});
+    d.status.forEach(([s,w])=>{const ll=wrap(s,fnt(600,28),IW-48),h=ll.length*42+36;if(draw)rr(L,y,IW,h,22,w?'#fdf3e4':'#e9f6ee');let yy=y+18;ll.forEach(l=>{T(l,fnt(600,28),w?C.warn:C.ok,L+24,yy);yy+=42});y+=h+20});
+    if(d.lines.length){y+=6;d.lines.forEach(([lab,em,val],i)=>{x.font=fnt(700,32);let vw=Math.min(x.measureText(val).width,IW*.55);
+      const ll=wrap(lab,fnt(500,30),IW-vw-28),el=em?wrap(em,fnt(500,23),IW-vw-28):[];const h=Math.max(ll.length*42+el.length*32,42)+36;
+      let yy=y+18;ll.forEach(l=>{T(l,fnt(500,30),C.ink2,L,yy);yy+=42});el.forEach(l=>{T(l,fnt(500,23),C.ink3,L,yy);yy+=32});
+      let vs=32;x.font=fnt(700,vs);while(x.measureText(val).width>IW*.55&&vs>20){vs-=2;x.font=fnt(700,vs)}T(val,fnt(700,vs),C.ink,R,y+18+(32-vs)/2,'right');
+      y+=h;if(draw&&i<d.lines.length-1){x.fillStyle=C.line;x.fillRect(L,y,IW,2)}})}
+    y+=40;d._h=y-cy;y+=40;
+    // 꼬리
+    const fy=y;if(draw)rr(P-8,fy,W-2*(P-8),132,30,C.brand);
+    T('내 조건으로 계산해 보기',fnt(700,28),'#ffe7dd',P+24,fy+26);T('calqo.kr/'+slug,fnt(800,40),'#ffffff',P+24,fy+66);
+    y+=132+28;T('계산 결과는 참고용이에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인하세요.',fnt(500,22),C.ink3,W/2,y,'center');y+=30+P-20;return y}
+  const H=Math.ceil(pass(false));c.width=W;c.height=H;x.fillStyle=C.bg;x.fillRect(0,0,W,H);pass(true);return c}
+function modal(c,file){
+  const m=document.createElement('div');m.className='imgm';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','결과 이미지');
+  const canShare=navigator.canShare&&navigator.canShare({files:[file]});
+  m.innerHTML='<div class="imgm-b"><div class="imgm-h"><b>결과 이미지</b><button type="button" class="imgm-x" aria-label="닫기">✕</button></div><div class="imgm-p"><img alt="계산 결과 이미지"></div><p class="imgm-t">저장이 안 되면 이미지를 <b>길게 눌러</b> 저장하세요.</p><div class="imgm-a"><a class="share" download></a>'+(canShare?'<button type="button" class="share imgm-s">카톡·메신저로 보내기</button>':'')+'</div></div>';
+  m.querySelector('img').src=c.toDataURL('image/png');
+  const a=m.querySelector('a[download]'),u=URL.createObjectURL(file);a.href=u;a.download=file.name;a.textContent='이미지 저장하기';
+  const close=()=>{m.remove();URL.revokeObjectURL(u);document.removeEventListener('keydown',k);ib.focus()},k=e=>{if(e.key==='Escape')close()};
+  m.addEventListener('click',e=>{if(e.target===m||e.target.closest('.imgm-x'))close()});document.addEventListener('keydown',k);
+  const s=m.querySelector('.imgm-s');if(s)s.addEventListener('click',async()=>{try{await navigator.share({files:[file],title:document.title})}catch(_){}});
+  document.body.appendChild(m);m.querySelector('.imgm-x').focus()}
+ib.addEventListener('click',async()=>{ib.disabled=true;try{try{await document.fonts.ready}catch(_){}
+  const d=collect();if(!d.totals.length&&!d.lines.length){ib.disabled=false;return}
+  const c=render(d);c.toBlob(bl=>{ib.disabled=false;if(!bl)return;const t=new Date();
+    const f=new File([bl],'calqo-'+slug+'-'+t.getFullYear()+String(t.getMonth()+1).padStart(2,'0')+String(t.getDate()).padStart(2,'0')+'.png',{type:'image/png'});modal(c,f)},'image/png')}
+  catch(e){ib.disabled=false;console.error(e)}});
+})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/home-money/">집 사기 돈 총정리</a></li><li><a href="/stats/">숫자로 보는 통계</a></li><li><a href="/wedding-money/">결혼 준비 돈 총정리</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>

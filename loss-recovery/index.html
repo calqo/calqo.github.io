@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>주식 손실 회복 계산기 · 본전까지 몇 % | 캘코</title>
+<meta name="description" content="−30%면 +42.9%, 반토막이면 +100%. 내 주식이 본전까지 몇 % 올라야 하는지, 회복 기간과 물타기 효과를 계산해요.">
+<link rel="canonical" href="https://calqo.kr/loss-recovery/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="주식 손실 회복 계산기 · 본전까지 몇 % | 캘코">
+<meta property="og:description" content="−30%면 +42.9%, 반토막이면 +100%. 내 주식이 본전까지 몇 % 올라야 하는지, 회복 기간과 물타기 효과를 계산해요.">
+<meta property="og:url" content="https://calqo.kr/loss-recovery/">
+<meta property="og:image" content="https://calqo.kr/assets/og/loss-recovery.png?v=29">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="주식 손실 회복 계산기 · 본전까지 몇 % | 캘코">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="주식 손실 회복 계산기 · 본전까지 몇 % | 캘코">
+<meta name="twitter:description" content="−30%면 +42.9%, 반토막이면 +100%. 내 주식이 본전까지 몇 % 올라야 하는지, 회복 기간과 물타기 효과를 계산해요.">
+<meta name="twitter:image" content="https://calqo.kr/assets/og/loss-recovery.png?v=29">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan" class=on aria-current=page>대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life">생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#loan">대출·금융</a></div>
+    <h1>주식 손실 회복 계산기</h1>
+    <p class="lead">평단가와 지금 가격을 넣으면 본전까지 몇 % 올라야 하는지, 매년 일정하게 오른다면 몇 년 걸리는지 계산해요. 물타기로 더 사면 필요한 상승률이 얼마나 줄어드는지도 바로 비교해요.</p>
+    <span class="tag">−30%면 +42.9% · 회복 기간 · 물타기 비교</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <p class="hint" style="margin:0">가격은 원이든 달러든 같은 단위로 넣으면 돼요. 소수점도 넣을 수 있어요.</p>
+      <div class="row2">
+        <label for="avg">평단가 (산 가격)<input id="avg" type="number" inputmode="decimal" min="0" step="any" value="100000"></label>
+        <label for="cur">지금 가격<input id="cur" type="number" inputmode="decimal" min="0" step="any" value="65000"></label>
+      </div>
+      <div class="row2">
+        <label for="qty">보유 수량 (선택)<input id="qty" type="number" inputmode="decimal" min="0" step="any" value="10"><span class="hint">넣으면 손실 금액도 보여 줘요</span></label>
+        <label for="g">매년 오른다고 가정 (%)<input id="g" type="number" inputmode="decimal" min="0" step="any" value="8"><span class="hint">회복 기간을 가늠하는 예시 값</span></label>
+      </div>
+      <details><summary>물타기하면 본전이 얼마나 가까워질까?</summary>
+        <div class="row2" style="margin-top:10px">
+          <label for="aq">추가로 살 수량<input id="aq" type="number" inputmode="decimal" min="0" step="any" value="0"></label>
+          <label for="ap">추가로 살 가격<input id="ap" type="number" inputmode="decimal" min="0" step="any" value=""><span class="hint">비우면 지금 가격</span></label>
+        </div>
+      </details>
+      <span class="hint">예시: 10만원에 산 주식이 6만 5천원(−35%)이 된 경우예요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>계산 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span>본전까지 필요한 상승률</span><b id="o-top"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines">
+        <div class="line"><span>지금 손익률</span><b id="o-now"></b></div>
+        <div class="line"><span>손실 금액<em id="o-pln"></em></span><b id="o-pl"></b></div>
+        <div class="line"><span id="o-yl">매년 8%씩 오르면 본전까지</span><b id="o-y"></b></div>
+        <div class="line"><span>물타기 후 새 평단가<em id="o-navn">추가 수량을 넣어 주세요</em></span><b id="o-nav"></b></div>
+        <div class="line"><span>물타기 후 필요한 상승률</span><b id="o-nneed"></b></div>
+        <div class="line"><span>추가로 들어가는 돈</span><b id="o-add"></b></div>
+      </div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>왜 떨어진 것보다 더 올라야 본전일까</h2>
+    <p>100원이 50원이 되면 −50%지만, 50원이 다시 100원이 되려면 50원을 벌어야 해서 <b>+100%</b>가 필요해요. 오를 때는 이미 줄어든 금액을 기준으로 계산하기 때문이에요. 본전까지 필요한 상승률은 <b>평단가 ÷ 지금 가격 − 1</b>이에요.</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>하락</th><th>본전까지</th><th>매년 5%</th><th>매년 8%</th><th>매년 10%</th></tr></thead>
+      <tbody id="t-lr"><tr data-d="10"><td>−10%</td><td><b>+11.1%</b></td><td>2년 2개월</td><td>1년 5개월</td><td>1년 2개월</td></tr><tr data-d="20"><td>−20%</td><td><b>+25.0%</b></td><td>4년 7개월</td><td>2년 11개월</td><td>2년 5개월</td></tr><tr data-d="30"><td>−30%</td><td><b>+42.9%</b></td><td>7년 4개월</td><td>4년 8개월</td><td>3년 9개월</td></tr><tr data-d="40"><td>−40%</td><td><b>+66.7%</b></td><td>10년 6개월</td><td>6년 8개월</td><td>5년 5개월</td></tr><tr data-d="50"><td>−50%</td><td><b>+100.0%</b></td><td>14년 3개월</td><td>9년 1개월</td><td>7년 4개월</td></tr><tr data-d="60"><td>−60%</td><td><b>+150.0%</b></td><td>18년 10개월</td><td>11년 11개월</td><td>9년 8개월</td></tr><tr data-d="70"><td>−70%</td><td><b>+233.3%</b></td><td>24년 9개월</td><td>15년 8개월</td><td>12년 8개월</td></tr><tr data-d="80"><td>−80%</td><td><b>+400.0%</b></td><td>33년</td><td>20년 11개월</td><td>16년 11개월</td></tr><tr data-d="90"><td>−90%</td><td><b>+900.0%</b></td><td>47년 3개월</td><td>30년</td><td>24년 2개월</td></tr></tbody>
+    </table></div>
+    <p>−20%까지는 비슷하게 회복하면 되지만, −50%를 넘으면 필요한 상승률이 빠르게 커져요. 매년 일정하게 오른다는 건 계산을 위한 가정이고, 실제 주가는 오르내림을 반복해요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>역대 큰 하락, 회복까지 얼마나 걸렸나</h2></summary><div class="sec-b">
+    <p>대표 지수가 고점에서 바닥까지 떨어졌다가 <b>다시 고점을 넘을 때까지</b> 걸린 대략의 기간이에요(종가 기준, 배당 제외).</p>
+    <div class="tbl"><table style="min-width:0;font-size:14px">
+      <thead><tr><th>사건</th><th>지수</th><th>하락</th><th>고점 회복</th><th>걸린 기간</th></tr></thead>
+      <tbody><tr><td>닷컴 버블 붕괴</td><td>나스닥 종합</td><td>−78%</td><td>2015년 4월</td><td><b>약 15년</b></td></tr><tr><td>글로벌 금융위기</td><td>S&P 500</td><td>−57%</td><td>2013년 3월</td><td><b>약 5년 5개월</b></td></tr><tr><td>글로벌 금융위기</td><td>코스피</td><td>−55%</td><td>2011년 초</td><td><b>약 3년</b></td></tr><tr><td>코로나19 급락</td><td>S&P 500</td><td>−34%</td><td>2020년 8월</td><td><b>약 6개월</b></td></tr><tr><td>금리 인상기</td><td>S&P 500</td><td>−25%</td><td>2024년 1월</td><td><b>약 2년</b></td></tr></tbody>
+    </table></div>
+    <p>2026년 11월에는 AI 기술주 고평가 우려로 나스닥이 11월 5일 하루 5.52% 떨어지며 10월 고점보다 11.9% 낮아졌고, 코스피는 11월 17일까지 한 달 동안 13.3% 하락했어요. 지수는 길게 보면 회복해 왔지만 <b>개별 종목은 다시 고점을 못 넘는 경우도 많아요.</b> 회사 실적과 내 투자 비중을 같이 따져 보세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>물타기 전에 확인할 것</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>손실 금액은 그대로예요.</b> 더 사면 평단가와 필요한 상승률은 내려가지만, 이미 난 손실은 줄지 않고 투자 금액만 커져요.</li>
+      <li><b>더 떨어질 때를 생각하세요.</b> 같은 비율로 더 하락하면 늘어난 돈만큼 손실도 커져요. 생활비·비상금은 남겨 두세요.</li>
+      <li><b>목표 평단가 역산:</b> 원하는 평단가까지 몇 주를 더 사야 하는지는 <a href="/average-price/">평단가 계산기</a>에서 계산할 수 있어요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>해외주식 손실은 세금을 줄이는 데 쓸 수 있어요</h2></summary><div class="sec-b">
+    <p>올해 해외주식으로 번 돈이 있다면, 손해 난 종목을 연말 전에 팔아 손실을 확정하면 양도세가 줄어요. 2026년으로 잡으려면 미국 현지 12월 29일(화)까지 팔아야 해요. <a href="/us-stock-tax/">해외주식 양도세 계산기</a>로 얼마나 줄어드는지 확인해 보세요. 달러 가격과 환율을 함께 넣으면 원화 본전 가격도 볼 수 있어요.</p>
+    <p class="hint">이 계산기는 산수를 돕는 도구이며 특정 종목의 매수·매도를 권하지 않아요. 투자 판단과 결과의 책임은 투자자 본인에게 있어요. 역대 하락·회복 기간은 각 지수의 종가 기준 대략적인 값이고, 2026년 11월 수치는 언론 보도(SBS Biz 11.6, 파이낸셜뉴스 11.17) 기준이에요.</p>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>30% 떨어지면 몇 % 올라야 본전인가요?</summary><p>42.9%예요. 100원이 70원이 되면, 70원에서 30원을 벌어야 하니 30 ÷ 70 = 42.9%가 필요해요. 떨어진 만큼보다 더 많이 올라야 본전이에요.</p></details><details><summary>반토막(−50%)이면 몇 % 올라야 하나요?</summary><p>100%, 즉 두 배가 돼야 본전이에요. −70%면 233%, −80%면 400%가 필요해서 손실이 클수록 회복이 급격히 어려워져요.</p></details><details><summary>물타기하면 본전이 빨라지나요?</summary><p>본전까지 필요한 상승률은 줄어요. 하지만 들어간 돈이 늘어서 손실 금액은 그대로이고, 더 떨어지면 손실이 더 커져요. 아래 &#x27;물타기하면?&#x27;에 수량을 넣어 비교해 보세요.</p></details><details><summary>매년 8%는 어디서 나온 숫자인가요?</summary><p>회복 기간을 가늠하기 위한 예시 가정이에요. 실제 주가는 매년 일정하게 오르지 않으니 5%, 10% 등으로 바꿔 넣어 보세요.</p></details><details><summary>해외주식은 환율도 봐야 하나요?</summary><p>네. 달러 가격이 본전이 돼도 그사이 환율이 내리면 원화로는 손실일 수 있어요. 해외주식 양도세 계산기의 &#x27;종목 하나, 환율까지&#x27;에서 원화 본전 가격을 볼 수 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "30% 떨어지면 몇 % 올라야 본전인가요?", "acceptedAnswer": {"@type": "Answer", "text": "42.9%예요. 100원이 70원이 되면, 70원에서 30원을 벌어야 하니 30 ÷ 70 = 42.9%가 필요해요. 떨어진 만큼보다 더 많이 올라야 본전이에요."}}, {"@type": "Question", "name": "반토막(−50%)이면 몇 % 올라야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "100%, 즉 두 배가 돼야 본전이에요. −70%면 233%, −80%면 400%가 필요해서 손실이 클수록 회복이 급격히 어려워져요."}}, {"@type": "Question", "name": "물타기하면 본전이 빨라지나요?", "acceptedAnswer": {"@type": "Answer", "text": "본전까지 필요한 상승률은 줄어요. 하지만 들어간 돈이 늘어서 손실 금액은 그대로이고, 더 떨어지면 손실이 더 커져요. 아래 '물타기하면?'에 수량을 넣어 비교해 보세요."}}, {"@type": "Question", "name": "매년 8%는 어디서 나온 숫자인가요?", "acceptedAnswer": {"@type": "Answer", "text": "회복 기간을 가늠하기 위한 예시 가정이에요. 실제 주가는 매년 일정하게 오르지 않으니 5%, 10% 등으로 바꿔 넣어 보세요."}}, {"@type": "Question", "name": "해외주식은 환율도 봐야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "네. 달러 가격이 본전이 돼도 그사이 환율이 내리면 원화로는 손실일 수 있어요. 해외주식 양도세 계산기의 '종목 하나, 환율까지'에서 원화 본전 가격을 볼 수 있어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-22</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/us-stock-tax/" data-k="해외주식 양도세 계산기 (연말 절세) 250만원 공제·22%, 손실 종목 같이 팔면 세금이 얼마 줄어드는지, 환율 손익까지 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>해외주식 양도세 계산기 (연말 절세)</strong><span>250만원 공제·22%, 손실 종목 같이 팔면 세금이 얼마 줄어드는지, 환율 손익까지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/average-price/" data-k="평단가 계산기 (물타기) 추가 매수 후 평균 단가와 목표 평단 수량 계산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>평단가 계산기 (물타기)</strong><span>추가 매수 후 평균 단가와 목표 평단 수량 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/savings/" data-k="예·적금 이자 계산기 세후 이자와 만기 수령액, 목표 금액 모으려면 매달 얼마인지 역산 대출·금융"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9 15l6-6"/><circle cx="9.5" cy="9.5" r="1"/><circle cx="14.5" cy="14.5" r="1"/></svg></span><span class="ct"><span class="kicker">대출·금융</span><strong>예·적금 이자 계산기</strong><span>세후 이자와 만기 수령액, 목표 금액 모으려면 매달 얼마인지 역산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+const V=id=>{const v=parseFloat($(id).value);return isFinite(v)&&v>0?v:0};
+const nf=n=>{const a=Math.abs(n);return n.toLocaleString('ko-KR',{maximumFractionDigits:a<100?4:a<10000?2:0})};
+const pct=n=>(n>0?'+':n<0?'−':'')+Math.abs(n).toFixed(1)+'%';
+const ym=y=>{if(!(y>0))return'이미 본전';const m=Math.ceil(y*12-1e-9),a=Math.floor(m/12),b=m%12;return((a?a+'년 ':'')+(b?b+'개월':'')).trim()||'1개월'};
+function calc(){
+  const A=V('avg'),C=V('cur'),Q=V('qty'),G=V('g'),st=$('o-status');
+  if(!A||!C){st.className='status warn';st.textContent='평단가와 지금 가격을 넣어 주세요.';$('o-top').textContent='—';return}
+  const need=(A/C-1)*100,now=(C/A-1)*100;
+  $('o-sub').textContent=Q?'총 '+nf(Q)+'주':'';
+  $('o-top').textContent=need>0?pct(need):'이미 본전 이상';
+  $('o-now').textContent=pct(now);
+  if(Q){$('o-pl').textContent=(now<0?'−':'+')+nf(Math.abs((C-A)*Q));$('o-pln').textContent=nf(A*Q)+' → '+nf(C*Q)}else{$('o-pl').textContent='—';$('o-pln').textContent='수량을 넣어 주세요'}
+  $('o-yl').textContent='매년 '+(G||0)+'%씩 오르면 본전까지';
+  $('o-y').textContent=need<=0?'이미 본전':G?ym(Math.log(A/C)/Math.log(1+G/100)):'—';
+  const aq=V('aq'),ap=V('ap')||C;let s;
+  if(aq&&Q){const nq=Q+aq,nav=(A*Q+ap*aq)/nq,nn=(nav/C-1)*100;
+    $('o-nav').textContent=nf(nav);$('o-navn').textContent=nf(aq)+'주를 '+nf(ap)+'에 더 사면';$('o-nneed').textContent=nn>0?pct(nn):'이미 본전 이상';$('o-add').textContent='+ '+nf(aq*ap);
+    s=need>0?`지금은 ${pct(need)} 올라야 본전인데, ${nf(aq)}주를 더 사면 ${nn>0?pct(nn)+'로':'바로 본전으로'} 줄어요. 다만 손실 금액은 그대로이고 투자 금액이 ${nf(aq*ap)} 늘어요.`:'지금 가격이 평단가보다 높아요.'}
+  else{['o-nav','o-nneed','o-add'].forEach(x=>$(x).textContent='—');$('o-navn').textContent=aq&&!Q?'보유 수량을 넣어 주세요':'추가 수량을 넣어 주세요';
+    s=need>0?`${Math.abs(now).toFixed(1)}% 떨어져서 본전이 되려면 ${pct(need)} 올라야 해요.`+(G?` 매년 ${G}%씩 오른다고 가정하면 ${ym(Math.log(A/C)/Math.log(1+G/100))} 걸려요.`:''):`평단가보다 ${pct(now)} 높아요. 이미 본전 이상이에요.`}
+  st.className='status '+(need>50?'warn':'ok');st.textContent=s;
+  const d=-now;document.querySelectorAll('#t-lr tr').forEach(t=>{const x=+t.dataset.d;t.style.cssText=d>0&&Math.abs(x-d)<5?'font-weight:700;color:var(--accent);background:var(--accent-soft)':''});
+}
+document.querySelectorAll('form input,form select').forEach(el=>el.addEventListener('input',calc));
+$('reset').addEventListener('click',()=>{const d={avg:100000,cur:65000,qty:10,g:8,aq:0,ap:''};for(const k in d)$(k).value=d[k];calc()});
+calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const sb=document.getElementById('share'),slip=document.querySelector('.slip');if(!sb||!slip||!window.HTMLCanvasElement)return;
+// v29: 결과 이미지 저장 — 결과 칸을 1080px 카드 이미지로 그려서 저장·공유해요
+const row=sb.parentNode,wrap=document.createElement('div');wrap.className='share-btns';row.insertBefore(wrap,sb);wrap.appendChild(sb);
+const ib=document.createElement('button');ib.type='button';ib.className='share';ib.id='saveimg';
+ib.innerHTML='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>결과 이미지 저장';wrap.appendChild(ib);
+sb.lastChild.textContent='결과 링크 공유';
+const vis=e=>e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
+const txt=e=>{if(!e)return'';const c=e.cloneNode(true);c.querySelectorAll('em,button,.tip,svg').forEach(x=>x.remove());return c.textContent.replace(/\s+/g,' ').trim()};
+const slug=location.pathname.replace(/^\/|\/$/g,'')||'calqo';
+let logo=null;const li=new Image();li.onload=()=>logo=li;li.src='/assets/logo-180.png';
+function collect(){
+  const h=document.querySelector('h1'),s=document.querySelector('.seg button[aria-pressed="true"]'),h2=slip.querySelector('h2');
+  const d={title:txt(h),mode:s?txt(s):'',sub:h2?txt(h2.querySelector('small')):'',totals:[],status:[],lines:[],bars:[]};
+  slip.querySelectorAll('.total').forEach(t=>{if(vis(t))d.totals.push([txt(t.querySelector('span')),txt(t.querySelector('b'))])});
+  slip.querySelectorAll('.status').forEach(t=>{const x=txt(t);if(x&&vis(t))d.status.push([x,t.classList.contains('warn')])});
+  slip.querySelectorAll('.bar i').forEach(i=>{if(vis(i.parentNode))d.bars.push(Math.max(0,Math.min(100,parseFloat(i.style.width)||0)))});
+  slip.querySelectorAll('.line').forEach(l=>{if(!vis(l))return;const sp=l.querySelector('span'),b=l.querySelector(':scope>b');const v=txt(b);if(!v)return;
+    d.lines.push([txt(sp),sp&&sp.querySelector('em')?sp.querySelector('em').textContent.trim():'',v])});
+  d.lines=d.lines.slice(0,12);return d}
+function render(d){
+  const W=1080,P=64,F=getComputedStyle(document.body).fontFamily,c=document.createElement('canvas'),x=c.getContext('2d');
+  const C={bg:'#fffaf7',card:'#ffffff',ink:'#111827',ink2:'#4b5563',ink3:'#6b7280',acc:'#c4512f',brand:'#e56a48',soft:'#fdeee8',line:'#eee3de',ok:'#15803d',warn:'#b45309'};
+  const fnt=(w,s)=>w+' '+s+'px '+F;
+  const wrap=(t,f,mw)=>{x.font=f;const out=[];let cur='';for(const ch of t.split(/(\s+)/)){const tt=cur+ch;if(x.measureText(tt).width<=mw||!cur.trim()){cur=tt;while(x.measureText(cur).width>mw){let i=cur.length;while(i>1&&x.measureText(cur.slice(0,i)).width>mw)i--;out.push(cur.slice(0,i));cur=cur.slice(i)}}else{out.push(cur.trim());cur=ch.trim()}}if(cur.trim())out.push(cur.trim());return out};
+  const rr=(x0,y0,w,h,r,fill)=>{x.beginPath();x.moveTo(x0+r,y0);x.arcTo(x0+w,y0,x0+w,y0+h,r);x.arcTo(x0+w,y0+h,x0,y0+h,r);x.arcTo(x0,y0+h,x0,y0,r);x.arcTo(x0,y0,x0+w,y0,r);x.closePath();x.fillStyle=fill;x.fill()};
+  function pass(draw){let y=P;const T=(t,f,col,X,Y,al)=>{if(!draw)return;x.font=f;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='top';x.fillText(t,X,Y)};
+    // 머리
+    if(draw&&logo)x.drawImage(logo,P,y,56,56);
+    T('캘코',fnt(800,32),C.ink,P+70,y+8);x.font=fnt(800,32);const lw=x.measureText('캘코').width;T('calqo.kr',fnt(500,26),C.ink3,P+82+lw,y+14);
+    const dt=new Date(),ds=dt.getFullYear()+'.'+String(dt.getMonth()+1).padStart(2,'0')+'.'+String(dt.getDate()).padStart(2,'0')+' 계산';T(ds,fnt(500,24),C.ink3,W-P,y+16,'right');
+    y+=96;
+    // 카드
+    const cy=y,cx=P-8,cw=W-2*(P-8);if(draw){x.save();x.shadowColor='rgba(17,24,39,.08)';x.shadowBlur=30;x.shadowOffsetY=8;rr(cx,cy,cw,d._h||10,36,C.card);x.restore()}
+    y+=48;const L=P+32,R=W-P-32,IW=R-L;
+    for(const l of wrap(d.title,fnt(800,48),IW)){T(l,fnt(800,48),C.ink,L,y);y+=64}
+    const tag=[d.mode,d.sub].filter(Boolean).join(' · ');if(tag){y+=4;for(const l of wrap(tag,fnt(600,28),IW)){T(l,fnt(600,28),C.ink3,L,y);y+=40}}
+    y+=20;
+    d.totals.forEach(([lab,val])=>{let vs=76;x.font=fnt(800,vs);while(x.measureText(val).width>IW-56&&vs>40){vs-=4;x.font=fnt(800,vs)}
+      const ll=wrap(lab,fnt(700,32),IW-56),h=40+ll.length*44+vs*1.15+36;if(draw)rr(L,y,IW,h,28,C.soft);let yy=y+36;
+      ll.forEach(l=>{T(l,fnt(700,32),C.ink,L+28,yy);yy+=44});T(val,fnt(800,vs),C.acc,L+28,yy+4);y+=h+20});
+    d.bars.forEach(p=>{if(draw){rr(L,y,IW,22,11,'#f1e7e3');if(p>0)rr(L,y,Math.max(22,IW*p/100),22,11,C.brand)}y+=44});
+    d.status.forEach(([s,w])=>{const ll=wrap(s,fnt(600,28),IW-48),h=ll.length*42+36;if(draw)rr(L,y,IW,h,22,w?'#fdf3e4':'#e9f6ee');let yy=y+18;ll.forEach(l=>{T(l,fnt(600,28),w?C.warn:C.ok,L+24,yy);yy+=42});y+=h+20});
+    if(d.lines.length){y+=6;d.lines.forEach(([lab,em,val],i)=>{x.font=fnt(700,32);let vw=Math.min(x.measureText(val).width,IW*.55);
+      const ll=wrap(lab,fnt(500,30),IW-vw-28),el=em?wrap(em,fnt(500,23),IW-vw-28):[];const h=Math.max(ll.length*42+el.length*32,42)+36;
+      let yy=y+18;ll.forEach(l=>{T(l,fnt(500,30),C.ink2,L,yy);yy+=42});el.forEach(l=>{T(l,fnt(500,23),C.ink3,L,yy);yy+=32});
+      let vs=32;x.font=fnt(700,vs);while(x.measureText(val).width>IW*.55&&vs>20){vs-=2;x.font=fnt(700,vs)}T(val,fnt(700,vs),C.ink,R,y+18+(32-vs)/2,'right');
+      y+=h;if(draw&&i<d.lines.length-1){x.fillStyle=C.line;x.fillRect(L,y,IW,2)}})}
+    y+=40;d._h=y-cy;y+=40;
+    // 꼬리
+    const fy=y;if(draw)rr(P-8,fy,W-2*(P-8),132,30,C.brand);
+    T('내 조건으로 계산해 보기',fnt(700,28),'#ffe7dd',P+24,fy+26);T('calqo.kr/'+slug,fnt(800,40),'#ffffff',P+24,fy+66);
+    y+=132+28;T('계산 결과는 참고용이에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인하세요.',fnt(500,22),C.ink3,W/2,y,'center');y+=30+P-20;return y}
+  const H=Math.ceil(pass(false));c.width=W;c.height=H;x.fillStyle=C.bg;x.fillRect(0,0,W,H);pass(true);return c}
+function modal(c,file){
+  const m=document.createElement('div');m.className='imgm';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','결과 이미지');
+  const canShare=navigator.canShare&&navigator.canShare({files:[file]});
+  m.innerHTML='<div class="imgm-b"><div class="imgm-h"><b>결과 이미지</b><button type="button" class="imgm-x" aria-label="닫기">✕</button></div><div class="imgm-p"><img alt="계산 결과 이미지"></div><p class="imgm-t">저장이 안 되면 이미지를 <b>길게 눌러</b> 저장하세요.</p><div class="imgm-a"><a class="share" download></a>'+(canShare?'<button type="button" class="share imgm-s">카톡·메신저로 보내기</button>':'')+'</div></div>';
+  m.querySelector('img').src=c.toDataURL('image/png');
+  const a=m.querySelector('a[download]'),u=URL.createObjectURL(file);a.href=u;a.download=file.name;a.textContent='이미지 저장하기';
+  const close=()=>{m.remove();URL.revokeObjectURL(u);document.removeEventListener('keydown',k);ib.focus()},k=e=>{if(e.key==='Escape')close()};
+  m.addEventListener('click',e=>{if(e.target===m||e.target.closest('.imgm-x'))close()});document.addEventListener('keydown',k);
+  const s=m.querySelector('.imgm-s');if(s)s.addEventListener('click',async()=>{try{await navigator.share({files:[file],title:document.title})}catch(_){}});
+  document.body.appendChild(m);m.querySelector('.imgm-x').focus()}
+ib.addEventListener('click',async()=>{ib.disabled=true;try{try{await document.fonts.ready}catch(_){}
+  const d=collect();if(!d.totals.length&&!d.lines.length){ib.disabled=false;return}
+  const c=render(d);c.toBlob(bl=>{ib.disabled=false;if(!bl)return;const t=new Date();
+    const f=new File([bl],'calqo-'+slug+'-'+t.getFullYear()+String(t.getMonth()+1).padStart(2,'0')+String(t.getDate()).padStart(2,'0')+'.png',{type:'image/png'});modal(c,f)},'image/png')}
+  catch(e){ib.disabled=false;console.error(e)}});
+})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/home-money/">집 사기 돈 총정리</a></li><li><a href="/stats/">숫자로 보는 통계</a></li><li><a href="/wedding-money/">결혼 준비 돈 총정리</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
