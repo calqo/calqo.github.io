@@ -64,7 +64,7 @@
       </div>
       <div class="row2">
         <label for="rate">적용 전환율 (%)<input id="rate" type="number" inputmode="decimal" min="0" step="0.1" value="5"></label>
-        <label for="br">한국은행 기준금리 (%)<input id="br" type="number" inputmode="decimal" min="0" step="0.25" value="3"><span class="hint">2026년 11월 기준 3.00%</span></label>
+        <label for="br">한국은행 기준금리 (%)<input id="br" type="number" inputmode="decimal" min="0" step="0.25" value="3.25"><span class="hint">2026년 11월 26일 기준 3.25%</span></label>
       </div>
     </form>
     <section class="panel slip" aria-live="polite">
@@ -91,7 +91,7 @@
     </ul>
     </div></details>
     <details class="sec"><summary><h2>법정 전환율 상한</h2></summary><div class="sec-b">
-    <p>주택임대차보호법에 따라 계약 기간 중이나 계약을 갱신하면서 전세를 월세로 바꿀 때는 <b>"연 10%"와 "한국은행 기준금리 + 2%" 중 낮은 비율</b>을 넘을 수 없어요. 기준금리가 3.00%라면 상한은 5%예요.</p>
+    <p>주택임대차보호법에 따라 계약 기간 중이나 계약을 갱신하면서 전세를 월세로 바꿀 때는 <b>"연 10%"와 "한국은행 기준금리 + 2%" 중 낮은 비율</b>을 넘을 수 없어요. 기준금리가 3.25%라면 상한은 5.25%예요.</p>
     <p>새로 계약할 때는 이 상한이 적용되지 않아서, 시장에서 실제 쓰이는 전환율은 지역과 집 종류에 따라 더 높을 수 있어요. 한국부동산원 부동산통계정보에서 지역별 전월세 전환율을 확인할 수 있어요.</p>
     </div></details>
     <details class="sec"><summary><h2>전세와 월세, 뭐가 유리할까?</h2></summary><div class="sec-b">
@@ -135,7 +135,7 @@ function calc(){
 }
 document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));$('f-monthly').hidden=mode!=='toMonthly';$('f-jeonse').hidden=mode==='toMonthly';calc()}));
 document.querySelectorAll('form input').forEach(el=>el.addEventListener('input',calc));
-$('reset').addEventListener('click',()=>{$('jeonse').value=30000;$('newdep').value=10000;$('dep').value=5000;$('rent').value=80;$('rate').value=5;$('br').value=3;calc()});
+$('reset').addEventListener('click',()=>{$('jeonse').value=30000;$('newdep').value=10000;$('dep').value=5000;$('rent').value=80;$('rate').value=5;$('br').value=3.25;calc()});
 calc();
 </script>
 <script>
