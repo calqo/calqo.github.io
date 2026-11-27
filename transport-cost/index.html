@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>교통비 계산기 &#183; 택시 대리운전 지하철 GTX 비교 | 캘코</title>
+<meta name="description" content="거리만 넣으면 택시 심야할증, 대리운전, 지하철&#183;버스, GTX, 자가용 비용을 비교해요. 출퇴근 한 달 교통비와 K-패스 환급까지.">
+<link rel="canonical" href="https://calqo.kr/transport-cost/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="교통비 계산기 &#183; 택시 대리운전 지하철 GTX 비교 | 캘코">
+<meta property="og:description" content="거리만 넣으면 택시 심야할증, 대리운전, 지하철&#183;버스, GTX, 자가용 비용을 비교해요. 출퇴근 한 달 교통비와 K-패스 환급까지.">
+<meta property="og:url" content="https://calqo.kr/transport-cost/">
+<meta property="og:image" content="https://calqo.kr/assets/og/transport-cost.png?v=29">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="교통비 계산기 &#183; 택시 대리운전 지하철 GTX 비교 | 캘코">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="교통비 계산기 &#183; 택시 대리운전 지하철 GTX 비교 | 캘코">
+<meta name="twitter:description" content="거리만 넣으면 택시 심야할증, 대리운전, 지하철&#183;버스, GTX, 자가용 비용을 비교해요. 출퇴근 한 달 교통비와 K-패스 환급까지.">
+<meta name="twitter:image" content="https://calqo.kr/assets/og/transport-cost.png?v=29">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life" class=on aria-current=page>생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
+    <h1>교통비 비교 계산기 (택시·대리·GTX)</h1>
+    <p class="lead">편도 거리와 시간대를 넣으면 택시(심야할증), 대리운전, 지하철·버스, 광역버스, GTX, 내 차 비용을 한 번에 비교해요. 한 달 출퇴근 교통비와 K-패스·모두의카드 환급까지 계산해요.</p>
+    <span class="tag">서울 택시·수도권 대중교통 요금 · 2026년 11월 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div><div class="hint" style="margin-bottom:6px">계산 방식</div>
+      <div class="seg" role="group" aria-label="계산 방식">
+        <button type="button" data-m="trip" aria-pressed="true">한 번 이동 (귀가·약속)</button>
+        <button type="button" data-m="month" aria-pressed="false">한 달 출퇴근</button>
+      </div></div>
+      <label for="dist">편도 거리 (km)<input id="dist" type="number" inputmode="decimal" min="0" step="0.1" value="15"><span class="hint">지도 앱의 자동차 경로 거리를 넣어 주세요</span></label>
+      <div class="row2">
+        <label for="stop">택시 정체 시간 (분)<input id="stop" type="number" inputmode="numeric" min="0" step="1" value="8"><span class="hint">신호·정체로 거의 서 있는 시간</span></label>
+        <label for="night" data-only="trip">택시 타는 시간<select id="night"><option value="day">주간 (04~22시)</option><option value="n20">22~23시 · 02~04시 (+20%)</option><option value="n40" selected>23~02시 (+40%)</option></select></label>
+      </div>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="out" type="checkbox" style="width:auto"> 서울 밖으로 나가요 (택시 시계외 할증 20%)</label>
+      <div class="row2" data-only="trip">
+        <label for="ppl">같이 가는 인원 (명)<input id="ppl" type="number" inputmode="numeric" min="1" max="4" step="1" value="1"></label>
+        <label for="daeri">대리운전 견적 (원)<input id="daeri" type="number" inputmode="numeric" min="0" step="1000" value="25000"><span class="hint">대리 앱 견적을 넣어 주세요</span></label>
+      </div>
+      <div class="row2" data-only="month">
+        <label for="days">한 달 출근일 (일)<input id="days" type="number" inputmode="numeric" min="1" max="31" step="1" value="21"></label>
+        <label for="kp">K-패스 유형<select id="kp"><option value="g" selected>일반 (20%)</option><option value="y">청년·어르신·2자녀 (30%)</option><option value="m">3자녀 이상 (50%)</option><option value="l">저소득층 (53.3%)</option></select></label>
+      </div>
+      <div class="row2">
+        <label for="gbus">광역버스 요금 (원)<input id="gbus" type="number" inputmode="numeric" min="0" step="100" value="3000"><span class="hint">서울 3,000원 · 경기 직행좌석 3,200원</span></label>
+        <label for="gtx">GTX 요금 (원)<input id="gtx" type="number" inputmode="numeric" min="0" step="50" value="4450"><span class="hint">운정중앙→서울역 4,450원</span></label>
+      </div>
+      <div class="row2">
+        <label for="eff">내 차 연비 (km/L)<input id="eff" type="number" inputmode="decimal" min="1" step="0.1" value="12"></label>
+        <label for="fuel">기름값 (원/L)<input id="fuel" type="number" inputmode="numeric" min="0" step="1" value="1855"><span class="hint">전국 휘발유 평균 1,854.7원 (11월 3주)</span></label>
+      </div>
+      <div class="row2" data-only="trip">
+        <label for="parkt">목적지 주차비 (원)<input id="parkt" type="number" inputmode="numeric" min="0" step="500" value="0"></label>
+        <label for="park2">차를 두고 갈 때 주차비 (원)<input id="park2" type="number" inputmode="numeric" min="0" step="1000" value="10000"><span class="hint">밤새 세워 둘 때</span></label>
+      </div>
+      <div class="row2">
+        <label for="parkm" data-only="month">월 주차비 (원)<input id="parkm" type="number" inputmode="numeric" min="0" step="10000" value="0"></label>
+        <label for="toll">통행료 편도 (원)<input id="toll" type="number" inputmode="numeric" min="0" step="100" value="0"></label>
+      </div>
+      <span class="hint">예시: 15km 거리를 밤 11시 넘어 혼자 귀가하는 경우예요. '한 달 출퇴근'을 누르면 같은 거리로 매일 왕복할 때를 비교해요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>교통비 비교 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span id="o-best">가장 싼 방법</span><b id="o-min"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines" id="o-lines"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>교통비 계산 방법</h2>
+    <p>편도 거리 하나로 택시, 대리운전, 지하철·시내버스, 광역버스, GTX, 내 차 비용을 나란히 계산해요. 택시는 <b>서울 중형택시 요금표</b>(기본요금 + 131m당 거리요금 + 정체 시간 30초당 시간요금)로, 지하철·시내버스는 <b>수도권 통합 거리비례 요금</b>으로, 내 차는 <b>거리 ÷ 연비 × 기름값</b>으로 계산해요. 대리운전은 법으로 정한 요금표가 없어서 앱 견적을 그대로 넣도록 했어요.</p>
+    <p>'한 달 출퇴근'을 고르면 같은 거리를 출근일마다 왕복한다고 보고, 대중교통은 <b>K-패스·모두의카드 환급</b>까지 뺀 실제 부담액으로 비교해요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>서울 택시 요금표</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>시간대</th><th>기본요금 (1.6km)</th><th>거리요금</th><th>시간요금</th></tr></thead>
+      <tbody>
+        <tr><td>주간 (04~22시)</td><td>4,800원</td><td>131m당 100원</td><td>30초당 100원</td></tr>
+        <tr><td>22~23시 · 02~04시 (+20%)</td><td>5,800원</td><td>131m당 120원</td><td>30초당 120원</td></tr>
+        <tr><td>23~02시 (+40%)</td><td>6,700원</td><td>131m당 140원</td><td>30초당 140원</td></tr>
+      </tbody>
+    </table></div>
+    <p>시간요금은 시속 15.72km보다 느리게 갈 때 붙어요. 서울 밖으로 나가면 시계외 할증 20%가 더해져요. 서울시 중형택시 요금(2023년 2월 1일 시행) 기준이에요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>지하철·버스·GTX 요금</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>교통수단</th><th>카드 요금 (성인)</th></tr></thead>
+      <tbody>
+        <tr><td>지하철 (10km까지)</td><td>1,550원</td></tr>
+        <tr><td>10~50km</td><td>5km마다 +100원</td></tr>
+        <tr><td>50km 초과</td><td>8km마다 +100원</td></tr>
+        <tr><td>서울 시내버스 (간선·지선)</td><td>1,500원</td></tr>
+        <tr><td>서울 광역버스</td><td>3,000원</td></tr>
+        <tr><td>경기 직행좌석 (빨간 버스)</td><td>3,200원</td></tr>
+        <tr><td>서울 심야버스</td><td>2,500원</td></tr>
+        <tr><td>GTX-A 운정중앙→서울역 · 수서→동탄</td><td>4,450원</td></tr>
+      </tbody>
+    </table></div>
+    <p>지하철과 시내버스를 갈아타면 전체 이동 거리로 한 번만 계산해요(10km까지 기본요금, 넘으면 5km마다 100원). 지하철 기본요금은 2025년 6월 28일부터 1,550원이에요. GTX-A는 지금 운정중앙~서울역, 수서~동탄 두 구간으로 나뉘어 운행하고, 서울역~수서 연결은 2027년 상반기로 미뤄졌어요. GTX 요금은 개통 때 발표 기준이니 타기 전 앱에서 한 번 확인해 주세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>K-패스·모두의카드 환급</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>수도권 기준</th><th>K-패스 환급률</th><th>모두의카드 일반형</th><th>플러스형 (GTX·광역버스 포함)</th></tr></thead>
+      <tbody>
+        <tr><td>일반</td><td>20%</td><td>62,000원 넘는 금액</td><td>100,000원 넘는 금액</td></tr>
+        <tr><td>청년·어르신·2자녀</td><td>30%</td><td>55,000원 넘는 금액</td><td>90,000원 넘는 금액</td></tr>
+        <tr><td>3자녀 이상</td><td>50%</td><td>45,000원 넘는 금액</td><td>80,000원 넘는 금액</td></tr>
+        <tr><td>저소득층</td><td>53.3%</td><td>45,000원 넘는 금액</td><td>80,000원 넘는 금액</td></tr>
+      </tbody>
+    </table></div>
+    <p>세 방식 중 가장 많이 돌려받는 방식이 매달 자동으로 적용돼요. K-패스 비율 환급은 한 달 15번 이상 탈 때, 60번까지 돌려받아요. 일반형은 한 번 요금이 3,000원 미만인 교통수단만 쳐요. 출퇴근 시차 시간대(05:30~06:30, 09~10시, 16~17시, 19~20시) 환급률 +30%p는 12월까지라 이 계산에는 넣지 않았어요. 서울 기후동행카드 30일권은 2026년 9월 말 끝나고 모두의카드 결합형 기후동행패스로 바뀌었어요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>이럴 땐 이렇게</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>회식 뒤 귀가:</b> 밤 11시~새벽 2시 택시는 40% 할증이라 대리운전보다 비싸지기도 해요. '차 두고 택시 + 다음 날 차 가지러'도 같이 비교해 보세요.</li>
+      <li><b>여럿이 같은 방향:</b> 인원을 넣으면 택시는 나눠 내고, 대중교통은 사람 수만큼 곱해서 비교해요.</li>
+      <li><b>출퇴근:</b> 내 차 비용에는 보험료·자동차세·정비비가 빠져 있어요. 자동차세는 <a href="/car-tax/">자동차세 계산기</a>로 따로 확인하세요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
+    <ul>
+      <li>택시 요금은 서울 중형택시 기준이에요. 경기 택시는 심야할증(23~04시 30%)과 기본거리가 지역마다 달라요.</li>
+      <li>실제 택시 요금은 경로와 신호 대기 시간에 따라 달라져요. 정체 시간을 조금씩 바꿔 보면 범위를 알 수 있어요.</li>
+      <li>기름값은 오피넷 2026년 11월 셋째 주 전국 휘발유 평균(1,854.7원/L)을 넣어 두었어요. 내 주유소 가격으로 바꿔 넣으면 돼요.</li>
+      <li>계산 결과는 참고용이에요. 정확한 요금은 각 교통수단 앱과 운영 기관 안내를 확인해 주세요.</li>
+    </ul>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>서울 택시 심야할증은 몇 시부터인가요?</summary><p>밤 10~11시와 새벽 2~4시는 20%, 밤 11시~새벽 2시는 40%가 붙어요. 기본요금도 4,800원에서 5,800원, 6,700원으로 올라요.</p></details><details><summary>대리운전 요금은 정해져 있나요?</summary><p>법으로 정한 요금표가 없어서 업체와 앱마다 달라요. 앱에서 받은 견적을 넣으면 택시와 바로 비교할 수 있어요.</p></details><details><summary>K-패스와 모두의카드 중 뭘 골라야 하나요?</summary><p>고를 필요 없이 매달 가장 많이 돌려받는 방식이 자동으로 적용돼요. 수도권 일반 성인은 한 달 대중교통비가 6만 2천원(GTX&#183;광역버스를 타면 10만원)을 넘으면 넘는 금액을 모두 돌려받아요.</p></details><details><summary>기후동행카드 30일권은 아직 쓸 수 있나요?</summary><p>30일권은 2026년 9월 말에 끝나고 모두의카드 결합형 기후동행패스로 바뀌었어요. 1일권부터 7일권까지 단기권은 남아 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "서울 택시 심야할증은 몇 시부터인가요?", "acceptedAnswer": {"@type": "Answer", "text": "밤 10~11시와 새벽 2~4시는 20%, 밤 11시~새벽 2시는 40%가 붙어요. 기본요금도 4,800원에서 5,800원, 6,700원으로 올라요."}}, {"@type": "Question", "name": "대리운전 요금은 정해져 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "법으로 정한 요금표가 없어서 업체와 앱마다 달라요. 앱에서 받은 견적을 넣으면 택시와 바로 비교할 수 있어요."}}, {"@type": "Question", "name": "K-패스와 모두의카드 중 뭘 골라야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "고를 필요 없이 매달 가장 많이 돌려받는 방식이 자동으로 적용돼요. 수도권 일반 성인은 한 달 대중교통비가 6만 2천원(GTX·광역버스를 타면 10만원)을 넘으면 넘는 금액을 모두 돌려받아요."}}, {"@type": "Question", "name": "기후동행카드 30일권은 아직 쓸 수 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "30일권은 2026년 9월 말에 끝나고 모두의카드 결합형 기후동행패스로 바뀌었어요. 1일권부터 7일권까지 단기권은 남아 있어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-28</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/holiday-planner/" data-k="연차 꿀조합 계산기 (2027 연휴 플래너) 2027 공휴일·대체공휴일에 연차를 어디에 붙이면 가장 길게 쉬는지 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>연차 꿀조합 계산기 (2027 연휴 플래너)</strong><span>2027 공휴일·대체공휴일에 연차를 어디에 붙이면 가장 길게 쉬는지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/wedding/" data-k="축의금 · 결혼 비용 계산기 관계·참석 인원·식대로 적정 축의금, 하객 수로 결혼식 비용과 축의금 수입 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>축의금 · 결혼 비용 계산기</strong><span>관계·참석 인원·식대로 적정 축의금, 하객 수로 결혼식 비용과 축의금 수입 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/discharge/" data-k="전역일 계산기 입대일로 전역일, 남은 날, 복무율 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>전역일 계산기</strong><span>입대일로 전역일, 남은 날, 복무율 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+let mode='trip';
+const TX={day:[4800,100,'주간'],n20:[5800,120,'심야 +20%'],n40:[6700,140,'심야 +40%']};
+const KB={g:[62000,100000,0.2],y:[55000,90000,0.3],m:[45000,80000,0.5],l:[45000,80000,0.533]};
+const v=id=>Math.max(0,+$(id).value||0);
+const ga=s=>{const c=s.charCodeAt(s.length-1);return c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28?'이':'가'};
+function subway(d){let f=1550;if(d>10)f+=Math.ceil((Math.min(d,50)-10)/5)*100;if(d>50)f+=Math.ceil((d-50)/8)*100;return f}
+function taxi(d,stop,nt,out){const t=TX[nt],du=Math.max(0,Math.ceil((d*1000-1600)/131)),tu=Math.floor(stop*2);let f=t[0]+(du+tu)*t[1];if(out)f*=1.2;return Math.round(f/100)*100}
+function kpass(f,n,t){const k=KB[t],tot=f*n,c=[['K-패스 '+Math.round(k[2]*1000)/10+'%',n>=15?f*Math.min(n,60)*k[2]:0]];
+  if(f<3000)c.push(['모두의카드 일반형',Math.max(0,tot-k[0])]);c.push(['모두의카드 플러스형',Math.max(0,tot-k[1])]);
+  c.sort((a,b)=>b[1]-a[1]);return {tot:tot,ref:Math.round(c[0][1]),how:c[0][1]>0?c[0][0]:'환급 없음'}}
+function show(){document.querySelectorAll('[data-only]').forEach(e=>{e.style.display=e.dataset.only===mode?'':'none'})}
+function calc(){
+  const d=v('dist'),stop=v('stop'),nt=$('night').value,out=$('out').checked,eff=Math.max(1,v('eff')),fuel=v('fuel'),toll=v('toll'),gb=v('gbus'),gt=v('gtx');
+  const st=$('o-status');
+  if(!(d>0)){st.className='status warn';st.textContent='편도 거리를 넣어 주세요.';$('o-min').textContent='–';$('o-lines').innerHTML='';return}
+  const sub=subway(d),fc=d/eff*fuel;let rows=[],msg='';
+  if(mode==='trip'){
+    const n=Math.min(4,Math.max(1,Math.round(v('ppl'))||1)),dr=v('daeri'),pt=v('parkt'),p2=v('park2'),tx=taxi(d,stop,nt,out);
+    rows=[['택시',tx,TX[nt][2]+(out?' · 시계외 +20%':'')+(n>1?' · 1인당 '+won(tx/n):'')],
+      ['대리운전',dr+fc,'견적 '+won(dr)+' + 기름값 '+won(fc)],
+      ['지하철·시내버스',sub*n,(n>1?n+'명 · ':'')+'1인 '+won(sub)+' (거리비례)'],
+      ['광역버스',gb*n,(n>1?n+'명 · ':'')+'1인 '+won(gb)],
+      ['GTX',gt*n,(n>1?n+'명 · ':'')+'1인 '+won(gt)+' · 역까지 가는 요금 별도'],
+      ['내 차 직접 운전',fc+pt+toll,'기름값 '+won(fc)+' + 주차 '+won(pt)+' + 통행료 '+won(toll)+' · 술 마셨다면 제외'],
+      ['차 두고 택시 + 다음 날 차 가지러',tx+p2+sub,'택시 '+won(tx)+' + 밤샘 주차 '+won(p2)+' + 다음 날 대중교통 '+won(sub)]];
+    $('o-sub').textContent='편도 '+d+'km · '+n+'명';
+    const gap=tx-(dr+fc);
+    msg=(gap<0?'택시가 대리운전보다 '+won(-gap)+' 싸요.':gap>0?'대리운전이 택시보다 '+won(gap)+' 싸요.':'택시와 대리운전 비용이 같아요.')+(nt!=='day'?(()=>{const late=rows.filter(r=>!/지하철|버스|GTX|직접 운전/.test(r[0])).sort((a,b)=>a[1]-b[1])[0];return ' 막차를 놓쳤다면 '+late[0]+ga(late[0])+' '+won(late[1])+'으로 가장 싸요.'})():'');
+  }else{
+    const days=Math.max(1,Math.round(v('days'))||1),T=days*2,kp=$('kp').value,pm=v('parkm'),txd=taxi(d,stop,'day',out);
+    const tr=(name,f)=>{const k=kpass(f,T,kp);return [name,k.tot-k.ref,won(f)+' × '+T+'회 = '+won(k.tot)+(k.ref>0?' − '+k.how+' 환급 '+won(k.ref):'')]};
+    rows=[tr('지하철·시내버스',sub),tr('광역버스',gb),tr('GTX',gt),
+      ['내 차로 출퇴근',fc*T+pm+toll*T,'기름값 '+won(fc*T)+' + 주차 '+won(pm)+' + 통행료 '+won(toll*T)],
+      ['택시로 출퇴근',txd*T,'주간 요금 '+won(txd)+' × '+T+'회']];
+    $('o-sub').textContent='편도 '+d+'km · 월 '+days+'일 (왕복 '+T+'회)';
+    const car=rows[3][1];rows.sort((a,b)=>a[1]-b[1]);
+    msg=rows[0][0]==='내 차로 출퇴근'?'내 차가 가장 싸요. 다만 차 보험료·자동차세·정비비는 빠져 있어요.':'한 달 기준 '+rows[0][0]+ga(rows[0][0])+' 내 차보다 '+won(car-rows[0][1])+' 아껴요. 1년이면 '+won((car-rows[0][1])*12)+'이에요.';
+  }
+  rows.sort((a,b)=>a[1]-b[1]);
+  $('o-best').textContent='가장 싼 방법: '+rows[0][0];$('o-min').textContent=won(rows[0][1]);
+  st.className='status ok';st.textContent=msg;
+  $('o-lines').innerHTML=rows.map((r,i)=>'<div class="line"><span>'+(i===0?'★ ':'')+r[0]+'<em>'+r[2]+'</em></span><b>'+won(r[1])+'</b></div>').join('');
+}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));show();calc()}));
+document.querySelectorAll('form.panel input,form.panel select').forEach(e=>{e.addEventListener('input',calc);e.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{const D={dist:15,stop:8,ppl:1,daeri:25000,days:21,gbus:3000,gtx:4450,eff:12,fuel:1855,parkt:0,park2:10000,parkm:0,toll:0};
+  Object.keys(D).forEach(k=>$(k).value=D[k]);$('night').value='n40';$('kp').value='g';$('out').checked=false;
+  const b=document.querySelector('.seg button[data-m="trip"]');if(b)b.click();else{show();calc()}});
+show();calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const sb=document.getElementById('share'),slip=document.querySelector('.slip');if(!sb||!slip||!window.HTMLCanvasElement)return;
+// v29: 결과 이미지 저장 — 결과 칸을 1080px 카드 이미지로 그려서 저장·공유해요
+const row=sb.parentNode,wrap=document.createElement('div');wrap.className='share-btns';row.insertBefore(wrap,sb);wrap.appendChild(sb);
+const ib=document.createElement('button');ib.type='button';ib.className='share';ib.id='saveimg';
+ib.innerHTML='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>결과 이미지 저장';wrap.appendChild(ib);
+sb.lastChild.textContent='결과 링크 공유';
+const vis=e=>e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
+const txt=e=>{if(!e)return'';const c=e.cloneNode(true);c.querySelectorAll('em,button,.tip,svg').forEach(x=>x.remove());return c.textContent.replace(/\s+/g,' ').trim()};
+const slug=location.pathname.replace(/^\/|\/$/g,'')||'calqo';
+let logo=null;const li=new Image();li.onload=()=>logo=li;li.src='/assets/logo-180.png';
+function collect(){
+  const h=document.querySelector('h1'),s=document.querySelector('.seg button[aria-pressed="true"]'),h2=slip.querySelector('h2');
+  const d={title:txt(h),mode:s?txt(s):'',sub:h2?txt(h2.querySelector('small')):'',totals:[],status:[],lines:[],bars:[]};
+  slip.querySelectorAll('.total').forEach(t=>{if(vis(t))d.totals.push([txt(t.querySelector('span')),txt(t.querySelector('b'))])});
+  slip.querySelectorAll('.status').forEach(t=>{const x=txt(t);if(x&&vis(t))d.status.push([x,t.classList.contains('warn')])});
+  slip.querySelectorAll('.bar i').forEach(i=>{if(vis(i.parentNode))d.bars.push(Math.max(0,Math.min(100,parseFloat(i.style.width)||0)))});
+  slip.querySelectorAll('.line').forEach(l=>{if(!vis(l))return;const sp=l.querySelector('span'),b=l.querySelector(':scope>b');const v=txt(b);if(!v)return;
+    d.lines.push([txt(sp),sp&&sp.querySelector('em')?sp.querySelector('em').textContent.trim():'',v])});
+  d.lines=d.lines.slice(0,12);return d}
+function render(d){
+  const W=1080,P=64,F=getComputedStyle(document.body).fontFamily,c=document.createElement('canvas'),x=c.getContext('2d');
+  const C={bg:'#fffaf7',card:'#ffffff',ink:'#111827',ink2:'#4b5563',ink3:'#6b7280',acc:'#c4512f',brand:'#e56a48',soft:'#fdeee8',line:'#eee3de',ok:'#15803d',warn:'#b45309'};
+  const fnt=(w,s)=>w+' '+s+'px '+F;
+  const wrap=(t,f,mw)=>{x.font=f;const out=[];let cur='';for(const ch of t.split(/(\s+)/)){const tt=cur+ch;if(x.measureText(tt).width<=mw||!cur.trim()){cur=tt;while(x.measureText(cur).width>mw){let i=cur.length;while(i>1&&x.measureText(cur.slice(0,i)).width>mw)i--;out.push(cur.slice(0,i));cur=cur.slice(i)}}else{out.push(cur.trim());cur=ch.trim()}}if(cur.trim())out.push(cur.trim());return out};
+  const rr=(x0,y0,w,h,r,fill)=>{x.beginPath();x.moveTo(x0+r,y0);x.arcTo(x0+w,y0,x0+w,y0+h,r);x.arcTo(x0+w,y0+h,x0,y0+h,r);x.arcTo(x0,y0+h,x0,y0,r);x.arcTo(x0,y0,x0+w,y0,r);x.closePath();x.fillStyle=fill;x.fill()};
+  function pass(draw){let y=P;const T=(t,f,col,X,Y,al)=>{if(!draw)return;x.font=f;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='top';x.fillText(t,X,Y)};
+    // 머리
+    if(draw&&logo)x.drawImage(logo,P,y,56,56);
+    T('캘코',fnt(800,32),C.ink,P+70,y+8);x.font=fnt(800,32);const lw=x.measureText('캘코').width;T('calqo.kr',fnt(500,26),C.ink3,P+82+lw,y+14);
+    const dt=new Date(),ds=dt.getFullYear()+'.'+String(dt.getMonth()+1).padStart(2,'0')+'.'+String(dt.getDate()).padStart(2,'0')+' 계산';T(ds,fnt(500,24),C.ink3,W-P,y+16,'right');
+    y+=96;
+    // 카드
+    const cy=y,cx=P-8,cw=W-2*(P-8);if(draw){x.save();x.shadowColor='rgba(17,24,39,.08)';x.shadowBlur=30;x.shadowOffsetY=8;rr(cx,cy,cw,d._h||10,36,C.card);x.restore()}
+    y+=48;const L=P+32,R=W-P-32,IW=R-L;
+    for(const l of wrap(d.title,fnt(800,48),IW)){T(l,fnt(800,48),C.ink,L,y);y+=64}
+    const tag=[d.mode,d.sub].filter(Boolean).join(' · ');if(tag){y+=4;for(const l of wrap(tag,fnt(600,28),IW)){T(l,fnt(600,28),C.ink3,L,y);y+=40}}
+    y+=20;
+    d.totals.forEach(([lab,val])=>{let vs=76;x.font=fnt(800,vs);while(x.measureText(val).width>IW-56&&vs>40){vs-=4;x.font=fnt(800,vs)}
+      const ll=wrap(lab,fnt(700,32),IW-56),h=40+ll.length*44+vs*1.15+36;if(draw)rr(L,y,IW,h,28,C.soft);let yy=y+36;
+      ll.forEach(l=>{T(l,fnt(700,32),C.ink,L+28,yy);yy+=44});T(val,fnt(800,vs),C.acc,L+28,yy+4);y+=h+20});
+    d.bars.forEach(p=>{if(draw){rr(L,y,IW,22,11,'#f1e7e3');if(p>0)rr(L,y,Math.max(22,IW*p/100),22,11,C.brand)}y+=44});
+    d.status.forEach(([s,w])=>{const ll=wrap(s,fnt(600,28),IW-48),h=ll.length*42+36;if(draw)rr(L,y,IW,h,22,w?'#fdf3e4':'#e9f6ee');let yy=y+18;ll.forEach(l=>{T(l,fnt(600,28),w?C.warn:C.ok,L+24,yy);yy+=42});y+=h+20});
+    if(d.lines.length){y+=6;d.lines.forEach(([lab,em,val],i)=>{x.font=fnt(700,32);let vw=Math.min(x.measureText(val).width,IW*.55);
+      const ll=wrap(lab,fnt(500,30),IW-vw-28),el=em?wrap(em,fnt(500,23),IW-vw-28):[];const h=Math.max(ll.length*42+el.length*32,42)+36;
+      let yy=y+18;ll.forEach(l=>{T(l,fnt(500,30),C.ink2,L,yy);yy+=42});el.forEach(l=>{T(l,fnt(500,23),C.ink3,L,yy);yy+=32});
+      let vs=32;x.font=fnt(700,vs);while(x.measureText(val).width>IW*.55&&vs>20){vs-=2;x.font=fnt(700,vs)}T(val,fnt(700,vs),C.ink,R,y+18+(32-vs)/2,'right');
+      y+=h;if(draw&&i<d.lines.length-1){x.fillStyle=C.line;x.fillRect(L,y,IW,2)}})}
+    y+=40;d._h=y-cy;y+=40;
+    // 꼬리
+    const fy=y;if(draw)rr(P-8,fy,W-2*(P-8),132,30,C.brand);
+    T('내 조건으로 계산해 보기',fnt(700,28),'#ffe7dd',P+24,fy+26);T('calqo.kr/'+slug,fnt(800,40),'#ffffff',P+24,fy+66);
+    y+=132+28;T('계산 결과는 참고용이에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인하세요.',fnt(500,22),C.ink3,W/2,y,'center');y+=30+P-20;return y}
+  const H=Math.ceil(pass(false));c.width=W;c.height=H;x.fillStyle=C.bg;x.fillRect(0,0,W,H);pass(true);return c}
+function modal(c,file){
+  const m=document.createElement('div');m.className='imgm';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','결과 이미지');
+  const canShare=navigator.canShare&&navigator.canShare({files:[file]});
+  m.innerHTML='<div class="imgm-b"><div class="imgm-h"><b>결과 이미지</b><button type="button" class="imgm-x" aria-label="닫기">✕</button></div><div class="imgm-p"><img alt="계산 결과 이미지"></div><p class="imgm-t">저장이 안 되면 이미지를 <b>길게 눌러</b> 저장하세요.</p><div class="imgm-a"><a class="share" download></a>'+(canShare?'<button type="button" class="share imgm-s">카톡·메신저로 보내기</button>':'')+'</div></div>';
+  m.querySelector('img').src=c.toDataURL('image/png');
+  const a=m.querySelector('a[download]'),u=URL.createObjectURL(file);a.href=u;a.download=file.name;a.textContent='이미지 저장하기';
+  const close=()=>{m.remove();URL.revokeObjectURL(u);document.removeEventListener('keydown',k);ib.focus()},k=e=>{if(e.key==='Escape')close()};
+  m.addEventListener('click',e=>{if(e.target===m||e.target.closest('.imgm-x'))close()});document.addEventListener('keydown',k);
+  const s=m.querySelector('.imgm-s');if(s)s.addEventListener('click',async()=>{try{await navigator.share({files:[file],title:document.title})}catch(_){}});
+  document.body.appendChild(m);m.querySelector('.imgm-x').focus()}
+ib.addEventListener('click',async()=>{ib.disabled=true;try{try{await document.fonts.ready}catch(_){}
+  const d=collect();if(!d.totals.length&&!d.lines.length){ib.disabled=false;return}
+  const c=render(d);c.toBlob(bl=>{ib.disabled=false;if(!bl)return;const t=new Date();
+    const f=new File([bl],'calqo-'+slug+'-'+t.getFullYear()+String(t.getMonth()+1).padStart(2,'0')+String(t.getDate()).padStart(2,'0')+'.png',{type:'image/png'});modal(c,f)},'image/png')}
+  catch(e){ib.disabled=false;console.error(e)}});
+})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/home-money/">집 사기 돈 총정리</a></li><li><a href="/stats/">숫자로 보는 통계</a></li><li><a href="/wedding-money/">결혼 준비 돈 총정리</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
