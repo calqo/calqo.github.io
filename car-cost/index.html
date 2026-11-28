@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>자동차 유지비 계산기 · 전기차 vs 하이브리드 비교 | 캘코</title>
+<meta name="description" content="휘발유·하이브리드·경유·LPG·전기차 한 달 유지비와 5년 총비용, 전기차 본전 시점을 계산해요.">
+<link rel="canonical" href="https://calqo.kr/car-cost/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="자동차 유지비 계산기 · 전기차 vs 하이브리드 비교 | 캘코">
+<meta property="og:description" content="휘발유·하이브리드·경유·LPG·전기차 한 달 유지비와 5년 총비용, 전기차 본전 시점을 계산해요.">
+<meta property="og:url" content="https://calqo.kr/car-cost/">
+<meta property="og:image" content="https://calqo.kr/assets/og/car-cost.png?v=29">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="자동차 유지비 계산기 · 전기차 vs 하이브리드 비교 | 캘코">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="자동차 유지비 계산기 · 전기차 vs 하이브리드 비교 | 캘코">
+<meta name="twitter:description" content="휘발유·하이브리드·경유·LPG·전기차 한 달 유지비와 5년 총비용, 전기차 본전 시점을 계산해요.">
+<meta name="twitter:image" content="https://calqo.kr/assets/og/car-cost.png?v=29">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life" class=on aria-current=page>생활·날짜</a><a href="/#health">생활 건강</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
+    <h1>내 차 유지비 비교 계산기 (전기차·하이브리드)</h1>
+    <p class="lead">1년 주행거리와 차급만 넣으면 휘발유·하이브리드·경유·LPG·전기차의 한 달 유지비와 보유 기간 총비용, 전기차가 본전 되는 시점, 하루 몇 km부터 전기차가 이득인지 계산해요. 2027년 하이브리드 감면 종료까지 반영했어요.</p>
+    <span class="tag">기름값 오피넷 11월 · 전기차 공공 충전요금 2026.8 개편 · 2026년 11월 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <style>
+      .cc-tbl{width:100%;border-collapse:collapse;font-size:13px}
+      .cc-tbl th{font-weight:600;color:var(--ink-3);text-align:left;padding:4px 4px 6px}
+      .cc-tbl td{padding:3px 4px;vertical-align:middle}
+      .cc-tbl td:first-child{white-space:nowrap;font-weight:600}
+      .cc-tbl input{width:100%;min-width:0;padding:7px 8px;font-size:14px}
+      details.cc-more{border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+      details.cc-more summary{cursor:pointer;font-weight:600;font-size:14px}
+      .cc-bars{display:flex;flex-direction:column;gap:9px;font-size:13.5px;margin:6px 0 4px}
+      .cc-bars .bar{margin-top:4px;height:12px}
+      .cc-bars .best i{background:var(--accent)}
+      .cc-bars .row{display:flex;justify-content:space-between;gap:8px}
+      .cc-bars .row b{font-variant-numeric:tabular-nums}
+      </style>
+      <label for="cls">차급<select id="cls"><option value="light">경차 (캐스퍼·레이급)</option><option value="small">준중형 세단 (아반떼·K3급)</option><option value="mid" selected>중형 세단 (쏘나타·K5급)</option><option value="suv-s">소형 SUV (코나·셀토스급)</option><option value="suv-m">중형 SUV (쏘렌토·싼타페급)</option></select><span class="hint">고르면 아래 차값·연비 기본값이 바뀌어요</span></label>
+      <div class="row2">
+        <label for="km">1년 주행거리 (km)<input id="km" type="number" inputmode="numeric" min="0" step="1000" value="15000"><span class="hint" id="km-h"></span></label>
+        <label for="yrs">보유 기간 (년)<input id="yrs" type="number" inputmode="numeric" min="1" max="15" step="1" value="5"></label>
+      </div>
+      <div class="row2">
+        <label for="y27">출고 시기<select id="y27"><option value="1" selected>2027년 출고</option><option value="0">2026년 안에 출고</option></select><span class="hint">하이브리드 감면은 12/31 출고분까지</span></label>
+        <label for="sub">전기차 보조금 (만원)<input id="sub" type="number" inputmode="numeric" min="0" step="10" value="600"><span class="hint">국비+지자체 합계, 2027년 금액은 1월 발표</span></label>
+      </div>
+      <div class="row2">
+        <label for="fg">휘발유 (원/L)<input id="fg" type="number" inputmode="numeric" min="0" step="1" value="1855"><span class="hint">전국 평균 1,855.1원 (11월 2주)</span></label>
+        <label for="fd">경유 (원/L)<input id="fd" type="number" inputmode="numeric" min="0" step="1" value="1842"><span class="hint">전국 평균 1,841.8원 (11월 2주)</span></label>
+      </div>
+      <div class="row2">
+        <label for="fl">LPG (원/L)<input id="fl" type="number" inputmode="numeric" min="0" step="1" value="1170"><span class="hint">충전소마다 1,130~1,210원대</span></label>
+        <label for="fast">전기차 급속 충전 비율 (%)<input id="fast" type="number" inputmode="numeric" min="0" max="100" step="5" value="30"><span class="hint">나머지는 집·아파트 완속</span></label>
+      </div>
+      <div class="row2">
+        <label for="slow">완속 충전요금 (원/kWh)<input id="slow" type="number" inputmode="numeric" min="0" step="1" value="295"><span class="hint">공공 완속 295원</span></label>
+        <label for="fastp">급속 충전요금 (원/kWh)<input id="fastp" type="number" inputmode="numeric" min="0" step="1" value="348"><span class="hint">100~200kW 348.4원</span></label>
+      </div>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="winter" type="checkbox" style="width:auto" checked> 겨울 반영 (12~2월 전기차 전비 20%·내연기관 7% 감소)</label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="dep" type="checkbox" style="width:auto" checked> 보유 기간 뒤 중고차로 판 값(감가)까지 계산</label>
+      <details class="cc-more"><summary>차값·연비·배기량 직접 고치기</summary>
+        <p class="hint" style="margin:8px 0">차값은 취득세·옵션을 넣은 실제 낼 돈(보조금 빼기 전, 2026년 세금 기준)이에요. 견적서 숫자로 바꾸면 정확해져요. 비워 두면 비교에서 빠져요.</p>
+        <table class="cc-tbl"><thead><tr><th></th><th>차값(만원)</th><th>연비</th><th>배기량(cc)</th></tr></thead><tbody><tr><td>휘발유</td><td><input id="pg" type="number" inputmode="numeric" min="0" step="10" aria-label="휘발유 차값(만원)"></td><td><input id="eg" type="number" inputmode="decimal" min="0" step="0.1" aria-label="휘발유 연비"></td><td><input id="cg" type="number" inputmode="numeric" min="0" step="1" aria-label="휘발유 배기량"></td></tr><tr><td>하이브리드</td><td><input id="ph" type="number" inputmode="numeric" min="0" step="10" aria-label="하이브리드 차값(만원)"></td><td><input id="eh" type="number" inputmode="decimal" min="0" step="0.1" aria-label="하이브리드 연비"></td><td><input id="ch" type="number" inputmode="numeric" min="0" step="1" aria-label="하이브리드 배기량"></td></tr><tr><td>경유</td><td><input id="pd" type="number" inputmode="numeric" min="0" step="10" aria-label="경유 차값(만원)"></td><td><input id="ed" type="number" inputmode="decimal" min="0" step="0.1" aria-label="경유 연비"></td><td><input id="cd" type="number" inputmode="numeric" min="0" step="1" aria-label="경유 배기량"></td></tr><tr><td>LPG</td><td><input id="pl" type="number" inputmode="numeric" min="0" step="10" aria-label="LPG 차값(만원)"></td><td><input id="el" type="number" inputmode="decimal" min="0" step="0.1" aria-label="LPG 연비"></td><td><input id="cl" type="number" inputmode="numeric" min="0" step="1" aria-label="LPG 배기량"></td></tr><tr><td>전기차</td><td><input id="pe" type="number" inputmode="numeric" min="0" step="10" aria-label="전기차 차값(만원)"></td><td><input id="ee" type="number" inputmode="decimal" min="0" step="0.1" aria-label="전기차 연비"></td><td><small>자동차세 13만원</small></td></tr></tbody></table>
+        <p class="hint" style="margin:6px 0 0">연비는 km/L, 전기차는 km/kWh(전비)예요.</p>
+      </details>
+      <span class="hint">예시: 쏘나타급 중형 세단을 2027년에 사서 1년 1만 5천km씩 5년 타는 경우예요. 전기차는 집·아파트 완속 70%, 급속 30%로 충전해요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>유지비 비교 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span id="o-best">가장 싼 차</span><b id="o-min"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="cc-bars" id="o-bars"></div>
+      <div class="lines" id="o-lines"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>이렇게 계산해요</h2>
+    <p>같은 차급의 휘발유·하이브리드·경유·LPG·전기차를 같은 거리로 탄다고 보고, <b>보유 기간 총비용 = 차값 − 전기차 보조금 + 연료·충전비 + 소모품 + 자동차세 − 팔 때 받는 값</b>으로 비교해요. 예시(중형 세단, 2027년 출고, 1년 1만 5천km, 5년)에서는 <b>하이브리드</b>가 가장 싸고, 1년 약 34,400km(하루 약 94km) 넘게 타면 전기차가 하이브리드보다 이득이에요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>예시 (중형 세단 5년)</th><th>차값 (보조금 뺀)</th><th>한 달 유지비</th><th>5년 뒤 팔 때</th><th>5년 총비용</th></tr></thead>
+      <tbody><tr><td>휘발유</td><td>3,100만원</td><td>282,302원</td><td>1,458만원</td><td><b>3,320만원</b></td></tr><tr><td>하이브리드</td><td>3,700만원</td><td>214,758원</td><td>1,898만원</td><td><b>3,075만원</b></td></tr><tr><td>LPG</td><td>3,000만원</td><td>250,156원</td><td>1,255만원</td><td><b>3,231만원</b></td></tr><tr><td>전기차</td><td>4,611만원</td><td>115,818원</td><td>1,709만원</td><td><b>3,592만원</b></td></tr></tbody>
+    </table></div>
+    <ul>
+      <li><b>연료·충전비:</b> 1년 주행거리 ÷ 연비 × 기름값. 전기차는 완속·급속 비율로 섞은 충전요금을 써요.</li>
+      <li><b>자동차세:</b> 배기량 cc당 80원(1,000cc 이하)·140원(1,600cc 이하)·200원에 지방교육세 30%를 더하고, 3년째부터 해마다 5%씩(최대 50%) 깎아요. 전기차는 10만원 + 교육세 = 13만원이에요. <a href="/car-tax/">자동차세 계산기</a>와 같은 식이에요.</li>
+      <li><b>소모품:</b> 엔진오일·필터·브레이크·타이어·요소수 등을 km당 휘발유 40원, 하이브리드 35원, 경유 50원, LPG 40원, 전기차 25원으로 잡았어요(캘코 가정).</li>
+      <li><b>팔 때 값(감가):</b> 1년마다 차값(보조금 뺀)의 휘발유 86.0%, 하이브리드 87.5%, 경유 85%, LPG 84%, 전기차 82%가 남는다고 봤어요(캘코 가정). 중고차 시세는 시기마다 크게 달라요.</li>
+    </ul>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>2027년에 사면 달라지는 것</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>항목</th><th>2026년</th><th>2027년</th></tr></thead>
+      <tbody>
+        <tr><td>하이브리드 개별소비세 감면</td><td>최대 70만원 (교육세·부가세 포함 약 100만원)</td><td>없어짐</td></tr>
+        <tr><td>전기차 개별소비세 감면 한도</td><td>300만원</td><td>200만원 (정부안, 2028년 100만원·2029년 폐지)</td></tr>
+        <tr><td>전기차 취득세 감면</td><td>최대 140만원</td><td>2027년 말까지 유지</td></tr>
+        <tr><td>전기차 고속도로 통행료 할인</td><td>30%</td><td>20%</td></tr>
+        <tr><td>전기차 구매 보조금</td><td>국비 최대 580만원 + 전환지원금 100만원</td><td>1월 발표 예정</td></tr>
+      </tbody>
+    </table></div>
+    <p>개별소비세 감면은 계약일이 아니라 <b>공장에서 출고되는 날</b> 기준이에요. '출고 시기'를 2027년으로 두면 하이브리드·전기차 차값에 줄어든 감면만큼 더해서 계산해요(경차는 원래 개별소비세가 없어서 그대로예요). 전기차 개별소비세 한도는 국회 확정 전 정부안이라 확정되면 다시 반영할게요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>연료별 100km 달리는 비용 (중형 세단)</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>연료</th><th>연비</th><th>100km 비용</th></tr></thead>
+      <tbody><tr><td>휘발유</td><td>12.5km/L</td><td>14,840원</td></tr><tr><td>하이브리드</td><td>18.5km/L</td><td>10,027원</td></tr><tr><td>LPG</td><td>9.5km/L</td><td>12,316원</td></tr><tr><td>전기차</td><td>5.6km/kWh</td><td>완속 5,268원 · 급속 6,214원</td></tr></tbody>
+    </table></div>
+    <p>전기차 공공 충전요금은 2026년 8월 1일부터 5단계로 바뀌었어요. 완속(30kW 미만) 295.0원, 50~100kW 325.6원, 100~200kW 348.4원, 200kW 이상 초급속 393.1원이에요. 급속 충전을 많이 할수록 하이브리드와의 차이가 줄어들어요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>차급별 기본값</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>차급</th><th>휘발유</th><th>하이브리드</th><th>경유</th><th>LPG</th><th>전기차</th></tr></thead>
+      <tbody><tr><td>경차<br><small>캐스퍼·레이급</small></td><td>1,750만<br><small>13.0km/L</small></td><td>–</td><td>–</td><td>–</td><td>3,000만<br><small>5.6km/kWh</small></td></tr><tr><td>준중형 세단<br><small>아반떼·K3급</small></td><td>2,400만<br><small>14.5km/L</small></td><td>2,900만<br><small>20.5km/L</small></td><td>–</td><td>–</td><td>4,400만<br><small>5.8km/kWh</small></td></tr><tr><td>중형 세단<br><small>쏘나타·K5급</small></td><td>3,100만<br><small>12.5km/L</small></td><td>3,600만<br><small>18.5km/L</small></td><td>–</td><td>3,000만<br><small>9.5km/L</small></td><td>5,200만<br><small>5.6km/kWh</small></td></tr><tr><td>소형 SUV<br><small>코나·셀토스급</small></td><td>2,800만<br><small>13.0km/L</small></td><td>3,300만<br><small>18.5km/L</small></td><td>–</td><td>–</td><td>4,600만<br><small>5.5km/kWh</small></td></tr><tr><td>중형 SUV<br><small>쏘렌토·싼타페급</small></td><td>3,900만<br><small>10.5km/L</small></td><td>4,400만<br><small>15.0km/L</small></td><td>4,100만<br><small>13.5km/L</small></td><td>3,400만<br><small>8.6km/L</small></td><td>5,600만<br><small>5.0km/kWh</small></td></tr></tbody>
+    </table></div>
+    <p>취득세·기본 옵션을 넣은 실제 낼 돈을 차급 대표 모델로 어림한 값이에요(보조금 빼기 전, 2026년 세금 기준). '–'는 요즘 그 차급에 거의 팔지 않는 연료예요. 견적서를 받았다면 '차값·연비·배기량 직접 고치기'에 그대로 넣어 주세요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>이럴 땐 이렇게</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>집·회사에 완속 충전기가 있어요:</b> 급속 비율을 10% 아래로 낮춰 보세요. 전기차가 이득이 되는 거리가 크게 짧아져요.</li>
+      <li><b>충전은 거의 급속이에요:</b> 급속 비율을 80% 넘게 넣으면 하루 주행이 짧을 때 하이브리드가 더 싼 경우가 많아요.</li>
+      <li><b>출퇴근만 해요:</b> 하루 왕복 거리 × 출근일(약 250일) + 주말 거리로 1년 주행거리를 잡아 보세요. 출퇴근을 대중교통과 비교하려면 <a href="/transport-cost/">교통비 비교 계산기</a>를 쓰세요.</li>
+      <li><b>차값을 할부·리스로 내요:</b> 이자는 이 계산에 빠져 있어요. <a href="/car-acquisition-tax/">자동차 취득세 계산기</a>로 세금도 따로 확인해 보세요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
+    <ul>
+      <li>보험료, 할부 이자, 주차비, 통행료는 넣지 않았어요. 같은 차급이면 전기차 보험료가 조금 더 비싼 편이에요.</li>
+      <li>오래된 경유차(유로5 이하)는 환경개선부담금이 따로 나와요. 새 차를 사는 경우는 계산에 넣지 않았어요.</li>
+      <li>기름값은 매주 바뀌어요. 오피넷 2026년 11월 둘째 주 전국 평균(휘발유 1,855.1원, 경유 1,841.8원)을 넣어 두었어요.</li>
+      <li>소모품 비용·중고차 감가율·겨울 효율 감소는 평균적인 경향을 캘코가 어림한 값이라 차종·운전 습관에 따라 달라요. 계산 결과는 참고용이에요.</li>
+    </ul>
+    <p class="hint">기준: 한국석유공사 오피넷 주간 평균 판매가격(2026년 11월 둘째 주), 기후에너지환경부 전기차 공공 충전요금 개편(2026년 8월 1일), 2026년 세제개편안(2026년 8월 3일), 기후에너지환경부 2026년 전기차 구매보조금 지침, 지방세법 자동차세 세율.</p>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>하루 몇 km 넘게 타야 전기차가 이득이에요?</summary><p>중형 세단, 5년 보유, 집·아파트 완속 70% 기준으로 1년 약 34,400km(하루 약 94km) 넘게 타면 하이브리드보다 전기차 총비용이 적어져요. 급속 충전 비율이 높거나 보조금이 적으면 이 거리가 늘어나요.</p></details><details><summary>2027년에 하이브리드를 사면 얼마나 비싸져요?</summary><p>하이브리드 개별소비세 감면(최대 70만원)이 2026년 12월 31일 출고분까지만 적용돼요. 교육세·부가세까지 합치면 차값이 약 100만원 올라요. 계약일이 아니라 공장에서 출고되는 날이 기준이에요.</p></details><details><summary>전기차 세금 혜택은 2027년에도 있나요?</summary><p>정부 세제개편안 기준으로 전기차 개별소비세 감면 한도가 300만원에서 2027년 200만원, 2028년 100만원으로 줄고 2029년에 없어져요. 국회에서 최종 확정되면 다시 반영할게요. 전기차 취득세 감면(최대 140만원)은 2027년 말까지 이어져요.</p></details><details><summary>전기차 충전요금은 얼마예요?</summary><p>공공 충전기 기준으로 2026년 8월부터 완속(30kW 미만) kWh당 295.0원, 50~100kW 325.6원, 100~200kW 348.4원, 200kW 이상 초급속 393.1원이에요. 아파트 충전기나 민간 사업자는 요금이 달라서 내 요금으로 바꿔 넣는 게 정확해요.</p></details><details><summary>겨울에는 전기차가 얼마나 손해예요?</summary><p>추운 날엔 배터리 효율이 떨어지고 히터에 전기를 써서 전비가 20% 안팎 줄어요. 이 계산기는 &#x27;겨울 반영&#x27;을 켜면 12~2월 석 달 동안 전기차 전비 20%, 내연기관·하이브리드 연비 7%가 줄어든다고 보고 계산해요.</p></details><details><summary>보험료는 왜 빠져 있어요?</summary><p>보험료는 나이·경력·할인 특약마다 차이가 커서 넣지 않았어요. 같은 차급이면 전기차 보험료가 조금 더 비싼 편이라, 견적을 받았다면 차이 금액만큼 전기차 쪽에 더해서 보면 돼요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "하루 몇 km 넘게 타야 전기차가 이득이에요?", "acceptedAnswer": {"@type": "Answer", "text": "중형 세단, 5년 보유, 집·아파트 완속 70% 기준으로 1년 약 34,400km(하루 약 94km) 넘게 타면 하이브리드보다 전기차 총비용이 적어져요. 급속 충전 비율이 높거나 보조금이 적으면 이 거리가 늘어나요."}}, {"@type": "Question", "name": "2027년에 하이브리드를 사면 얼마나 비싸져요?", "acceptedAnswer": {"@type": "Answer", "text": "하이브리드 개별소비세 감면(최대 70만원)이 2026년 12월 31일 출고분까지만 적용돼요. 교육세·부가세까지 합치면 차값이 약 100만원 올라요. 계약일이 아니라 공장에서 출고되는 날이 기준이에요."}}, {"@type": "Question", "name": "전기차 세금 혜택은 2027년에도 있나요?", "acceptedAnswer": {"@type": "Answer", "text": "정부 세제개편안 기준으로 전기차 개별소비세 감면 한도가 300만원에서 2027년 200만원, 2028년 100만원으로 줄고 2029년에 없어져요. 국회에서 최종 확정되면 다시 반영할게요. 전기차 취득세 감면(최대 140만원)은 2027년 말까지 이어져요."}}, {"@type": "Question", "name": "전기차 충전요금은 얼마예요?", "acceptedAnswer": {"@type": "Answer", "text": "공공 충전기 기준으로 2026년 8월부터 완속(30kW 미만) kWh당 295.0원, 50~100kW 325.6원, 100~200kW 348.4원, 200kW 이상 초급속 393.1원이에요. 아파트 충전기나 민간 사업자는 요금이 달라서 내 요금으로 바꿔 넣는 게 정확해요."}}, {"@type": "Question", "name": "겨울에는 전기차가 얼마나 손해예요?", "acceptedAnswer": {"@type": "Answer", "text": "추운 날엔 배터리 효율이 떨어지고 히터에 전기를 써서 전비가 20% 안팎 줄어요. 이 계산기는 '겨울 반영'을 켜면 12~2월 석 달 동안 전기차 전비 20%, 내연기관·하이브리드 연비 7%가 줄어든다고 보고 계산해요."}}, {"@type": "Question", "name": "보험료는 왜 빠져 있어요?", "acceptedAnswer": {"@type": "Answer", "text": "보험료는 나이·경력·할인 특약마다 차이가 커서 넣지 않았어요. 같은 차급이면 전기차 보험료가 조금 더 비싼 편이라, 견적을 받았다면 차이 금액만큼 전기차 쪽에 더해서 보면 돼요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-29</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/car-acquisition-tax/" data-k="자동차 취득세 계산기 신차·중고차 취득세와 경차·전기차·다자녀 감면 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차 취득세 계산기</strong><span>신차·중고차 취득세와 경차·전기차·다자녀 감면 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/car-tax/" data-k="자동차세 계산기 (연납·차령 경감) 1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차세 계산기 (연납·차령 경감)</strong><span>1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/transport-cost/" data-k="교통비 비교 계산기 (택시·대리·GTX) 택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>교통비 비교 계산기 (택시·대리·GTX)</strong><span>택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+const CLS={"light": [true, {"g": [1750, 13.0, 998], "e": [3000, 5.6, 0]}], "small": [false, {"g": [2400, 14.5, 1598], "h": [2900, 20.5, 1580], "e": [4400, 5.8, 0]}], "mid": [false, {"g": [3100, 12.5, 1999], "h": [3600, 18.5, 1999], "l": [3000, 9.5, 1999], "e": [5200, 5.6, 0]}], "suv-s": [false, {"g": [2800, 13.0, 1598], "h": [3300, 18.5, 1580], "e": [4600, 5.5, 0]}], "suv-m": [false, {"g": [3900, 10.5, 2497], "h": [4400, 15.0, 1598], "d": [4100, 13.5, 2151], "l": [3400, 8.6, 1998], "e": [5600, 5.0, 0]}]};
+const NM={"g": "휘발유", "h": "하이브리드", "d": "경유", "l": "LPG", "e": "전기차"},ORD=["g", "h", "d", "l", "e"];
+const MNT={"g": 40, "h": 35, "d": 50, "l": 40, "e": 25},RET={"g": 0.86, "h": 0.875, "d": 0.85, "l": 0.84, "e": 0.82},WIN={"e": 0.2, "x": 0.07};
+const v=id=>Math.max(0,+$(id).value||0);
+const ga=s=>{const c=s.charCodeAt(s.length-1);return c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28?'이':'가'};
+const ym=y=>{if(!isFinite(y)||y<=0)return '바로';const m=Math.round(y*12),a=Math.floor(m/12),b=m%12;return (a?a+'년':'')+(b?(a?' ':'')+b+'개월':'')||'1개월'};
+const kmf=n=>Math.round(n).toLocaleString('ko-KR')+'km';
+function preset(){const c=CLS[$('cls').value];ORD.forEach(f=>{const p=c[1][f];$('p'+f).value=p?p[0]:'';$('e'+f).value=p?p[1]:'';if(f!=='e')$('c'+f).value=p?p[2]:''})}
+function dk(f,pm,light){if(light)return 0;const k=pm/1.07/1.1715*0.05;return (f==='h'?Math.min(70,k):f==='e'?Math.min(300,k)-Math.min(200,k):0)*1.43*1e4}
+function model(km){
+  const light=CLS[$('cls').value][0],N=Math.min(15,Math.max(1,Math.round(v('yrs'))||1)),y27=$('y27').value==='1',sub=v('sub')*1e4,fs=Math.min(100,v('fast')),
+    win=$('winter').checked,dep=$('dep').checked,R={};
+  const rate={g:v('fg'),h:v('fg'),d:v('fd'),l:v('fl'),e:(v('slow')*(100-fs)+v('fastp')*fs)/100};
+  ORD.forEach(f=>{const pm=v('p'+f),eff=v('e'+f);if(!(pm>0&&eff>0))return;
+    const wf=win?0.75+0.25/(1-(f==='e'?WIN.e:WIN.x)):1,fuel=rate[f]/eff*wf,cpk=fuel+MNT[f];
+    const price=pm*1e4+(y27?dk(f,pm,light):0),net=Math.max(0,price-(f==='e'?sub:0));
+    const cc=f==='e'?0:v('c'+f),raw=f==='e'?1e5:cc*(cc<=1000?80:cc<=1600?140:200);let taxs=0,tax1=0;
+    for(let i=1;i<=N;i++){const t=raw*(1-(i>=3?Math.min(.5,(i-2)*.05):0))*1.3;taxs+=t;if(i===1)tax1=t}
+    const resale=dep?net*Math.pow(RET[f],N):0;
+    R[f]={f,fuel,cpk,price,net,tax1,taxs,resale,N,tot:net+km*cpk*N+taxs-resale,month:(km*cpk+tax1)/12,y27add:y27?dk(f,pm,light):0}});
+  return R}
+function calc(){
+  const km=v('km');$('km-h').textContent=km>0?'하루 약 '+Math.round(km/365)+'km · 한 달 약 '+kmf(km/12):'';
+  const R=model(km),L=Object.values(R),st=$('o-status');
+  if(!L.length||!(km>0)){st.className='status warn';st.textContent=km>0?'비교할 차의 차값과 연비를 넣어 주세요.':'1년 주행거리를 넣어 주세요.';$('o-min').textContent='–';$('o-bars').innerHTML='';$('o-lines').innerHTML='';return}
+  L.sort((a,b)=>a.tot-b.tot);const N=L[0].N,best=L[0],mx=Math.max(...L.map(x=>x.tot));
+  $('o-sub').textContent=CLS[$('cls').value]&&$('cls').selectedOptions[0].textContent.replace(/ \(.*/,'')+' · 1년 '+kmf(km)+' · '+N+'년';
+  $('o-best').textContent=N+'년 총비용이 가장 싼 차: '+NM[best.f];$('o-min').textContent=man(best.tot);
+  let msg=L.length>1?NM[best.f]+ga(NM[best.f])+' 두 번째인 '+NM[L[1].f]+'보다 '+N+'년 동안 '+man(L[1].tot-best.tot)+' 아껴요.':'';
+  const e=R.e,h=R.h||R.g;
+  if(e&&h&&h.cpk>e.cpk){const A=x=>x.net-x.resale+x.taxs,k=(A(e)-A(h))/(N*(h.cpk-e.cpk));
+    msg+=k<=0?' 이 조건이면 조금만 타도 전기차가 '+NM[h.f]+'보다 이득이에요.':' 하루 '+Math.round(k/365)+'km(1년 '+kmf(Math.round(k/100)*100)+') 넘게 타면 전기차가 '+NM[h.f]+'보다 이득이에요.'}
+  st.className='status ok';st.textContent=msg.trim();
+  $('o-bars').innerHTML=L.map((x,i)=>'<div class="'+(i===0?'best':'')+'"><div class="row"><span>'+(i===0?'★ ':'')+NM[x.f]+'</span><b>'+man(x.tot)+'</b></div><div class="bar"><i style="width:'+Math.max(2,x.tot/mx*100)+'%"></i></div></div>').join('');
+  const line=(a,b,c)=>'<div class="line"><span>'+a+(c?'<em>'+c+'</em>':'')+'</span><b>'+b+'</b></div>';
+  let rows=L.map(x=>line(NM[x.f]+' 한 달 유지비',won(x.month),'연료·충전 '+won(km*x.fuel/12)+' + 소모품 '+won(km*MNT[x.f]/12)+' + 자동차세 '+won(x.tax1/12)+' · 1년 '+man(x.month*12)));
+  rows=rows.concat(L.map(x=>line(NM[x.f]+' '+N+'년 총비용',man(x.tot),'차값 '+man(x.net)+(x.f==='e'&&v('sub')>0?'(보조금 '+man(v('sub')*1e4)+' 뺌)':'')+(x.y27add>0?' · 2027 감면 축소 +'+man(x.y27add):'')+' + 유지비 '+man(km*x.cpk*N+x.taxs)+($('dep').checked?' − 팔 때 '+man(x.resale):''))));
+  const pb=(a,b)=>{if(!a||!b)return;const ex=a.net-b.net,sv=km*(b.cpk-a.cpk)+(b.taxs-a.taxs)/N;if(ex<=0||sv<=0)return;const y=ex/sv;
+    rows.push(line(NM[a.f]+ga(NM[a.f])+' '+NM[b.f]+'보다 본전 되는 시점',y>30?'30년 넘게':ym(y),'더 낸 차값 '+man(ex)+' ÷ 1년에 아끼는 '+man(sv)+(y<=30?' · 약 '+kmf(Math.round(y*km/1000)*1000):'')))};
+  pb(R.e,R.h);pb(R.e,R.g);pb(R.h,R.g);pb(R.l,R.g);pb(R.d,R.g);
+  $('o-lines').innerHTML=rows.join('');
+}
+$('cls').addEventListener('change',e=>{if(e.isTrusted){preset();calc()}});
+document.querySelectorAll('form.panel input,form.panel select').forEach(e=>{e.addEventListener('input',calc);e.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{const D={km:15000,yrs:5,sub:600,fg:1855,fd:1842,fl:1170,fast:30,slow:295,fastp:348};
+  Object.keys(D).forEach(k=>$(k).value=D[k]);$('cls').value='mid';$('y27').value='1';$('winter').checked=true;$('dep').checked=true;preset();calc()});
+const q0=new URLSearchParams(location.search).get('cls');if(q0&&CLS[q0])$('cls').value=q0;
+preset();calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const sb=document.getElementById('share'),slip=document.querySelector('.slip');if(!sb||!slip||!window.HTMLCanvasElement)return;
+// v29: 결과 이미지 저장 — 결과 칸을 1080px 카드 이미지로 그려서 저장·공유해요
+const row=sb.parentNode,wrap=document.createElement('div');wrap.className='share-btns';row.insertBefore(wrap,sb);wrap.appendChild(sb);
+const ib=document.createElement('button');ib.type='button';ib.className='share';ib.id='saveimg';
+ib.innerHTML='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>결과 이미지 저장';wrap.appendChild(ib);
+sb.lastChild.textContent='결과 링크 공유';
+const vis=e=>e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
+const txt=e=>{if(!e)return'';const c=e.cloneNode(true);c.querySelectorAll('em,button,.tip,svg').forEach(x=>x.remove());return c.textContent.replace(/\s+/g,' ').trim()};
+const slug=location.pathname.replace(/^\/|\/$/g,'')||'calqo';
+let logo=null;const li=new Image();li.onload=()=>logo=li;li.src='/assets/logo-180.png';
+function collect(){
+  const h=document.querySelector('h1'),s=document.querySelector('.seg button[aria-pressed="true"]'),h2=slip.querySelector('h2');
+  const d={title:txt(h),mode:s?txt(s):'',sub:h2?txt(h2.querySelector('small')):'',totals:[],status:[],lines:[],bars:[]};
+  slip.querySelectorAll('.total').forEach(t=>{if(vis(t))d.totals.push([txt(t.querySelector('span')),txt(t.querySelector('b'))])});
+  slip.querySelectorAll('.status').forEach(t=>{const x=txt(t);if(x&&vis(t))d.status.push([x,t.classList.contains('warn')])});
+  slip.querySelectorAll('.bar i').forEach(i=>{if(vis(i.parentNode))d.bars.push(Math.max(0,Math.min(100,parseFloat(i.style.width)||0)))});
+  slip.querySelectorAll('.line').forEach(l=>{if(!vis(l))return;const sp=l.querySelector('span'),b=l.querySelector(':scope>b');const v=txt(b);if(!v)return;
+    d.lines.push([txt(sp),sp&&sp.querySelector('em')?sp.querySelector('em').textContent.trim():'',v])});
+  d.lines=d.lines.slice(0,12);return d}
+function render(d){
+  const W=1080,P=64,F=getComputedStyle(document.body).fontFamily,c=document.createElement('canvas'),x=c.getContext('2d');
+  const C={bg:'#fffaf7',card:'#ffffff',ink:'#111827',ink2:'#4b5563',ink3:'#6b7280',acc:'#c4512f',brand:'#e56a48',soft:'#fdeee8',line:'#eee3de',ok:'#15803d',warn:'#b45309'};
+  const fnt=(w,s)=>w+' '+s+'px '+F;
+  const wrap=(t,f,mw)=>{x.font=f;const out=[];let cur='';for(const ch of t.split(/(\s+)/)){const tt=cur+ch;if(x.measureText(tt).width<=mw||!cur.trim()){cur=tt;while(x.measureText(cur).width>mw){let i=cur.length;while(i>1&&x.measureText(cur.slice(0,i)).width>mw)i--;out.push(cur.slice(0,i));cur=cur.slice(i)}}else{out.push(cur.trim());cur=ch.trim()}}if(cur.trim())out.push(cur.trim());return out};
+  const rr=(x0,y0,w,h,r,fill)=>{x.beginPath();x.moveTo(x0+r,y0);x.arcTo(x0+w,y0,x0+w,y0+h,r);x.arcTo(x0+w,y0+h,x0,y0+h,r);x.arcTo(x0,y0+h,x0,y0,r);x.arcTo(x0,y0,x0+w,y0,r);x.closePath();x.fillStyle=fill;x.fill()};
+  function pass(draw){let y=P;const T=(t,f,col,X,Y,al)=>{if(!draw)return;x.font=f;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='top';x.fillText(t,X,Y)};
+    // 머리
+    if(draw&&logo)x.drawImage(logo,P,y,56,56);
+    T('캘코',fnt(800,32),C.ink,P+70,y+8);x.font=fnt(800,32);const lw=x.measureText('캘코').width;T('calqo.kr',fnt(500,26),C.ink3,P+82+lw,y+14);
+    const dt=new Date(),ds=dt.getFullYear()+'.'+String(dt.getMonth()+1).padStart(2,'0')+'.'+String(dt.getDate()).padStart(2,'0')+' 계산';T(ds,fnt(500,24),C.ink3,W-P,y+16,'right');
+    y+=96;
+    // 카드
+    const cy=y,cx=P-8,cw=W-2*(P-8);if(draw){x.save();x.shadowColor='rgba(17,24,39,.08)';x.shadowBlur=30;x.shadowOffsetY=8;rr(cx,cy,cw,d._h||10,36,C.card);x.restore()}
+    y+=48;const L=P+32,R=W-P-32,IW=R-L;
+    for(const l of wrap(d.title,fnt(800,48),IW)){T(l,fnt(800,48),C.ink,L,y);y+=64}
+    const tag=[d.mode,d.sub].filter(Boolean).join(' · ');if(tag){y+=4;for(const l of wrap(tag,fnt(600,28),IW)){T(l,fnt(600,28),C.ink3,L,y);y+=40}}
+    y+=20;
+    d.totals.forEach(([lab,val])=>{let vs=76;x.font=fnt(800,vs);while(x.measureText(val).width>IW-56&&vs>40){vs-=4;x.font=fnt(800,vs)}
+      const ll=wrap(lab,fnt(700,32),IW-56),h=40+ll.length*44+vs*1.15+36;if(draw)rr(L,y,IW,h,28,C.soft);let yy=y+36;
+      ll.forEach(l=>{T(l,fnt(700,32),C.ink,L+28,yy);yy+=44});T(val,fnt(800,vs),C.acc,L+28,yy+4);y+=h+20});
+    d.bars.forEach(p=>{if(draw){rr(L,y,IW,22,11,'#f1e7e3');if(p>0)rr(L,y,Math.max(22,IW*p/100),22,11,C.brand)}y+=44});
+    d.status.forEach(([s,w])=>{const ll=wrap(s,fnt(600,28),IW-48),h=ll.length*42+36;if(draw)rr(L,y,IW,h,22,w?'#fdf3e4':'#e9f6ee');let yy=y+18;ll.forEach(l=>{T(l,fnt(600,28),w?C.warn:C.ok,L+24,yy);yy+=42});y+=h+20});
+    if(d.lines.length){y+=6;d.lines.forEach(([lab,em,val],i)=>{x.font=fnt(700,32);let vw=Math.min(x.measureText(val).width,IW*.55);
+      const ll=wrap(lab,fnt(500,30),IW-vw-28),el=em?wrap(em,fnt(500,23),IW-vw-28):[];const h=Math.max(ll.length*42+el.length*32,42)+36;
+      let yy=y+18;ll.forEach(l=>{T(l,fnt(500,30),C.ink2,L,yy);yy+=42});el.forEach(l=>{T(l,fnt(500,23),C.ink3,L,yy);yy+=32});
+      let vs=32;x.font=fnt(700,vs);while(x.measureText(val).width>IW*.55&&vs>20){vs-=2;x.font=fnt(700,vs)}T(val,fnt(700,vs),C.ink,R,y+18+(32-vs)/2,'right');
+      y+=h;if(draw&&i<d.lines.length-1){x.fillStyle=C.line;x.fillRect(L,y,IW,2)}})}
+    y+=40;d._h=y-cy;y+=40;
+    // 꼬리
+    const fy=y;if(draw)rr(P-8,fy,W-2*(P-8),132,30,C.brand);
+    T('내 조건으로 계산해 보기',fnt(700,28),'#ffe7dd',P+24,fy+26);T('calqo.kr/'+slug,fnt(800,40),'#ffffff',P+24,fy+66);
+    y+=132+28;T('계산 결과는 참고용이에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인하세요.',fnt(500,22),C.ink3,W/2,y,'center');y+=30+P-20;return y}
+  const H=Math.ceil(pass(false));c.width=W;c.height=H;x.fillStyle=C.bg;x.fillRect(0,0,W,H);pass(true);return c}
+function modal(c,file){
+  const m=document.createElement('div');m.className='imgm';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','결과 이미지');
+  const canShare=navigator.canShare&&navigator.canShare({files:[file]});
+  m.innerHTML='<div class="imgm-b"><div class="imgm-h"><b>결과 이미지</b><button type="button" class="imgm-x" aria-label="닫기">✕</button></div><div class="imgm-p"><img alt="계산 결과 이미지"></div><p class="imgm-t">저장이 안 되면 이미지를 <b>길게 눌러</b> 저장하세요.</p><div class="imgm-a"><a class="share" download></a>'+(canShare?'<button type="button" class="share imgm-s">카톡·메신저로 보내기</button>':'')+'</div></div>';
+  m.querySelector('img').src=c.toDataURL('image/png');
+  const a=m.querySelector('a[download]'),u=URL.createObjectURL(file);a.href=u;a.download=file.name;a.textContent='이미지 저장하기';
+  const close=()=>{m.remove();URL.revokeObjectURL(u);document.removeEventListener('keydown',k);ib.focus()},k=e=>{if(e.key==='Escape')close()};
+  m.addEventListener('click',e=>{if(e.target===m||e.target.closest('.imgm-x'))close()});document.addEventListener('keydown',k);
+  const s=m.querySelector('.imgm-s');if(s)s.addEventListener('click',async()=>{try{await navigator.share({files:[file],title:document.title})}catch(_){}});
+  document.body.appendChild(m);m.querySelector('.imgm-x').focus()}
+ib.addEventListener('click',async()=>{ib.disabled=true;try{try{await document.fonts.ready}catch(_){}
+  const d=collect();if(!d.totals.length&&!d.lines.length){ib.disabled=false;return}
+  const c=render(d);c.toBlob(bl=>{ib.disabled=false;if(!bl)return;const t=new Date();
+    const f=new File([bl],'calqo-'+slug+'-'+t.getFullYear()+String(t.getMonth()+1).padStart(2,'0')+String(t.getDate()).padStart(2,'0')+'.png',{type:'image/png'});modal(c,f)},'image/png')}
+  catch(e){ib.disabled=false;console.error(e)}});
+})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/#health">생활 건강</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/home-money/">집 사기 돈 총정리</a></li><li><a href="/stats/">숫자로 보는 통계</a></li><li><a href="/wedding-money/">결혼 준비 돈 총정리</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
