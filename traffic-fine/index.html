@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>과태료 계산기 · 과속 주정차 음주운전 벌점 | 캘코</title>
-<meta name="description" content="과속·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요. 미리 내면 20% 감경도 반영.">
+<meta name="description" content="과속(구간단속·후면 카메라)·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요.">
 <link rel="canonical" href="https://calqo.kr/traffic-fine/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="캘코 calqo">
 <meta property="og:title" content="과태료 계산기 · 과속 주정차 음주운전 벌점 | 캘코">
-<meta property="og:description" content="과속·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요. 미리 내면 20% 감경도 반영.">
+<meta property="og:description" content="과속(구간단속·후면 카메라)·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요.">
 <meta property="og:url" content="https://calqo.kr/traffic-fine/">
 <meta property="og:image" content="https://calqo.kr/assets/og/traffic-fine.png?v=29">
 <meta property="og:image:width" content="1200">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="과태료 계산기 · 과속 주정차 음주운전 벌점 | 캘코">
-<meta name="twitter:description" content="과속·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요. 미리 내면 20% 감경도 반영.">
+<meta name="twitter:description" content="과속(구간단속·후면 카메라)·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요.">
 <meta name="twitter:image" content="https://calqo.kr/assets/og/traffic-fine.png?v=29">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
@@ -39,7 +39,7 @@
   <header>
     <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
     <h1>교통 과태료·벌점 계산기 (과속·주정차·음주)</h1>
-    <p class="lead">과속 과태료와 범칙금·벌점, 주정차 과태료, 음주운전 처벌과 면허 취소·결격기간, 벌점 누적 면허정지까지 한 번에 계산해요. 2026년 11월 기준.</p>
+    <p class="lead">과속(고정식·후면·구간단속·암행순찰차) 과태료와 범칙금·벌점, 주정차 과태료, 음주운전 처벌과 면허 취소·결격기간, 벌점 누적 면허정지까지 한 번에 계산해요. 2026년 11월 기준.</p>
     <span class="tag">승용차 기준 · 도로교통법 시행령·시행규칙 2026년 11월 기준</span>
   </header>
   <div class="grid">
@@ -52,17 +52,22 @@
         <button type="button" data-m="dui" aria-pressed="false">음주운전</button>
         <button type="button" data-m="point" aria-pressed="false">벌점 누적</button>
       </div></div>
-      <label for="zone" data-only="speed">단속된 곳<select id="zone"><option value="g" selected>일반 도로</option><option value="k">어린이보호구역 (08~20시)</option></select></label>
+      <div class="row2" data-only="speed">
+        <label for="cam">단속 방법<select id="cam"><option value="fix" selected>고정식 카메라</option><option value="mob">이동식 카메라</option><option value="sec">구간단속</option><option value="car">암행순찰차</option><option value="pol">경찰관 현장 단속</option></select></label>
+        <label for="zone">단속된 곳<select id="zone"><option value="g" selected>일반 도로</option><option value="k">어린이보호구역 (08~20시)</option></select></label>
+      </div>
       <div class="row2" data-only="speed">
         <label for="lim">제한속도 (km/h)<input id="lim" type="number" inputmode="numeric" min="0" step="10" value="50"></label>
-        <label for="spd">단속된 속도 (km/h)<input id="spd" type="number" inputmode="numeric" min="0" step="1" value="75"><span class="hint">고지서의 주행 속도</span></label>
+        <label for="spd" data-cam="fix mob car pol">단속된 속도 (km/h)<input id="spd" type="number" inputmode="numeric" min="0" step="1" value="75"><span class="hint">고지서의 주행 속도</span></label>
+        <label for="secd" data-cam="sec">구간 거리 (km)<input id="secd" type="number" inputmode="decimal" min="0" step="0.1" value="5"><span class="hint">구간단속 안내 표지판의 거리</span></label>
       </div>
+      <label for="sect" data-only="speed" data-cam="sec">구간 통과 시간 (분)<input id="sect" type="number" inputmode="decimal" min="0" step="0.1" value="5"><span class="hint">시작 카메라부터 끝 카메라까지 걸린 시간</span></label>
       <label for="place" data-only="park">세운 곳<select id="place"><option value="gen" selected>일반 금지구역 (도로·인도·버스정류소·횡단보도·교차로 모퉁이)</option><option value="fire">소화전 5m 안 · 소방활동 방해 지역</option><option value="old">노인·장애인 보호구역</option><option value="kid">어린이보호구역 (08~20시)</option><option value="dis">장애인 전용주차구역</option><option value="ev">전기차 충전구역</option></select></label>
       <div class="row2" data-only="park">
         <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="long" type="checkbox" style="width:auto"> 같은 곳에 2시간 넘게 세웠어요 (+1만원)</label>
         <label for="cnt">올해 걸린 횟수 (번)<input id="cnt" type="number" inputmode="numeric" min="1" step="1" value="1"></label>
       </div>
-      <div class="row2" data-only="speed park">
+      <div class="row2" data-only="speed park" data-cam="fix mob sec car">
         <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="early" type="checkbox" style="width:auto" checked> 사전통지 기간에 미리 낼게요 (20% 감경)</label>
         <label for="late">납부 기한 지난 개월 수<input id="late" type="number" inputmode="numeric" min="0" max="60" step="1" value="0"><span class="hint">안 늦었으면 0</span></label>
       </div>
@@ -106,7 +111,7 @@
           <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="field" type="checkbox" style="width:auto"> 현장참여교육까지 받을게요</label>
         </div>
       </div>
-      <span class="hint" id="tf-ex">예시: 제한속도 50km/h 도로에서 75km/h로 카메라에 찍힌 승용차예요. 위 버튼으로 주정차·음주운전·벌점 누적도 계산할 수 있어요.</span>
+      <span class="hint" id="tf-ex">예시: 제한속도 50km/h 도로에서 75km/h로 카메라에 찍힌 승용차예요. 단속 방법을 바꾸면 구간단속 평균속도도 계산해요. 위 버튼으로 주정차·음주운전·벌점 누적도 계산할 수 있어요.</span>
     </form>
     <section class="panel slip" aria-live="polite">
       <h2>계산 결과 <small id="o-sub"></small></h2>
@@ -152,6 +157,29 @@
       </tbody>
     </table></div>
     <p>4톤 넘는 화물차·승합차는 1만원씩 더 많아요. 초과 속도는 실제 속도가 아니라 <b>제한속도보다 얼마나 빨랐는지</b>로 따져요. 제한속도 30km/h 스쿨존을 45km/h로 지나면 15km/h 초과예요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>과속 단속 방법 총정리</h2></summary><div class="sec-b">
+    <p>예전처럼 '카메라 앞에서만 속도를 줄이면 된다'는 말은 이제 통하지 않아요. 카메라를 지난 뒤에 찍는 후면 카메라, 평균속도를 재는 구간단속, 같이 달리며 재는 암행순찰차까지 단속 방법이 다양해졌어요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>단속 방법</th><th>어떻게 재나요</th><th>무엇이 나오나요</th></tr></thead>
+      <tbody>
+        <tr><td>고정식 카메라 (전면)</td><td>도로 위 카메라가 지나가는 순간 속도를 재고 앞 번호판을 찍어요</td><td>차 주인에게 과태료</td></tr>
+        <tr><td>후면 단속 카메라</td><td>카메라를 지나간 뒤 뒷 번호판을 찍어요. 앞 번호판이 없는 오토바이를 잡으려고 시작했지만, 승용차의 과속·신호위반도 같이 찍어요</td><td>차 주인에게 과태료</td></tr>
+        <tr><td>신호·과속 겸용 (다기능)</td><td>교차로에서 신호위반과 과속을 한 대로 같이 단속해요. 스쿨존에 많아요</td><td>차 주인에게 과태료</td></tr>
+        <tr><td>구간단속</td><td>시작 카메라와 끝 카메라를 지난 시각으로 평균속도를 계산해요. 시작·끝 지점의 순간 속도도 따로 재요</td><td>차 주인에게 과태료</td></tr>
+        <tr><td>이동식 카메라</td><td>박스형 단속함이나 삼각대 카메라를 여러 곳으로 옮겨 가며 써요. 빈 함도 있지만 언제 카메라가 들어올지 몰라요</td><td>차 주인에게 과태료</td></tr>
+        <tr><td>암행순찰차 (탑재형 장비)</td><td>일반 승용차처럼 보이는 순찰차가 함께 달리며 앞차 속도를 재고 영상으로 남겨요</td><td>고지서 또는 현장에서 세워 범칙금·벌점</td></tr>
+        <tr><td>경찰관 현장 단속</td><td>레이저 측정기 등으로 재고 차를 세워요</td><td>운전한 사람에게 범칙금과 벌점</td></tr>
+      </tbody>
+    </table></div>
+    <ul>
+      <li><b>구간단속 계산법:</b> 평균속도 = 구간 거리 ÷ 통과 시간이에요. 10km 구간(제한속도 100km/h)은 6분보다 빨리 빠져나오면 과속이에요. 중간에 휴게소에 들르지 않는 한, 시작과 끝에서만 속도를 줄여도 평균이 넘으면 찍혀요.</li>
+      <li><b>후면 카메라:</b> 카메라를 지나자마자 다시 속도를 올리면 뒤에서 찍혀요. 카메라 앞뒤 모두 제한속도를 지켜야 해요.</li>
+      <li><b>"10km/h까지는 봐준다"?</b> 법에 그런 기준은 없어요. 장비 오차를 감안해 운영할 수는 있지만 기준은 공개되지 않고, 제한속도를 1km/h라도 넘으면 과속이에요.</li>
+      <li><b>계기판과 실제 속도:</b> 차 계기판은 실제보다 조금 높게 나오는 경우가 많고, 내비게이션 속도와도 다를 수 있어요. 어느 쪽이든 제한속도 아래로 달리는 게 안전해요.</li>
+      <li><b>카메라 앞 급감속:</b> 뒤차와 추돌할 위험이 커요. 미리 천천히 줄이는 게 좋아요.</li>
+      <li><b>새로 늘어나는 AI 단속:</b> 2026년부터 교차로 꼬리물기를 AI 카메라로 잡는 시범 단속도 시작됐어요(승용차 과태료 5만원).</li>
+    </ul>
     </div></details>
     <details class="sec"><summary><h2>주정차 과태료 (승용차)</h2></summary><div class="sec-b">
     <div class="tbl"><table>
@@ -210,8 +238,8 @@
     </div></details>
 
     <h2>자주 묻는 질문</h2>
-    <div class="faq"><details><summary>과태료와 범칙금 중 뭘 내는 게 나아요?</summary><p>과태료는 범칙금보다 1만원쯤 비싸지만 벌점이 없어요. 사전통지 기간에 내면 20%를 깎아 줘서, 20~40km/h 과속이면 과태료 5만 6천원으로 범칙금 6만원(벌점 15점)보다 싸요.</p></details><details><summary>어린이보호구역 과속은 언제 더 비싸져요?</summary><p>오전 8시부터 오후 8시까지 걸리면 과태료·범칙금이 오르고 벌점은 두 배예요. 60km/h 넘게 빠르면 벌점 120점으로 한 번에 면허가 정지돼요.</p></details><details><summary>벌점은 언제 없어져요?</summary><p>처분벌점이 40점 미만이면 마지막 위반·사고일부터 1년 동안 위반·사고가 없을 때 사라져요. 40점 미만일 때 벌점 감경 교육을 받으면 20점을 바로 줄일 수 있어요(1년에 1번).</p></details><details><summary>혈중알코올농도 0.03% 미만이면 괜찮나요?</summary><p>형사 처벌 기준 아래일 뿐이에요. 숙취가 남아 있으면 반응이 느려지고, 시간이 지나며 수치가 오르기도 해요. 0%가 될 때까지는 운전하지 마세요.</p></details><details><summary>음주운전 방지장치는 누가 달아야 하나요?</summary><p>5년 안에 2번 이상 음주운전을 한 사람이 결격기간 뒤 다시 면허를 따면, 결격기간과 같은 기간 동안 방지장치를 단 차만 운전할 수 있어요. 2026년 10월 24일부터 실제로 적용되기 시작했어요.</p></details><details><summary>과태료를 안 내면 어떻게 돼요?</summary><p>납부 기한이 지나면 3%가 더 붙고, 그 뒤 매달 1.2%씩 최대 60개월까지 늘어나요. 계속 안 내면 차량 압류 같은 체납 처분을 받을 수 있어요.</p></details></div>
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "과태료와 범칙금 중 뭘 내는 게 나아요?", "acceptedAnswer": {"@type": "Answer", "text": "과태료는 범칙금보다 1만원쯤 비싸지만 벌점이 없어요. 사전통지 기간에 내면 20%를 깎아 줘서, 20~40km/h 과속이면 과태료 5만 6천원으로 범칙금 6만원(벌점 15점)보다 싸요."}}, {"@type": "Question", "name": "어린이보호구역 과속은 언제 더 비싸져요?", "acceptedAnswer": {"@type": "Answer", "text": "오전 8시부터 오후 8시까지 걸리면 과태료·범칙금이 오르고 벌점은 두 배예요. 60km/h 넘게 빠르면 벌점 120점으로 한 번에 면허가 정지돼요."}}, {"@type": "Question", "name": "벌점은 언제 없어져요?", "acceptedAnswer": {"@type": "Answer", "text": "처분벌점이 40점 미만이면 마지막 위반·사고일부터 1년 동안 위반·사고가 없을 때 사라져요. 40점 미만일 때 벌점 감경 교육을 받으면 20점을 바로 줄일 수 있어요(1년에 1번)."}}, {"@type": "Question", "name": "혈중알코올농도 0.03% 미만이면 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "형사 처벌 기준 아래일 뿐이에요. 숙취가 남아 있으면 반응이 느려지고, 시간이 지나며 수치가 오르기도 해요. 0%가 될 때까지는 운전하지 마세요."}}, {"@type": "Question", "name": "음주운전 방지장치는 누가 달아야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "5년 안에 2번 이상 음주운전을 한 사람이 결격기간 뒤 다시 면허를 따면, 결격기간과 같은 기간 동안 방지장치를 단 차만 운전할 수 있어요. 2026년 10월 24일부터 실제로 적용되기 시작했어요."}}, {"@type": "Question", "name": "과태료를 안 내면 어떻게 돼요?", "acceptedAnswer": {"@type": "Answer", "text": "납부 기한이 지나면 3%가 더 붙고, 그 뒤 매달 1.2%씩 최대 60개월까지 늘어나요. 계속 안 내면 차량 압류 같은 체납 처분을 받을 수 있어요."}}]}</script>
+    <div class="faq"><details><summary>과태료와 범칙금 중 뭘 내는 게 나아요?</summary><p>과태료는 범칙금보다 1만원쯤 비싸지만 벌점이 없어요. 사전통지 기간에 내면 20%를 깎아 줘서, 20~40km/h 과속이면 과태료 5만 6천원으로 범칙금 6만원(벌점 15점)보다 싸요.</p></details><details><summary>구간단속은 어떻게 계산하나요?</summary><p>시작 카메라와 끝 카메라를 지난 시각으로 평균속도(구간 거리 ÷ 통과 시간)를 계산해요. 10km 구간에 제한속도 100km/h면 6분보다 빨리 빠져나올 때 과속이에요. 시작·끝 지점의 순간 속도도 따로 재요.</p></details><details><summary>후면 단속 카메라는 뭘 찍어요?</summary><p>카메라를 지나간 차의 뒷 번호판을 찍어요. 앞 번호판이 없는 오토바이를 잡으려고 도입됐지만 승용차의 과속·신호위반도 함께 단속해서, 카메라를 지나자마자 속도를 올리면 찍힐 수 있어요.</p></details><details><summary>과속은 10km/h까지 봐준다던데 맞나요?</summary><p>법에 정해진 기준이 아니에요. 장비 오차를 감안해 운영할 수는 있지만 공개되지 않고, 제한속도를 넘으면 과속이에요.</p></details><details><summary>어린이보호구역 과속은 언제 더 비싸져요?</summary><p>오전 8시부터 오후 8시까지 걸리면 과태료·범칙금이 오르고 벌점은 두 배예요. 60km/h 넘게 빠르면 벌점 120점으로 한 번에 면허가 정지돼요.</p></details><details><summary>벌점은 언제 없어져요?</summary><p>처분벌점이 40점 미만이면 마지막 위반·사고일부터 1년 동안 위반·사고가 없을 때 사라져요. 40점 미만일 때 벌점 감경 교육을 받으면 20점을 바로 줄일 수 있어요(1년에 1번).</p></details><details><summary>혈중알코올농도 0.03% 미만이면 괜찮나요?</summary><p>형사 처벌 기준 아래일 뿐이에요. 숙취가 남아 있으면 반응이 느려지고, 시간이 지나며 수치가 오르기도 해요. 0%가 될 때까지는 운전하지 마세요.</p></details><details><summary>음주운전 방지장치는 누가 달아야 하나요?</summary><p>5년 안에 2번 이상 음주운전을 한 사람이 결격기간 뒤 다시 면허를 따면, 결격기간과 같은 기간 동안 방지장치를 단 차만 운전할 수 있어요. 2026년 10월 24일부터 실제로 적용되기 시작했어요.</p></details><details><summary>과태료를 안 내면 어떻게 돼요?</summary><p>납부 기한이 지나면 3%가 더 붙고, 그 뒤 매달 1.2%씩 최대 60개월까지 늘어나요. 계속 안 내면 차량 압류 같은 체납 처분을 받을 수 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "과태료와 범칙금 중 뭘 내는 게 나아요?", "acceptedAnswer": {"@type": "Answer", "text": "과태료는 범칙금보다 1만원쯤 비싸지만 벌점이 없어요. 사전통지 기간에 내면 20%를 깎아 줘서, 20~40km/h 과속이면 과태료 5만 6천원으로 범칙금 6만원(벌점 15점)보다 싸요."}}, {"@type": "Question", "name": "구간단속은 어떻게 계산하나요?", "acceptedAnswer": {"@type": "Answer", "text": "시작 카메라와 끝 카메라를 지난 시각으로 평균속도(구간 거리 ÷ 통과 시간)를 계산해요. 10km 구간에 제한속도 100km/h면 6분보다 빨리 빠져나올 때 과속이에요. 시작·끝 지점의 순간 속도도 따로 재요."}}, {"@type": "Question", "name": "후면 단속 카메라는 뭘 찍어요?", "acceptedAnswer": {"@type": "Answer", "text": "카메라를 지나간 차의 뒷 번호판을 찍어요. 앞 번호판이 없는 오토바이를 잡으려고 도입됐지만 승용차의 과속·신호위반도 함께 단속해서, 카메라를 지나자마자 속도를 올리면 찍힐 수 있어요."}}, {"@type": "Question", "name": "과속은 10km/h까지 봐준다던데 맞나요?", "acceptedAnswer": {"@type": "Answer", "text": "법에 정해진 기준이 아니에요. 장비 오차를 감안해 운영할 수는 있지만 공개되지 않고, 제한속도를 넘으면 과속이에요."}}, {"@type": "Question", "name": "어린이보호구역 과속은 언제 더 비싸져요?", "acceptedAnswer": {"@type": "Answer", "text": "오전 8시부터 오후 8시까지 걸리면 과태료·범칙금이 오르고 벌점은 두 배예요. 60km/h 넘게 빠르면 벌점 120점으로 한 번에 면허가 정지돼요."}}, {"@type": "Question", "name": "벌점은 언제 없어져요?", "acceptedAnswer": {"@type": "Answer", "text": "처분벌점이 40점 미만이면 마지막 위반·사고일부터 1년 동안 위반·사고가 없을 때 사라져요. 40점 미만일 때 벌점 감경 교육을 받으면 20점을 바로 줄일 수 있어요(1년에 1번)."}}, {"@type": "Question", "name": "혈중알코올농도 0.03% 미만이면 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "형사 처벌 기준 아래일 뿐이에요. 숙취가 남아 있으면 반응이 느려지고, 시간이 지나며 수치가 오르기도 해요. 0%가 될 때까지는 운전하지 마세요."}}, {"@type": "Question", "name": "음주운전 방지장치는 누가 달아야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "5년 안에 2번 이상 음주운전을 한 사람이 결격기간 뒤 다시 면허를 따면, 결격기간과 같은 기간 동안 방지장치를 단 차만 운전할 수 있어요. 2026년 10월 24일부터 실제로 적용되기 시작했어요."}}, {"@type": "Question", "name": "과태료를 안 내면 어떻게 돼요?", "acceptedAnswer": {"@type": "Answer", "text": "납부 기한이 지나면 3%가 더 붙고, 그 뒤 매달 1.2%씩 최대 60개월까지 늘어나요. 계속 안 내면 차량 압류 같은 체납 처분을 받을 수 있어요."}}]}</script>
     <p class="hint">최종 업데이트: 2026-11-29</p>
   </article>
   <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/transport-cost/" data-k="교통비 비교 계산기 (택시·대리·GTX) 택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>교통비 비교 계산기 (택시·대리·GTX)</strong><span>택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/car-tax/" data-k="자동차세 계산기 (연납·차령 경감) 1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차세 계산기 (연납·차령 경감)</strong><span>1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/car-acquisition-tax/" data-k="자동차 취득세 계산기 신차·중고차 취득세와 경차·전기차·다자녀 감면 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차 취득세 계산기</strong><span>신차·중고차 취득세와 경차·전기차·다자녀 감면 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
@@ -229,24 +257,35 @@ const PK={gen:[40000,'일반 금지구역',1],fire:[80000,'소화전 5m 안',1],
 const PV={"none": [0, "없음"], "sig": [15, "신호·지시 위반"], "sp20": [15, "과속 20~40km/h 초과"], "sp40": [30, "과속 40~60km/h 초과"], "sp60": [60, "과속 60~80km/h 초과"], "sp80": [80, "과속 80~100km/h 초과"], "sp100": [100, "과속 100km/h 넘게 초과"], "kz0": [15, "스쿨존 과속 20km/h 이하"], "kz20": [30, "스쿨존 과속 20~40km/h"], "kz40": [60, "스쿨존 과속 40~60km/h"], "kz60": [120, "스쿨존 과속 60km/h 넘게"], "phone": [15, "운전 중 휴대전화·영상 시청"], "center": [30, "중앙선 침범"], "bus": [30, "고속도로 갓길·버스전용차로"], "ped": [10, "보행자 보호 불이행·정지선"], "lane": [10, "안전거리 미확보·진로변경 위반"], "dui": [100, "음주운전 0.03~0.08%"], "a_dead": [90, "사고: 사망 1명"], "a_big": [15, "사고: 중상 1명 (3주 이상)"], "a_small": [5, "사고: 경상 1명 (5일~3주)"], "a_rep": [2, "사고: 부상신고 1명 (5일 미만)"]};
 const line=(a,b,c)=>'<div class="line"><span>'+a+(c?'<em>'+c+'</em>':'')+'</span><b>'+b+'</b></div>';
 function lateAdd(base,m){return m>0?Math.floor(base*(0.03+0.012*Math.min(m,60))/10)*10:0}
-function show(){document.querySelectorAll('[data-only]').forEach(e=>{const on=e.dataset.only.split(' ').includes(mode)&&(!e.dataset.how||e.dataset.how===$('how').value);e.style.display=on?'':'none'})}
+function show(){document.querySelectorAll('[data-only],[data-cam]').forEach(e=>{const o=e.dataset.only||e.parentElement.closest('[data-only]').dataset.only;const on=o.split(' ').includes(mode)&&(!e.dataset.how||e.dataset.how===$('how').value)&&(!e.dataset.cam||mode!=='speed'||e.dataset.cam.split(' ').includes($('cam').value));e.style.display=on?'':'none'})}
 function out(lab,main,st,stc,rows,sub){$('o-lab').textContent=lab;$('o-main').textContent=main;const s=$('o-status');s.className='status '+stc;s.textContent=st;$('o-lines').innerHTML=rows.join('');$('o-sub').textContent=sub}
+const CAMT={fix:['고정식 카메라','도로 위 카메라가 지점 속도를 재요 · 차 주인에게 과태료 고지서'],mob:['이동식 카메라','옮겨 다니는 카메라 · 차 주인에게 과태료 고지서'],sec:['구간단속','시작·끝 통과 시각으로 평균속도를 재요 · 과태료 고지서'],car:['암행순찰차','달리며 앞차 속도를 재요 · 영상으로 고지서가 오거나 현장에서 세워요'],pol:['경찰관 현장 단속','운전한 사람에게 범칙금과 벌점']};
+const mmss=x=>{const t=Math.round(x*60);return Math.floor(t/60)+'분 '+(t%60)+'초'};
 function speed(){
-  const z=$('zone').value,lim=v('lim'),spd=v('spd'),ov=spd-lim,T=SP[z],early=$('early').checked,m=Math.round(v('late'));
+  const z=$('zone').value,cam=$('cam').value,lim=v('lim'),T=SP[z],early=$('early').checked,m=Math.round(v('late')),C=CAMT[cam],rows=[];let spd;
+  if(cam==='sec'){const d=v('secd'),t=v('sect');if(!(lim>0&&d>0&&t>0)){out('구간단속','–','제한속도, 구간 거리, 통과 시간을 넣어 주세요.','warn',[],'');return}
+    spd=Math.round(d/(t/60)*10)/10;rows.push(line('구간 평균속도',spd+'km/h',d+'km를 '+t+'분에 통과'));rows.push(line('제한속도로 달리면 걸리는 시간',mmss(d/lim*60),'이보다 빨리 빠져나오면 과속'));}
+  else spd=v('spd');
   if(!(lim>0)||!(spd>0)){out('과속','–','제한속도와 단속된 속도를 넣어 주세요.','warn',[],'');return}
-  if(ov<=0){out('과속','0원','제한속도 안이에요. 과태료가 없어요.','ok',[],lim+'km/h 도로 · '+spd+'km/h');return}
-  const b=ov<=20?0:ov<=40?1:ov<=60?2:ov<=80?3:ov<=100?4:5,kt=T.kt[b]*10000,pt=T.pt[b],zn=z==='k'?'어린이보호구역':'일반 도로';
-  const pay=m>0?kt+lateAdd(kt,m):early?kt*0.8:kt;const rows=[];
-  rows.push(line('과태료 (카메라 단속)',WON(kt),'차 주인에게 · 벌점 없음'));
+  const ov=Math.round((spd-lim)*10)/10,zn=(z==='k'?'어린이보호구역':'일반 도로')+' · '+C[0];
+  if(ov<=0){rows.push(line('단속 방법',C[0],C[1]));out('과속','0원',cam==='sec'?'구간 평균속도가 제한속도 안이에요. 다만 시작·끝 카메라에서 순간 속도도 따로 재요.':'제한속도 안이에요. 과태료가 없어요.','ok',rows,zn);return}
+  const b=ov<=20?0:ov<=40?1:ov<=60?2:ov<=80?3:ov<=100?4:5,kt=T.kt[b]*10000,pt=T.pt[b];
+  rows.push(line('단속 방법',C[0],C[1]));
+  if(b>=4){rows.push(line('형사 처벌',b===4?'30만원 이하 벌금':'100만원 이하 벌금','또는 구류'+(b===5?' · 3번째부터 1년 이하 징역 또는 500만원 이하 벌금, 면허 취소':'')));
+    rows.push(line('벌점',pt+'점','면허 정지 '+pt+'일 · 1년 121점부터 취소'));
+    out('형사 처벌 대상',b===4?'벌금 최대 30만원':'벌금 최대 100만원','제한속도보다 '+ov+'km/h 빨랐어요. 80km/h 넘게 초과하면 카메라에 찍혀도 경찰이 운전자를 불러 형사 처리할 수 있어요.','warn',rows,zn+' · '+ov+'km/h 초과');return}
+  const fn=T.fine[b]*10000;
+  if(cam==='pol'){rows.push(line('범칙금',WON(fn),'10일 안에 내기'));rows.push(line('10일 넘기면',WON(fn*1.2),'20% 더 붙고 20일 안에 · 그래도 안 내면 즉결심판'));
+    rows.push(line('벌점',pt?pt+'점':'없음',pt>=40?'이것만으로 면허 정지 '+pt+'일':pt?'40점부터 면허 정지':''));
+    rows.push(line('카메라였다면 과태료',WON(kt),'벌점 없음 · 미리 내면 '+WON(kt*0.8)));
+    out('내야 할 범칙금',WON(fn),pt?'현장 단속이라 벌점 '+pt+'점이 함께 붙어요.'+(pt>=40?' 이것만으로 면허가 정지돼요.':''):'20km/h 이하 초과라 벌점은 없어요.',pt>=40?'warn':'ok',rows,zn+' · '+ov+'km/h 초과');return}
+  const pay=m>0?kt+lateAdd(kt,m):early?kt*0.8:kt;
+  rows.push(line('과태료',WON(kt),'차 주인에게 · 벌점 없음'));
   if(m>0)rows.push(line('늦게 내서 붙는 가산금',WON(lateAdd(kt,m)),m+'개월 · 3% + 매달 1.2%'));
   else if(early)rows.push(line('사전통지 기간에 내면',WON(kt*0.8),'20% 감경 · '+WON(kt*0.2)+' 아껴요'));
-  if(b<=3){const fn=T.fine[b]*10000;rows.push(line('범칙금 (경찰 현장 단속)',WON(fn),'운전한 사람에게 · 벌점 '+(pt?pt+'점':'없음')));
-    const st=pay<fn?'과태료로 내면 범칙금보다 '+WON(fn-pay)+' 싸고 벌점도 없어요.':pay>fn?'범칙금이 '+WON(pay-fn)+' 싸지만 '+(pt?'벌점 '+pt+'점이 붙어요.':'벌점은 없어요.'):'과태료와 범칙금이 같고, 과태료는 벌점이 없어요.';
-    rows.push(line('벌점 (현장 단속·운전자 확인 때)',pt?pt+'점':'없음',pt>=40?'이것만으로 면허 정지 '+pt+'일':pt?'40점부터 면허 정지':''));
-    out('내야 할 과태료',WON(pay),(pt>=40?'현장 단속이면 벌점 '+pt+'점으로 바로 면허 정지예요. ':'')+st,pt>=40?'warn':'ok',rows,zn+' · '+ov+'km/h 초과');
-  }else{rows.push(line('형사 처벌',b===4?'30만원 이하 벌금':'100만원 이하 벌금','또는 구류'+(b===5?' · 3번째부터 1년 이하 징역 또는 500만원 이하 벌금, 면허 취소':'')));
-    rows.push(line('벌점',pt+'점','면허 정지 '+pt+'일'+(z==='k'?' · 1년 121점부터 취소':'')));
-    out('형사 처벌 대상',b===4?'벌금 최대 30만원':'벌금 최대 100만원','제한속도보다 80km/h 넘게 빨랐어요. 카메라에 찍혀도 경찰이 운전자를 불러 형사 처리할 수 있어요.','warn',rows,zn+' · '+ov+'km/h 초과');}
+  rows.push(line('운전자를 밝혀 범칙금으로 내면',WON(fn),'벌점 '+(pt?pt+'점':'없음')));
+  const st=pay<fn?'과태료로 내면 범칙금보다 '+WON(fn-pay)+' 싸고 벌점도 없어요.':pay>fn?'범칙금이 '+WON(pay-fn)+' 싸지만 '+(pt?'벌점 '+pt+'점이 붙어요.':'벌점은 없어요.'):'과태료와 범칙금이 같고, 과태료는 벌점이 없어요.';
+  out('내야 할 과태료',WON(pay),(cam==='car'?'암행순찰차가 그 자리에서 세웠다면 범칙금과 벌점이 나와요. ':'')+st,'ok',rows,zn+' · '+ov+'km/h 초과');
 }
 function park(){
   const P=PK[$('place').value],lg=$('long').checked&&P[2],early=$('early').checked,m=Math.round(v('late')),n=Math.max(1,Math.round(v('cnt'))||1);
@@ -302,9 +341,9 @@ function point(){
 const WON=n=>won(n);
 function calc(){({speed,park,dui,point})[mode]()}
 document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
-  $('tf-ex').textContent={speed:'예시: 제한속도 50km/h 도로에서 75km/h로 카메라에 찍힌 승용차예요.',park:'예시: 일반 도로에 세워 둔 승용차예요. 장소를 바꿔 보세요.',dui:'예시: 혈중알코올농도 0.05%로 처음 걸린 경우예요.',point:'예시: 신호위반 1번(15점)과 과속 20~40km/h 1번(15점)이에요.'}[mode];show();calc()}));
+  $('tf-ex').textContent={speed:'예시: 제한속도 50km/h 도로에서 75km/h로 카메라에 찍힌 승용차예요. 단속 방법을 바꾸면 구간단속 평균속도나 현장 범칙금도 계산해요.',park:'예시: 일반 도로에 세워 둔 승용차예요. 장소를 바꿔 보세요.',dui:'예시: 혈중알코올농도 0.05%로 처음 걸린 경우예요.',point:'예시: 신호위반 1번(15점)과 과속 20~40km/h 1번(15점)이에요.'}[mode];show();calc()}));
 document.querySelectorAll('form.panel input,form.panel select').forEach(e=>{e.addEventListener('input',()=>{show();calc()});e.addEventListener('change',()=>{show();calc()})});
-$('reset').addEventListener('click',()=>{const D={lim:50,spd:75,late:0,cnt:1,bac:0.05,soju:7,beer:0,wt:70,hrs:2,prev:0,n1:1,n2:1,n3:1,n4:1,mile:0},S={zone:'g',place:'gen',how:'meas',sex:'m',last:'none',acc:'none',s1:'sig',s2:'sp20',s3:'none',s4:'none'};
+$('reset').addEventListener('click',()=>{const D={lim:50,spd:75,secd:5,sect:5,late:0,cnt:1,bac:0.05,soju:7,beer:0,wt:70,hrs:2,prev:0,n1:1,n2:1,n3:1,n4:1,mile:0},S={cam:'fix',zone:'g',place:'gen',how:'meas',sex:'m',last:'none',acc:'none',s1:'sig',s2:'sp20',s3:'none',s4:'none'};
   Object.keys(D).forEach(k=>$(k).value=D[k]);Object.keys(S).forEach(k=>$(k).value=S[k]);$('early').checked=true;['long','ref','edu','field'].forEach(k=>$(k).checked=false);show();calc()});
 const m0=new URLSearchParams(location.search).get('m');const b0=m0&&document.querySelector('.seg button[data-m="'+m0+'"]');
 if(b0)b0.click();else{show();calc()}
