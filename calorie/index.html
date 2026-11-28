@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>칼로리 계산기 · 두쫀쿠 디저트 술 밥 몇 공기? | 캘코</title>
+<meta name="description" content="두쫀쿠·버터떡·붕어빵·카페 음료·소주·치킨 칼로리를 밥 공기, 각설탕, 걷기·달리기 시간으로 바로 환산해요.">
+<link rel="canonical" href="https://calqo.kr/calorie/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="칼로리 계산기 · 두쫀쿠 디저트 술 밥 몇 공기? | 캘코">
+<meta property="og:description" content="두쫀쿠·버터떡·붕어빵·카페 음료·소주·치킨 칼로리를 밥 공기, 각설탕, 걷기·달리기 시간으로 바로 환산해요.">
+<meta property="og:url" content="https://calqo.kr/calorie/">
+<meta property="og:image" content="https://calqo.kr/assets/og/calorie.png?v=29">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="칼로리 계산기 · 두쫀쿠 디저트 술 밥 몇 공기? | 캘코">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="칼로리 계산기 · 두쫀쿠 디저트 술 밥 몇 공기? | 캘코">
+<meta name="twitter:description" content="두쫀쿠·버터떡·붕어빵·카페 음료·소주·치킨 칼로리를 밥 공기, 각설탕, 걷기·달리기 시간으로 바로 환산해요.">
+<meta name="twitter:image" content="https://calqo.kr/assets/og/calorie.png?v=29">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life">생활·날짜</a><a href="/#health" class=on aria-current=page>생활 건강</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#health">생활 건강</a></div>
+    <h1>디저트·술 칼로리 계산기 (밥·운동 환산)</h1>
+    <p class="lead">두쫀쿠·버터떡·붕어빵·카페 음료·소주·치킨까지 먹은 걸 골라 담으면 총 칼로리를 밥 공기, 각설탕 개수, 걷기·달리기 시간으로 바로 환산해요.</p>
+    <span class="tag">흔히 파는 크기 기준 평균값 · 2026년 11월</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <style>
+      .kc-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+      .kc-tabs::-webkit-scrollbar{display:none}
+      .kc-tabs button{flex:none;font:inherit;font-size:13.5px;font-weight:600;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer}
+      .kc-tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+      .kc-list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+      .kc-it{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--surface)}
+      .kc-it:last-child{border-bottom:0}
+      .kc-it.on{background:var(--accent-soft)}
+      .kc-it .nm{flex:1;min-width:0;font-weight:600;font-size:14.5px;line-height:1.35}
+      .kc-it .nm small{display:block;font-weight:400;font-size:12.5px;color:var(--ink-3);margin-top:2px}
+      .kc-q{display:flex;align-items:center;gap:4px;flex:none}
+      .kc-q button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:18px;line-height:1;cursor:pointer;padding:0}
+      .kc-q button.p{color:var(--accent);border-color:var(--accent);font-weight:700}
+      .kc-q output{min-width:30px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums}
+      .kc-bars{display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+      .kc-bars .bar{margin-top:4px}
+      .kc-bars .s i{background:#d6336c}
+      </style>
+      <input type="hidden" id="pick" value="dujjonku:1,soju:1,friedch:0.5">
+      <div><div class="hint" style="margin-bottom:6px">먹은 걸 + 버튼으로 담아 주세요</div>
+      <div class="kc-tabs" id="kc-tabs" role="group" aria-label="음식 분류"><button type="button" data-c="trend" aria-pressed="true">요즘 유행</button><button type="button" data-c="winter" aria-pressed="false">겨울 간식</button><button type="button" data-c="cake" aria-pressed="false">빵·케이크</button><button type="button" data-c="cafe" aria-pressed="false">카페 음료</button><button type="button" data-c="drink" aria-pressed="false">술</button><button type="button" data-c="food" aria-pressed="false">안주·야식</button><button type="button" data-c="all" aria-pressed="false">전체</button></div></div>
+      <div class="kc-list" id="kc-list"></div>
+      <div class="row2">
+        <label for="ck">직접 넣기 (kcal)<input id="ck" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="hint">목록에 없으면 포장지 숫자 그대로</span></label>
+        <label for="cs">직접 넣기 당류 (g)<input id="cs" type="number" inputmode="numeric" min="0" step="1" value="0"></label>
+      </div>
+      <div class="row2">
+        <label for="wt">몸무게 (kg)<input id="wt" type="number" inputmode="decimal" min="20" step="1" value="65"><span class="hint">무거울수록 운동 시간이 짧아져요</span></label>
+        <label for="day">하루 권장 열량<select id="day"><option value="2000" selected>2,000kcal · 여성</option><option value="2500">2,500kcal · 남성</option></select></label>
+      </div>
+      <span class="hint" id="kc-ex">예시: 회식에서 두쫀쿠 1개, 소주 1병, 후라이드 치킨 반 마리를 먹었어요. 분류를 눌러 붕어빵·카페 음료·맥주도 담아 보세요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>계산 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span>총 열량</span><b id="o-main"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="kc-bars">
+        <div><span id="o-dl"></span><div class="bar"><i id="o-db"></i></div></div>
+        <div><span id="o-sl"></span><div class="bar s"><i id="o-sb"></i></div></div>
+      </div>
+      <div class="lines" id="o-lines"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>이렇게 계산해요</h2>
+    <p>예시처럼 두쫀쿠 1개, 소주 1병, 후라이드 치킨 반 마리를 먹으면 <b>1,866kcal</b>예요. 밥으로 치면 <b>6.2공기</b>, 몸무게 65kg이 빠르게 걸어서 쓰려면 <b>6시간 21분</b>이 걸려요.</p>
+    <ul>
+      <li><b>밥 공기:</b> 쌀밥 1공기(210g)를 약 300kcal로 잡고 나눠요.</li>
+      <li><b>각설탕:</b> 칼로리가 아니라 당류(g)를 각설탕 1개 3g으로 나눠요.</li>
+      <li><b>운동 시간:</b> 운동 강도(MET) × 3.5 × 몸무게(kg) ÷ 200이 1분에 쓰는 열량이에요. 총 칼로리를 이 값으로 나눠요.</li>
+      <li><b>하루 당류 기준:</b> 세계보건기구(WHO)는 첨가당을 하루 열량의 10% 아래로 권해요. 2,000kcal 기준 약 50g이에요. 여기서는 과일·우유의 당까지 합친 당류로 넉넉하게 비교해요.</li>
+    </ul>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>디저트·술·안주 칼로리표</h2></summary><div class="sec-b">
+    <p>흔히 파는 크기 기준 평균값이에요. 같은 이름이라도 가게·크기에 따라 30% 넘게 차이 날 수 있어요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>음식</th><th>기준</th><th>칼로리</th><th>밥으로</th><th>당류 · 각설탕</th></tr></thead>
+      <tbody><tr><td>두쫀쿠 (두바이 쫀득쿠키)</td><td>1개 약 60g</td><td>316kcal</td><td>1.1공기</td><td>25g · 8개</td></tr><tr><td>상하이 버터떡</td><td>1개</td><td>200kcal</td><td>0.7공기</td><td>10g · 3개</td></tr><tr><td>미국식 대형 쿠키 (크럼블 쿠키류)</td><td>1개 약 140g</td><td>600kcal</td><td>2.0공기</td><td>45g · 15개</td></tr><tr><td>크로플</td><td>1개</td><td>350kcal</td><td>1.2공기</td><td>15g · 5개</td></tr><tr><td>소금빵</td><td>1개</td><td>250kcal</td><td>0.8공기</td><td>3g · 1개</td></tr><tr><td>딸기 탕후루</td><td>1꼬치</td><td>150kcal</td><td>0.5공기</td><td>30g · 10개</td></tr><tr><td>마카롱</td><td>1개</td><td>90kcal</td><td>0.3공기</td><td>12g · 4개</td></tr><tr><td>붕어빵 (팥)</td><td>1개</td><td>120kcal</td><td>0.4공기</td><td>10g · 3개</td></tr><tr><td>호떡</td><td>1개</td><td>230kcal</td><td>0.8공기</td><td>15g · 5개</td></tr><tr><td>군고구마</td><td>중간 1개 200g</td><td>260kcal</td><td>0.9공기</td><td>25g · 8개</td></tr><tr><td>어묵꼬치</td><td>1꼬치</td><td>80kcal</td><td>0.3공기</td><td>2g · 1개</td></tr><tr><td>핫초코</td><td>1잔 355ml</td><td>280kcal</td><td>0.9공기</td><td>35g · 12개</td></tr><tr><td>생크림 케이크</td><td>1조각</td><td>300kcal</td><td>1.0공기</td><td>25g · 8개</td></tr><tr><td>치즈케이크</td><td>1조각</td><td>400kcal</td><td>1.3공기</td><td>25g · 8개</td></tr><tr><td>티라미수</td><td>1조각</td><td>350kcal</td><td>1.2공기</td><td>25g · 8개</td></tr><tr><td>글레이즈드 도넛</td><td>1개</td><td>200kcal</td><td>0.7공기</td><td>12g · 4개</td></tr><tr><td>아이스크림 콘</td><td>1개</td><td>250kcal</td><td>0.8공기</td><td>22g · 7개</td></tr><tr><td>빙수</td><td>1인분</td><td>600kcal</td><td>2.0공기</td><td>60g · 20개</td></tr><tr><td>초콜릿 바</td><td>1개 50g</td><td>260kcal</td><td>0.9공기</td><td>25g · 8개</td></tr><tr><td>카페라떼</td><td>1잔 355ml</td><td>180kcal</td><td>0.6공기</td><td>10g · 3개</td></tr><tr><td>바닐라라떼</td><td>1잔 355ml</td><td>250kcal</td><td>0.8공기</td><td>30g · 10개</td></tr><tr><td>돌체라떼</td><td>1잔 355ml</td><td>270kcal</td><td>0.9공기</td><td>30g · 10개</td></tr><tr><td>자바칩 프라푸치노</td><td>1잔 355ml</td><td>320kcal</td><td>1.1공기</td><td>40g · 13개</td></tr><tr><td>흑당 버블티</td><td>1잔</td><td>450kcal</td><td>1.5공기</td><td>40g · 13개</td></tr><tr><td>복숭아 아이스티</td><td>1잔</td><td>150kcal</td><td>0.5공기</td><td>35g · 12개</td></tr><tr><td>과일 스무디</td><td>1잔</td><td>300kcal</td><td>1.0공기</td><td>50g · 17개</td></tr><tr><td>소주</td><td>1병 360ml</td><td>400kcal</td><td>1.3공기</td><td>0g · 0개</td></tr><tr><td>생맥주</td><td>500cc</td><td>185kcal</td><td>0.6공기</td><td>0g · 0개</td></tr><tr><td>소맥</td><td>1잔</td><td>120kcal</td><td>0.4공기</td><td>0g · 0개</td></tr><tr><td>막걸리</td><td>1병 750ml</td><td>345kcal</td><td>1.1공기</td><td>15g · 5개</td></tr><tr><td>와인</td><td>1잔 150ml</td><td>125kcal</td><td>0.4공기</td><td>1g · 0개</td></tr><tr><td>하이볼</td><td>1잔</td><td>160kcal</td><td>0.5공기</td><td>15g · 5개</td></tr><tr><td>후라이드 치킨</td><td>1마리</td><td>2,300kcal</td><td>7.7공기</td><td>4g · 1개</td></tr><tr><td>양념치킨</td><td>1마리</td><td>2,600kcal</td><td>8.7공기</td><td>60g · 20개</td></tr><tr><td>피자</td><td>라지 1조각</td><td>300kcal</td><td>1.0공기</td><td>4g · 1개</td></tr><tr><td>감자튀김</td><td>중간 1봉</td><td>330kcal</td><td>1.1공기</td><td>0g · 0개</td></tr><tr><td>떡볶이</td><td>1인분</td><td>480kcal</td><td>1.6공기</td><td>20g · 7개</td></tr><tr><td>라면</td><td>1개</td><td>500kcal</td><td>1.7공기</td><td>5g · 2개</td></tr><tr><td>삼겹살</td><td>1인분 200g</td><td>660kcal</td><td>2.2공기</td><td>0g · 0개</td></tr></tbody>
+    </table></div>
+    </div></details>
+    <details class="sec"><summary><h2>운동별 1분에 쓰는 열량 (몸무게 65kg)</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>운동</th><th>강도(MET)</th><th>1분</th><th>밥 1공기 쓰려면</th></tr></thead>
+      <tbody><tr><td>걷기 (보통 속도)</td><td>3.5</td><td>4.0kcal</td><td>1시간 15분</td></tr><tr><td>빠르게 걷기</td><td>4.3</td><td>4.9kcal</td><td>1시간 1분</td></tr><tr><td>달리기 (시속 8km)</td><td>8.3</td><td>9.4kcal</td><td>32분</td></tr><tr><td>자전거 (보통)</td><td>6.8</td><td>7.7kcal</td><td>39분</td></tr><tr><td>계단 오르기</td><td>8.0</td><td>9.1kcal</td><td>33분</td></tr><tr><td>수영 (자유형 보통)</td><td>5.8</td><td>6.6kcal</td><td>45분</td></tr><tr><td>줄넘기</td><td>11.8</td><td>13.4kcal</td><td>22분</td></tr><tr><td>맨몸 근력운동 (스쿼트 등)</td><td>3.8</td><td>4.3kcal</td><td>1시간 9분</td></tr><tr><td>등산</td><td>6.0</td><td>6.8kcal</td><td>44분</td></tr><tr><td>청소·집안일</td><td>3.3</td><td>3.8kcal</td><td>1시간 20분</td></tr></tbody>
+    </table></div>
+    <p>같은 운동이라도 속도·체력에 따라 20% 안팎 차이가 나요. 몸무게가 무거울수록 같은 시간에 더 많이 써요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>술자리 칼로리, 어디서 많이 나올까?</h2></summary><div class="sec-b">
+    <p>술자리는 술보다 <b>안주</b>에서 칼로리가 더 많이 나와요. 후라이드 치킨 반 마리는 약 1,150kcal로 소주 3병 가까운 열량이에요. 술은 당이 거의 없어도 알코올 자체가 1g에 약 7kcal라, 소주 1병이면 밥 1공기를 넘어요. 막걸리·하이볼은 당이 들어 있어 각설탕까지 늘어나요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>카페 음료는 칼로리보다 당을 보세요</h2></summary><div class="sec-b">
+    <p>바닐라라떼·스무디·아이스티는 칼로리는 밥 1공기 아래지만 당류가 30~50g이라 한 잔으로 하루 당류 기준을 거의 채워요. 아메리카노는 10kcal 안팎이고, 시럽 한 번(약 10g)을 넣으면 각설탕 3개가 더해져요.</p>
+    <p class="hint">기준: 식품의약품안전처 식품영양성분 데이터베이스와 판매처 영양 표기를 참고한 평균 추정치, 운동 강도는 Compendium of Physical Activities(2011·2024), 당류 기준은 세계보건기구(WHO) 당류 섭취 가이드라인(2015). 의학적 진단이나 상담을 대신하지 않아요.</p>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>두쫀쿠 1개는 밥 몇 공기예요?</summary><p>두바이 쫀득쿠키 1개(약 60g)는 300kcal 안팎으로 밥 1공기(210g, 약 300kcal)와 거의 같아요. 몸무게 65kg이 빠르게 걸으면 1시간쯤 걸어야 쓰는 열량이에요.</p></details><details><summary>소주는 당이 없는데 왜 살이 쪄요?</summary><p>알코올은 1g에 약 7kcal로 지방(9kcal) 다음으로 열량이 높아요. 소주 1병은 당류가 거의 없어도 400kcal 안팎이라 밥 1공기를 넘고, 안주까지 더하면 한 끼 열량을 쉽게 넘겨요.</p></details><details><summary>각설탕 개수는 어떻게 세나요?</summary><p>칼로리가 아니라 당류(g)를 각설탕 1개 3g으로 나눠요. 같은 칼로리라도 카페 음료·탕후루처럼 당이 많은 건 각설탕이 훨씬 많이 나와요.</p></details><details><summary>가게마다 크기가 다른데 정확한가요?</summary><p>흔히 파는 크기 기준 평균값이라 실제와 다를 수 있어요. 포장지 영양성분표가 있으면 &#x27;직접 넣기&#x27;에 그 숫자를 넣는 게 가장 정확해요.</p></details><details><summary>먹은 만큼 운동하면 살이 안 찌나요?</summary><p>운동 시간은 같은 열량을 쓰려면 이 정도 움직여야 한다는 감을 잡는 용도예요. 실제 체중 변화는 하루 전체 식사, 기초대사량, 수면 등에 따라 달라져요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "두쫀쿠 1개는 밥 몇 공기예요?", "acceptedAnswer": {"@type": "Answer", "text": "두바이 쫀득쿠키 1개(약 60g)는 300kcal 안팎으로 밥 1공기(210g, 약 300kcal)와 거의 같아요. 몸무게 65kg이 빠르게 걸으면 1시간쯤 걸어야 쓰는 열량이에요."}}, {"@type": "Question", "name": "소주는 당이 없는데 왜 살이 쪄요?", "acceptedAnswer": {"@type": "Answer", "text": "알코올은 1g에 약 7kcal로 지방(9kcal) 다음으로 열량이 높아요. 소주 1병은 당류가 거의 없어도 400kcal 안팎이라 밥 1공기를 넘고, 안주까지 더하면 한 끼 열량을 쉽게 넘겨요."}}, {"@type": "Question", "name": "각설탕 개수는 어떻게 세나요?", "acceptedAnswer": {"@type": "Answer", "text": "칼로리가 아니라 당류(g)를 각설탕 1개 3g으로 나눠요. 같은 칼로리라도 카페 음료·탕후루처럼 당이 많은 건 각설탕이 훨씬 많이 나와요."}}, {"@type": "Question", "name": "가게마다 크기가 다른데 정확한가요?", "acceptedAnswer": {"@type": "Answer", "text": "흔히 파는 크기 기준 평균값이라 실제와 다를 수 있어요. 포장지 영양성분표가 있으면 '직접 넣기'에 그 숫자를 넣는 게 가장 정확해요."}}, {"@type": "Question", "name": "먹은 만큼 운동하면 살이 안 찌나요?", "acceptedAnswer": {"@type": "Answer", "text": "운동 시간은 같은 열량을 쓰려면 이 정도 움직여야 한다는 감을 잡는 용도예요. 실제 체중 변화는 하루 전체 식사, 기초대사량, 수면 등에 따라 달라져요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-29</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/transport-cost/" data-k="교통비 비교 계산기 (택시·대리·GTX) 택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>교통비 비교 계산기 (택시·대리·GTX)</strong><span>택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/traffic-fine/" data-k="교통 과태료·벌점 계산기 (과속·주정차·음주) 과속·주정차 과태료와 범칙금, 음주운전 처벌, 벌점 누적 면허정지·취소까지 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>교통 과태료·벌점 계산기 (과속·주정차·음주)</strong><span>과속·주정차 과태료와 범칙금, 음주운전 처벌, 벌점 누적 면허정지·취소까지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/holiday-planner/" data-k="연차 꿀조합 계산기 (2027 연휴 플래너) 2027 공휴일·대체공휴일에 연차를 어디에 붙이면 가장 길게 쉬는지 계산 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>연차 꿀조합 계산기 (2027 연휴 플래너)</strong><span>2027 공휴일·대체공휴일에 연차를 어디에 붙이면 가장 길게 쉬는지 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+const KC=[["dujjonku", "trend", "두쫀쿠 (두바이 쫀득쿠키)", "1개 약 60g", 316, 25, 1, "개"], ["butterddeok", "trend", "상하이 버터떡", "1개", 200, 10, 1, "개"], ["bigcookie", "trend", "미국식 대형 쿠키 (크럼블 쿠키류)", "1개 약 140g", 600, 45, 0.5, "개"], ["croffle", "trend", "크로플", "1개", 350, 15, 1, "개"], ["saltbread", "trend", "소금빵", "1개", 250, 3, 1, "개"], ["tanghulu", "trend", "딸기 탕후루", "1꼬치", 150, 30, 1, "꼬치"], ["macaron", "trend", "마카롱", "1개", 90, 12, 1, "개"], ["bungeo", "winter", "붕어빵 (팥)", "1개", 120, 10, 1, "개"], ["hotteok", "winter", "호떡", "1개", 230, 15, 1, "개"], ["goguma", "winter", "군고구마", "중간 1개 200g", 260, 25, 1, "개"], ["eomuk", "winter", "어묵꼬치", "1꼬치", 80, 2, 1, "꼬치"], ["hotchoco", "winter", "핫초코", "1잔 355ml", 280, 35, 1, "잔"], ["creamcake", "cake", "생크림 케이크", "1조각", 300, 25, 1, "조각"], ["cheesecake", "cake", "치즈케이크", "1조각", 400, 25, 1, "조각"], ["tiramisu", "cake", "티라미수", "1조각", 350, 25, 1, "조각"], ["donut", "cake", "글레이즈드 도넛", "1개", 200, 12, 1, "개"], ["icecone", "cake", "아이스크림 콘", "1개", 250, 22, 1, "개"], ["bingsu", "cake", "빙수", "1인분", 600, 60, 0.5, "인분"], ["chocobar", "cake", "초콜릿 바", "1개 50g", 260, 25, 1, "개"], ["americano", "cafe", "아메리카노", "1잔 355ml", 10, 0, 1, "잔"], ["latte", "cafe", "카페라떼", "1잔 355ml", 180, 10, 1, "잔"], ["vanilla", "cafe", "바닐라라떼", "1잔 355ml", 250, 30, 1, "잔"], ["dolce", "cafe", "돌체라떼", "1잔 355ml", 270, 30, 1, "잔"], ["frapp", "cafe", "자바칩 프라푸치노", "1잔 355ml", 320, 40, 1, "잔"], ["bubble", "cafe", "흑당 버블티", "1잔", 450, 40, 1, "잔"], ["icetea", "cafe", "복숭아 아이스티", "1잔", 150, 35, 1, "잔"], ["smoothie", "cafe", "과일 스무디", "1잔", 300, 50, 1, "잔"], ["soju", "drink", "소주", "1병 360ml", 400, 0, 0.5, "병"], ["beer", "drink", "생맥주", "500cc", 185, 0, 1, "잔"], ["somaek", "drink", "소맥", "1잔", 120, 0, 1, "잔"], ["makgeolli", "drink", "막걸리", "1병 750ml", 345, 15, 0.5, "병"], ["wine", "drink", "와인", "1잔 150ml", 125, 1, 1, "잔"], ["highball", "drink", "하이볼", "1잔", 160, 15, 1, "잔"], ["friedch", "food", "후라이드 치킨", "1마리", 2300, 4, 0.5, "마리"], ["yangnyeom", "food", "양념치킨", "1마리", 2600, 60, 0.5, "마리"], ["pizza", "food", "피자", "라지 1조각", 300, 4, 1, "조각"], ["fries", "food", "감자튀김", "중간 1봉", 330, 0, 1, "봉"], ["tteokbokki", "food", "떡볶이", "1인분", 480, 20, 0.5, "인분"], ["ramen", "food", "라면", "1개", 500, 5, 1, "개"], ["samgyeop", "food", "삼겹살", "1인분 200g", 660, 0, 0.5, "인분"]];
+const KEX=[["걷기 (보통 속도)", 3.5], ["빠르게 걷기", 4.3], ["달리기 (시속 8km)", 8.3], ["자전거 (보통)", 6.8], ["계단 오르기", 8.0], ["수영 (자유형 보통)", 5.8], ["줄넘기", 11.8], ["맨몸 근력운동 (스쿼트 등)", 3.8], ["등산", 6.0], ["청소·집안일", 3.3]];
+const RICE=300,CUBE=3,SDAY=50,RAMEN=500,PICK0='dujjonku:1,soju:1,friedch:0.5';
+let cat='trend',Q={};
+const v=id=>Math.max(0,+$(id).value||0);
+const f1=n=>{const r=Math.round(n*10)/10;return r%1===0?r.toLocaleString('ko-KR'):r.toFixed(1)};
+const kc=n=>Math.round(n).toLocaleString('ko-KR')+'kcal';
+const mins=m=>{m=Math.round(m);if(m<60)return m+'분';const h=Math.floor(m/60),r=m%60;return h+'시간'+(r?' '+r+'분':'')};
+const line=(a,b,c)=>'<div class="line"><span>'+a+(c?'<em>'+c+'</em>':'')+'</span><b>'+b+'</b></div>';
+const BY={};KC.forEach(d=>BY[d[0]]=d);
+function readPick(){Q={};($('pick').value||'').split(',').forEach(s=>{const[k,q]=s.split(':');if(BY[k]&&+q>0)Q[k]=Math.round(+q*10)/10})}
+function writePick(){$('pick').value=Object.keys(Q).map(k=>k+':'+Q[k]).join(',')}
+function list(){
+  const rows=KC.filter(d=>cat==='all'||d[1]===cat);
+  $('kc-list').innerHTML=rows.map(d=>{const q=Q[d[0]]||0;return '<div class="kc-it'+(q?' on':'')+'" data-id="'+d[0]+'"><div class="nm">'+d[2]+'<small>'+d[3]+' · '+kc(d[4])+' · 당류 '+d[5]+'g</small></div>'+
+    '<div class="kc-q"><button type="button" class="m" aria-label="'+d[2]+' 빼기">−</button><output>'+f1(q)+'</output><button type="button" class="p" aria-label="'+d[2]+' 더하기">+</button></div></div>'}).join('');
+}
+function calc(){
+  let K=0,S=0;const names=[];
+  Object.keys(Q).forEach(k=>{const d=BY[k],q=Q[k];K+=d[4]*q;S+=d[5]*q;names.push(d[2].replace(/ \(.*\)/,'')+' '+(q===0.5?'반 '+d[7]:f1(q)+d[7]))});
+  const ck=v('ck'),cs=v('cs');if(ck>0){K+=ck;S+=cs;names.push('직접 넣은 것 '+kc(ck))}
+  const w=Math.max(20,v('wt')||65),day=+$('day').value||2000,pm=m=>m*3.5*w/200;
+  if(!(K>0)){$('o-main').textContent='0kcal';$('o-sub').textContent='';const s=$('o-status');s.className='status warn';s.textContent='위 목록에서 먹은 걸 + 버튼으로 담아 주세요.';
+    $('o-dl').textContent='';$('o-sl').textContent='';$('o-db').style.width='0%';$('o-sb').style.width='0%';$('o-lines').innerHTML='';return}
+  const dp=K/day*100,sp=S/SDAY*100,walk=K/pm(4.3);
+  $('o-main').textContent=kc(K);$('o-sub').textContent=names.length+'가지 · 몸무게 '+f1(w)+'kg';
+  const s=$('o-status');s.className='status '+(dp>=50||sp>100?'warn':'ok');
+  s.textContent='밥 '+f1(K/RICE)+'공기예요. 빠르게 걸어서 쓰려면 '+mins(walk)+' 걸려요.'+(sp>100?' 당류는 하루 기준을 넘었어요.':dp>=50?' 하루 권장 열량의 절반이 넘어요.':'');
+  $('o-dl').innerHTML='하루 권장 열량('+day.toLocaleString('ko-KR')+'kcal)의 <b>'+Math.round(dp)+'%</b>';$('o-db').style.width=Math.min(100,dp)+'%';
+  $('o-sl').innerHTML='하루 당류 기준('+SDAY+'g)의 <b>'+Math.round(sp)+'%</b>';$('o-sb').style.width=Math.min(100,sp)+'%';
+  const rows=[line('담은 것',names.length+'가지',names.join(' · ')),line('밥으로 치면',f1(K/RICE)+'공기','쌀밥 1공기 약 '+RICE+'kcal'),
+    line('당류를 각설탕으로',Math.round(S/CUBE).toLocaleString('ko-KR')+'개','당류 '+f1(S)+'g · 1개 '+CUBE+'g'),line('라면으로 치면',f1(K/RAMEN)+'개','라면 1개 약 '+RAMEN+'kcal')];
+  KEX.forEach(e=>rows.push(line(e[0],mins(K/pm(e[1])),'1분에 약 '+f1(pm(e[1]))+'kcal')));
+  $('o-lines').innerHTML=rows.join('');
+}
+$('kc-tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cat=b.dataset.c;$('kc-tabs').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));list()});
+$('kc-list').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const id=b.closest('.kc-it').dataset.id,st=BY[id][6];
+  const q=Math.round(((Q[id]||0)+(b.classList.contains('p')?st:-st))*10)/10;if(q>0)Q[id]=q;else delete Q[id];writePick();list();calc()});
+$('pick').addEventListener('input',()=>{readPick();list();calc()});
+document.querySelectorAll('form.panel input,form.panel select').forEach(e=>{e.addEventListener('input',calc);e.addEventListener('change',calc)});
+$('reset').addEventListener('click',()=>{$('pick').value=PICK0;$('ck').value=0;$('cs').value=0;$('wt').value=65;$('day').value='2000';readPick();list();calc()});
+readPick();list();calc();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const sb=document.getElementById('share'),slip=document.querySelector('.slip');if(!sb||!slip||!window.HTMLCanvasElement)return;
+// v29: 결과 이미지 저장 — 결과 칸을 1080px 카드 이미지로 그려서 저장·공유해요
+const row=sb.parentNode,wrap=document.createElement('div');wrap.className='share-btns';row.insertBefore(wrap,sb);wrap.appendChild(sb);
+const ib=document.createElement('button');ib.type='button';ib.className='share';ib.id='saveimg';
+ib.innerHTML='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>결과 이미지 저장';wrap.appendChild(ib);
+sb.lastChild.textContent='결과 링크 공유';
+const vis=e=>e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
+const txt=e=>{if(!e)return'';const c=e.cloneNode(true);c.querySelectorAll('em,button,.tip,svg').forEach(x=>x.remove());return c.textContent.replace(/\s+/g,' ').trim()};
+const slug=location.pathname.replace(/^\/|\/$/g,'')||'calqo';
+let logo=null;const li=new Image();li.onload=()=>logo=li;li.src='/assets/logo-180.png';
+function collect(){
+  const h=document.querySelector('h1'),s=document.querySelector('.seg button[aria-pressed="true"]'),h2=slip.querySelector('h2');
+  const d={title:txt(h),mode:s?txt(s):'',sub:h2?txt(h2.querySelector('small')):'',totals:[],status:[],lines:[],bars:[]};
+  slip.querySelectorAll('.total').forEach(t=>{if(vis(t))d.totals.push([txt(t.querySelector('span')),txt(t.querySelector('b'))])});
+  slip.querySelectorAll('.status').forEach(t=>{const x=txt(t);if(x&&vis(t))d.status.push([x,t.classList.contains('warn')])});
+  slip.querySelectorAll('.bar i').forEach(i=>{if(vis(i.parentNode))d.bars.push(Math.max(0,Math.min(100,parseFloat(i.style.width)||0)))});
+  slip.querySelectorAll('.line').forEach(l=>{if(!vis(l))return;const sp=l.querySelector('span'),b=l.querySelector(':scope>b');const v=txt(b);if(!v)return;
+    d.lines.push([txt(sp),sp&&sp.querySelector('em')?sp.querySelector('em').textContent.trim():'',v])});
+  d.lines=d.lines.slice(0,12);return d}
+function render(d){
+  const W=1080,P=64,F=getComputedStyle(document.body).fontFamily,c=document.createElement('canvas'),x=c.getContext('2d');
+  const C={bg:'#fffaf7',card:'#ffffff',ink:'#111827',ink2:'#4b5563',ink3:'#6b7280',acc:'#c4512f',brand:'#e56a48',soft:'#fdeee8',line:'#eee3de',ok:'#15803d',warn:'#b45309'};
+  const fnt=(w,s)=>w+' '+s+'px '+F;
+  const wrap=(t,f,mw)=>{x.font=f;const out=[];let cur='';for(const ch of t.split(/(\s+)/)){const tt=cur+ch;if(x.measureText(tt).width<=mw||!cur.trim()){cur=tt;while(x.measureText(cur).width>mw){let i=cur.length;while(i>1&&x.measureText(cur.slice(0,i)).width>mw)i--;out.push(cur.slice(0,i));cur=cur.slice(i)}}else{out.push(cur.trim());cur=ch.trim()}}if(cur.trim())out.push(cur.trim());return out};
+  const rr=(x0,y0,w,h,r,fill)=>{x.beginPath();x.moveTo(x0+r,y0);x.arcTo(x0+w,y0,x0+w,y0+h,r);x.arcTo(x0+w,y0+h,x0,y0+h,r);x.arcTo(x0,y0+h,x0,y0,r);x.arcTo(x0,y0,x0+w,y0,r);x.closePath();x.fillStyle=fill;x.fill()};
+  function pass(draw){let y=P;const T=(t,f,col,X,Y,al)=>{if(!draw)return;x.font=f;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='top';x.fillText(t,X,Y)};
+    // 머리
+    if(draw&&logo)x.drawImage(logo,P,y,56,56);
+    T('캘코',fnt(800,32),C.ink,P+70,y+8);x.font=fnt(800,32);const lw=x.measureText('캘코').width;T('calqo.kr',fnt(500,26),C.ink3,P+82+lw,y+14);
+    const dt=new Date(),ds=dt.getFullYear()+'.'+String(dt.getMonth()+1).padStart(2,'0')+'.'+String(dt.getDate()).padStart(2,'0')+' 계산';T(ds,fnt(500,24),C.ink3,W-P,y+16,'right');
+    y+=96;
+    // 카드
+    const cy=y,cx=P-8,cw=W-2*(P-8);if(draw){x.save();x.shadowColor='rgba(17,24,39,.08)';x.shadowBlur=30;x.shadowOffsetY=8;rr(cx,cy,cw,d._h||10,36,C.card);x.restore()}
+    y+=48;const L=P+32,R=W-P-32,IW=R-L;
+    for(const l of wrap(d.title,fnt(800,48),IW)){T(l,fnt(800,48),C.ink,L,y);y+=64}
+    const tag=[d.mode,d.sub].filter(Boolean).join(' · ');if(tag){y+=4;for(const l of wrap(tag,fnt(600,28),IW)){T(l,fnt(600,28),C.ink3,L,y);y+=40}}
+    y+=20;
+    d.totals.forEach(([lab,val])=>{let vs=76;x.font=fnt(800,vs);while(x.measureText(val).width>IW-56&&vs>40){vs-=4;x.font=fnt(800,vs)}
+      const ll=wrap(lab,fnt(700,32),IW-56),h=40+ll.length*44+vs*1.15+36;if(draw)rr(L,y,IW,h,28,C.soft);let yy=y+36;
+      ll.forEach(l=>{T(l,fnt(700,32),C.ink,L+28,yy);yy+=44});T(val,fnt(800,vs),C.acc,L+28,yy+4);y+=h+20});
+    d.bars.forEach(p=>{if(draw){rr(L,y,IW,22,11,'#f1e7e3');if(p>0)rr(L,y,Math.max(22,IW*p/100),22,11,C.brand)}y+=44});
+    d.status.forEach(([s,w])=>{const ll=wrap(s,fnt(600,28),IW-48),h=ll.length*42+36;if(draw)rr(L,y,IW,h,22,w?'#fdf3e4':'#e9f6ee');let yy=y+18;ll.forEach(l=>{T(l,fnt(600,28),w?C.warn:C.ok,L+24,yy);yy+=42});y+=h+20});
+    if(d.lines.length){y+=6;d.lines.forEach(([lab,em,val],i)=>{x.font=fnt(700,32);let vw=Math.min(x.measureText(val).width,IW*.55);
+      const ll=wrap(lab,fnt(500,30),IW-vw-28),el=em?wrap(em,fnt(500,23),IW-vw-28):[];const h=Math.max(ll.length*42+el.length*32,42)+36;
+      let yy=y+18;ll.forEach(l=>{T(l,fnt(500,30),C.ink2,L,yy);yy+=42});el.forEach(l=>{T(l,fnt(500,23),C.ink3,L,yy);yy+=32});
+      let vs=32;x.font=fnt(700,vs);while(x.measureText(val).width>IW*.55&&vs>20){vs-=2;x.font=fnt(700,vs)}T(val,fnt(700,vs),C.ink,R,y+18+(32-vs)/2,'right');
+      y+=h;if(draw&&i<d.lines.length-1){x.fillStyle=C.line;x.fillRect(L,y,IW,2)}})}
+    y+=40;d._h=y-cy;y+=40;
+    // 꼬리
+    const fy=y;if(draw)rr(P-8,fy,W-2*(P-8),132,30,C.brand);
+    T('내 조건으로 계산해 보기',fnt(700,28),'#ffe7dd',P+24,fy+26);T('calqo.kr/'+slug,fnt(800,40),'#ffffff',P+24,fy+66);
+    y+=132+28;T('계산 결과는 참고용이에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인하세요.',fnt(500,22),C.ink3,W/2,y,'center');y+=30+P-20;return y}
+  const H=Math.ceil(pass(false));c.width=W;c.height=H;x.fillStyle=C.bg;x.fillRect(0,0,W,H);pass(true);return c}
+function modal(c,file){
+  const m=document.createElement('div');m.className='imgm';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','결과 이미지');
+  const canShare=navigator.canShare&&navigator.canShare({files:[file]});
+  m.innerHTML='<div class="imgm-b"><div class="imgm-h"><b>결과 이미지</b><button type="button" class="imgm-x" aria-label="닫기">✕</button></div><div class="imgm-p"><img alt="계산 결과 이미지"></div><p class="imgm-t">저장이 안 되면 이미지를 <b>길게 눌러</b> 저장하세요.</p><div class="imgm-a"><a class="share" download></a>'+(canShare?'<button type="button" class="share imgm-s">카톡·메신저로 보내기</button>':'')+'</div></div>';
+  m.querySelector('img').src=c.toDataURL('image/png');
+  const a=m.querySelector('a[download]'),u=URL.createObjectURL(file);a.href=u;a.download=file.name;a.textContent='이미지 저장하기';
+  const close=()=>{m.remove();URL.revokeObjectURL(u);document.removeEventListener('keydown',k);ib.focus()},k=e=>{if(e.key==='Escape')close()};
+  m.addEventListener('click',e=>{if(e.target===m||e.target.closest('.imgm-x'))close()});document.addEventListener('keydown',k);
+  const s=m.querySelector('.imgm-s');if(s)s.addEventListener('click',async()=>{try{await navigator.share({files:[file],title:document.title})}catch(_){}});
+  document.body.appendChild(m);m.querySelector('.imgm-x').focus()}
+ib.addEventListener('click',async()=>{ib.disabled=true;try{try{await document.fonts.ready}catch(_){}
+  const d=collect();if(!d.totals.length&&!d.lines.length){ib.disabled=false;return}
+  const c=render(d);c.toBlob(bl=>{ib.disabled=false;if(!bl)return;const t=new Date();
+    const f=new File([bl],'calqo-'+slug+'-'+t.getFullYear()+String(t.getMonth()+1).padStart(2,'0')+String(t.getDate()).padStart(2,'0')+'.png',{type:'image/png'});modal(c,f)},'image/png')}
+  catch(e){ib.disabled=false;console.error(e)}});
+})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/#health">생활 건강</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/home-money/">집 사기 돈 총정리</a></li><li><a href="/stats/">숫자로 보는 통계</a></li><li><a href="/wedding-money/">결혼 준비 돈 총정리</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
