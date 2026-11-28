@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>과태료 계산기 · 과속 주정차 음주운전 벌점 | 캘코</title>
+<meta name="description" content="과속·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요. 미리 내면 20% 감경도 반영.">
+<link rel="canonical" href="https://calqo.kr/traffic-fine/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="캘코 calqo">
+<meta property="og:title" content="과태료 계산기 · 과속 주정차 음주운전 벌점 | 캘코">
+<meta property="og:description" content="과속·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요. 미리 내면 20% 감경도 반영.">
+<meta property="og:url" content="https://calqo.kr/traffic-fine/">
+<meta property="og:image" content="https://calqo.kr/assets/og/traffic-fine.png?v=29">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="과태료 계산기 · 과속 주정차 음주운전 벌점 | 캘코">
+<meta property="og:locale" content="ko_KR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="과태료 계산기 · 과속 주정차 음주운전 벌점 | 캘코">
+<meta name="twitter:description" content="과속·주정차 과태료와 범칙금, 음주운전 벌금·면허 취소, 벌점 누적 면허정지까지 계산해요. 미리 내면 20% 감경도 반영.">
+<meta name="twitter:image" content="https://calqo.kr/assets/og/traffic-fine.png?v=29">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/logo-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/logo-48.png">
+<link rel="apple-touch-icon" href="/assets/logo-180.png">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161b22" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/assets/style.css?v=8">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5848737989606351" crossorigin="anonymous"></script>
+</head>
+<body>
+<header class="site-head"><div class="wrap">
+  <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코 <span>직장인 생활 계산기</span></a>
+  <nav aria-label="주요 메뉴"><a href="/#pay">급여·근로</a><a href="/#loan">대출·금융</a><a href="/#home">부동산</a><a href="/#tax">세금</a><a href="/#life" class=on aria-current=page>생활·날짜</a><a href="/market/">시장</a></nav>
+</div></header>
+<main class="wrap">
+  <header>
+    <div class="crumb"><a href="/">홈</a><span>›</span><a href="/#life">생활·날짜</a></div>
+    <h1>교통 과태료·벌점 계산기 (과속·주정차·음주)</h1>
+    <p class="lead">과속 과태료와 범칙금·벌점, 주정차 과태료, 음주운전 처벌과 면허 취소·결격기간, 벌점 누적 면허정지까지 한 번에 계산해요. 2026년 11월 기준.</p>
+    <span class="tag">승용차 기준 · 도로교통법 시행령·시행규칙 2026년 11월 기준</span>
+  </header>
+  <div class="grid">
+    <form class="panel" onsubmit="return false">
+      <div class="ftop"><button type="button" class="reset" id="reset" title="입력값을 예시 값으로 되돌려요"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg>예시 값으로</button><span class="undo" id="undo" role="status" hidden></span></div>
+      <div><div class="hint" style="margin-bottom:6px">무엇을 계산할까요?</div>
+      <div class="seg" role="group" aria-label="계산 종류">
+        <button type="button" data-m="speed" aria-pressed="true">과속</button>
+        <button type="button" data-m="park" aria-pressed="false">주정차</button>
+        <button type="button" data-m="dui" aria-pressed="false">음주운전</button>
+        <button type="button" data-m="point" aria-pressed="false">벌점 누적</button>
+      </div></div>
+      <label for="zone" data-only="speed">단속된 곳<select id="zone"><option value="g" selected>일반 도로</option><option value="k">어린이보호구역 (08~20시)</option></select></label>
+      <div class="row2" data-only="speed">
+        <label for="lim">제한속도 (km/h)<input id="lim" type="number" inputmode="numeric" min="0" step="10" value="50"></label>
+        <label for="spd">단속된 속도 (km/h)<input id="spd" type="number" inputmode="numeric" min="0" step="1" value="75"><span class="hint">고지서의 주행 속도</span></label>
+      </div>
+      <label for="place" data-only="park">세운 곳<select id="place"><option value="gen" selected>일반 금지구역 (도로·인도·버스정류소·횡단보도·교차로 모퉁이)</option><option value="fire">소화전 5m 안 · 소방활동 방해 지역</option><option value="old">노인·장애인 보호구역</option><option value="kid">어린이보호구역 (08~20시)</option><option value="dis">장애인 전용주차구역</option><option value="ev">전기차 충전구역</option></select></label>
+      <div class="row2" data-only="park">
+        <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="long" type="checkbox" style="width:auto"> 같은 곳에 2시간 넘게 세웠어요 (+1만원)</label>
+        <label for="cnt">올해 걸린 횟수 (번)<input id="cnt" type="number" inputmode="numeric" min="1" step="1" value="1"></label>
+      </div>
+      <div class="row2" data-only="speed park">
+        <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="early" type="checkbox" style="width:auto" checked> 사전통지 기간에 미리 낼게요 (20% 감경)</label>
+        <label for="late">납부 기한 지난 개월 수<input id="late" type="number" inputmode="numeric" min="0" max="60" step="1" value="0"><span class="hint">안 늦었으면 0</span></label>
+      </div>
+      <label for="how" data-only="dui">혈중알코올농도<select id="how"><option value="meas" selected>측정값을 넣을게요</option><option value="est">마신 양으로 추정할게요</option></select></label>
+      <label for="bac" data-only="dui" data-how="meas">측정 결과 (%)<input id="bac" type="number" inputmode="decimal" min="0" max="0.6" step="0.001" value="0.05"><span class="hint">예: 0.05 (단속 기준 0.03%부터)</span></label>
+      <div class="row2" data-only="dui" data-how="est">
+        <label for="soju">소주 (잔)<input id="soju" type="number" inputmode="decimal" min="0" step="1" value="7"><span class="hint">1병 ≈ 7잔</span></label>
+        <label for="beer">맥주 500cc (잔)<input id="beer" type="number" inputmode="decimal" min="0" step="1" value="0"></label>
+      </div>
+      <div class="row2" data-only="dui" data-how="est">
+        <label for="wt">몸무게 (kg)<input id="wt" type="number" inputmode="numeric" min="30" step="1" value="70"></label>
+        <label for="sex">성별<select id="sex"><option value="m" selected>남성</option><option value="f">여성</option></select></label>
+      </div>
+      <label for="hrs" data-only="dui" data-how="est">다 마신 뒤 지난 시간 (시간)<input id="hrs" type="number" inputmode="decimal" min="0" step="0.5" value="2"><span class="hint">위드마크 공식 평균값 추정이라 사람마다 크게 달라요</span></label>
+      <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400" data-only="dui"><input id="ref" type="checkbox" style="width:auto"> 측정을 거부하거나 방해했어요 (술타기 포함)</label>
+      <div class="row2" data-only="dui">
+        <label for="last">예전 음주운전 (측정거부 포함)<select id="last"><option value="none" selected>없어요</option><option value="5">있어요 · 5년 안</option><option value="10">있어요 · 5~10년 전</option><option value="old">있어요 · 10년보다 전</option></select></label>
+        <label for="acc">사고<select id="acc"><option value="none" selected>사고 없음</option><option value="prop">차·물건만 부서짐</option><option value="hurt">사람이 다침</option><option value="death">사람이 숨짐</option><option value="flee">사람을 다치게 하고 도주</option></select></label>
+      </div>
+      <label for="prev" data-only="point">지금 남아 있는 벌점 (점)<input id="prev" type="number" inputmode="numeric" min="0" step="1" value="0"><span class="hint">이파인(efine.go.kr)에서 조회 · 소멸된 벌점은 빼고</span></label>
+      <div class="row2" data-only="point" style="grid-template-columns:1fr 92px">
+        <label for="s1">이번 위반 1<select id="s1"><option value="none">없음</option><option value="sig" selected>신호·지시 위반 (15점)</option><option value="sp20">과속 20~40km/h 초과 (15점)</option><option value="sp40">과속 40~60km/h 초과 (30점)</option><option value="sp60">과속 60~80km/h 초과 (60점)</option><option value="sp80">과속 80~100km/h 초과 (80점)</option><option value="sp100">과속 100km/h 넘게 초과 (100점)</option><option value="kz0">스쿨존 과속 20km/h 이하 (15점)</option><option value="kz20">스쿨존 과속 20~40km/h (30점)</option><option value="kz40">스쿨존 과속 40~60km/h (60점)</option><option value="kz60">스쿨존 과속 60km/h 넘게 (120점)</option><option value="phone">운전 중 휴대전화·영상 시청 (15점)</option><option value="center">중앙선 침범 (30점)</option><option value="bus">고속도로 갓길·버스전용차로 (30점)</option><option value="ped">보행자 보호 불이행·정지선 (10점)</option><option value="lane">안전거리 미확보·진로변경 위반 (10점)</option><option value="dui">음주운전 0.03~0.08% (100점)</option><option value="a_dead">사고: 사망 1명 (90점)</option><option value="a_big">사고: 중상 1명 (3주 이상) (15점)</option><option value="a_small">사고: 경상 1명 (5일~3주) (5점)</option><option value="a_rep">사고: 부상신고 1명 (5일 미만) (2점)</option></select></label>
+        <label for="n1">횟수 (번)<input id="n1" type="number" inputmode="numeric" min="0" step="1" value="1"></label>
+      </div>
+      <div class="row2" data-only="point" style="grid-template-columns:1fr 92px">
+        <label for="s2">이번 위반 2<select id="s2"><option value="none">없음</option><option value="sig">신호·지시 위반 (15점)</option><option value="sp20" selected>과속 20~40km/h 초과 (15점)</option><option value="sp40">과속 40~60km/h 초과 (30점)</option><option value="sp60">과속 60~80km/h 초과 (60점)</option><option value="sp80">과속 80~100km/h 초과 (80점)</option><option value="sp100">과속 100km/h 넘게 초과 (100점)</option><option value="kz0">스쿨존 과속 20km/h 이하 (15점)</option><option value="kz20">스쿨존 과속 20~40km/h (30점)</option><option value="kz40">스쿨존 과속 40~60km/h (60점)</option><option value="kz60">스쿨존 과속 60km/h 넘게 (120점)</option><option value="phone">운전 중 휴대전화·영상 시청 (15점)</option><option value="center">중앙선 침범 (30점)</option><option value="bus">고속도로 갓길·버스전용차로 (30점)</option><option value="ped">보행자 보호 불이행·정지선 (10점)</option><option value="lane">안전거리 미확보·진로변경 위반 (10점)</option><option value="dui">음주운전 0.03~0.08% (100점)</option><option value="a_dead">사고: 사망 1명 (90점)</option><option value="a_big">사고: 중상 1명 (3주 이상) (15점)</option><option value="a_small">사고: 경상 1명 (5일~3주) (5점)</option><option value="a_rep">사고: 부상신고 1명 (5일 미만) (2점)</option></select></label>
+        <label for="n2">횟수 (번)<input id="n2" type="number" inputmode="numeric" min="0" step="1" value="1"></label>
+      </div>
+      <div class="row2" data-only="point" style="grid-template-columns:1fr 92px">
+        <label for="s3">이번 위반 3<select id="s3"><option value="none" selected>없음</option><option value="sig">신호·지시 위반 (15점)</option><option value="sp20">과속 20~40km/h 초과 (15점)</option><option value="sp40">과속 40~60km/h 초과 (30점)</option><option value="sp60">과속 60~80km/h 초과 (60점)</option><option value="sp80">과속 80~100km/h 초과 (80점)</option><option value="sp100">과속 100km/h 넘게 초과 (100점)</option><option value="kz0">스쿨존 과속 20km/h 이하 (15점)</option><option value="kz20">스쿨존 과속 20~40km/h (30점)</option><option value="kz40">스쿨존 과속 40~60km/h (60점)</option><option value="kz60">스쿨존 과속 60km/h 넘게 (120점)</option><option value="phone">운전 중 휴대전화·영상 시청 (15점)</option><option value="center">중앙선 침범 (30점)</option><option value="bus">고속도로 갓길·버스전용차로 (30점)</option><option value="ped">보행자 보호 불이행·정지선 (10점)</option><option value="lane">안전거리 미확보·진로변경 위반 (10점)</option><option value="dui">음주운전 0.03~0.08% (100점)</option><option value="a_dead">사고: 사망 1명 (90점)</option><option value="a_big">사고: 중상 1명 (3주 이상) (15점)</option><option value="a_small">사고: 경상 1명 (5일~3주) (5점)</option><option value="a_rep">사고: 부상신고 1명 (5일 미만) (2점)</option></select></label>
+        <label for="n3">횟수 (번)<input id="n3" type="number" inputmode="numeric" min="0" step="1" value="1"></label>
+      </div>
+      <div class="row2" data-only="point" style="grid-template-columns:1fr 92px">
+        <label for="s4">사고 · 기타<select id="s4"><option value="none" selected>없음</option><option value="sig">신호·지시 위반 (15점)</option><option value="sp20">과속 20~40km/h 초과 (15점)</option><option value="sp40">과속 40~60km/h 초과 (30점)</option><option value="sp60">과속 60~80km/h 초과 (60점)</option><option value="sp80">과속 80~100km/h 초과 (80점)</option><option value="sp100">과속 100km/h 넘게 초과 (100점)</option><option value="kz0">스쿨존 과속 20km/h 이하 (15점)</option><option value="kz20">스쿨존 과속 20~40km/h (30점)</option><option value="kz40">스쿨존 과속 40~60km/h (60점)</option><option value="kz60">스쿨존 과속 60km/h 넘게 (120점)</option><option value="phone">운전 중 휴대전화·영상 시청 (15점)</option><option value="center">중앙선 침범 (30점)</option><option value="bus">고속도로 갓길·버스전용차로 (30점)</option><option value="ped">보행자 보호 불이행·정지선 (10점)</option><option value="lane">안전거리 미확보·진로변경 위반 (10점)</option><option value="dui">음주운전 0.03~0.08% (100점)</option><option value="a_dead">사고: 사망 1명 (90점)</option><option value="a_big">사고: 중상 1명 (3주 이상) (15점)</option><option value="a_small">사고: 경상 1명 (5일~3주) (5점)</option><option value="a_rep">사고: 부상신고 1명 (5일 미만) (2점)</option></select></label>
+        <label for="n4">횟수·명수<input id="n4" type="number" inputmode="numeric" min="0" step="1" value="1"></label>
+      </div>
+      <div class="row2" data-only="point">
+        <label for="mile">착한운전 마일리지 (점)<input id="mile" type="number" inputmode="numeric" min="0" step="10" value="0"><span class="hint">1년 무위반 서약 지키면 10점</span></label>
+        <div style="display:flex;flex-direction:column;gap:8px;justify-content:center">
+          <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="edu" type="checkbox" style="width:auto"> 벌점 감경·법규준수 교육 받을게요</label>
+          <label style="flex-direction:row;align-items:center;gap:8px;font-weight:400"><input id="field" type="checkbox" style="width:auto"> 현장참여교육까지 받을게요</label>
+        </div>
+      </div>
+      <span class="hint" id="tf-ex">예시: 제한속도 50km/h 도로에서 75km/h로 카메라에 찍힌 승용차예요. 위 버튼으로 주정차·음주운전·벌점 누적도 계산할 수 있어요.</span>
+    </form>
+    <section class="panel slip" aria-live="polite">
+      <h2>계산 결과 <small id="o-sub"></small></h2>
+      <div class="total"><span id="o-lab"></span><b id="o-main"></b></div>
+      <div class="status ok" id="o-status"></div>
+      <div class="lines" id="o-lines"></div>
+      <div class="share-row"><button type="button" class="share" id="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg>결과 링크 공유하기</button><span class="share-msg" id="share-msg" role="status"></span></div>
+    </section>
+  </div>
+  <article>
+    <h2>과태료와 범칙금, 뭐가 달라요?</h2>
+    <p>같은 과속이라도 <b>무인 카메라</b>에 찍히면 차 주인에게 <b>과태료</b>가, <b>경찰관</b>에게 직접 걸리면 운전한 사람에게 <b>범칙금과 벌점</b>이 나와요. 과태료는 범칙금보다 1만원쯤 비싸지만 벌점이 없어요. 그리고 사전통지(의견진술) 기간에 미리 내면 20%를 깎아 줘서, 범칙금보다 오히려 싸질 때가 많아요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>과태료</th><th>범칙금</th></tr></thead>
+      <tbody>
+        <tr><td>단속</td><td>무인 카메라 · 주민 신고</td><td>경찰관 현장 단속</td></tr>
+        <tr><td>내는 사람</td><td>차 주인</td><td>운전한 사람</td></tr>
+        <tr><td>벌점</td><td>없음</td><td>있음</td></tr>
+        <tr><td>기한</td><td>사전통지 기간에 내면 20% 감경 · 늦으면 가산금 3% + 매달 1.2%</td><td>10일 안에 내고, 넘기면 20% 더 붙어 20일 · 그래도 안 내면 즉결심판</td></tr>
+      </tbody>
+    </table></div>
+    <p>카메라 고지서를 받고 실제 운전자를 밝히면 범칙금과 벌점으로 바꿔 낼 수도 있어요. 벌점이 쌓여 있다면 과태료로 내는 편이 안전해요.</p>
+    <div class="more-h">더 알아보기</div>
+    <details class="sec"><summary><h2>과속 과태료·범칙금·벌점 (승용차)</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>제한속도보다</th><th>과태료</th><th>범칙금</th><th>벌점</th></tr></thead>
+      <tbody>
+        <tr><td>20km/h 이하</td><td>4만원</td><td>3만원</td><td>없음</td></tr>
+        <tr><td>20 ~ 40km/h</td><td>7만원</td><td>6만원</td><td>15점</td></tr>
+        <tr><td>40 ~ 60km/h</td><td>10만원</td><td>9만원</td><td>30점</td></tr>
+        <tr><td>60 ~ 80km/h</td><td>13만원</td><td>12만원</td><td>60점</td></tr>
+        <tr><td>80 ~ 100km/h</td><td colspan="2">형사 처벌 · 30만원 이하 벌금 또는 구류</td><td>80점</td></tr>
+        <tr><td>100km/h 넘게</td><td colspan="2">형사 처벌 · 100만원 이하 벌금 또는 구류 (3번째부터 1년 이하 징역 또는 500만원 이하 벌금 + 면허 취소)</td><td>100점</td></tr>
+      </tbody>
+    </table></div>
+    <div class="tbl"><table>
+      <thead><tr><th>어린이보호구역 (08~20시)</th><th>과태료</th><th>범칙금</th><th>벌점</th></tr></thead>
+      <tbody>
+        <tr><td>20km/h 이하</td><td>7만원</td><td>6만원</td><td>15점</td></tr>
+        <tr><td>20 ~ 40km/h</td><td>10만원</td><td>9만원</td><td>30점</td></tr>
+        <tr><td>40 ~ 60km/h</td><td>13만원</td><td>12만원</td><td>60점</td></tr>
+        <tr><td>60km/h 넘게</td><td>16만원</td><td>15만원</td><td>120점</td></tr>
+      </tbody>
+    </table></div>
+    <p>4톤 넘는 화물차·승합차는 1만원씩 더 많아요. 초과 속도는 실제 속도가 아니라 <b>제한속도보다 얼마나 빨랐는지</b>로 따져요. 제한속도 30km/h 스쿨존을 45km/h로 지나면 15km/h 초과예요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>주정차 과태료 (승용차)</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>세운 곳</th><th>과태료</th><th>2시간 넘게</th></tr></thead>
+      <tbody>
+        <tr><td>일반 금지구역 (도로·인도·버스정류소·횡단보도·교차로 모퉁이)</td><td>4만원</td><td>5만원</td></tr>
+        <tr><td>소화전 5m 안 · 소방활동 방해 지역</td><td>8만원</td><td>9만원</td></tr>
+        <tr><td>노인·장애인 보호구역</td><td>8만원</td><td>9만원</td></tr>
+        <tr><td>어린이보호구역 (08~20시)</td><td>12만원</td><td>13만원</td></tr>
+        <tr><td>장애인 전용주차구역</td><td colspan="2">10만원 (주차 방해는 50만원)</td></tr>
+        <tr><td>전기차 충전구역</td><td colspan="2">10만원</td></tr>
+      </tbody>
+    </table></div>
+    <p>소화전·교차로 모퉁이·버스정류소·횡단보도, 어린이보호구역 정문 앞, 인도는 '안전신문고' 앱 주민 신고로도 바로 과태료가 나와요. 주정차 위반에는 벌점이 없지만, 견인되면 견인료와 보관료가 따로 붙어요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>음주운전 처벌 기준</h2></summary><div class="sec-b">
+    <div class="tbl"><table>
+      <thead><tr><th>혈중알코올농도</th><th>처음</th><th>10년 안에 또</th><th>면허</th></tr></thead>
+      <tbody>
+        <tr><td>0.03 ~ 0.08%</td><td>1년 이하 징역 또는 500만원 이하 벌금</td><td rowspan="2">1~5년 징역 또는 500만~2,000만원 벌금</td><td>정지 100일 (벌점 100점)</td></tr>
+        <tr><td>0.08 ~ 0.2%</td><td>1~2년 징역 또는 500만~1,000만원 벌금</td><td>취소</td></tr>
+        <tr><td>0.2% 이상</td><td>2~5년 징역 또는 1,000만~2,000만원 벌금</td><td>2~6년 징역 또는 1,000만~3,000만원 벌금</td><td>취소</td></tr>
+        <tr><td>측정 거부·방해</td><td>1~5년 징역 또는 500만~2,000만원 벌금</td><td>1~6년 징역 또는 500만~3,000만원 벌금</td><td>취소</td></tr>
+      </tbody>
+    </table></div>
+    <p>'10년 안에 또'는 예전 음주운전으로 벌금 이상의 형이 확정된 날부터 10년 안에 다시 걸린 경우예요(2023년 4월 4일부터). 사고 뒤 술을 더 마셔 측정을 어렵게 하는 '술타기'는 2025년 6월 4일부터 측정 거부와 똑같이 처벌해요. 0.03~0.08%라도 사람을 다치게 했거나 예전에 음주운전을 한 적이 있으면 면허가 취소돼요.</p>
+    <div class="tbl"><table>
+      <thead><tr><th>면허 취소 뒤 다시 못 따는 기간 (결격기간)</th><th>기간</th></tr></thead>
+      <tbody>
+        <tr><td>음주운전 첫 취소 · 측정 거부</td><td>1년</td></tr>
+        <tr><td>음주운전 2번 이상 · 음주 교통사고</td><td>2년</td></tr>
+        <tr><td>음주운전 2번 이상 + 교통사고</td><td>3년</td></tr>
+        <tr><td>음주 사망 사고 · 음주 뺑소니</td><td>5년</td></tr>
+      </tbody>
+    </table></div>
+    <p>5년 안에 2번 이상 음주운전을 하면, 결격기간이 끝나고 다시 딴 면허에 <b>음주운전 방지장치</b>(술이 감지되면 시동이 안 걸리는 장치) 조건이 붙어요. 결격기간과 같은 기간 동안 달아야 하고 설치비는 약 300만원이에요. 2024년 10월 25일 시행됐고, 결격기간 2년이 지난 2026년 10월 24일부터 실제로 적용되기 시작했어요.</p>
+    <p>사고를 내면 형사 처벌이 훨씬 무거워져요. 술에 취해 정상적으로 운전하기 어려운 상태로 사람을 다치게 하면 1~15년 징역 또는 1,000만~3,000만원 벌금, 숨지게 하면 무기 또는 3년 이상 징역이에요(특정범죄가중처벌법). 자동차보험도 피해자에게 나간 보험금을 운전자에게 다시 받아 가요(사고부담금). 2022년 7월 28일 이후 계약은 의무보험 한도(대인 1명당 최대 1억 5천만원, 대물 2천만원)까지 전부에, 그 위 구간도 대인 1억원·대물 5천만원까지 운전자가 물어내야 해요.</p>
+    </div></details>
+    <details class="sec"><summary><h2>벌점 누적과 면허 정지·취소</h2></summary><div class="sec-b">
+    <ul>
+      <li><b>정지:</b> 처분벌점이 40점 이상이면 면허가 정지되고, 1점에 1일씩 정지돼요. 벌점 55점이면 55일 정지예요.</li>
+      <li><b>취소:</b> 1년 동안 121점, 2년 동안 201점, 3년 동안 271점이 쌓이면 면허가 취소돼요.</li>
+      <li><b>소멸:</b> 처분벌점이 40점 미만이면, 마지막 위반·사고일부터 1년 동안 위반·사고가 없을 때 사라져요.</li>
+      <li><b>교육 감경:</b> 40점 미만일 때 벌점 감경 교육을 받으면 20점이 빠져요(1년에 1번). 정지 처분을 받으면 법규준수교육으로 정지 20일, 이어서 현장참여교육으로 30일을 더 줄일 수 있어요.</li>
+      <li><b>착한운전 마일리지:</b> 1년 무위반·무사고 서약을 지키면 10점이 쌓이고, 정지 처분 때 10점 단위로 벌점을 빼 줘요. 40점대라면 정지를 아예 피할 수도 있어요.</li>
+      <li><b>사고 벌점:</b> 사망 1명 90점, 중상(3주 이상) 15점, 경상(5일~3주) 5점, 부상신고(5일 미만) 2점이에요. 쌍방 과실이면 절반이에요.</li>
+    </ul>
+    </div></details>
+    <details class="sec"><summary><h2>주의할 점</h2></summary><div class="sec-b">
+    <ul>
+      <li>금액은 승용차·4톤 이하 화물차 기준이에요. 이륜차·승합차는 금액이 달라요.</li>
+      <li>음주운전 처벌은 법에 정해진 범위예요. 실제 형량은 판사가 사고 여부, 전력, 합의 등을 보고 정해요.</li>
+      <li>마신 양으로 추정한 혈중알코올농도는 평균값(체내 흡수율 70%, 시간당 0.015%씩 감소)으로 계산한 참고값이에요. 단속 기준 아래로 나와도 0%가 되기 전에는 운전하지 마세요.</li>
+      <li>도로교통법 시행령 별표 6·8·10, 시행규칙 별표 28(2026년 8월 24일 개정), 도로교통법 제148조의2, 경찰청 '2026년 달라지는 도로교통법령', 질서위반행위규제법을 기준으로 했어요. 내 과태료·벌점은 이파인(efine.go.kr)에서 확인하세요.</li>
+    </ul>
+    </div></details>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq"><details><summary>과태료와 범칙금 중 뭘 내는 게 나아요?</summary><p>과태료는 범칙금보다 1만원쯤 비싸지만 벌점이 없어요. 사전통지 기간에 내면 20%를 깎아 줘서, 20~40km/h 과속이면 과태료 5만 6천원으로 범칙금 6만원(벌점 15점)보다 싸요.</p></details><details><summary>어린이보호구역 과속은 언제 더 비싸져요?</summary><p>오전 8시부터 오후 8시까지 걸리면 과태료·범칙금이 오르고 벌점은 두 배예요. 60km/h 넘게 빠르면 벌점 120점으로 한 번에 면허가 정지돼요.</p></details><details><summary>벌점은 언제 없어져요?</summary><p>처분벌점이 40점 미만이면 마지막 위반·사고일부터 1년 동안 위반·사고가 없을 때 사라져요. 40점 미만일 때 벌점 감경 교육을 받으면 20점을 바로 줄일 수 있어요(1년에 1번).</p></details><details><summary>혈중알코올농도 0.03% 미만이면 괜찮나요?</summary><p>형사 처벌 기준 아래일 뿐이에요. 숙취가 남아 있으면 반응이 느려지고, 시간이 지나며 수치가 오르기도 해요. 0%가 될 때까지는 운전하지 마세요.</p></details><details><summary>음주운전 방지장치는 누가 달아야 하나요?</summary><p>5년 안에 2번 이상 음주운전을 한 사람이 결격기간 뒤 다시 면허를 따면, 결격기간과 같은 기간 동안 방지장치를 단 차만 운전할 수 있어요. 2026년 10월 24일부터 실제로 적용되기 시작했어요.</p></details><details><summary>과태료를 안 내면 어떻게 돼요?</summary><p>납부 기한이 지나면 3%가 더 붙고, 그 뒤 매달 1.2%씩 최대 60개월까지 늘어나요. 계속 안 내면 차량 압류 같은 체납 처분을 받을 수 있어요.</p></details></div>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "과태료와 범칙금 중 뭘 내는 게 나아요?", "acceptedAnswer": {"@type": "Answer", "text": "과태료는 범칙금보다 1만원쯤 비싸지만 벌점이 없어요. 사전통지 기간에 내면 20%를 깎아 줘서, 20~40km/h 과속이면 과태료 5만 6천원으로 범칙금 6만원(벌점 15점)보다 싸요."}}, {"@type": "Question", "name": "어린이보호구역 과속은 언제 더 비싸져요?", "acceptedAnswer": {"@type": "Answer", "text": "오전 8시부터 오후 8시까지 걸리면 과태료·범칙금이 오르고 벌점은 두 배예요. 60km/h 넘게 빠르면 벌점 120점으로 한 번에 면허가 정지돼요."}}, {"@type": "Question", "name": "벌점은 언제 없어져요?", "acceptedAnswer": {"@type": "Answer", "text": "처분벌점이 40점 미만이면 마지막 위반·사고일부터 1년 동안 위반·사고가 없을 때 사라져요. 40점 미만일 때 벌점 감경 교육을 받으면 20점을 바로 줄일 수 있어요(1년에 1번)."}}, {"@type": "Question", "name": "혈중알코올농도 0.03% 미만이면 괜찮나요?", "acceptedAnswer": {"@type": "Answer", "text": "형사 처벌 기준 아래일 뿐이에요. 숙취가 남아 있으면 반응이 느려지고, 시간이 지나며 수치가 오르기도 해요. 0%가 될 때까지는 운전하지 마세요."}}, {"@type": "Question", "name": "음주운전 방지장치는 누가 달아야 하나요?", "acceptedAnswer": {"@type": "Answer", "text": "5년 안에 2번 이상 음주운전을 한 사람이 결격기간 뒤 다시 면허를 따면, 결격기간과 같은 기간 동안 방지장치를 단 차만 운전할 수 있어요. 2026년 10월 24일부터 실제로 적용되기 시작했어요."}}, {"@type": "Question", "name": "과태료를 안 내면 어떻게 돼요?", "acceptedAnswer": {"@type": "Answer", "text": "납부 기한이 지나면 3%가 더 붙고, 그 뒤 매달 1.2%씩 최대 60개월까지 늘어나요. 계속 안 내면 차량 압류 같은 체납 처분을 받을 수 있어요."}}]}</script>
+    <p class="hint">최종 업데이트: 2026-11-29</p>
+  </article>
+  <section class="related"><h2>함께 쓰면 좋은 계산기</h2><div class="cards"><a class="card" href="/transport-cost/" data-k="교통비 비교 계산기 (택시·대리·GTX) 택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교 생활·날짜"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><span class="ct"><span class="kicker">생활·날짜</span><strong>교통비 비교 계산기 (택시·대리·GTX)</strong><span>택시 심야할증·대리운전·지하철·GTX·자가용 비용과 출퇴근 한 달 교통비 비교</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/car-tax/" data-k="자동차세 계산기 (연납·차령 경감) 1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차세 계산기 (연납·차령 경감)</strong><span>1월 연납 할인과 차령 경감, 앞으로 10년 자동차세 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a><a class="card" href="/car-acquisition-tax/" data-k="자동차 취득세 계산기 신차·중고차 취득세와 경차·전기차·다자녀 감면 계산 세금"><span class="ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></span><span class="ct"><span class="kicker">세금</span><strong>자동차 취득세 계산기</strong><span>신차·중고차 취득세와 경차·전기차·다자녀 감면 계산</span></span><svg class="i go" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+const man=n=>{const g=n<0?'-':'',t=Math.round(Math.abs(n)/1000)/10;let e=Math.floor(t/10000),r=Math.round((t-e*10000)*10)/10;if(e)r=Math.round(r);if(r>=10000){e++;r-=10000}let o='';if(e)o+=e.toLocaleString('ko-KR')+'억';if(r)o+=(o?' ':'')+r.toLocaleString('ko-KR')+'만';return g+(o||'0')+'원'};  // v17: 1억 이상은 '2억 8,170만원'처럼 표시
+let mode='speed';
+const v=id=>Math.max(0,+$(id).value||0);
+const ga=s=>{const c=s.charCodeAt(s.length-1);return c>=0xAC00&&c<=0xD7A3&&(c-0xAC00)%28?'이':'가'};
+const W=n=>Math.round(n/10000*10)/10;
+const SP={g:{fine:[3,6,9,12],kt:[4,7,10,13,13,13],pt:[0,15,30,60,80,100]},k:{fine:[6,9,12,15],kt:[7,10,13,16,16,16],pt:[15,30,60,120,120,120]}};
+const PK={gen:[40000,'일반 금지구역',1],fire:[80000,'소화전 5m 안',1],old:[80000,'노인·장애인 보호구역',1],kid:[120000,'어린이보호구역',1],dis:[100000,'장애인 전용주차구역',0],ev:[100000,'전기차 충전구역',0]};
+const PV={"none": [0, "없음"], "sig": [15, "신호·지시 위반"], "sp20": [15, "과속 20~40km/h 초과"], "sp40": [30, "과속 40~60km/h 초과"], "sp60": [60, "과속 60~80km/h 초과"], "sp80": [80, "과속 80~100km/h 초과"], "sp100": [100, "과속 100km/h 넘게 초과"], "kz0": [15, "스쿨존 과속 20km/h 이하"], "kz20": [30, "스쿨존 과속 20~40km/h"], "kz40": [60, "스쿨존 과속 40~60km/h"], "kz60": [120, "스쿨존 과속 60km/h 넘게"], "phone": [15, "운전 중 휴대전화·영상 시청"], "center": [30, "중앙선 침범"], "bus": [30, "고속도로 갓길·버스전용차로"], "ped": [10, "보행자 보호 불이행·정지선"], "lane": [10, "안전거리 미확보·진로변경 위반"], "dui": [100, "음주운전 0.03~0.08%"], "a_dead": [90, "사고: 사망 1명"], "a_big": [15, "사고: 중상 1명 (3주 이상)"], "a_small": [5, "사고: 경상 1명 (5일~3주)"], "a_rep": [2, "사고: 부상신고 1명 (5일 미만)"]};
+const line=(a,b,c)=>'<div class="line"><span>'+a+(c?'<em>'+c+'</em>':'')+'</span><b>'+b+'</b></div>';
+function lateAdd(base,m){return m>0?Math.floor(base*(0.03+0.012*Math.min(m,60))/10)*10:0}
+function show(){document.querySelectorAll('[data-only]').forEach(e=>{const on=e.dataset.only.split(' ').includes(mode)&&(!e.dataset.how||e.dataset.how===$('how').value);e.style.display=on?'':'none'})}
+function out(lab,main,st,stc,rows,sub){$('o-lab').textContent=lab;$('o-main').textContent=main;const s=$('o-status');s.className='status '+stc;s.textContent=st;$('o-lines').innerHTML=rows.join('');$('o-sub').textContent=sub}
+function speed(){
+  const z=$('zone').value,lim=v('lim'),spd=v('spd'),ov=spd-lim,T=SP[z],early=$('early').checked,m=Math.round(v('late'));
+  if(!(lim>0)||!(spd>0)){out('과속','–','제한속도와 단속된 속도를 넣어 주세요.','warn',[],'');return}
+  if(ov<=0){out('과속','0원','제한속도 안이에요. 과태료가 없어요.','ok',[],lim+'km/h 도로 · '+spd+'km/h');return}
+  const b=ov<=20?0:ov<=40?1:ov<=60?2:ov<=80?3:ov<=100?4:5,kt=T.kt[b]*10000,pt=T.pt[b],zn=z==='k'?'어린이보호구역':'일반 도로';
+  const pay=m>0?kt+lateAdd(kt,m):early?kt*0.8:kt;const rows=[];
+  rows.push(line('과태료 (카메라 단속)',WON(kt),'차 주인에게 · 벌점 없음'));
+  if(m>0)rows.push(line('늦게 내서 붙는 가산금',WON(lateAdd(kt,m)),m+'개월 · 3% + 매달 1.2%'));
+  else if(early)rows.push(line('사전통지 기간에 내면',WON(kt*0.8),'20% 감경 · '+WON(kt*0.2)+' 아껴요'));
+  if(b<=3){const fn=T.fine[b]*10000;rows.push(line('범칙금 (경찰 현장 단속)',WON(fn),'운전한 사람에게 · 벌점 '+(pt?pt+'점':'없음')));
+    const st=pay<fn?'과태료로 내면 범칙금보다 '+WON(fn-pay)+' 싸고 벌점도 없어요.':pay>fn?'범칙금이 '+WON(pay-fn)+' 싸지만 '+(pt?'벌점 '+pt+'점이 붙어요.':'벌점은 없어요.'):'과태료와 범칙금이 같고, 과태료는 벌점이 없어요.';
+    rows.push(line('벌점 (현장 단속·운전자 확인 때)',pt?pt+'점':'없음',pt>=40?'이것만으로 면허 정지 '+pt+'일':pt?'40점부터 면허 정지':''));
+    out('내야 할 과태료',WON(pay),(pt>=40?'현장 단속이면 벌점 '+pt+'점으로 바로 면허 정지예요. ':'')+st,pt>=40?'warn':'ok',rows,zn+' · '+ov+'km/h 초과');
+  }else{rows.push(line('형사 처벌',b===4?'30만원 이하 벌금':'100만원 이하 벌금','또는 구류'+(b===5?' · 3번째부터 1년 이하 징역 또는 500만원 이하 벌금, 면허 취소':'')));
+    rows.push(line('벌점',pt+'점','면허 정지 '+pt+'일'+(z==='k'?' · 1년 121점부터 취소':'')));
+    out('형사 처벌 대상',b===4?'벌금 최대 30만원':'벌금 최대 100만원','제한속도보다 80km/h 넘게 빨랐어요. 카메라에 찍혀도 경찰이 운전자를 불러 형사 처리할 수 있어요.','warn',rows,zn+' · '+ov+'km/h 초과');}
+}
+function park(){
+  const P=PK[$('place').value],lg=$('long').checked&&P[2],early=$('early').checked,m=Math.round(v('late')),n=Math.max(1,Math.round(v('cnt'))||1);
+  const base=P[0]+(lg?10000:0),pay=m>0?base+lateAdd(base,m):early?base*0.8:base;const rows=[line('과태료',WON(P[0]),P[1])];
+  if(lg)rows.push(line('2시간 넘게 세움',WON(10000),'같은 장소'));
+  if(m>0)rows.push(line('늦게 내서 붙는 가산금',WON(lateAdd(base,m)),m+'개월 · 3% + 매달 1.2%'));
+  else if(early)rows.push(line('사전통지 기간 20% 감경','−'+WON(base*0.2),'미리 내면'));
+  rows.push(line('한 번에 낼 돈',WON(pay),'벌점 없음'));
+  if(n>1)rows.push(line('올해 '+n+'번 합계',WON(pay*n),'주차장 한 달 요금과 비교해 보세요'));
+  out('내야 할 과태료',WON(pay*n),$('place').value==='kid'?'어린이보호구역은 일반 도로의 3배예요. 정문 앞은 주민 신고로도 바로 나와요.':$('place').value==='fire'?'소화전 5m 안은 일반의 2배예요. 안전신문고 신고로 24시간 단속돼요.':'주정차 위반은 벌점이 없어요. 견인되면 견인료·보관료가 따로 붙어요.','ok',rows,P[1]+(n>1?' · '+n+'번':''));
+}
+function est(){const g=(v('soju')*50*0.16+v('beer')*500*0.045)*0.7894*0.7,w=Math.max(30,v('wt')),r=$('sex').value==='f'?0.6:0.7,c=g/(w*1000*r)*100,now=Math.max(0,c-0.015*v('hrs'));return {now:Math.round(now*1000)/1000,left:now/0.015}}
+function crim(bac,ref,rep){
+  if(ref)return rep?['1~6년','500만~3,000만원']:['1~5년','500만~2,000만원'];
+  if(bac<0.03)return null;
+  if(rep)return bac>=0.2?['2~6년','1,000만~3,000만원']:['1~5년','500만~2,000만원'];
+  return bac>=0.2?['2~5년','1,000만~2,000만원']:bac>=0.08?['1~2년','500만~1,000만원']:['1년 이하','500만원 이하'];
+}
+function dui(){
+  const ref=$('ref').checked,last=$('last').value,acc=$('acc').value,prev=last!=='none',rep=last==='5'||last==='10',hurt=acc==='hurt'||acc==='death'||acc==='flee';
+  let bac,rows=[];
+  if($('how').value==='est'){const e=est();bac=e.now;rows.push(line('추정 혈중알코올농도',bac.toFixed(3)+'%',e.left>0?'완전히 깨려면 약 '+(Math.ceil(e.left*2)/2)+'시간 더':'지금은 0%로 추정'))}else bac=v('bac');
+  const c=crim(bac,ref,rep);
+  if(!c&&!ref){rows.push(line('형사 처벌','기준 아래','0.03% 미만'));if(acc!=='none')rows.push(line('사고 처리','일반 교통사고','보험·과실에 따라 처리'));
+    out('음주운전 처벌','기준 아래',bac>0?'단속 기준(0.03%) 아래지만 술이 남아 있어요. 0%가 될 때까지 운전하지 마세요.':'혈중알코올농도 0%예요.',bac>0?'warn':'ok',rows,bac.toFixed(3)+'%');return}
+  const cancel=ref||bac>=0.08||hurt||prev;
+  rows.push(line('형사 처벌',c[1]+' 벌금','또는 '+c[0]+' 징역'+(rep?' · 10년 안 재범 가중':'')));
+  if(hurt)rows.push(line('사고 형사 처벌',acc==='hurt'?'1~15년 징역':acc==='death'?'무기 또는 3년 이상':'1년 이상 징역',acc==='hurt'?'또는 1,000만~3,000만원 벌금 · 특가법 위험운전치상':acc==='death'?'징역 · 특가법 위험운전치사':'또는 500만~3,000만원 벌금 · 도주치상 (숨지면 무기 또는 5년 이상)'));
+  let yr=0;
+  if(cancel){yr=acc==='death'||acc==='flee'?5:prev||acc!=='none'?2:1;
+    rows.push(line('면허','취소',ref?'측정 거부·방해':bac>=0.08?'0.08% 이상':hurt?'사람을 다치게 함':'두 번째 음주운전'));
+    rows.push(line('결격기간 (다시 못 따는 기간)',yr+'년',prev&&acc==='prop'||prev&&acc==='hurt'?'예전 음주운전도 사고였다면 3년':'취소된 날부터'));
+    if(last==='5')rows.push(line('음주운전 방지장치',yr+'년 부착','다시 딴 면허는 조건부 · 설치비 약 300만원'));
+  }else rows.push(line('면허','정지 100일','벌점 100점 · 교육 받으면 정지 기간 줄일 수 있어요'));
+  if(acc!=='none')rows.push(line('자동차보험 사고부담금','최대 수억원','의무보험 한도 전부 + 대인 1억·대물 5천만원까지'));
+  out('예상 벌금',c[1],cancel?'면허가 취소되고 '+yr+'년 동안 다시 못 따요.':'면허 정지 100일이에요. 한 번 더 걸리면 수치와 상관없이 취소돼요.','warn',rows,(ref?'측정 거부':bac.toFixed(3)+'%')+(prev?' · 재범':' · 처음'));
+}
+function point(){
+  const prev=v('prev'),mile=Math.floor(v('mile')/10)*10,edu=$('edu').checked,fl=$('field').checked;let add=0;const rows=[line('지금 남아 있는 벌점',prev+'점','')];
+  ['1','2','3','4'].forEach(i=>{const p=PV[$('s'+i).value],n=Math.round(v('n'+i));if(p[0]&&n){add+=p[0]*n;rows.push(line(p[1],'+'+p[0]*n+'점',p[0]+'점 × '+n))}});
+  const tot=prev+add;
+  if(tot>=121){rows.push(line('면허','취소','1년 121점 이상 · 결격기간 1년'));out('처분벌점',tot+'점','1년 안에 121점이 넘어 면허가 취소돼요. 착한운전 마일리지·교육으로는 취소를 못 막아요.','warn',rows,'이번 +'+add+'점');return}
+  if(tot<40){let t=tot;if(edu&&t>0){const d=Math.min(20,t);t-=d;rows.push(line('벌점 감경 교육','−'+d+'점','40점 미만 · 1년에 1번'))}
+    rows.push(line('정지까지 남은 점수',(40-t)+'점','40점부터 1점에 1일 정지'));
+    out('처분벌점',t+'점',t?'아직 정지는 아니에요. 마지막 위반일부터 1년 동안 위반·사고가 없으면 벌점이 사라져요.':'남은 벌점이 없어요.','ok',rows,'이번 +'+add+'점');return}
+  let e=tot;if(mile){const u=Math.min(mile,Math.ceil((tot-39)/10)*10>mile?mile:Math.ceil((tot-39)/10)*10);e=tot-u;rows.push(line('착한운전 마일리지','−'+u+'점','10점 단위로 공제'))}
+  if(e<40){rows.push(line('면허','정지 면제','마일리지로 40점 아래'));out('처분벌점',e+'점','착한운전 마일리지 덕분에 면허 정지를 피해요.','ok',rows,'이번 +'+add+'점');return}
+  let days=e;if(edu){days-=20;rows.push(line('법규준수교육','−20일',''))}if(edu&&fl){days-=30;rows.push(line('현장참여교육','−30일','법규준수교육 뒤'))}days=Math.max(0,days);
+  rows.push(line('면허 정지',days+'일',e+'점 = '+e+'일'+(edu?' − 교육 감경':'')));
+  rows.push(line('취소까지 남은 점수',(121-tot)+'점','1년 121점 · 2년 201점 · 3년 271점'));
+  out('면허 정지',days+'일','벌점 '+e+'점으로 면허가 정지돼요.'+(edu?'':' 교육을 받으면 정지 기간을 최대 50일 줄일 수 있어요.'),'warn',rows,'처분벌점 '+e+'점');
+}
+const WON=n=>won(n);
+function calc(){({speed,park,dui,point})[mode]()}
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.m;document.querySelectorAll('.seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  $('tf-ex').textContent={speed:'예시: 제한속도 50km/h 도로에서 75km/h로 카메라에 찍힌 승용차예요.',park:'예시: 일반 도로에 세워 둔 승용차예요. 장소를 바꿔 보세요.',dui:'예시: 혈중알코올농도 0.05%로 처음 걸린 경우예요.',point:'예시: 신호위반 1번(15점)과 과속 20~40km/h 1번(15점)이에요.'}[mode];show();calc()}));
+document.querySelectorAll('form.panel input,form.panel select').forEach(e=>{e.addEventListener('input',()=>{show();calc()});e.addEventListener('change',()=>{show();calc()})});
+$('reset').addEventListener('click',()=>{const D={lim:50,spd:75,late:0,cnt:1,bac:0.05,soju:7,beer:0,wt:70,hrs:2,prev:0,n1:1,n2:1,n3:1,n4:1,mile:0},S={zone:'g',place:'gen',how:'meas',sex:'m',last:'none',acc:'none',s1:'sig',s2:'sp20',s3:'none',s4:'none'};
+  Object.keys(D).forEach(k=>$(k).value=D[k]);Object.keys(S).forEach(k=>$(k).value=S[k]);$('early').checked=true;['long','ref','edu','field'].forEach(k=>$(k).checked=false);show();calc()});
+const m0=new URLSearchParams(location.search).get('m');const b0=m0&&document.querySelector('.seg button[data-m="'+m0+'"]');
+if(b0)b0.click();else{show();calc()}
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel'),btn=document.getElementById('share'),msg=document.getElementById('share-msg');if(!form||!btn)return;
+const els=[...form.querySelectorAll('input[id],select[id]')];
+const seg=()=>document.querySelector('.seg button[aria-pressed="true"]');
+const p=new URLSearchParams(location.search);
+if(els.some(e=>p.has(e.id))){
+  if(p.has('m')){const b=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===p.get('m'));if(b)b.click()}
+  els.forEach(e=>{if(!p.has(e.id))return;if(e.type==='checkbox')e.checked=p.get(e.id)==='1';else e.value=p.get(e.id)});
+  els.forEach(e=>{if(p.has(e.id)){e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))}});
+}
+const say=t=>{msg.textContent=t;clearTimeout(say.t);say.t=setTimeout(()=>msg.textContent='',4000)};
+btn.addEventListener('click',async()=>{
+  const q=new URLSearchParams();const s=seg();if(s&&s.dataset.m)q.set('m',s.dataset.m);
+  els.forEach(e=>{if(e.type==='checkbox')q.set(e.id,e.checked?'1':'0');else if(e.value!=='')q.set(e.id,e.value)});
+  const url=location.origin+location.pathname+'?'+q.toString();
+  try{history.replaceState(null,'',url)}catch(_){}
+  const t=document.querySelector('.slip .total'),title=document.querySelector('h1').textContent;
+  const text=title+(t?' · '+t.querySelector('span').textContent+' '+t.querySelector('b').textContent:'');
+  if(navigator.share&&matchMedia('(pointer:coarse)').matches){try{await navigator.share({title,text,url});return}catch(e){if(e.name==='AbortError')return}}
+  try{await navigator.clipboard.writeText(url);say('링크를 복사했어요. 카톡이나 메신저에 붙여 넣어 보내세요.')}
+  catch(_){msg.innerHTML='';const i=document.createElement('input');i.readOnly=true;i.value=url;i.style.marginTop='6px';msg.appendChild(i);i.select();}
+});})();
+</script>
+<script>
+(function(){const sb=document.getElementById('share'),slip=document.querySelector('.slip');if(!sb||!slip||!window.HTMLCanvasElement)return;
+// v29: 결과 이미지 저장 — 결과 칸을 1080px 카드 이미지로 그려서 저장·공유해요
+const row=sb.parentNode,wrap=document.createElement('div');wrap.className='share-btns';row.insertBefore(wrap,sb);wrap.appendChild(sb);
+const ib=document.createElement('button');ib.type='button';ib.className='share';ib.id='saveimg';
+ib.innerHTML='<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>결과 이미지 저장';wrap.appendChild(ib);
+sb.lastChild.textContent='결과 링크 공유';
+const vis=e=>e&&e.getClientRects().length>0&&getComputedStyle(e).visibility!=='hidden';
+const txt=e=>{if(!e)return'';const c=e.cloneNode(true);c.querySelectorAll('em,button,.tip,svg').forEach(x=>x.remove());return c.textContent.replace(/\s+/g,' ').trim()};
+const slug=location.pathname.replace(/^\/|\/$/g,'')||'calqo';
+let logo=null;const li=new Image();li.onload=()=>logo=li;li.src='/assets/logo-180.png';
+function collect(){
+  const h=document.querySelector('h1'),s=document.querySelector('.seg button[aria-pressed="true"]'),h2=slip.querySelector('h2');
+  const d={title:txt(h),mode:s?txt(s):'',sub:h2?txt(h2.querySelector('small')):'',totals:[],status:[],lines:[],bars:[]};
+  slip.querySelectorAll('.total').forEach(t=>{if(vis(t))d.totals.push([txt(t.querySelector('span')),txt(t.querySelector('b'))])});
+  slip.querySelectorAll('.status').forEach(t=>{const x=txt(t);if(x&&vis(t))d.status.push([x,t.classList.contains('warn')])});
+  slip.querySelectorAll('.bar i').forEach(i=>{if(vis(i.parentNode))d.bars.push(Math.max(0,Math.min(100,parseFloat(i.style.width)||0)))});
+  slip.querySelectorAll('.line').forEach(l=>{if(!vis(l))return;const sp=l.querySelector('span'),b=l.querySelector(':scope>b');const v=txt(b);if(!v)return;
+    d.lines.push([txt(sp),sp&&sp.querySelector('em')?sp.querySelector('em').textContent.trim():'',v])});
+  d.lines=d.lines.slice(0,12);return d}
+function render(d){
+  const W=1080,P=64,F=getComputedStyle(document.body).fontFamily,c=document.createElement('canvas'),x=c.getContext('2d');
+  const C={bg:'#fffaf7',card:'#ffffff',ink:'#111827',ink2:'#4b5563',ink3:'#6b7280',acc:'#c4512f',brand:'#e56a48',soft:'#fdeee8',line:'#eee3de',ok:'#15803d',warn:'#b45309'};
+  const fnt=(w,s)=>w+' '+s+'px '+F;
+  const wrap=(t,f,mw)=>{x.font=f;const out=[];let cur='';for(const ch of t.split(/(\s+)/)){const tt=cur+ch;if(x.measureText(tt).width<=mw||!cur.trim()){cur=tt;while(x.measureText(cur).width>mw){let i=cur.length;while(i>1&&x.measureText(cur.slice(0,i)).width>mw)i--;out.push(cur.slice(0,i));cur=cur.slice(i)}}else{out.push(cur.trim());cur=ch.trim()}}if(cur.trim())out.push(cur.trim());return out};
+  const rr=(x0,y0,w,h,r,fill)=>{x.beginPath();x.moveTo(x0+r,y0);x.arcTo(x0+w,y0,x0+w,y0+h,r);x.arcTo(x0+w,y0+h,x0,y0+h,r);x.arcTo(x0,y0+h,x0,y0,r);x.arcTo(x0,y0,x0+w,y0,r);x.closePath();x.fillStyle=fill;x.fill()};
+  function pass(draw){let y=P;const T=(t,f,col,X,Y,al)=>{if(!draw)return;x.font=f;x.fillStyle=col;x.textAlign=al||'left';x.textBaseline='top';x.fillText(t,X,Y)};
+    // 머리
+    if(draw&&logo)x.drawImage(logo,P,y,56,56);
+    T('캘코',fnt(800,32),C.ink,P+70,y+8);x.font=fnt(800,32);const lw=x.measureText('캘코').width;T('calqo.kr',fnt(500,26),C.ink3,P+82+lw,y+14);
+    const dt=new Date(),ds=dt.getFullYear()+'.'+String(dt.getMonth()+1).padStart(2,'0')+'.'+String(dt.getDate()).padStart(2,'0')+' 계산';T(ds,fnt(500,24),C.ink3,W-P,y+16,'right');
+    y+=96;
+    // 카드
+    const cy=y,cx=P-8,cw=W-2*(P-8);if(draw){x.save();x.shadowColor='rgba(17,24,39,.08)';x.shadowBlur=30;x.shadowOffsetY=8;rr(cx,cy,cw,d._h||10,36,C.card);x.restore()}
+    y+=48;const L=P+32,R=W-P-32,IW=R-L;
+    for(const l of wrap(d.title,fnt(800,48),IW)){T(l,fnt(800,48),C.ink,L,y);y+=64}
+    const tag=[d.mode,d.sub].filter(Boolean).join(' · ');if(tag){y+=4;for(const l of wrap(tag,fnt(600,28),IW)){T(l,fnt(600,28),C.ink3,L,y);y+=40}}
+    y+=20;
+    d.totals.forEach(([lab,val])=>{let vs=76;x.font=fnt(800,vs);while(x.measureText(val).width>IW-56&&vs>40){vs-=4;x.font=fnt(800,vs)}
+      const ll=wrap(lab,fnt(700,32),IW-56),h=40+ll.length*44+vs*1.15+36;if(draw)rr(L,y,IW,h,28,C.soft);let yy=y+36;
+      ll.forEach(l=>{T(l,fnt(700,32),C.ink,L+28,yy);yy+=44});T(val,fnt(800,vs),C.acc,L+28,yy+4);y+=h+20});
+    d.bars.forEach(p=>{if(draw){rr(L,y,IW,22,11,'#f1e7e3');if(p>0)rr(L,y,Math.max(22,IW*p/100),22,11,C.brand)}y+=44});
+    d.status.forEach(([s,w])=>{const ll=wrap(s,fnt(600,28),IW-48),h=ll.length*42+36;if(draw)rr(L,y,IW,h,22,w?'#fdf3e4':'#e9f6ee');let yy=y+18;ll.forEach(l=>{T(l,fnt(600,28),w?C.warn:C.ok,L+24,yy);yy+=42});y+=h+20});
+    if(d.lines.length){y+=6;d.lines.forEach(([lab,em,val],i)=>{x.font=fnt(700,32);let vw=Math.min(x.measureText(val).width,IW*.55);
+      const ll=wrap(lab,fnt(500,30),IW-vw-28),el=em?wrap(em,fnt(500,23),IW-vw-28):[];const h=Math.max(ll.length*42+el.length*32,42)+36;
+      let yy=y+18;ll.forEach(l=>{T(l,fnt(500,30),C.ink2,L,yy);yy+=42});el.forEach(l=>{T(l,fnt(500,23),C.ink3,L,yy);yy+=32});
+      let vs=32;x.font=fnt(700,vs);while(x.measureText(val).width>IW*.55&&vs>20){vs-=2;x.font=fnt(700,vs)}T(val,fnt(700,vs),C.ink,R,y+18+(32-vs)/2,'right');
+      y+=h;if(draw&&i<d.lines.length-1){x.fillStyle=C.line;x.fillRect(L,y,IW,2)}})}
+    y+=40;d._h=y-cy;y+=40;
+    // 꼬리
+    const fy=y;if(draw)rr(P-8,fy,W-2*(P-8),132,30,C.brand);
+    T('내 조건으로 계산해 보기',fnt(700,28),'#ffe7dd',P+24,fy+26);T('calqo.kr/'+slug,fnt(800,40),'#ffffff',P+24,fy+66);
+    y+=132+28;T('계산 결과는 참고용이에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인하세요.',fnt(500,22),C.ink3,W/2,y,'center');y+=30+P-20;return y}
+  const H=Math.ceil(pass(false));c.width=W;c.height=H;x.fillStyle=C.bg;x.fillRect(0,0,W,H);pass(true);return c}
+function modal(c,file){
+  const m=document.createElement('div');m.className='imgm';m.setAttribute('role','dialog');m.setAttribute('aria-modal','true');m.setAttribute('aria-label','결과 이미지');
+  const canShare=navigator.canShare&&navigator.canShare({files:[file]});
+  m.innerHTML='<div class="imgm-b"><div class="imgm-h"><b>결과 이미지</b><button type="button" class="imgm-x" aria-label="닫기">✕</button></div><div class="imgm-p"><img alt="계산 결과 이미지"></div><p class="imgm-t">저장이 안 되면 이미지를 <b>길게 눌러</b> 저장하세요.</p><div class="imgm-a"><a class="share" download></a>'+(canShare?'<button type="button" class="share imgm-s">카톡·메신저로 보내기</button>':'')+'</div></div>';
+  m.querySelector('img').src=c.toDataURL('image/png');
+  const a=m.querySelector('a[download]'),u=URL.createObjectURL(file);a.href=u;a.download=file.name;a.textContent='이미지 저장하기';
+  const close=()=>{m.remove();URL.revokeObjectURL(u);document.removeEventListener('keydown',k);ib.focus()},k=e=>{if(e.key==='Escape')close()};
+  m.addEventListener('click',e=>{if(e.target===m||e.target.closest('.imgm-x'))close()});document.addEventListener('keydown',k);
+  const s=m.querySelector('.imgm-s');if(s)s.addEventListener('click',async()=>{try{await navigator.share({files:[file],title:document.title})}catch(_){}});
+  document.body.appendChild(m);m.querySelector('.imgm-x').focus()}
+ib.addEventListener('click',async()=>{ib.disabled=true;try{try{await document.fonts.ready}catch(_){}
+  const d=collect();if(!d.totals.length&&!d.lines.length){ib.disabled=false;return}
+  const c=render(d);c.toBlob(bl=>{ib.disabled=false;if(!bl)return;const t=new Date();
+    const f=new File([bl],'calqo-'+slug+'-'+t.getFullYear()+String(t.getMonth()+1).padStart(2,'0')+String(t.getDate()).padStart(2,'0')+'.png',{type:'image/png'});modal(c,f)},'image/png')}
+  catch(e){ib.disabled=false;console.error(e)}});
+})();
+</script>
+<script>
+(function(){const t=document.querySelector('.slip .total'),slip=document.querySelector('.slip');if(!t||!slip||!('IntersectionObserver' in window))return;
+const bar=document.createElement('div');bar.className='mbar';bar.innerHTML='<div class="ml"><span></span><b></b></div><button type="button">결과 자세히</button>';
+document.body.appendChild(bar);document.body.classList.add('has-mbar');
+const sync=()=>{bar.querySelector('span').textContent=t.querySelector('span').textContent;bar.querySelector('b').textContent=t.querySelector('b').textContent};
+sync();new MutationObserver(sync).observe(t,{subtree:true,childList:true,characterData:true});
+bar.querySelector('button').addEventListener('click',()=>slip.scrollIntoView({behavior:'smooth',block:'start'}));
+new IntersectionObserver(e=>bar.classList.toggle('show',!e[0].isIntersecting),{threshold:.1}).observe(slip);})();
+</script>
+<script>
+(function(){const form=document.querySelector('form.panel');if(!form)return;
+const f=v=>{const e=Math.floor(v/10000),r=Math.round((v-e*10000)*100)/100;let s='';if(e)s+=e.toLocaleString('ko-KR')+'억';if(r)s+=(s?' ':'')+r.toLocaleString('ko-KR')+'만';return(s||'0')+' 원'};
+const list=[];
+form.querySelectorAll('input[type=number]').forEach(inp=>{const lab=inp.closest('label');if(!lab)return;
+  if(!('man' in inp.dataset)&&!/\(만원\)/.test(lab.textContent))return;
+  const o=document.createElement('span');o.className='manv';o.setAttribute('aria-live','polite');inp.insertAdjacentElement('afterend',o);
+  list.push([inp,o,+(inp.dataset.warn||1e6)]);});
+const upd=()=>list.forEach(([inp,o,lim])=>{const v=parseFloat(inp.value);o.classList.remove('bad');o.textContent='';
+  if(!(v>0))return;
+  if(v<lim){o.textContent='= '+f(v);return}
+  let n=v/10000;n=inp.step==='any'?Math.round(n*100)/100:Math.round(n);
+  o.classList.add('bad');const m=document.createElement('span');m.textContent=f(v)+'이 맞나요? 원 단위로 넣으셨다면 만원 단위로 바꿔 주세요.';
+  const b=document.createElement('button');b.type='button';b.textContent=f(n)+'으로 고치기';
+  b.addEventListener('click',()=>{inp.value=n;inp.dispatchEvent(new Event('input',{bubbles:true}));inp.dispatchEvent(new Event('change',{bubbles:true}));inp.focus()});
+  o.append(m,b);});
+const later=()=>setTimeout(upd,0);
+form.addEventListener('input',later);form.addEventListener('change',later);form.addEventListener('click',e=>{if(e.target.closest('button'))later()});
+document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',later));
+upd();})();
+</script>
+<script>
+(function(){const dl=document.querySelector('dl.terms');if(!dl)return;
+const T={};dl.querySelectorAll('div').forEach(d=>{T[d.querySelector('dt').textContent]=d.querySelector('dd').textContent});
+const keys=Object.keys(T).sort((a,b)=>b.length-a.length);
+const tip=document.createElement('div');tip.className='tip';tip.id='tip';tip.setAttribute('role','tooltip');tip.hidden=true;document.body.appendChild(tip);
+let cur=null;
+const close=()=>{tip.hidden=true;if(cur){cur.setAttribute('aria-expanded','false');cur.removeAttribute('aria-describedby')}cur=null};
+const open=(b,k)=>{if(cur===b){close();return}close();cur=b;b.setAttribute('aria-expanded','true');b.setAttribute('aria-describedby','tip');
+  tip.textContent='';const h=document.createElement('b');h.textContent=k;tip.append(h,document.createTextNode(T[k]));tip.hidden=false;
+  const r=b.getBoundingClientRect(),w=tip.offsetWidth,vw=document.documentElement.clientWidth;
+  let x=r.left+r.width/2-w/2;x=Math.max(12,Math.min(x,vw-w-12));tip.style.left=(x+scrollX)+'px';tip.style.top=(r.bottom+8+scrollY)+'px'};
+document.querySelectorAll('.slip .line>span:first-child, form.panel label').forEach(el=>{if(el.id)return;const n=el.firstChild;if(!n||n.nodeType!==3)return;
+  const t=n.nodeValue.trim();const k=keys.find(k=>t===k||t.startsWith(k+' ')||t.startsWith(k+'('));if(!k)return;
+  const w=document.createElement('span');w.className='lt';el.insertBefore(w,n);w.appendChild(n);
+  const b=document.createElement('button');b.type='button';b.className='q';b.textContent='?';b.setAttribute('aria-label',k+' 뜻 보기');b.setAttribute('aria-expanded','false');
+  b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();open(b,k)});w.appendChild(b);});
+document.addEventListener('click',e=>{if(cur&&!tip.contains(e.target))close()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&cur){const b=cur;close();b.focus()}});
+document.addEventListener('input',close);
+addEventListener('resize',close);})();
+</script>
+<script>
+(function(){const r=document.getElementById('reset'),u=document.getElementById('undo'),form=document.querySelector('form.panel');if(!r||!u||!form)return;
+let snap=null,t=null;
+r.addEventListener('click',()=>{const seg=document.querySelector('.seg button[aria-pressed="true"]');
+  snap={m:seg&&seg.dataset.m,v:[...form.querySelectorAll('input[id],select[id]')].map(e=>[e,e.type==='checkbox'?e.checked:e.value])};
+  u.innerHTML='';const a=document.createElement('span');a.textContent='예시 값으로 바꿨어요';const b=document.createElement('button');b.type='button';b.textContent='취소';
+  b.addEventListener('click',()=>{if(!snap)return;if(snap.m){const x=[...document.querySelectorAll('.seg button')].find(x=>x.dataset.m===snap.m);if(x)x.click()}
+    snap.v.forEach(([e,v])=>{if(e.type==='checkbox')e.checked=v;else e.value=v});snap.v.forEach(([e])=>{e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}))});
+    snap=null;u.hidden=true;r.focus()});
+  u.append(a,b);u.hidden=false;clearTimeout(t);t=setTimeout(()=>{u.hidden=true;snap=null},8000)},true);})();
+</script>
+<footer class="site-foot"><div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a class="logo" href="/"><img src="/assets/logo-48.png" alt="" width="30" height="30">캘코</a>
+    <p>직장인이 매일 마주치는 돈 계산을 공식 기준으로 정확하게 풀어 드려요.</p>
+    <p>계산 결과와 시장 정보는 참고용이며 투자 권유가 아니에요. 중요한 결정 전에는 공식 기관과 계약서를 꼭 확인해 주세요.</p>
+    <p>© 2026 캘코 calqo.kr</p>
+  </div>
+  <div class="fcols">
+    <div><h4>많이 찾는 계산기</h4><ul><li><a href="/salary/">연봉 실수령액 계산기 (2027 반영)</a></li><li><a href="/year-end-tax/">연말정산 환급 계산기</a></li><li><a href="/bonus-tax/">성과급 세금 계산기</a></li><li><a href="/severance/">퇴직금 계산기</a></li><li><a href="/acquisition-tax/">취득세 계산기</a></li><li><a href="/savings/">예·적금 이자 계산기</a></li></ul></div>
+    <div><h4>분류</h4><ul><li><a href="/#pay">급여·근로</a></li><li><a href="/#loan">대출·금융</a></li><li><a href="/#home">부동산</a></li><li><a href="/#tax">세금</a></li><li><a href="/#life">생활·날짜</a></li><li><a href="/2027/">2027 달라지는 돈</a></li><li><a href="/home-money/">집 사기 돈 총정리</a></li><li><a href="/stats/">숫자로 보는 통계</a></li><li><a href="/wedding-money/">결혼 준비 돈 총정리</a></li><li><a href="/market/">오늘의 시장</a></li></ul></div>
+    <div><h4>캘코</h4><ul><li><a href="/about/">사이트 소개</a></li><li><a href="/privacy/">개인정보처리방침</a></li><li><a href="/contact/">문의</a></li></ul></div>
+  </div>
+</div></footer>
+</body>
+</html>
